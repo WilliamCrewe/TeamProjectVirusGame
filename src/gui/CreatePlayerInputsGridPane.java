@@ -18,9 +18,10 @@ public class CreatePlayerInputsGridPane {
 	Button downButton;
 	
 	Button northButton;
-	Button eastButton;
-	Button southButton;
 	Button westButton;
+	Button southButton;
+	Button eastButton;
+	
 	
 	Button button1;
 	Button button2;
@@ -49,9 +50,9 @@ public class CreatePlayerInputsGridPane {
 		this.downButton = addButton("Down", true);
 		
 		this.northButton = addButton("North", true);
-		this.eastButton = addButton("East", true);
-		this.southButton = addButton("South", true);
 		this.westButton = addButton("West", true);
+		this.southButton = addButton("South", true);
+		this.eastButton = addButton("East", true);
 		
 		this.button1 = addButton("1", true);
 		this.button2 = addButton("2", true);
@@ -77,9 +78,9 @@ public class CreatePlayerInputsGridPane {
 		this.directionalGrid.setHgap(hSpacing);
 		
 		this.directionalGrid.add(northButton, 1, 0);
-		this.directionalGrid.add(eastButton, 2, 1);
-		this.directionalGrid.add(southButton, 1, 1);
 		this.directionalGrid.add(westButton, 0, 1);
+		this.directionalGrid.add(southButton, 1, 1);
+		this.directionalGrid.add(eastButton, 2, 1);
 		
 		return directionalGrid;
 	}
