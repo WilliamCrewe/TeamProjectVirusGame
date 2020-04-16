@@ -6,6 +6,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 
+import javafx.application.Platform;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
@@ -48,8 +49,9 @@ public class CreateMenuBar {
 	 * @return The "File" Menu with one Menu Item
 	 * 
 	 * This method creates the File Menu. Contains
-	 * a single MenuItem, "New Game" that prints "Menu 1
+	 * a two MenuItems, "New Game" that prints "Menu 1
 	 * Action!" to the printline when clicked.
+	 * "Quit", which closes the application when clicked.
 	 */
 	private Menu createFileMenu() {
 		ArrayList<MenuItem> items = new ArrayList<>();
@@ -58,8 +60,15 @@ public class CreateMenuBar {
 			System.out.println("Menu 1 Action!");
 		});
 		
+		MenuItem menuItem2 = createMenuItem("Quit");
+		menuItem2.setOnAction(e -> {
+			Runnable x = Platform::exit;
+			x.run();
+		});
+		
 		
 		items.add(menuItem1);
+		items.add(menuItem2);
 		
 		return createMenu("File", items);
 	}

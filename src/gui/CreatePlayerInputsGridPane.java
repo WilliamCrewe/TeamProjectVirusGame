@@ -10,29 +10,29 @@ import javafx.scene.layout.VBox;
  */
 public class CreatePlayerInputsGridPane {
 	
-	GridPane directionalGrid;
-	GridPane primaryInputGrid;
-	VBox upDownBox;
+	private GridPane directionalGrid;
+	private GridPane primaryInputGrid;
+	private VBox upDownBox;
 	
-	Button upButton;
-	Button downButton;
+	private Button upButton;
+	private Button downButton;
 	
-	Button northButton;
-	Button westButton;
-	Button southButton;
-	Button eastButton;
+	private Button northButton;
+	private Button westButton;
+	private Button southButton;
+	private Button eastButton;
 	
 	
-	Button button1;
-	Button button2;
-	Button button3;
-	Button button4;
-	Button button5;
-	Button button6;
-	Button button7;
-	Button button8;
-	Button button9;
-	Button button0;
+	private Button button1;
+	private Button button2;
+	private Button button3;
+	private Button button4;
+	private Button button5;
+	private Button button6;
+	private Button button7;
+	private Button button8;
+	private Button button9;
+	private Button button0;
 	
 	final double  vSpacing = 10.0;
 	final double hSpacing = 10.0;
@@ -140,5 +140,79 @@ public class CreatePlayerInputsGridPane {
 		
 		return output;
 	}
+
+	protected GridPane getDirectionalGrid() {
+		return directionalGrid;
+	}
+
+	protected VBox getUpDownBox() {
+		return upDownBox;
+	}
+
+	protected Button getUpButton() {
+		return upButton;
+	}
+
+	protected Button getDownButton() {
+		return downButton;
+	}
+
+	protected Button getNorthButton() {
+		return northButton;
+	}
+
+	protected Button getWestButton() {
+		return westButton;
+	}
+
+	protected Button getSouthButton() {
+		return southButton;
+	}
+
+	protected Button getEastButton() {
+		return eastButton;
+	}
+
+	protected Button getButton1() {
+		return button1;
+	}
+
+	protected Button getButton2() {
+		return button2;
+	}
+
+	protected Button getButton3() {
+		return button3;
+	}
+
+	protected Button getButton4() {
+		return button4;
+	}
+
+	protected Button getButton5() {
+		return button5;
+	}
+
+	protected Button getButton6() {
+		return button6;
+	}
+
+	protected Button getButton7() {
+		return button7;
+	}
+
+	protected Button getButton8() {
+		return button8;
+	}
+
+	protected Button getButton9() {
+		return button9;
+	}
+
+	protected Button getButton0() {
+		return button0;
+	}
+	
+	
 
 }
