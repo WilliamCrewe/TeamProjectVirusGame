@@ -1,7 +1,14 @@
 package gui;
 
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Control;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
@@ -81,14 +88,44 @@ public class CreateMenuBar {
 	 * @return The "Help" Menu with one Menu Item
 	 * 
 	 * This method creates the Help Menu. Contains
-	 * a single MenuItem, "GitHub Repo" that prints "Menu 3
-	 * Action!" to the printline when clicked.
+	 * a single MenuItem, "GitHub Repo" that presents an alert
+	 * box to the user to either confirm or cancel. Confirming
+	 * opens the GitHub Repository for this project in the user's
+	 * preferred browser.
 	 */
 	private Menu createHelpMenu() {
 		ArrayList<MenuItem> items = new ArrayList<>();
-		MenuItem menuItem1 = createMenuItem("GitHub Repo");
+		MenuItem menuItem1 = createMenuItem("GitHub Repository");
 		menuItem1.setOnAction(e -> {
-			System.out.println("Menu 3 Action!");
+			Alert alert = new Alert(AlertType.WARNING);
+			alert.setTitle("Open Webpage?");
+			alert.setHeaderText("This will open a webpage\n"
+								+ "to this projects GitHub\n"
+								+ "repository. Continue? ");
+			alert.showAndWait();
+			if (alert.getResult() != ButtonType.OK) {
+				return;
+			}
+
+			String websiteURL = "https://github.com/WilliamCrewe/TeamProjectVirusGame";
+			if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+				try {
+					Desktop.getDesktop().browse(new URI(websiteURL));
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (URISyntaxException e2) {
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
+				}
+			} else {
+				Runtime runtime = Runtime.getRuntime();
+				try {
+					runtime.exec("xdg-open" + websiteURL);
+				} catch (IOException e3) {
+					e3.printStackTrace();
+				}
+			}
 		});
 		
 		
