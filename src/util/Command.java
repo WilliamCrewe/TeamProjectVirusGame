@@ -1,13 +1,13 @@
 package util;
 
 public enum Command {
-	ACT_NORTH,
-	ACT_WEST,
-	ACT_EAST,
-	ACT_SOUTH,
+	NORTH,
+	WEST,
+	EAST,
+	SOUTH,
 	
-	ACT_UP,
-	ACT_DOWN,
+	UP,
+	DOWN,
 	
 	ACT_1,
 	ACT_2,
@@ -18,6 +18,12 @@ public enum Command {
 	ACT_7,
 	ACT_8,
 	ACT_9,
-	ACT_0
+	ACT_0,
+	
+	SAVE,
+	LOAD,
+	
+	NEW_GAME,
+	PROPERTIES,
 
 }

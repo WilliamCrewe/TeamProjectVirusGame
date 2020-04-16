@@ -8,8 +8,13 @@ import javafx.scene.layout.HBox;
  *
  */
 public class CreateSaveLoad {
+	
+	private Button save;
+	private Button load;
 
 	public CreateSaveLoad() {
+		this.save = null;
+		this.load = null;
 	}
 	
 	/**
@@ -17,8 +22,9 @@ public class CreateSaveLoad {
 	 */
 	public HBox getSaveLoad() {
 		HBox output = new HBox();
-		output.getChildren().add(getSave());
-		output.getChildren().add(getLoad());
+		output.getChildren().add(makeSave());
+		output.getChildren().add(makeLoad());
+
 		return output;
 	}
 	
@@ -28,13 +34,11 @@ public class CreateSaveLoad {
 	 * A Placeholder method for editing the save button
 	 * once functionality is included.
 	 */
-	private Button getSave() {
-		Button save = new Button();
-		save.setText("Save");
-		save.setOnAction(e -> {
-			System.out.println("Saving Game!");
-		});
-		return save;
+	private Button makeSave() {
+		Button x = new Button();
+		x.setText("Save");
+		this.save = x;
+		return x;
 	}
 	
 	/**
@@ -43,13 +47,19 @@ public class CreateSaveLoad {
 	 * A Placeholder method for editing the load button
 	 * once functionality is included.
 	 */
-	private Button getLoad() {
-		Button load = new Button();
-		load.setText("Load");
-		load.setOnAction(e -> {
-			System.out.println("Loading Game!");
-		});
-		return load;
+	private Button makeLoad() {
+		Button x = new Button();
+		x.setText("Load");
+		this.load = x;
+		return x;
+	}
+	
+	public Button getSave() {
+		return this.save;
+	}
+	
+	public Button getLoad() {
+		return this.load;
 	}
 
 }

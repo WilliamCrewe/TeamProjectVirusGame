@@ -4,12 +4,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Control;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -43,7 +43,9 @@ public class SceneBuilder extends Application {
 
 
 	private TextArea displayPane;
-	private HashMap<Command, Button> allButtons;
+	private HashMap<Command, Button> allButtons = new HashMap<>();
+	private HashMap<Command, MenuItem> allMenus = new HashMap<>();
+	
 	private InterfaceAPI interfaceAPI;
 
 
@@ -65,6 +67,9 @@ public class SceneBuilder extends Application {
 		this.interfaceAPI = new InterfaceAPI();
 
 		VBox primaryWindowVBox = createGameWindow();
+		
+		setupButtons();
+		setupMenus();
 
 
 		StackPane root = new StackPane();
@@ -99,6 +104,13 @@ public class SceneBuilder extends Application {
 
 		HBox.setHgrow(menu, Priority.ALWAYS);
 		menuAndSaveLoad.setAlignment(Pos.CENTER_RIGHT);
+		
+		
+		allButtons.put(Command.SAVE, csl.getSave());
+		allButtons.put(Command.LOAD, csl.getLoad());
+		
+		allMenus.put(Command.NEW_GAME, cmb.getNewGame());
+		allMenus.put(Command.PROPERTIES, cmb.getProperties());
 
 		return menuAndSaveLoad;
 	}
@@ -244,9 +256,10 @@ public class SceneBuilder extends Application {
 		output.getChildren().add(upDownBox);
 		output.getChildren().add(directionalGrid);
 		output.getChildren().add(primaryInputGrid);
-
-		this.allButtons = setButtonArray(grid);
-		setupButtons();
+	
+		for (Map.Entry<Command, Button> entry : setButtonArray(grid).entrySet()) {
+			this.allButtons.put(entry.getKey(), entry.getValue());
+		}
 
 		return output;
 	}
@@ -266,13 +279,13 @@ public class SceneBuilder extends Application {
 	 */
 	private HashMap<Command, Button> setButtonArray(CreatePlayerInputsGridPane grid){
 		HashMap<Command, Button> output = new HashMap<>();
-		output.put(Command.ACT_UP, grid.getUpButton());
-		output.put(Command.ACT_DOWN, grid.getDownButton());
+		output.put(Command.UP, grid.getUpButton());
+		output.put(Command.DOWN, grid.getDownButton());
 
-		output.put(Command.ACT_NORTH, grid.getNorthButton());
-		output.put(Command.ACT_WEST, grid.getWestButton());
-		output.put(Command.ACT_EAST, grid.getEastButton());
-		output.put(Command.ACT_SOUTH, grid.getSouthButton());
+		output.put(Command.NORTH, grid.getNorthButton());
+		output.put(Command.WEST, grid.getWestButton());
+		output.put(Command.EAST, grid.getEastButton());
+		output.put(Command.SOUTH, grid.getSouthButton());
 
 		output.put(Command.ACT_1, grid.getButton1());
 		output.put(Command.ACT_2, grid.getButton2());
@@ -290,6 +303,7 @@ public class SceneBuilder extends Application {
 	}
 
 	
+	
 	/**
 	 * This class iterates over all Buttons in the 
 	 * assigning their actions to send their respective
@@ -298,6 +312,15 @@ public class SceneBuilder extends Application {
 	private void setupButtons() {
 		for (Map.Entry<Command, Button> entry : allButtons.entrySet()) {
 			entry.getValue().setOnAction(click ->{
+				GameUpdate update = interfaceAPI.initCommand(entry.getKey());
+				updateGame(update);
+			});
+		}
+	}
+	
+	private void setupMenus() {
+		for (Map.Entry<Command, MenuItem> entry : allMenus.entrySet()){
+			entry.getValue().setOnAction(click -> {
 				GameUpdate update = interfaceAPI.initCommand(entry.getKey());
 				updateGame(update);
 			});
@@ -338,5 +361,16 @@ public class SceneBuilder extends Application {
 
 	protected void updateDisplayPaneText(String inputText) {
 		this.displayPane.setText(inputText);
+	}
+
+
+	private void disableButton(Button b) {
+		b.setDisable(true);
+		b.setVisible(false);
+	}
+	
+	private void enableButton(Button b) {
+		b.setDisable(false);
+		b.setVisible(true);
 	}
 }

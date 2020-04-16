@@ -21,7 +21,9 @@ import javafx.scene.control.MenuItem;
  */
 public class CreateMenuBar {
 	
-	MenuBar menuBar;
+	private MenuBar menuBar;
+	private MenuItem newGame;
+	private MenuItem properties;
 
 	/**
 	 * @author will_crewe
@@ -62,6 +64,14 @@ public class CreateMenuBar {
 		
 		MenuItem menuItem2 = createMenuItem("Quit");
 		menuItem2.setOnAction(e -> {
+			Alert alert = new Alert(AlertType.WARNING);
+			alert.setTitle("Quit Game?");
+			alert.setHeaderText("You're about to quit the Game.\n"
+								+ "Are you sure?\n");
+			alert.showAndWait();
+			if (alert.getResult() != ButtonType.OK) {
+				return;
+			}
 			Runnable x = Platform::exit;
 			x.run();
 		});
@@ -69,6 +79,8 @@ public class CreateMenuBar {
 		
 		items.add(menuItem1);
 		items.add(menuItem2);
+		
+		this.newGame = menuItem1;
 		
 		return createMenu("File", items);
 	}
@@ -89,6 +101,8 @@ public class CreateMenuBar {
 		
 		
 		items.add(menuItem1);
+		
+		this.properties = menuItem1;
 		
 		return createMenu("Edit", items);
 	}
@@ -174,6 +188,14 @@ public class CreateMenuBar {
 		MenuItem item = new MenuItem();
 		item.setText(title);
 		return item;
+	}
+	
+	public MenuItem getNewGame() {
+		return this.newGame;
+	}
+	
+	public MenuItem getProperties() {
+		return this.properties;
 	}
 
 }
