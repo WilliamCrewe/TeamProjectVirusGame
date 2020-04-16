@@ -1,11 +1,10 @@
 package gui;
 
 import util.Command;
-import util.GameUpdate;
 
-public class InterfaceAPI {
+public class PlayerActionHandler {
 
-	public InterfaceAPI() {
+	public PlayerActionHandler() {
 		// TODO Auto-generated constructor stub
 	}
 	

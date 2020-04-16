@@ -19,20 +19,12 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import util.Command;
-import util.GameUpdate;
 
 /**
  * @author will_crewe
  *
  */
-/**
- * @author wcrewe
- *
- */
-/**
- * @author wcrewe
- *
- */
+
 public class SceneBuilder extends Application {
 
 	private final double APPWIDTH = 1000.00;
@@ -43,10 +35,11 @@ public class SceneBuilder extends Application {
 
 
 	private TextArea displayPane;
+	
 	private HashMap<Command, Button> allButtons = new HashMap<>();
 	private HashMap<Command, MenuItem> allMenus = new HashMap<>();
 	
-	private InterfaceAPI interfaceAPI;
+	private PlayerActionHandler playerActionHandler;
 
 
 
@@ -64,7 +57,7 @@ public class SceneBuilder extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		primaryStage.setTitle("Lockdown");
-		this.interfaceAPI = new InterfaceAPI();
+		this.playerActionHandler = new PlayerActionHandler();
 
 		VBox primaryWindowVBox = createGameWindow();
 		
@@ -307,12 +300,12 @@ public class SceneBuilder extends Application {
 	/**
 	 * This class iterates over all Buttons in the 
 	 * assigning their actions to send their respective
-	 * Enum<Command> to the InterfaceAPI.
+	 * Enum<Command> to the PlayerActionHandler.
 	 */
 	private void setupButtons() {
 		for (Map.Entry<Command, Button> entry : allButtons.entrySet()) {
 			entry.getValue().setOnAction(click ->{
-				GameUpdate update = interfaceAPI.initCommand(entry.getKey());
+				GameUpdate update = playerActionHandler.initCommand(entry.getKey());
 				updateGame(update);
 			});
 		}
@@ -321,14 +314,23 @@ public class SceneBuilder extends Application {
 	private void setupMenus() {
 		for (Map.Entry<Command, MenuItem> entry : allMenus.entrySet()){
 			entry.getValue().setOnAction(click -> {
-				GameUpdate update = interfaceAPI.initCommand(entry.getKey());
+				GameUpdate update = playerActionHandler.initCommand(entry.getKey());
 				updateGame(update);
 			});
 		}
 	}
 	
 	private void updateGame(GameUpdate update) {
+		for (Command c : update.getDisabledButtons()) {//Array of Button Commands
+			disableButton(allButtons.get(c));
+		}
+		for (Command c : update.getEnabledButtons()) {
+			enableButton(allButtons.get(c));
+		}
 		
+		// This is done later, as the displayPane might be temporarily hidden
+		// for a textArea to appear where the player can write in their name etc
+		this.displayPane.setText(update.getDescription());
 	}
 	
 
@@ -358,19 +360,20 @@ public class SceneBuilder extends Application {
 
 		return output;
 	}
+	
+
+	private void enableButton(Button b) {
+		b.setDisable(false);
+		b.setVisible(true);
+	}
 
 	protected void updateDisplayPaneText(String inputText) {
 		this.displayPane.setText(inputText);
 	}
-
-
+	
 	private void disableButton(Button b) {
 		b.setDisable(true);
 		b.setVisible(false);
 	}
 	
-	private void enableButton(Button b) {
-		b.setDisable(false);
-		b.setVisible(true);
-	}
 }
