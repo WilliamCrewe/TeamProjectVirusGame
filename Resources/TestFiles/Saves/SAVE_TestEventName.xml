@@ -1,0 +1,7 @@
+<Content>
+	<Save>
+		<SaveName>TestEventName</SaveName>
+		<Seed>TestSeed</Seed>
+		<DayNumber>42</DayNumber>
+	</Save>
+</Content>

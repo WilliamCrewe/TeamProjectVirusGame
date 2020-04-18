@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:element name="Content" type="ContentType"/>
+
+	<xs:complexType name="ContentType">
+		<xs:choice>
+			<xs:element name="Event" type="EventType"/>
+			<xs:element name="Save" type="SaveType"/>
+			<xs:element name="Location" type="LocationType"/>
+		</xs:choice>
+	</xs:complexType>
+
+	<xs:complexType name="EventType">
+		<xs:sequence maxOccurs="1">
+			<xs:element name="EventName" type="xs:string" />
+			<xs:element name="EventLocation" type="xs:string" />
+			<xs:element name="EventOccurenceProbability" type="xs:string" />
+			<xs:element name="IsSingleOccurence" type="xs:boolean" />
+			<xs:element name="EventOptions" type="EventOptionsType" />
+			<xs:element name="FollowingEventName" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="EventOptionsType">
+		<xs:sequence maxOccurs="1">
+			<xs:element name="EventOption" type="EventOptionType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="EventOptionType">
+		<xs:sequence maxOccurs="1">
+			<xs:element name="EventOptionDescription" type="xs:string" />
+			<xs:element name="EventOptionImmunityModification" type="xs:string" />
+			<xs:element name="EventOptionContagionLevelModifier" type="xs:string" />
+			<xs:element name="EventOptionItems" type="EventOptionItemsType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="EventOptionItemsType">
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Item" type="ItemType" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ItemType">
+		<xs:sequence maxOccurs="1">
+			<xs:element name="ItemName" type="xs:string"/>
+			<xs:element name="ItemCount" type="xs:integer"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="SaveType">
+		<xs:sequence maxOccurs="1">
+			<xs:element name="SaveName" type="xs:string" />
+			<xs:element name="Seed" type="xs:string" />
+			<xs:element name="DayNumber" type="xs:integer" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="LocationType">
+		<xs:sequence maxOccurs="1">
+			<xs:element name="LocationName" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
+
