@@ -1,6 +1,6 @@
 package main;
 
-import gui.SceneBuilder;
+import main.graphical_interface.GUIController;
 
 public class Main {
 
@@ -9,7 +9,7 @@ public class Main {
 	}
 
 	public static void main(String[] args) {
-        SceneBuilder.begin(args);
+        GUIController.begin(args);
     }
 
 }
