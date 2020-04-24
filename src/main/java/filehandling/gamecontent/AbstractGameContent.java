@@ -5,7 +5,7 @@ package main.java.filehandling.gamecontent;
  * @author Daniel
  *
  */
-public abstract class AbstractGameContent implements XMLSerializable {
+public abstract class AbstractGameContent {
 
 	protected ContentType contentType;
 	

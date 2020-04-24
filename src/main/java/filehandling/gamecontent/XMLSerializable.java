@@ -7,5 +7,13 @@ package main.java.filehandling.gamecontent;
  */
 public interface XMLSerializable {
 
+	/**
+	 * @return The objects XML format in a byte array
+	 */
 	public byte[] serialize();
+	
+	/**
+	 * @return The objects XML format as a string
+	 */
+	public String toXMLString();
 }

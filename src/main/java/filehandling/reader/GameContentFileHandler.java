@@ -17,7 +17,15 @@ import main.java.filehandling.xml.exception.XMLValidationException;
  */
 public class GameContentFileHandler {
 
-	public AbstractGameContent getGameContentOfFile(String filePath) throws XMLParseException, FileReadException, XMLValidationException {
+	/**
+	 * Returns the content of the file in the form of an AbstractGameContent Realisation
+	 * @param filePath
+	 * @return
+	 * @throws XMLParseException
+	 * @throws FileReadException
+	 * @throws XMLValidationException
+	 */
+	public static AbstractGameContent getGameContentOfFile(String filePath) throws XMLParseException, FileReadException, XMLValidationException {
 		// Read in the contents of the file
 		byte[] fileContents = FileReader.readFileContents(filePath);
 		

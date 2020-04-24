@@ -6,11 +6,12 @@ import org.junit.Test;
 import org.w3c.dom.Document;
 
 import main.java.filehandling.gamecontent.ContentType;
-import main.java.filehandling.gamecontent.realisations.SaveGameContent;
+import main.java.filehandling.gamecontent.realisations.CharacterGameContent;
 import main.java.filehandling.xml.XMLUtils;
 import main.java.filehandling.xml.exception.XMLParseException;
 
-public class SaveGameContentTest {
+public class CharacterGameContentTest {
+
 
 	/**
 	 * Positive test case for when the constructor is called and the XML is valid and contains all expected values
@@ -19,28 +20,24 @@ public class SaveGameContentTest {
 	@Test
 	public void testConstructor() throws XMLParseException {
 		String testXML = "<Content>" + 
-				"	<Save>" + 
-				"		<SaveName>TestSaveName</SaveName>" + 
-				"		<Seed>TestSeed</Seed>" + 
-				"		<DayNumber>42</DayNumber>" + 
-				"	</Save>" + 
+				"	<Character>" + 
+				"		<CharacterName>TestCharacterName</CharacterName>" + 
+				"	</Character>" + 
 				"</Content>";
 		
 		// Convert the testXML to a byte array for the method in test
 		byte[] xmlBytes = testXML.getBytes();
 		
-		// convert the byte array to a document
+		// Call the method in test
 		Document document = XMLUtils.convertByteArrayToDocument(xmlBytes);
 		
 		// Call the method in test (Constructor so instantiate the object)
-		SaveGameContent saveGameContent = new SaveGameContent(document);
+		CharacterGameContent characterGameContent = new CharacterGameContent(document);
 		
 		// Assert the values on the object are as expected
-		assertEquals(ContentType.SAVE, saveGameContent.getContentType());
-		assertEquals("TestEventName", saveGameContent.getSaveName());
-		assertEquals("TestSeed", saveGameContent.getSeed());
-		assertEquals(42, saveGameContent.getDayNumber());
-		assertEquals("SaveGameContent object with values: saveName=TestSaveName, seed=TestSeed, dayNumber=42", saveGameContent.toString());
+		assertEquals(ContentType.CHARACTER, characterGameContent.getContentType());
+		assertEquals("TestCharacterName", characterGameContent.getCharacterName());
+		assertEquals("CharacterGameContent object with values: characterName=TestCharacterName", characterGameContent.toString());
 	}
 	
 	/**
@@ -77,7 +74,6 @@ public class SaveGameContentTest {
 		Document document = XMLUtils.convertByteArrayToDocument(xmlBytes);
 		
 		// Call the method in test (Constructor so instantiate the object)
-		new SaveGameContent(document);
+		new CharacterGameContent(document);
 	}
 }
-

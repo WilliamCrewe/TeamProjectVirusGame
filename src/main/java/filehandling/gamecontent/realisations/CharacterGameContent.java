@@ -9,18 +9,17 @@ import main.java.filehandling.xml.exception.XMLParseException;
 import main.java.logging.SystemLogger;
 
 /**
- * Holder class containing the content of the Location file type
+ * Holder class containing the content of the Character file type
  * @author Daniel
  *
  */
-public class LocationGameContent extends AbstractGameContent {
-
-	private final String locationName;
+public class CharacterGameContent extends AbstractGameContent {
+	private final String characterName;
 	
-	public LocationGameContent(Document document) throws XMLParseException {
-		SystemLogger.finer("Creating a new LocationGameContent object");
-		contentType = ContentType.LOCATION;
-		locationName = XMLUtils.getFirstMatchingTagContent(document, LocationGameContentTag.LOCATION_NAME.getTag());
+	public CharacterGameContent(Document document) throws XMLParseException {
+		SystemLogger.finer("Creating a new CharacterGameContent object");
+		contentType = ContentType.CHARACTER;
+		characterName = XMLUtils.getFirstMatchingTagContent(document, CharacterGameContentTag.CHARACTER_NAME.getTag());
 		
 		SystemLogger.fine("A new %s was created", toString());
 	}
@@ -28,13 +27,13 @@ public class LocationGameContent extends AbstractGameContent {
 	/**
 	 * @return Returns the name of the location
 	 */
-	public String getLocationName() {
-		return locationName;
+	public String getCharacterName() {
+		return characterName;
 	}
 	
 	@Override
 	public String toString() {
-		return String.format("LocationGameContent object with values: locationName=%s", locationName);
+		return String.format("CharacterGameContent object with values: characterName=%s", characterName);
 	}
 	
 	/**
@@ -42,12 +41,12 @@ public class LocationGameContent extends AbstractGameContent {
 	 * @author Daniel
 	 *
 	 */
-	private enum LocationGameContentTag {
-		LOCATION_NAME("LocationName");
+	private enum CharacterGameContentTag {
+		CHARACTER_NAME("CharacterName");
 		
 		private String tag;
 		
-		private LocationGameContentTag(String tag) {
+		private CharacterGameContentTag(String tag) {
 			this.tag = tag;
 		}
 		

@@ -1,0 +1,36 @@
+<Content>
+	<Event>
+		<EventID>TestEventID</EventID>
+		<EventName>Test Event Name</EventName>
+		<EventLocationID>Hospital</EventLocationID>
+		<EventOccurenceProbability>TestEventID</EventOccurenceProbability>
+		<IsSingleOccurence>false</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>TestEventIDOptionOne</EventOptionID>
+				<EventOptionDescription>Test Event Option one description</EventOptionDescription>
+				<EventOptionImmunityModification>10</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>-10</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>5</EventOptionKarmaModification>
+				<EventOptionItems>
+					<Item>
+						<ItemID>ItemIDOne</ItemID>
+						<ItemName>ItemNameOne</ItemName>
+						<ItemCount>ItemNameOne</ItemCount>
+					</Item>
+				</EventOptionItems>
+				<RequiredCompletedEventID>PriorEventID</RequiredCompletedEventID>
+				<RequiredItemID>TestItemID</RequiredItemID>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>TestEventIDOptionTwo</EventOptionID>
+				<EventOptionDescription>Test Event Option two description</EventOptionDescription>
+				<EventOptionImmunityModification>20</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>-20</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>10</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<FollowingEventID>TestEventID2</FollowingEventID>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

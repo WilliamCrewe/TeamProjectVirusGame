@@ -8,17 +8,19 @@
 			<xs:element name="Event" type="EventType"/>
 			<xs:element name="Save" type="SaveType"/>
 			<xs:element name="Location" type="LocationType"/>
+			<xs:element name="Character" type="CharacterType"/>
 		</xs:choice>
 	</xs:complexType>
 
 	<xs:complexType name="EventType">
 		<xs:sequence maxOccurs="1">
+			<xs:element name="EventID" type="xs:string"/>
 			<xs:element name="EventName" type="xs:string" />
-			<xs:element name="EventLocation" type="xs:string" />
-			<xs:element name="EventOccurenceProbability" type="xs:string" />
+			<xs:element name="EventLocationID" type="xs:string" />
 			<xs:element name="IsSingleOccurence" type="xs:boolean" />
 			<xs:element name="EventOptions" type="EventOptionsType" />
-			<xs:element name="FollowingEventName" type="xs:string" />
+			<xs:element name="FollowingEventID" type="xs:string" minOccurs="0" />
+			<xs:element name="Rarity" type="RarityType"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -30,10 +32,14 @@
 
 	<xs:complexType name="EventOptionType">
 		<xs:sequence maxOccurs="1">
+			<xs:element name="EventOptionID" type="xs:string"/>
 			<xs:element name="EventOptionDescription" type="xs:string" />
-			<xs:element name="EventOptionImmunityModification" type="xs:string" />
-			<xs:element name="EventOptionContagionLevelModifier" type="xs:string" />
-			<xs:element name="EventOptionItems" type="EventOptionItemsType"/>
+			<xs:element name="EventOptionImmunityModification" type="xs:integer" />
+			<xs:element name="EventOptionContagionLevelModifier" type="xs:integer" />
+			<xs:element name="EventOptionKarmaModification" type="xs:integer" />
+			<xs:element name="EventOptionItems" type="EventOptionItemsType" minOccurs="0" />
+			<xs:element name="RequiredCompletedEventID" type="xs:string" minOccurs="0" />
+			<xs:element name="RequiredItemID" type="xs:string" minOccurs="0" />
 		</xs:sequence>
 	</xs:complexType>
 
@@ -45,22 +51,57 @@
 
 	<xs:complexType name="ItemType">
 		<xs:sequence maxOccurs="1">
+			<xs:element name="ItemID" type="xs:string"/>
 			<xs:element name="ItemName" type="xs:string"/>
 			<xs:element name="ItemCount" type="xs:integer"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="RarityType">
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Common"/>
+				<xs:enumeration value="Uncommon"/>
+				<xs:enumeration value="Rare"/>
+				<xs:enumeration value="VeryRare"/>
+				<xs:enumeration value="Legendary"/>
+			</xs:restriction>
 		</xs:sequence>
 	</xs:complexType>
 
 	<xs:complexType name="SaveType">
 		<xs:sequence maxOccurs="1">
 			<xs:element name="SaveName" type="xs:string" />
-			<xs:element name="Seed" type="xs:string" />
+			<xs:element name="Seed" type="xs:hexBinary" />
 			<xs:element name="DayNumber" type="xs:integer" />
+			<xs:element name="CompletedEvents" type="CompletedEventsType" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="CompletedEventsType">
+		<xs:sequence>
+			<xs:element name="CompletedEvent" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="CompletedEventType">
+		<xs:sequence maxOccurs="1">
+			<xs:element name="EventID" type="xs:string" />
+			<xs:element name="EventOptionID" type="xs:string" />
 		</xs:sequence>
 	</xs:complexType>
 
 	<xs:complexType name="LocationType">
 		<xs:sequence maxOccurs="1">
+			<xs:element name="LocationID" type="xs:string"/>
 			<xs:element name="LocationName" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="CharacterType">
+		<xs:sequence maxOccurs="1">
+			<xs:element name="CharacterID" type="xs:string"/>
+			<xs:element name="CharacterName" type="xs:string" />
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>

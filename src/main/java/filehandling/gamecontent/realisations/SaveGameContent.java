@@ -4,6 +4,8 @@ import org.w3c.dom.Document;
 
 import main.java.filehandling.gamecontent.AbstractGameContent;
 import main.java.filehandling.gamecontent.ContentType;
+import main.java.filehandling.gamecontent.XMLSerializable;
+import main.java.filehandling.gamecontent.realisations.components.CompletedEvents;
 import main.java.filehandling.xml.XMLUtils;
 import main.java.filehandling.xml.exception.XMLParseException;
 import main.java.logging.SystemLogger;
@@ -13,11 +15,12 @@ import main.java.logging.SystemLogger;
  * @author Daniel
  *
  */
-public class SaveGameContent extends AbstractGameContent {
+public class SaveGameContent extends AbstractGameContent implements XMLSerializable {
 
 	private final String saveName;
 	private final String seed;
 	private final int dayNumber;
+	private final CompletedEvents completedEvents;
 	
 	public SaveGameContent(Document document) throws XMLParseException {
 		SystemLogger.finer("Creating a new SaveGameContent object");
@@ -25,6 +28,8 @@ public class SaveGameContent extends AbstractGameContent {
 		saveName = XMLUtils.getFirstMatchingTagContent(document, SaveGameContentTag.SAVE_NAME.getTag());
 		seed = XMLUtils.getFirstMatchingTagContent(document, SaveGameContentTag.SEED.getTag());
 		dayNumber = Integer.parseInt(XMLUtils.getFirstMatchingTagContent(document, SaveGameContentTag.DAY_NUMBER.getTag()));
+		completedEvents = new CompletedEvents(document.getElementsByTagName(SaveGameContentTag.COMPLETED_EVENTS.getTag()).item(0));
+		
 		
 		SystemLogger.fine("A new %s was created", toString());
 	}
@@ -61,6 +66,12 @@ public class SaveGameContent extends AbstractGameContent {
 		return null;
 	}
 	
+	@Override
+	public String toXMLString() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 	/**
 	 * private enum representing the tags available under the SAVE element
 	 * @author Daniel
@@ -69,7 +80,8 @@ public class SaveGameContent extends AbstractGameContent {
 	private enum SaveGameContentTag {
 		SAVE_NAME("SaveName"),
 		SEED("Seed"),
-		DAY_NUMBER("DayNumber");
+		DAY_NUMBER("DayNumber"),
+		COMPLETED_EVENTS("CompletedEvents");
 		
 		private String tag;
 		
