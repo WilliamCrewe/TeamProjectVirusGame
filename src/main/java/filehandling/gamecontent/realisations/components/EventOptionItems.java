@@ -7,6 +7,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 /**
+ * Class representing the EventOptionItems item in the XSD
  * @author Daniel
  *
  */

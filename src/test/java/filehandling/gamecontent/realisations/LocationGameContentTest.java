@@ -2,6 +2,9 @@ package test.java.filehandling.gamecontent.realisations;
 
 import static org.junit.Assert.assertEquals;
 
+import java.io.File;
+import java.nio.file.Files;
+
 import org.junit.Test;
 import org.w3c.dom.Document;
 
@@ -17,19 +20,13 @@ public class LocationGameContentTest {
 	 * @throws XMLParseException
 	 */
 	@Test
-	public void testConstructor() throws XMLParseException {
-		String testXML = "<Content>" + 
-				"	<Location>" + 
-				"		<LocationName>TestLocationName</LocationName>" + 
-				"	</Location>" + 
-				"</Content>";
-		
-		// Convert the testXML to a byte array for the method in test
-		byte[] xmlBytes = testXML.getBytes();
-		
-		// Call the method in test
-		Document document = XMLUtils.convertByteArrayToDocument(xmlBytes);
-		
+	public void testConstructor() throws Exception {
+		String fullFilePath = System.getProperty("user.dir")
+				+ "\\Resources\\TestFiles\\Locations\\LOCATION_TestLocationName.xml";
+
+		// Create the XML document
+		Document document = XMLUtils.convertByteArrayToDocument(Files.readAllBytes(new File(fullFilePath).toPath()));
+
 		// Call the method in test (Constructor so instantiate the object)
 		LocationGameContent locationGameContent = new LocationGameContent(document);
 		
@@ -44,34 +41,13 @@ public class LocationGameContentTest {
 	 * @throws XMLParseException
 	 */
 	@Test (expected = XMLParseException.class)
-	public void testConstructorIncorrectXML() throws XMLParseException {
-		// This XML is for the event type not the Save
-		String testXML = "" + 
-				"<Content>" + 
-				"	<Event>" + 
-				"		<EventName>TestEventName</EventName>" + 
-				"		<EventLocation>School</EventLocation>" + 
-				"		<EventOccurenceProbability>0.2</EventOccurenceProbability>" + 
-				"		<EventOptions>" + 
-				"			<EventOption>" + 
-				"				<EventOptionDescription>TestOptionOne</EventOptionDescription>" + 
-				"				<EventOptionImmunityModification>-10</EventOptionImmunityModification>" + 
-				"				<EventOptionContagionLevelModifier>30</EventOptionContagionLevelModifier>" + 
-				"				<EventOptionItems>" + 
-				"					<ItemName>TestItemOne</ItemName>" + 
-				"					<ItemName>TestItemTwo</ItemName>" + 
-				"				</EventOptionItems>" + 
-				"			</EventOption>" + 
-				"		</EventOptions>" + 
-				"	</Event>" + 
-				"</Content>";
-		
-		// Convert the testXML to a byte array for the method in test
-		byte[] xmlBytes = testXML.getBytes();
-		
-		// Call the method in test
-		Document document = XMLUtils.convertByteArrayToDocument(xmlBytes);
-		
+	public void testConstructorIncorrectXML() throws Exception {
+		String fullFilePath = System.getProperty("user.dir")
+				+ "\\Resources\\TestFiles\\Events\\EVENT_TestEventName.xml";
+
+		// Create the XML document
+		Document document = XMLUtils.convertByteArrayToDocument(Files.readAllBytes(new File(fullFilePath).toPath()));
+
 		// Call the method in test (Constructor so instantiate the object)
 		new LocationGameContent(document);
 	}

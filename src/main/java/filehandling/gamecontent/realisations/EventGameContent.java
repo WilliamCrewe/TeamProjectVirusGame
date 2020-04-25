@@ -10,6 +10,11 @@ import main.java.filehandling.xml.exception.XMLParseException;
 import main.java.logging.SystemLogger;
 import main.java.random.Rarity;
 
+/**
+ * Holder class containing the content of the Event file type
+ * @author Daniel
+ *
+ */
 public class EventGameContent extends AbstractGameContent {
 
 	private final String eventID;

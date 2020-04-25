@@ -8,15 +8,27 @@ import org.w3c.dom.NodeList;
 
 import main.java.filehandling.gamecontent.XMLSerializable;
 
+/**
+ * Class representing the CompletedEvents item in the XSD
+ * @author Daniel
+ *
+ */
 public class CompletedEvents implements XMLSerializable {
 
 	private final List<CompletedEvent> completedEventsValues = new ArrayList<>();
 	
 	private static final String SERIALIZED_FORMAT = "<CompletedEvents>%s</CompletedEvents>";
 	
+	/**
+	 * Constructor to be used when there was no CompletedEvents element in the XML
+	 */
+	public CompletedEvents() {
+	}
+	
 	public CompletedEvents(Node completedEventsNode) {
 		NodeList childNodes = completedEventsNode.getChildNodes();
 		
+		// loop over all the child nodes (They will all be CompletedEventTypes)
 		for (int i = 0; i < childNodes.getLength(); i++) {
 			completedEventsValues.add(new CompletedEvent(childNodes.item(i)));
 		}

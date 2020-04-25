@@ -2,6 +2,9 @@ package test.java.filehandling.gamecontent.realisations;
 
 import static org.junit.Assert.assertEquals;
 
+import java.io.File;
+import java.nio.file.Files;
+
 import org.junit.Test;
 import org.w3c.dom.Document;
 
@@ -18,24 +21,18 @@ public class CharacterGameContentTest {
 	 * @throws XMLParseException
 	 */
 	@Test
-	public void testConstructor() throws XMLParseException {
-		String testXML = "<Content>" + 
-				"	<Character>" + 
-				"		<CharacterName>TestCharacterName</CharacterName>" + 
-				"	</Character>" + 
-				"</Content>";
+	public void testConstructor() throws Exception {
+		String fullFilePath = System.getProperty("user.dir") + "\\Resources\\TestFiles\\Characters\\CHARACTER_TestCharacterName.xml";
 		
-		// Convert the testXML to a byte array for the method in test
-		byte[] xmlBytes = testXML.getBytes();
-		
-		// Call the method in test
-		Document document = XMLUtils.convertByteArrayToDocument(xmlBytes);
+		// Create the XML document
+		Document document = XMLUtils.convertByteArrayToDocument(Files.readAllBytes(new File(fullFilePath).toPath()));	
 		
 		// Call the method in test (Constructor so instantiate the object)
 		CharacterGameContent characterGameContent = new CharacterGameContent(document);
 		
 		// Assert the values on the object are as expected
 		assertEquals(ContentType.CHARACTER, characterGameContent.getContentType());
+		assertEquals("TestCharacterID", characterGameContent.getCharacterID());
 		assertEquals("TestCharacterName", characterGameContent.getCharacterName());
 		assertEquals("CharacterGameContent object with values: characterName=TestCharacterName", characterGameContent.toString());
 	}
@@ -45,34 +42,13 @@ public class CharacterGameContentTest {
 	 * @throws XMLParseException
 	 */
 	@Test (expected = XMLParseException.class)
-	public void testConstructorIncorrectXML() throws XMLParseException {
-		// This XML is for the event type not the Save
-		String testXML = "" + 
-				"<Content>" + 
-				"	<Event>" + 
-				"		<EventName>TestEventName</EventName>" + 
-				"		<EventLocation>School</EventLocation>" + 
-				"		<EventOccurenceProbability>0.2</EventOccurenceProbability>" + 
-				"		<EventOptions>" + 
-				"			<EventOption>" + 
-				"				<EventOptionDescription>TestOptionOne</EventOptionDescription>" + 
-				"				<EventOptionImmunityModification>-10</EventOptionImmunityModification>" + 
-				"				<EventOptionContagionLevelModifier>30</EventOptionContagionLevelModifier>" + 
-				"				<EventOptionItems>" + 
-				"					<ItemName>TestItemOne</ItemName>" + 
-				"					<ItemName>TestItemTwo</ItemName>" + 
-				"				</EventOptionItems>" + 
-				"			</EventOption>" + 
-				"		</EventOptions>" + 
-				"	</Event>" + 
-				"</Content>";
+	public void testConstructorIncorrectXML() throws Exception {
+		// This XML is for the save event type
+		String fullFilePath = System.getProperty("user.dir") + "\\Resources\\TestFiles\\Saves\\SAVE_TestEventName.xml";
 		
-		// Convert the testXML to a byte array for the method in test
-		byte[] xmlBytes = testXML.getBytes();
-		
-		// Call the method in test
-		Document document = XMLUtils.convertByteArrayToDocument(xmlBytes);
-		
+		// Create the XML document
+		Document document = XMLUtils.convertByteArrayToDocument(Files.readAllBytes(new File(fullFilePath).toPath()));	
+				
 		// Call the method in test (Constructor so instantiate the object)
 		new CharacterGameContent(document);
 	}

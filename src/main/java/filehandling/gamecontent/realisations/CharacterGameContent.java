@@ -14,18 +14,29 @@ import main.java.logging.SystemLogger;
  *
  */
 public class CharacterGameContent extends AbstractGameContent {
+	
+	private final String characterID;
 	private final String characterName;
 	
 	public CharacterGameContent(Document document) throws XMLParseException {
 		SystemLogger.finer("Creating a new CharacterGameContent object");
 		contentType = ContentType.CHARACTER;
+		
+		characterID = XMLUtils.getFirstMatchingTagContent(document, CharacterGameContentTag.CHARACTER_ID.getTag());
 		characterName = XMLUtils.getFirstMatchingTagContent(document, CharacterGameContentTag.CHARACTER_NAME.getTag());
 		
 		SystemLogger.fine("A new %s was created", toString());
 	}
 	
 	/**
-	 * @return Returns the name of the location
+	 * @return The Characters unique ID
+	 */
+	public String getCharacterID() {
+		return characterID;
+	}
+	
+	/**
+	 * @return Returns the name of the character
 	 */
 	public String getCharacterName() {
 		return characterName;
@@ -42,6 +53,7 @@ public class CharacterGameContent extends AbstractGameContent {
 	 *
 	 */
 	private enum CharacterGameContentTag {
+		CHARACTER_ID("CharacterID"),
 		CHARACTER_NAME("CharacterName");
 		
 		private String tag;

@@ -17,6 +17,7 @@ public class EventOptions {
 	public EventOptions(Node eventOptionsNode) {
 		NodeList childNodes = eventOptionsNode.getChildNodes();
 		
+		// Each child node will be an EventOptionType so construct a new EventOption and add it
 		for (int i = 0; i < childNodes.getLength(); i++) {
 			eventOptionsValues.add(new EventOption(childNodes.item(i)));
 		}

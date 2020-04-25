@@ -28,6 +28,10 @@ public class PropertyManager {
 	}
 	
 	public static String getBaseDirectory() {
+		if (baseDirectory == null) {
+			baseDirectory = System.getProperty("user.dir");
+		}
+		
 		return baseDirectory;
 	}
 }

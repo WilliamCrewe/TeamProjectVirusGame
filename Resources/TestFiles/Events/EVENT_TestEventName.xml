@@ -16,7 +16,7 @@
 					<Item>
 						<ItemID>ItemIDOne</ItemID>
 						<ItemName>ItemNameOne</ItemName>
-						<ItemCount>ItemNameOne</ItemCount>
+						<ItemCount>3</ItemCount>
 					</Item>
 				</EventOptionItems>
 				<RequiredCompletedEventID>PriorEventID</RequiredCompletedEventID>

@@ -3,12 +3,15 @@ package main.java.filehandling.reader;
 import org.w3c.dom.Document;
 
 import main.java.filehandling.gamecontent.AbstractGameContent;
+import main.java.filehandling.gamecontent.XMLFileWritable;
 import main.java.filehandling.gamecontent.factory.GameContentFactory;
 import main.java.filehandling.reader.exception.FileReadException;
+import main.java.filehandling.reader.exception.UnableToWriteContentException;
 import main.java.filehandling.xml.XMLUtils;
 import main.java.filehandling.xml.XSDValidator;
 import main.java.filehandling.xml.exception.XMLParseException;
 import main.java.filehandling.xml.exception.XMLValidationException;
+import main.java.logging.SystemLogger;
 
 /**
  * Handler object to allow the reading in of files and conversion of them to AbstractGameContent objects 
@@ -38,9 +41,20 @@ public class GameContentFileHandler {
 		return GameContentFactory.seriliazeFileContent(fileContents);
 	}
 	
-	public void writeGameContentToFile() {
-		// Calculate the fileName
+	/**
+	 * Writes the AbstractGameContent to the appropriate directory with the correct filename
+	 * @param gameContent
+	 * @throws UnableToWriteContentException
+	 */
+	public void writeGameContentToFile(AbstractGameContent gameContent) throws UnableToWriteContentException {
+		if (!(gameContent instanceof XMLFileWritable)) {
+			SystemLogger.severe("The AbstractGameContent %s does not implement XMLSerializable so cannot be written to file", gameContent);
+			throw new UnableToWriteContentException(String.format("The AbstractGameContent %s does not implement XMLSerializable so cannot be written to file", gameContent));
+		}
+		
+		XMLFileWritable xmlFileWritableObject = (XMLFileWritable) gameContent;
 		
 		// check if a file with that name already exists (If so overwrite)
+		FileWriter.writeContentsToFile(xmlFileWritableObject.getFileName(), xmlFileWritableObject.serialize());
 	}
 }

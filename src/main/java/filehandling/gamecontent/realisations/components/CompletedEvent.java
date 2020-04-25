@@ -20,8 +20,11 @@ public class CompletedEvent implements XMLSerializable {
 	public CompletedEvent(Node completedEventNode) {
 		NodeList childNodes = completedEventNode.getChildNodes();
 		
+		// loop over all the child nodes
 		for (int i = 0; i < childNodes.getLength(); i++) {
 			Node currentNode = childNodes.item(i);
+			
+			// Find the correct Enum value for the element and set the field based on it
 			CompletedEventTag completedEventTag = CompletedEventTag.getByTag(currentNode.getNodeName());
 			
 			switch (completedEventTag) {
@@ -82,6 +85,11 @@ public class CompletedEvent implements XMLSerializable {
 			return tag;
 		}
 		
+		/**
+		 * Returns the enum value matching the tag passed in
+		 * @param searchTag
+		 * @return
+		 */
 		public static CompletedEventTag getByTag(String searchTag) {
 			for (CompletedEventTag currentTag : CompletedEventTag.values()) {
 				if (currentTag.getTag().equals(searchTag)) {

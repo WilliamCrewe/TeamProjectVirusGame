@@ -1,5 +1,8 @@
 package test.java.filehandling.xml;
 
+import java.io.File;
+import java.nio.file.Files;
+
 import org.junit.Test;
 import org.w3c.dom.Document;
 
@@ -17,21 +20,13 @@ public class XSDValidatorTest {
 	 * @throws XMLValidationException
 	 */
 	@Test
-	public void testValidateAgainstXSD() throws XMLParseException, XMLValidationException {
-		String testXML = "<Content>" + 
-				"	<Save>" + 
-				"		<SaveName>TestSaveName</SaveName>" + 
-				"		<Seed>TestSeed</Seed>" + 
-				"		<DayNumber>42</DayNumber>" + 
-				"	</Save>" + 
-				"</Content>";
-		
-		// Convert the testXML to a byte array for the method in test
-		byte[] xmlBytes = testXML.getBytes();
-		
-		// Call the method in test
-		Document document = XMLUtils.convertByteArrayToDocument(xmlBytes);
-		
+	public void testValidateAgainstXSD() throws Exception {
+		// This XML is for the save event type
+				String fullFilePath = System.getProperty("user.dir") + "\\Resources\\TestFiles\\Saves\\SAVE_TestEventName.xml";
+
+				// Create the XML document
+				Document document = XMLUtils.convertByteArrayToDocument(Files.readAllBytes(new File(fullFilePath).toPath()));
+
 		PropertyManager.setXSDLocation("C:\\Users\\Daniel\\Documents\\Uni\\TeamProject\\GitCopy\\TeamProjectVirusGame\\Resources\\XSD/VirusGameXSD.xsd");
 		
 		// Call the method in test

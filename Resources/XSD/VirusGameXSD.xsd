@@ -54,33 +54,43 @@
 			<xs:element name="ItemID" type="xs:string"/>
 			<xs:element name="ItemName" type="xs:string"/>
 			<xs:element name="ItemCount" type="xs:integer"/>
+			<xs:element name="ItemUsageEventID" type="xs:string"/>
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:complexType name="RarityType">
-		<xs:sequence minOccurs="0" maxOccurs="unbounded">
-			<xs:restriction base="xs:string">
-				<xs:enumeration value="Common"/>
-				<xs:enumeration value="Uncommon"/>
-				<xs:enumeration value="Rare"/>
-				<xs:enumeration value="VeryRare"/>
-				<xs:enumeration value="Legendary"/>
-			</xs:restriction>
-		</xs:sequence>
-	</xs:complexType>
+	<xs:simpleType  name="RarityType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Common"/>
+			<xs:enumeration value="Uncommon"/>
+			<xs:enumeration value="Rare"/>
+			<xs:enumeration value="VeryRare"/>
+			<xs:enumeration value="Legendary"/>
+		</xs:restriction>
+	</xs:simpleType >
 
 	<xs:complexType name="SaveType">
 		<xs:sequence maxOccurs="1">
 			<xs:element name="SaveName" type="xs:string" />
 			<xs:element name="Seed" type="xs:hexBinary" />
 			<xs:element name="DayNumber" type="xs:integer" />
+			<xs:element name="CurrentLocationID" type="xs:string" />
+			<xs:element name="Immunity" type="xs:integer" />
+			<xs:element name="ContagionLevel" type="xs:integer" />
+			<xs:element name="Karma" type="xs:integer" />
 			<xs:element name="CompletedEvents" type="CompletedEventsType" />
+			<xs:element name="SaveItems" type="SaveItemsType" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="SaveItemsType">
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Item" type="ItemType" />
 		</xs:sequence>
 	</xs:complexType>
 
 	<xs:complexType name="CompletedEventsType">
-		<xs:sequence>
-			<xs:element name="CompletedEvent" type="xs:string" />
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="CompletedEvent" type="CompletedEventType" />
 		</xs:sequence>
 	</xs:complexType>
 

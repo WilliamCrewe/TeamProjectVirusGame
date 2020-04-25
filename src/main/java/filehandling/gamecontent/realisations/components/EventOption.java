@@ -25,8 +25,11 @@ public class EventOption {
 		SystemLogger.finer("Creating a new SaveGameContent object");
 		NodeList childNodes = eventNode.getChildNodes();
 		
+		// loop over all the child nodes
 		for (int i = 0; i < childNodes.getLength(); i++) {
 			Node currentNode = childNodes.item(i);
+			
+			// Find the correct Enum value for the element and set the field based on it
 			EventOptionTag eventOptionTag = EventOptionTag.getByTag(currentNode.getNodeName());
 			
 			switch (eventOptionTag) {
@@ -144,6 +147,11 @@ public class EventOption {
 			return tag;
 		}
 		
+		/**
+		 * Returns the enum value matching the tag passed in
+		 * @param searchTag
+		 * @return
+		 */
 		public static EventOptionTag getByTag(String searchTag) {
 			for (EventOptionTag currentTag : EventOptionTag.values()) {
 				if (currentTag.getTag().equals(searchTag)) {

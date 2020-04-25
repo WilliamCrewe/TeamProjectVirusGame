@@ -13,6 +13,10 @@ public class RandomnessHandler {
 
 	private static Random random = new Random();
 
+	private RandomnessHandler() {
+		// private constructor to prevent instantiation
+	}
+	
 	public static void setSeed(String newSeed) {
 		long longSeed = Long.parseLong(newSeed, 16);
 		random.setSeed(longSeed);
@@ -20,13 +24,24 @@ public class RandomnessHandler {
 		
 	}
 	
+	/**
+	 * Returns a random integer from the seeded Random
+	 * @param bound
+	 * @return
+	 */
 	public static int getIntInRange(int bound) {
-		
 		return random.nextInt(bound);
 	}
 	
+	/**
+	 * Returns a Rarity enum value based on it's probability of occuring
+	 * @return
+	 */
 	public static Rarity getRandomRarity() {
 		int valueChosen = getIntInRange(100);
-		return Rarity.getRarityByIntRange(valueChosen);
+		Rarity rarity =  Rarity.getRarityByIntRange(valueChosen);
+		
+		SystemLogger.finer("A rarity of %s was generated for the randomly chosen value of %s", rarity, valueChosen);
+		return rarity;
 	}
 }

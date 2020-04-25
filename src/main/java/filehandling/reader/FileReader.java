@@ -23,6 +23,20 @@ public class FileReader {
 	}
 	
 	/**
+	 * Method that returns an array of all the file names in a directory
+	 * @param fullDirectoryPath
+	 * @return
+	 */
+	public static String[] getFilesInDirectory(String fullDirectoryPath) {
+		SystemLogger.fine("Listing all files under directory %s", fullDirectoryPath);
+		File directoryFile = new File(fullDirectoryPath);
+		String [] subFiles = directoryFile.list();
+		
+		SystemLogger.finer("The files %s were found under directory %s", subFiles, fullDirectoryPath);
+		return subFiles;
+	}
+	
+	/**
 	 * Method to read in the byte content of a file
 	 * @param subDirectory
 	 * @param fileName
