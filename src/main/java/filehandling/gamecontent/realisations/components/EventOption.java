@@ -20,6 +20,7 @@ public class EventOption {
 	private EventOptionItems eventOptionItems;
 	private String requiredCompletedEventID;
 	private String requiredItemID;
+	private String followingEventID;
 	
 	public EventOption(Node eventNode) {
 		SystemLogger.finer("Creating a new SaveGameContent object");
@@ -56,6 +57,9 @@ public class EventOption {
 				break;
 			case REQUIRED_ITEM_ID:
 				requiredItemID = currentNode.getTextContent();
+				break;
+			case FOLLOWING_EVENT_ID:	
+				followingEventID = currentNode.getTextContent();
 				break;
 			}
 		}
@@ -119,6 +123,13 @@ public class EventOption {
 	}
 	
 	/**
+	 * @return the followingEventID
+	 */
+	public String getFollowingEventID() {
+		return followingEventID;
+	}
+	
+	/**
 	 * private enum representing the tags available under the CompletedEvent element
 	 * @author Daniel
 	 *
@@ -131,7 +142,8 @@ public class EventOption {
 		EVENT_OPTION_KARMA_MODIFICATION("EventOptionKarmaModification"),
 		EVENT_OPTION_ITEMS("EventOptionItems"),
 		REQUIRED_COMPLETED_EVENT_ID("RequiredCompletedEventID"),
-		REQUIRED_ITEM_ID("RequiredItemID");
+		REQUIRED_ITEM_ID("RequiredItemID"),
+		FOLLOWING_EVENT_ID("FollowingEventID");
 		
 		private String tag;
 		

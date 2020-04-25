@@ -20,7 +20,6 @@
 			<xs:element name="IsPassiveEvent" type="xs:boolean" />
 			<xs:element name="IsSingleOccurence" type="xs:boolean" />
 			<xs:element name="EventOptions" type="EventOptionsType" />
-			<xs:element name="FollowingEventID" type="xs:string" minOccurs="0" />
 			<xs:element name="Rarity" type="RarityType"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -41,6 +40,7 @@
 			<xs:element name="EventOptionItems" type="EventOptionItemsType" minOccurs="0" />
 			<xs:element name="RequiredCompletedEventID" type="xs:string" minOccurs="0" />
 			<xs:element name="RequiredItemID" type="xs:string" minOccurs="0" />
+			<xs:element name="FollowingEventID" type="xs:string" minOccurs="0" />
 		</xs:sequence>
 	</xs:complexType>
 

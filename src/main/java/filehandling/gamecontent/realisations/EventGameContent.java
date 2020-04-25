@@ -23,7 +23,6 @@ public class EventGameContent extends AbstractGameContent {
 	private final boolean isPassiveEvent;
 	private final boolean isSingleOccurence;
 	private final EventOptions eventOptions;
-	private final String followingEventID;
 	private final Rarity rarity;
 	
 	/**
@@ -40,7 +39,6 @@ public class EventGameContent extends AbstractGameContent {
 		isPassiveEvent = Boolean.parseBoolean(XMLUtils.getFirstMatchingTagContent(document, EventGameContentTag.IS_PASSIVE_EVENT.getTag())); 
 		isSingleOccurence = Boolean.parseBoolean(XMLUtils.getFirstMatchingTagContent(document, EventGameContentTag.EVENT_LOCATION_ID.getTag()));
 		eventOptions = new EventOptions(document.getElementsByTagName(EventGameContentTag.EVENT_OPTIONS.getTag()).item(0));
-		followingEventID = XMLUtils.getFirstMatchingTagContent(document, EventGameContentTag.FOLLOWING_EVENT_ID.getTag());
 		rarity = Rarity.getByXmlValue(XMLUtils.getFirstMatchingTagContent(document, EventGameContentTag.RARITY.getTag()));
 		
 		SystemLogger.fine("A new %s was created", toString());
@@ -87,13 +85,6 @@ public class EventGameContent extends AbstractGameContent {
 	public EventOptions getEventOptions() {
 		return eventOptions;
 	}
-
-	/**
-	 * @return the followingEventID
-	 */
-	public String getFollowingEventID() {
-		return followingEventID;
-	}
 	
 	/**
 	 * @return the rarity
@@ -114,7 +105,6 @@ public class EventGameContent extends AbstractGameContent {
 		IS_PASSIVE_EVENT("IsPassiveEvent"),
 		IS_SINGLE_OCCURENCE("IsSingleOccurence"),
 		EVENT_OPTIONS("EventOptions"),
-		FOLLOWING_EVENT_ID("FollowingEventID"),
 		RARITY("Rarity");
 		
 		private String tag;

@@ -34,14 +34,14 @@ public class EventOptionTest {
 				+ "						<ItemCount>5</ItemCount>" + "					</Item>"
 				+ "				</EventOptionItems>"
 				+ "				<RequiredCompletedEventID>PriorEventID</RequiredCompletedEventID>"
-				+ "				<RequiredItemID>TestItemID</RequiredItemID>" + "			</EventOption>"
+				+ "				<RequiredItemID>TestItemID</RequiredItemID>"
+				+ "		<FollowingEventID>TestEventID2</FollowingEventID>" + "			</EventOption>"
 				+ "			<EventOption>" + "				<EventOptionID>TestEventIDOptionTwo</EventOptionID>"
 				+ "				<EventOptionDescription>Test Event Option two description</EventOptionDescription>"
 				+ "				<EventOptionImmunityModification>20</EventOptionImmunityModification>"
 				+ "				<EventOptionContagionLevelModifier>-20</EventOptionContagionLevelModifier>"
 				+ "				<EventOptionKarmaModification>10</EventOptionKarmaModification>"
-				+ "			</EventOption>" + "		</EventOptions>"
-				+ "		<FollowingEventID>TestEventID2</FollowingEventID>" + "		<Rarity>Common</Rarity>"
+				+ "			</EventOption>" + "		</EventOptions>" + "		<Rarity>Common</Rarity>"
 				+ "	</Event>" + "</Content>";
 
 		// Convert the testXML to a byte array for the method in test
@@ -68,6 +68,7 @@ public class EventOptionTest {
 
 		assertEquals("PriorEventID", optionType.getRequiredCompletedEventID());
 		assertEquals("TestItemID", optionType.getRequiredItemID());
+		assertEquals("TestEventID2", optionType.getFollowingEventID());
 	}
 
 	/**

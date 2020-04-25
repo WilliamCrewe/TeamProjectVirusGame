@@ -22,6 +22,7 @@
 				</EventOptionItems>
 				<RequiredCompletedEventID>PriorEventID</RequiredCompletedEventID>
 				<RequiredItemID>TestItemID</RequiredItemID>
+				<FollowingEventID>TestEventID2</FollowingEventID>
 			</EventOption>
 			<EventOption>
 				<EventOptionID>TestEventIDOptionTwo</EventOptionID>
@@ -31,7 +32,6 @@
 				<EventOptionKarmaModification>10</EventOptionKarmaModification>
 			</EventOption>
 		</EventOptions>
-		<FollowingEventID>TestEventID2</FollowingEventID>
 		<Rarity>Common</Rarity>
 	</Event>
 </Content>

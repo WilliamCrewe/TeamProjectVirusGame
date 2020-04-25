@@ -53,7 +53,6 @@ public class EventGameContentTest {
 		List<EventOption> eventOptionsValues = eventOptions.getEventOptionsValues();
 		assertEquals(2, eventOptionsValues.size());
 
-		assertEquals("TestEventID2", eventGameContent.getFollowingEventID());
 		assertEquals(Rarity.COMMON, eventGameContent.getRarity());
 
 	}
