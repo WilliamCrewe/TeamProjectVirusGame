@@ -24,7 +24,7 @@ public class SaveItemsTest {
 	@Test
 	public void testConstructor() throws Exception {
 		// This XML is for the save event type
-		String fullFilePath = System.getProperty("user.dir") + "\\Resources\\TestFiles\\Saves\\SAVE_TestEventName.xml";
+		String fullFilePath = System.getProperty("user.dir") + "\\Resources\\TestFiles\\Saves\\SAVE_TestSaveName.xml";
 
 		// Create the XML document
 		Document document = XMLUtils.convertByteArrayToDocument(Files.readAllBytes(new File(fullFilePath).toPath()));
@@ -48,7 +48,7 @@ public class SaveItemsTest {
 	@Test
 	public void testSerialize() throws Exception {
 		// This XML is for the save event type
-		String fullFilePath = System.getProperty("user.dir") + "\\Resources\\TestFiles\\Saves\\SAVE_TestEventName.xml";
+		String fullFilePath = System.getProperty("user.dir") + "\\Resources\\TestFiles\\Saves\\SAVE_TestSaveName.xml";
 
 		// Create the XML document
 		Document document = XMLUtils.convertByteArrayToDocument(Files.readAllBytes(new File(fullFilePath).toPath()));

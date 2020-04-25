@@ -3,7 +3,6 @@
 		<EventID>TestEventID</EventID>
 		<EventName>Test Event Name</EventName>
 		<EventLocationID>Hospital</EventLocationID>
-		<EventOccurenceProbability>TestEventID</EventOccurenceProbability>
 		<IsPassiveEvent>true</IsPassiveEvent>
 		<IsSingleOccurence>false</IsSingleOccurence>
 		<EventOptions>
@@ -18,6 +17,7 @@
 						<ItemID>ItemIDOne</ItemID>
 						<ItemName>ItemNameOne</ItemName>
 						<ItemCount>3</ItemCount>
+						<ItemUsageEventID>UseItem1EventID</ItemUsageEventID>
 					</Item>
 				</EventOptionItems>
 				<RequiredCompletedEventID>PriorEventID</RequiredCompletedEventID>

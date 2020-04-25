@@ -26,7 +26,7 @@ public class GameContentFactoryTest {
 	@Test
 	public void testSeriliazeFileContentSave() throws Exception {
 		// This XML is for the save event type
-		String fullFilePath = System.getProperty("user.dir") + "\\Resources\\TestFiles\\Saves\\SAVE_TestEventName.xml";
+		String fullFilePath = System.getProperty("user.dir") + "\\Resources\\TestFiles\\Saves\\SAVE_TestSaveName.xml";
 		
 		// Call the method in test
 		AbstractGameContent gameContent = GameContentFactory.seriliazeFileContent(Files.readAllBytes(new File(fullFilePath).toPath()));

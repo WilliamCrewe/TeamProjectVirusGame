@@ -23,7 +23,7 @@ public class FileReaderTest {
 		
 		// Assert the correct filename was found
 		assertEquals(1, fileNamesFound.length);
-		assertEquals("SAVE_TestEventName.xml", fileNamesFound[0]);
+		assertEquals("SAVE_TestSaveName.xml", fileNamesFound[0]);
 	}
 	
 	/**
@@ -62,7 +62,7 @@ public class FileReaderTest {
 				"	</Save>\r\n" + 
 				"</Content>";
 		
-		String fullFilePath = System.getProperty("user.dir") + "\\Resources\\TestFiles\\Saves\\SAVE_TestEventName.xml";
+		String fullFilePath = System.getProperty("user.dir") + "\\Resources\\TestFiles\\Saves\\SAVE_TestSaveName.xml";
 				
 		// Call the method in test
 		byte[] fileContents = FileReader.readFileContents(fullFilePath);

@@ -20,18 +20,6 @@ public class FileWriter {
 	}
 	
 	/**
-	 * Creates the full file path based on the base directory (Setup in properties), the directory and the fileContents. Overwrites existing files with the same path
-	 * @param directory
-	 * @param fileName
-	 * @param fileContents
-	 * @throws UnableToWriteContentException
-	 */
-	public static void writeContentsToFile(String directory, String fileName, byte[] fileContents) throws UnableToWriteContentException {
-		String fullFilePath = PropertyManager.getBaseDirectory() + File.separator + directory + File.separator + fileName;
-		writeContentsToFile(fullFilePath, fileContents);
-	}
-	
-	/**
 	 * Writes the contents passed in to a file at the filepath. Overwrites existing files with the same path
 	 * @param fullFilePath
 	 * @param fileContents
