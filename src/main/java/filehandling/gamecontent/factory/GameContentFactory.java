@@ -4,6 +4,9 @@ import org.w3c.dom.Document;
 
 import main.java.filehandling.gamecontent.AbstractGameContent;
 import main.java.filehandling.gamecontent.ContentType;
+import main.java.filehandling.gamecontent.realisations.CharacterGameContent;
+import main.java.filehandling.gamecontent.realisations.EventGameContent;
+import main.java.filehandling.gamecontent.realisations.LocationGameContent;
 import main.java.filehandling.gamecontent.realisations.SaveGameContent;
 import main.java.filehandling.xml.XMLFileConstants;
 import main.java.filehandling.xml.XMLUtils;
@@ -41,6 +44,11 @@ public class GameContentFactory {
 			case SAVE:
 				return new SaveGameContent(document);
 			case CHARACTER:
+				return new CharacterGameContent(document);
+			case LOCATION:
+				return new LocationGameContent(document);
+			case EVENT:
+				return new EventGameContent(document);
 		}
 		
 		return null;

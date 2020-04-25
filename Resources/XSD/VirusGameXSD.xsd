@@ -17,6 +17,7 @@
 			<xs:element name="EventID" type="xs:string"/>
 			<xs:element name="EventName" type="xs:string" />
 			<xs:element name="EventLocationID" type="xs:string" />
+			<xs:element name="IsPassiveEvent" type="xs:boolean" />
 			<xs:element name="IsSingleOccurence" type="xs:boolean" />
 			<xs:element name="EventOptions" type="EventOptionsType" />
 			<xs:element name="FollowingEventID" type="xs:string" minOccurs="0" />
@@ -105,6 +106,7 @@
 		<xs:sequence maxOccurs="1">
 			<xs:element name="LocationID" type="xs:string"/>
 			<xs:element name="LocationName" type="xs:string" />
+			<xs:element name="LocationPassiveEventID" type="xs:string"/>
 		</xs:sequence>
 	</xs:complexType>
 

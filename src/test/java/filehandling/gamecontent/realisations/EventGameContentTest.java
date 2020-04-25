@@ -3,6 +3,7 @@ package test.java.filehandling.gamecontent.realisations;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 import java.nio.file.Files;
@@ -44,6 +45,7 @@ public class EventGameContentTest {
 		assertEquals("Test Event Name", eventGameContent.getEventName());
 		assertEquals("Hospital", eventGameContent.getEventLocationID());
 		assertEquals("TestEventID", eventGameContent.getEventID());
+		assertTrue(eventGameContent.isPassiveEvent());
 		assertFalse(eventGameContent.isSingleOccurence());
 
 		EventOptions eventOptions = eventGameContent.getEventOptions();

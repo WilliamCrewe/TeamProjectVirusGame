@@ -18,6 +18,11 @@ public class CharacterGameContent extends AbstractGameContent {
 	private final String characterID;
 	private final String characterName;
 	
+	/**
+	 * Constructor for when the character XML content is used
+	 * @param document
+	 * @throws XMLParseException
+	 */
 	public CharacterGameContent(Document document) throws XMLParseException {
 		SystemLogger.finer("Creating a new CharacterGameContent object");
 		contentType = ContentType.CHARACTER;

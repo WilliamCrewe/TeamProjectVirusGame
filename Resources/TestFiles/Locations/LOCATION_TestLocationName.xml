@@ -1,5 +1,7 @@
 <Content>
 	<Location>
+		<LocationID>TestLocationID</LocationID>
 		<LocationName>TestLocationName</LocationName>
-	<Location>
+		<LocationPassiveEventID>TestPassiveEventID</LocationPassiveEventID>
+	</Location>
 </Content>

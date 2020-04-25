@@ -20,17 +20,24 @@ public class EventGameContent extends AbstractGameContent {
 	private final String eventID;
 	private final String eventName;
 	private final String eventLocationID;
+	private final boolean isPassiveEvent;
 	private final boolean isSingleOccurence;
 	private final EventOptions eventOptions;
 	private final String followingEventID;
 	private final Rarity rarity;
 	
+	/**
+	 * Constructor for when the event XML content is used
+	 * @param document
+	 * @throws XMLParseException
+	 */
 	public EventGameContent(Document document) throws XMLParseException {
 		SystemLogger.finer("Creating a new EventGameContent object");
 		contentType = ContentType.EVENT;
 		eventID = XMLUtils.getFirstMatchingTagContent(document, EventGameContentTag.EVENT_ID.getTag());
 		eventName = XMLUtils.getFirstMatchingTagContent(document, EventGameContentTag.EVENT_NAME.getTag());
 		eventLocationID = XMLUtils.getFirstMatchingTagContent(document, EventGameContentTag.EVENT_LOCATION_ID.getTag());
+		isPassiveEvent = Boolean.parseBoolean(XMLUtils.getFirstMatchingTagContent(document, EventGameContentTag.IS_PASSIVE_EVENT.getTag())); 
 		isSingleOccurence = Boolean.parseBoolean(XMLUtils.getFirstMatchingTagContent(document, EventGameContentTag.EVENT_LOCATION_ID.getTag()));
 		eventOptions = new EventOptions(document.getElementsByTagName(EventGameContentTag.EVENT_OPTIONS.getTag()).item(0));
 		followingEventID = XMLUtils.getFirstMatchingTagContent(document, EventGameContentTag.FOLLOWING_EVENT_ID.getTag());
@@ -58,6 +65,13 @@ public class EventGameContent extends AbstractGameContent {
 	 */
 	public String getEventLocationID() {
 		return eventLocationID;
+	}
+	
+	/**
+	 * @return the isPassiveEvent
+	 */
+	public boolean isPassiveEvent() {
+		return isPassiveEvent;
 	}
 
 	/**
@@ -97,6 +111,7 @@ public class EventGameContent extends AbstractGameContent {
 		EVENT_ID("EventID"),
 		EVENT_NAME("EventName"),
 		EVENT_LOCATION_ID("EventLocationID"),
+		IS_PASSIVE_EVENT("IsPassiveEvent"),
 		IS_SINGLE_OCCURENCE("IsSingleOccurence"),
 		EVENT_OPTIONS("EventOptions"),
 		FOLLOWING_EVENT_ID("FollowingEventID"),

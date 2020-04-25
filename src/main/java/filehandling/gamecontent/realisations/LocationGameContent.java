@@ -15,14 +15,30 @@ import main.java.logging.SystemLogger;
  */
 public class LocationGameContent extends AbstractGameContent {
 
+	private final String locationID;
 	private final String locationName;
+	private final String locationPassiveEventID;
 	
+	/**
+	 * Constructor for when the location XML content is used
+	 * @param document
+	 * @throws XMLParseException
+	 */
 	public LocationGameContent(Document document) throws XMLParseException {
 		SystemLogger.finer("Creating a new LocationGameContent object");
 		contentType = ContentType.LOCATION;
+		locationID = XMLUtils.getFirstMatchingTagContent(document, LocationGameContentTag.LOCATION_ID.getTag());
 		locationName = XMLUtils.getFirstMatchingTagContent(document, LocationGameContentTag.LOCATION_NAME.getTag());
+		locationPassiveEventID = XMLUtils.getFirstMatchingTagContent(document, LocationGameContentTag.LOCATION_PASSIVE_EVENT_ID.getTag());
 		
 		SystemLogger.fine("A new %s was created", toString());
+	}
+	
+	/**
+	 * @return Returns the ID of the location
+	 */
+	public String getLocationID() {
+		return locationID;
 	}
 	
 	/**
@@ -30,6 +46,13 @@ public class LocationGameContent extends AbstractGameContent {
 	 */
 	public String getLocationName() {
 		return locationName;
+	}
+	
+	/**
+	 * @return Returns the passive event ID for this location
+	 */
+	public String getLocationPassiveEventID() {
+		return locationPassiveEventID;
 	}
 	
 	@Override
@@ -43,7 +66,9 @@ public class LocationGameContent extends AbstractGameContent {
 	 *
 	 */
 	private enum LocationGameContentTag {
-		LOCATION_NAME("LocationName");
+		LOCATION_ID("LocationID"),
+		LOCATION_NAME("LocationName"),
+		LOCATION_PASSIVE_EVENT_ID("LocationPassiveEventID");
 		
 		private String tag;
 		

@@ -4,6 +4,7 @@
 		<EventName>Test Event Name</EventName>
 		<EventLocationID>Hospital</EventLocationID>
 		<EventOccurenceProbability>TestEventID</EventOccurenceProbability>
+		<IsPassiveEvent>true</IsPassiveEvent>
 		<IsSingleOccurence>false</IsSingleOccurence>
 		<EventOptions>
 			<EventOption>

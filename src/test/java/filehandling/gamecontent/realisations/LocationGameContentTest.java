@@ -34,6 +34,7 @@ public class LocationGameContentTest {
 		assertEquals(ContentType.LOCATION, locationGameContent.getContentType());
 		assertEquals("TestLocationName", locationGameContent.getLocationName());
 		assertEquals("LocationGameContent object with values: locationName=TestLocationName", locationGameContent.toString());
+		assertEquals("TestPassiveEventID", locationGameContent.getLocationPassiveEventID());
 	}
 	
 	/**
