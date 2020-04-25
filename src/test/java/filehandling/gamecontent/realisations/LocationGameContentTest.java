@@ -10,6 +10,7 @@ import org.w3c.dom.Document;
 
 import main.java.filehandling.gamecontent.ContentType;
 import main.java.filehandling.gamecontent.realisations.LocationGameContent;
+import main.java.filehandling.gamecontent.realisations.components.ConnectedLocations;
 import main.java.filehandling.xml.XMLUtils;
 import main.java.filehandling.xml.exception.XMLParseException;
 
@@ -35,6 +36,12 @@ public class LocationGameContentTest {
 		assertEquals("TestLocationName", locationGameContent.getLocationName());
 		assertEquals("LocationGameContent object with values: locationName=TestLocationName", locationGameContent.toString());
 		assertEquals("TestPassiveEventID", locationGameContent.getLocationPassiveEventID());
+		
+		ConnectedLocations connectedLocations = locationGameContent.getConnectedLocations();
+		assertEquals(2, connectedLocations.getConnectedLocationIDs().size());
+		assertEquals("TestConnectedLocationID1", connectedLocations.getConnectedLocationIDs().get(0));
+		assertEquals("TestConnectedLocationID2", connectedLocations.getConnectedLocationIDs().get(1));
+		
 	}
 	
 	/**

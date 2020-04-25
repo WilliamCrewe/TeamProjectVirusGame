@@ -3,5 +3,9 @@
 		<LocationID>TestLocationID</LocationID>
 		<LocationName>TestLocationName</LocationName>
 		<LocationPassiveEventID>TestPassiveEventID</LocationPassiveEventID>
+		<ConnectedLocations>
+			<ConnectedLocationID>TestConnectedLocationID1</ConnectedLocationID>
+			<ConnectedLocationID>TestConnectedLocationID2</ConnectedLocationID>
+		</ConnectedLocations>
 	</Location>
 </Content>

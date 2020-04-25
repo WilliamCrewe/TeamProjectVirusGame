@@ -153,6 +153,7 @@ public class ItemTypeTest {
 				"						<ItemID>ItemIDOne</ItemID>" + 
 				"						<ItemName>ItemNameOne</ItemName>" + 
 				"						<ItemCount>5</ItemCount>" + 
+				"<ItemUsageEventID>UseItem1EventID</ItemUsageEventID>" + 
 				"					</Item>" + 
 				"				</EventOptionItems>" + 
 				"				<RequiredCompletedEventID>PriorEventID</RequiredCompletedEventID>" + 
@@ -187,6 +188,6 @@ public class ItemTypeTest {
 		byte[] serializedObject = completedEvent.serialize();
 		
 		// Check the the bytes represent the string expected
-		assertEquals("<Item><ItemID>ItemIDOne</ItemID><ItemName>ItemNameOne</ItemName><ItemCount>5</ItemCount></Item>", new String(serializedObject));
+		assertEquals("<Item><ItemID>ItemIDOne</ItemID><ItemName>ItemNameOne</ItemName><ItemCount>5</ItemCount><ItemUsageEventID>UseItem1EventID</ItemUsageEventID></Item>", new String(serializedObject));
 	}
 }

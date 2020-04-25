@@ -107,6 +107,13 @@
 			<xs:element name="LocationID" type="xs:string"/>
 			<xs:element name="LocationName" type="xs:string" />
 			<xs:element name="LocationPassiveEventID" type="xs:string"/>
+			<xs:element name="ConnectedLocations" type="ConnectedLocationsType" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="ConnectedLocationsType">
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="ConnectedLocationID" type="xs:string" />
 		</xs:sequence>
 	</xs:complexType>
 

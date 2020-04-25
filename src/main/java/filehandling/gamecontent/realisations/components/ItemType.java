@@ -17,7 +17,7 @@ public class ItemType implements XMLSerializable {
 	private int itemCount;
 	private String itemUsageEventID;
 	
-	private static final String SERIALIZED_FORMAT = "<Item><ItemID>%s</ItemID><ItemName>%s</ItemName><ItemCount>%s</ItemCount></Item>";
+	private static final String SERIALIZED_FORMAT = "<Item><ItemID>%s</ItemID><ItemName>%s</ItemName><ItemCount>%s</ItemCount><ItemUsageEventID>%s</ItemUsageEventID></Item>";
 	
 	public ItemType(Node completedEventNode) {
 		NodeList childNodes = completedEventNode.getChildNodes();
@@ -81,7 +81,7 @@ public class ItemType implements XMLSerializable {
 	
 	@Override
 	public String toXMLString() {
-		return  String.format(SERIALIZED_FORMAT, itemID, itemName, itemCount);
+		return  String.format(SERIALIZED_FORMAT, itemID, itemName, itemCount, itemUsageEventID);
 	}
 
 	/**

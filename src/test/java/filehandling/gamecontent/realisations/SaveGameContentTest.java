@@ -101,7 +101,7 @@ public class SaveGameContentTest {
 				+ "<EventOptionID>TestOptionID1</EventOptionID>" + "</CompletedEvent>" + "<CompletedEvent>"
 				+ "<EventID>TestEventID2</EventID>" + "<EventOptionID>TestOptionID2</EventOptionID>"
 				+ "</CompletedEvent>" + "</CompletedEvents>" + "<SaveItems>" + "<Item>" + "<ItemID>ItemID1</ItemID>"
-				+ "<ItemName>ItemNameOne</ItemName>" + "<ItemCount>2</ItemCount>" + "</Item>" + "</SaveItems>"
+				+ "<ItemName>ItemNameOne</ItemName>" + "<ItemCount>2</ItemCount><ItemUsageEventID>UseItem1EventID</ItemUsageEventID>" + "</Item>" + "</SaveItems>"
 				+ "</Save>" + "</Content>";
 		assertEquals(expectedXML, new String(saveGameContent.serialize()));
 	}

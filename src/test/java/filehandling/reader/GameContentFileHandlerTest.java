@@ -42,8 +42,8 @@ public class GameContentFileHandlerTest {
 		
 		// Assert the values of the object are set as expected
 		assertEquals("TestSaveName", saveGameContent.getSaveName());
-		assertEquals("TestSeed", saveGameContent.getSeed());
+		assertEquals("AABBCC12", saveGameContent.getSeed());
 		assertEquals(42, saveGameContent.getDayNumber());
-		assertEquals("SaveGameContent object with values: saveName=TestSaveName, seed=TestSeed, dayNumber=42", saveGameContent.toString());
+		assertEquals("SaveGameContent object with values: saveName=TestSaveName, seed=AABBCC12, dayNumber=42", saveGameContent.toString());
 	}
 }
