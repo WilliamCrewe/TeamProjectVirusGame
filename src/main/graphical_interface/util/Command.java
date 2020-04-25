@@ -36,5 +36,8 @@ public enum Command {
 	
 	SWITCH_GAMEPLAY_UI,
 	SWITCH_MAINMENU_UI,
+	
+	USE_ITEM,
+	DROP_ITEM,
 
 }

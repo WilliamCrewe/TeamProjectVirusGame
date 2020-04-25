@@ -1,6 +1,7 @@
 package main.graphical_interface;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -8,6 +9,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import main.graphical_interface.gameWindows.*;
 import main.graphical_interface.util.Command;
+import main.graphical_interface.util.GUIInventoryItem;
 
 public class GUIController extends Application {
 
@@ -30,6 +32,8 @@ public class GUIController extends Application {
 	private static GUIEventOption[] currentEventOptions;
 	private static int currentEventPage;
 	private static int finalEventPage;
+	
+	private static HashMap<Integer ,GUIInventoryItem> allItems;
 	
 	/*
 	 * Constants to be used to determine the size of the
@@ -82,6 +86,7 @@ public class GUIController extends Application {
 			GUIController.rootStage.setScene(updateScene());
 			updatePlayerButtonInput();
 			updateLocationButtonInput();
+			updatePlayerInventory();
 			break;
 		
 		case SWITCH_MAINMENU_UI:
@@ -158,6 +163,19 @@ public class GUIController extends Application {
 			GUIController.currentLocations[1] = l2;
 			
 			GUIController.finalLocationPage = 4;
+			
+			GUIController.allItems = new HashMap<>();
+			
+			GUIInventoryItem i1 = new GUIInventoryItem("Easter Egg", "How did this get in here?", 1, true, true);
+			GUIInventoryItem i2 = new GUIInventoryItem("Lucky Rabbits Foot", "You've had it since you were a child.\n"
+					+ "No one knows why.", 1, true, false);
+			GUIInventoryItem i3 = new GUIInventoryItem("Testing", "Test", 5, true, true);
+			
+			allItems.put(allItems.size(), i1);
+			allItems.put(allItems.size(), i2);
+			allItems.put(allItems.size(), i3);
+			
+			
 		}
 	}
 	
@@ -330,6 +348,33 @@ public class GUIController extends Application {
 		}
 	}
 	
+	public static void updateItem(Command c, int itemNumber) {
+		switch (c) {
+		case USE_ITEM:
+			System.out.println("Use Item: #"+itemNumber);
+			break;
+		case DROP_ITEM:
+			GUIInventoryItem item = GUIController.allItems.get(itemNumber);
+			if (item.getQuantity() == 1) {
+				GUIController.allItems.remove(itemNumber);
+			} else {
+				item.updateQuantity(-1);
+				GUIController.allItems.replace(itemNumber, item);
+			}
+			HashMap<Integer, GUIInventoryItem> newInventory = new HashMap<>();
+			for (Integer i : GUIController.allItems.keySet()) {
+				newInventory.put(newInventory.size(), GUIController.allItems.get(i));
+			}
+			GUIController.allItems = newInventory;
+			updatePlayerInventory();
+			System.out.println("Drop Item: #"+itemNumber);
+			break;
+		default:
+			break;
+		}
+		
+	}
+	
 	private static void clearCurrentEventPage() {
 		for (int i = 0; i < currentEventOptions.length; i++) {
 			currentEventOptions[i] = null;
@@ -387,6 +432,10 @@ public class GUIController extends Application {
 		InGameWindow.setLocationVisible(visibleButtons);
 		InGameWindow.setLocationText(buttonText);
 		
+	}
+	
+	private static void updatePlayerInventory() {
+		InGameWindow.updatePlayerInventory(GUIController.allItems);
 	}
 	
 	public static void textUpdate(String s, Command c) {

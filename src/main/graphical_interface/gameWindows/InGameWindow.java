@@ -1,5 +1,7 @@
 package main.graphical_interface.gameWindows;
 
+import java.util.HashMap;
+
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Control;
@@ -18,6 +20,7 @@ import main.graphical_interface.gameWindows.inGameWindows.MenuBarController;
 import main.graphical_interface.gameWindows.inGameWindows.MiniMapController;
 import main.graphical_interface.gameWindows.inGameWindows.inputOptions.*;
 import main.graphical_interface.util.Command;
+import main.graphical_interface.util.GUIInventoryItem;
 
 public class InGameWindow extends AbstractGameWindow {
 	
@@ -25,6 +28,7 @@ public class InGameWindow extends AbstractGameWindow {
 	private static PlayerInputController input;
 	private static MiniMapController miniMap;
 	private static DisplayWindowController displayController;
+	private static InventoryBarController inventoryController;
 	
 	public InGameWindow() {
 		createWindow();
@@ -92,8 +96,8 @@ public class InGameWindow extends AbstractGameWindow {
 				Pane tempMap = InGameWindow.miniMap.getMiniMap();
 				
 				//Create Inventory Box
-				InventoryBarController invController = new InventoryBarController();
-				TextArea invBox = invController.getInventoryBox();
+				InGameWindow.inventoryController = new InventoryBarController();
+				VBox invBox = inventoryController.getInventoryBox();
 				
 				//Assign to VBox
 				minimapInventoryBox.getChildren().add(tempMap);
@@ -164,7 +168,10 @@ public class InGameWindow extends AbstractGameWindow {
 		if (InGameWindow.displayController.getTextView() instanceof TextArea) {
 			InGameWindow.displayController.updateDisplayTest(text);
 		}
-		
+	}
+	
+	public static void updatePlayerInventory(HashMap<Integer, GUIInventoryItem> inventoryUpdate) {
+		InGameWindow.inventoryController.createWholeInventory(inventoryUpdate);
 	}
 	
 	private HBox createLoadSaveBar() {
