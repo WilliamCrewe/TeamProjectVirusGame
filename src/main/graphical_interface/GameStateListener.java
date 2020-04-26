@@ -45,21 +45,21 @@ public class GameStateListener implements Observer{
 		GameStateListener.locationCountOption = 0;
 		GameStateListener.locationCountPage = 0;
 		
-		if (arg instanceof GameState) {
+		if (o instanceof GameState) {
 			
 			HashMap<Integer, GUIInventoryItem> currentInventory = createInventory(
-					((GameState)arg).getSave().getSaveItems());
+					((GameState)o).getSave().getSaveItems());
 			ArrayList<GUIEventOption> allEventOptions = createEventOptions(
-					((GameState)arg).getCurrentEvent(), null, null);
+					((GameState)o).getCurrentEvent(), ((GameState)o).getActiveOptions(), null);
 			
-			String locID = ((GameState)arg).getSave().getCurrentLocationID();
+			
 			List<GUILocation> allLocations = createLocationOptions(
-					((GameState)arg).getCurrentLocation());
+					((GameState)o).getCurrentLocation());
 			
 			GUIController.allItems = currentInventory;
 			GUIController.allLocations = allLocations;
 			GUIController.allEventOptions = allEventOptions;
-			GUIController.currentEventID = ((GameState)arg).getCurrentEvent().getEventID();
+			GUIController.currentEventID = ((GameState)o).getCurrentEvent().getEventID();
 			
 			GUIController.setCurrentEvents();
 			GUIController.setCurrentLocations();
