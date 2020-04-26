@@ -129,8 +129,6 @@ public class InventoryBarController {
 		dropItem.setPrefWidth(50.0);
 		dropItem.setVisible(droppable);
 		dropItem.setOnAction(clicked -> {GUIController.updateItem(Command.DROP_ITEM, currentItem);});
-		dropItem.setDisable(true);
-		dropItem.setTooltip(new Tooltip("Unavailable in current build."));
 		
 		itemBox.getChildren().addAll(itemNameLabel, useItem, dropItem);
 		spacer.getChildren().add(itemBox);
