@@ -6,7 +6,9 @@ import main.java.event.types.EventActionEvent;
 import main.java.filehandling.gamecontent.realisations.EventGameContent;
 import main.java.filehandling.gamecontent.realisations.SaveGameContent;
 import main.java.filehandling.gamecontent.realisations.components.EventOption;
+import main.java.filehandling.gamecontent.realisations.components.EventOptionItems;
 import main.java.filehandling.gamecontent.realisations.components.EventOptions;
+import main.java.filehandling.gamecontent.realisations.components.ItemType;
 import main.java.gamecontrol.gamestate.GameState;
 import main.java.logging.SystemLogger;
 
@@ -48,7 +50,13 @@ public class EventController {
 		save.alterContagionLevel(chosenOption.getEventOptionContagionLevelModifier());
 		save.alterKarma(chosenOption.getEventOptionKarmaModification());
 		
-//		chosenOption.getEventOptionItems();
-//		save.getSaveItems().addToSaveItems("");
+		EventOptionItems eventOptionItems = chosenOption.getEventOptionItems();
+		if (eventOptionItems != null) {
+			for (ItemType item : eventOptionItems.getEventOptionItemsValues()) {
+				save.getSaveItems().addToSaveItems(item);
+			}
+		}
+		
+		GameState.getInstance().completeEvent(event.getEventID());
 	}
 }

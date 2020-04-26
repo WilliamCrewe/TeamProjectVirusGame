@@ -77,7 +77,7 @@ public class GameStateInitialisationHelper {
 	}
 	
 	private static void initialiseEvents() {
-		SystemLogger.fine("Starting the initialisation of the GameState Locations");
+		SystemLogger.fine("Starting the initialisation of the GameState Events");
 		String characterDirectoryPath = PropertyManager.getBaseDirectory()+ File.separator + GameDirectory.EVENTS_DIRECTORY.getDirctoryName();
 		String[] fileNames = FileReader.getFilesInDirectory(characterDirectoryPath);
 		for (String filePath : fileNames) {
@@ -90,7 +90,7 @@ public class GameStateInitialisationHelper {
 				SystemLogger.severe("An exception occured reading in the contents of file %s, reason was %s", filePath, e.getMessage());
 			}
 		}
-		SystemLogger.finer("Finished the initialisation of the GameState Locations");
+		SystemLogger.finer("Finished the initialisation of the GameState Events");
 		
 	}
 }

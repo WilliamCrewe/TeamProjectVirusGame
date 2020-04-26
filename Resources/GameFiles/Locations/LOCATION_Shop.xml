@@ -1,7 +1,7 @@
 <Content>
 	<Location>
-		<LocationID>Market</LocationID>
-		<LocationName>Market</LocationName>
+		<LocationID>Shop</LocationID>
+		<LocationName>Shop</LocationName>
 		<LocationPassiveEventID>ShopTrade</LocationPassiveEventID>
 		<ConnectedLocations>
 			<ConnectedLocationID>Home</ConnectedLocationID>

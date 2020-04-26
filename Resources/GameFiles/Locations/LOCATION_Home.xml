@@ -4,7 +4,7 @@
 		<LocationName>Home</LocationName>
 		<LocationPassiveEventID>Sleep</LocationPassiveEventID>
 		<ConnectedLocations>
-			<ConnectedLocationID>Market</ConnectedLocationID>
+			<ConnectedLocationID>Shop</ConnectedLocationID>
 			<ConnectedLocationID>Hospital</ConnectedLocationID>
 		</ConnectedLocations>
 	</Location>

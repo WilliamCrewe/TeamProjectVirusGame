@@ -142,7 +142,7 @@ public class GameState extends Observable {
 		
 		// Update the save to say the event was completed
 		this.save.getCompletedEvents()
-				.addToCompletedEvent(new CompletedEvent(this.currentEvent.getEventLocationID(), eventOptionID));
+				.addToCompletedEvent(new CompletedEvent(this.currentEvent.getEventID(), eventOptionID));
 		
 		// Set the currentEvent back to null
 		this.currentEvent = null;
