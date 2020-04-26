@@ -1,7 +1,5 @@
 package main.java.random;
 
-import main.java.logging.SystemLogger;
-
 /**
  * Enum representing the different rarities allowable within the system, as well
  * as the different likelihoods of them occurring (range out of 100)
@@ -39,6 +37,17 @@ public enum Rarity {
 	}
 	
 	/**
+	 * @return returns the more common version of this rarity, throws an exception if the rarity is common
+	 */
+	public Rarity getMoreCommonRarity() {
+		if (this == Rarity.COMMON) {
+			throw new IllegalArgumentException("There is no rarity below common");
+		}
+		
+		return Rarity.values()[this.ordinal() -1];
+	}
+	
+	/**
 	 * Returns the rarity which has the value within it's range
 	 * @param value
 	 * @return
@@ -54,30 +63,6 @@ public enum Rarity {
 		}
 		
 		throw new IllegalArgumentException(String.format("No Rarity has the value %d in its range", value));
-	}
-	
-	/**
-	 * This method is used to reduce the rarity level by one as to ensure that an event is selected by the EventPickerController
-	 * @param currentRarity
-	 * @return one rarity lower from the current passed in rarity
-	 */
-	public static Rarity getNextLowerRarity(Rarity currentRarity) {
-		if(currentRarity.equals(LEGENDARY)) {
-			SystemLogger.finer("Rarity reduced from Legendary to Very Rare");
-			return VERY_RARE;
-		}else if(currentRarity.equals(VERY_RARE)) {
-			SystemLogger.finer("Rarity reduced from Very Rare to Rare");
-			return RARE;
-		}else if(currentRarity.equals(RARE)) {
-			SystemLogger.finer("Rarity reduced from Rare to Uncommon");
-			return UNCOMMON;
-		}else if(currentRarity.equals(UNCOMMON)) {
-			SystemLogger.finer("Rarity reduced from Uncommon to Common");
-			return COMMON;
-		}else {
-			SystemLogger.finer("Rarity is Common and cannot be reduced any further");
-			return COMMON;
-		}
 	}
 
 	/**

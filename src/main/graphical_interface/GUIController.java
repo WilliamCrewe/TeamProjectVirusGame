@@ -2,18 +2,19 @@ package main.graphical_interface;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import main.graphical_interface.gameWindows.*;
+import main.graphical_interface.gameWindows.AbstractGameWindow;
+import main.graphical_interface.gameWindows.InGameWindow;
+import main.graphical_interface.gameWindows.StartMenuWindow;
 import main.graphical_interface.util.Command;
 import main.graphical_interface.util.GUIEventOption;
 import main.graphical_interface.util.GUIInventoryItem;
 import main.graphical_interface.util.GUILocation;
-import main.java.event.EventQueue;
-import main.java.logging.SystemLogger;
 
 public class GUIController extends Application {
 
@@ -27,13 +28,13 @@ public class GUIController extends Application {
 	 * These variables perform eventHandling
 	 */
 	
-	static ArrayList<GUILocation> allLocations;
+	static List<GUILocation> allLocations;
 	static GUILocation[] currentLocations;
 	private static int currentLocationPage;
 	private static int finalLocationPage;
 	
 	//private static Event currentEvent;
-	static ArrayList<GUIEventOption> allEventOptions;
+	static List<GUIEventOption> allEventOptions;
 	static GUIEventOption[] currentEventOptions;
 	static String currentEventID;
 	private static int currentEventPage;

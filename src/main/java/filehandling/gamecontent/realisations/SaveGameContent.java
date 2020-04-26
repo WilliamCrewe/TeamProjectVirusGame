@@ -6,9 +6,7 @@ import org.w3c.dom.NodeList;
 import main.java.filehandling.gamecontent.AbstractGameContent;
 import main.java.filehandling.gamecontent.ContentType;
 import main.java.filehandling.gamecontent.XMLFileWritable;
-import main.java.filehandling.gamecontent.realisations.components.CompletedEvent;
 import main.java.filehandling.gamecontent.realisations.components.CompletedEvents;
-import main.java.filehandling.gamecontent.realisations.components.ItemType;
 import main.java.filehandling.gamecontent.realisations.components.SaveItems;
 import main.java.filehandling.reader.GameDirectory;
 import main.java.filehandling.xml.XMLUtils;
@@ -143,6 +141,68 @@ public class SaveGameContent extends AbstractGameContent implements XMLFileWrita
 		return GameDirectory.SAVES_DIRECTORY.getDirctoryName();
 	}
 
+	public void setDayNumber(int dayNumber) {
+		this.dayNumber = dayNumber;
+	}
+	
+	/**
+	 * @return The current immunity of this save
+	 */
+	public int getImmunity() {
+		return immunity;
+	}
+	
+	public void alterImmunity(int immunityModification) {
+		immunity += immunityModification;
+	}
+	
+	/**
+	 * @return The current contagion level for this save
+	 */	
+	public int getContagionLevel() {
+		return contagionLevel;
+	}
+	
+	public void alterContagionLevel(int contagionLevelModification) {
+		contagionLevel += contagionLevelModification;
+	}
+	
+	/**
+	 * @return The current karma level for this save
+	 */	
+	public int getKarma() {
+		return karma;
+	}
+	
+	public void alterKarma(int karmaModification) {
+		karma += karmaModification;
+	}
+	
+	/**
+	 * @return The current location ID
+	 */
+	public String getCurrentLocationID() {
+		return currentLocationID;
+	}
+	
+	public void setCurrentLocationID(String currentLocationID) {
+		this.currentLocationID = currentLocationID;
+	}
+	
+	/**
+	 * @return The completed events in this save game
+	 */
+	public CompletedEvents getCompletedEvents() {
+		return completedEvents;
+	}
+	
+	/**
+	 * @return The items saved in this save game
+	 */
+	public SaveItems getSaveItems() {
+		return saveItems;
+	}
+	
 	/**
 	 * private enum representing the tags available under the SAVE element
 	 * @author Daniel
@@ -174,76 +234,4 @@ public class SaveGameContent extends AbstractGameContent implements XMLFileWrita
 			return tag;
 		}
 	}
-	
-	
-	public void setDayNumber(int dayNumber) {
-		this.dayNumber = dayNumber;
-	}
-	
-	/**
-	 * @return The current immunity of this save
-	 */
-	public int getImmunity() {
-		return immunity;
-	}
-	
-	public void adjustImmunity(int immunity) {
-		this.immunity += immunity;
-	}
-	
-	/**
-	 * @return The current contagion level for this save
-	 */	
-	public int getContagionLevel() {
-		return contagionLevel;
-	}
-	
-	public void adjustContagionLevel(int contagionLevel) {
-		this.contagionLevel += contagionLevel;
-	}
-	
-	/**
-	 * @return The current karma level for this save
-	 */	
-	public int getKarma() {
-		return karma;
-	}
-	
-	public void adjustKarma(int karma) {
-		this.karma += karma;
-	}
-	
-	/**
-	 * @return The current location ID
-	 */
-	public String getCurrentLocationID() {
-		return currentLocationID;
-	}
-	
-	public void setCurrentLocationID(String currentLocationID) {
-		this.currentLocationID = currentLocationID;
-	}
-	
-	/**
-	 * @return The completed events in this save game
-	 */
-	public CompletedEvents getCompletedEvents() {
-		return completedEvents;
-	}
-	
-	public void addCompletedEvent(String eventID, String eventOptionID) {
-		completedEvents.addToCompletedEvent(new CompletedEvent(eventID, eventOptionID));
-	}
-	
-	/**
-	 * @return The items saved in this save game
-	 */
-	public SaveItems getSaveItems() {
-		return saveItems;
-	}
-	
-	public void addToSaveItems(ItemType item) {
-		saveItems.addToSaveItems(item);
-	}
-	
 }
