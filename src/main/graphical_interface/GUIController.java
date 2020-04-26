@@ -9,7 +9,9 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import main.graphical_interface.gameWindows.*;
 import main.graphical_interface.util.Command;
+import main.graphical_interface.util.GUIEventOption;
 import main.graphical_interface.util.GUIInventoryItem;
+import main.graphical_interface.util.GUILocation;
 
 public class GUIController extends Application {
 
@@ -28,12 +30,15 @@ public class GUIController extends Application {
 	private static int currentLocationPage;
 	private static int finalLocationPage;
 	
-	private static ArrayList<GUIEventOption> allEventOptions;
-	private static GUIEventOption[] currentEventOptions;
+	//private static Event currentEvent;
+	static ArrayList<GUIEventOption> allEventOptions;
+	static GUIEventOption[] currentEventOptions;
 	private static int currentEventPage;
 	private static int finalEventPage;
 	
 	private static HashMap<Integer ,GUIInventoryItem> allItems;
+	
+	private GameStateListener gameStateListener;
 	
 	/*
 	 * Constants to be used to determine the size of the
@@ -106,18 +111,19 @@ public class GUIController extends Application {
 		GUIController.finalEventPage = 1;
 		GUIController.allEventOptions = new ArrayList<>();
 		GUIController.currentEventOptions = new GUIEventOption[10];
+		this.gameStateListener = new GameStateListener();
 		
 		if (!singleTestDone){
-			GUIEventOption e1 = new GUIEventOption(Command.ACT_0,"Jump!", 1, "Nout", true);
-			GUIEventOption e2 = new GUIEventOption(Command.ACT_1,"Hide!", 1, "Nout", true);
+			GUIEventOption e1 = new GUIEventOption(Command.ACT_0,"Jump!", "You Jumped", 1, "Nout", true);
+			GUIEventOption e2 = new GUIEventOption(Command.ACT_1,"Hide!", "You Hid", 1, "Nout", true);
 			
-			GUIEventOption e3 = new GUIEventOption(Command.ACT_1,"Kiss!", 2, "Nout", false);
-			GUIEventOption e4 = new GUIEventOption(Command.ACT_2,"Quack!", 2, "Nout", true);
-			GUIEventOption e5 = new GUIEventOption(Command.ACT_3,"Duck!", 2, "Nout", true);
+			GUIEventOption e3 = new GUIEventOption(Command.ACT_1,"Kiss!", "Kiss who?!", 2, "Nout", false);
+			GUIEventOption e4 = new GUIEventOption(Command.ACT_2,"Quack!", "Good duck", 2, "Nout", true);
+			GUIEventOption e5 = new GUIEventOption(Command.ACT_3,"Duck!", "Bad Duck", 2, "Nout", true);
 			
-			GUIEventOption e6 = new GUIEventOption(Command.ACT_1,"Panic!", 3, "Nout", true);
-			GUIEventOption e7 = new GUIEventOption(Command.ACT_2,"Leer!", 3, "Nout", false);
-			GUIEventOption e8 = new GUIEventOption(Command.ACT_3,"Thrust!", 3, "Nout", true);
+			GUIEventOption e6 = new GUIEventOption(Command.ACT_1,"Panic!", "Aaargh!", 3, "Nout", true);
+			GUIEventOption e7 = new GUIEventOption(Command.ACT_2,"Leer!", "Their defense was lowered.",  3, "Nout", false);
+			GUIEventOption e8 = new GUIEventOption(Command.ACT_3,"Thrust!", "Oh my", 3, "Nout", true);
 			
 			ArrayList<GUIEventOption> test = new ArrayList<>();
 			test.add(e1);
@@ -408,8 +414,24 @@ public class GUIController extends Application {
 		InGameWindow.setButtonText(buttonText);
 	}
 	
+	public static void setCurrentEvents() {
+		clearCurrentEventPage();
+		int firstPage = 0;
+		for (int i = 0; i < GUIController.allEventOptions.size(); i++) {
+			if (GUIController.allEventOptions.get(i).getPage() == 1 && firstPage < 10) {
+				GUIController.currentEventOptions[i] = GUIController.allEventOptions.get(i);
+			}
+		}
+	}
+	
 	private static void setDisplayText(String text) {
 		InGameWindow.updateDisplayText(text);
+	}
+	
+	private static void updateAll() {
+		updateLocationButtonInput();
+		updatePlayerInventory();
+		updatePlayerButtonInput();
 	}
 	
 	private static void updateLocationButtonInput() {
