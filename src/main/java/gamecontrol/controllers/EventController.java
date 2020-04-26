@@ -8,6 +8,7 @@ import main.java.filehandling.gamecontent.realisations.SaveGameContent;
 import main.java.filehandling.gamecontent.realisations.components.EventOption;
 import main.java.filehandling.gamecontent.realisations.components.EventOptions;
 import main.java.gamecontrol.gamestate.GameState;
+import main.java.logging.SystemLogger;
 
 public class EventController {
 
@@ -16,7 +17,7 @@ public class EventController {
 	}
 	
 	public static void handleEvent(EventActionEvent event) {
-		
+		SystemLogger.config("Handling the event choice %s for event %s", event.getEventOptionID(), event.getEventID());
 		EventGameContent currentEvent = GameState.getInstance().getCurrentEvent();
 		EventOptions eventOptions = currentEvent.getEventOptions();
 		List<EventOption> eventOptionsValues = eventOptions.getEventOptionsValues();
