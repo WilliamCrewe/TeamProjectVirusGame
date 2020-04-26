@@ -13,9 +13,15 @@ public class EventOptionsHelper {
 		String requiredItemID = getEventOptionFromID(eventID, eventOptionID).getRequiredItemID();
 		
 		ArrayList<ItemType> heldItems = (ArrayList<ItemType>) GameState.getGameState().getSaveGame().getSaveItems().getSaveItemsValues();
+		heldItemsLoop:
 		for(ItemType i : heldItems) {
-			if(i.getItemID().equals(requiredItemID)) {
-				i.changeItemCount(-1);
+			if(i.getItemID().equals(requiredItemID) ) {
+				if(i.getItemCount() == 1) {
+					heldItems.remove(i);
+					break heldItemsLoop;
+				} else {
+					i.changeItemCount(-1);
+				}
 			}
 		}
 	}
@@ -23,12 +29,17 @@ public class EventOptionsHelper {
 	public static void addGivenItems(String eventID, String eventOptionID) {
 		ArrayList<ItemType> optionItems = (ArrayList<ItemType>) getEventOptionFromID(eventID, eventOptionID).getEventOptionItems().getEventOptionItemsValues();
 		ArrayList<ItemType> heldItems = (ArrayList<ItemType>) GameState.getGameState().getSaveGame().getSaveItems().getSaveItemsValues();
-		for(ItemType i : heldItems) {
-			for(ItemType optionItem : optionItems) {
-				if(i.getItemID().equals(optionItem.getItemID())) {
-					i.changeItemCount(optionItem.getItemCount());
-				}else {
-					heldItems.add(optionItem);
+		
+		if(heldItems.size() == 0) {
+			heldItems.addAll(optionItems);
+		} else {
+			for(ItemType i : heldItems) {
+				for(ItemType optionItem : optionItems) {
+					if(i.getItemID().equals(optionItem.getItemID())) {
+						i.changeItemCount(optionItem.getItemCount());
+					}else {
+						heldItems.add(optionItem);
+					}
 				}
 			}
 		}
