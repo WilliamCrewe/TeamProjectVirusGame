@@ -81,6 +81,26 @@ public class XMLUtils {
 	}
 	
 	/**
+	 * Returns the string text content for the first tag matching the tagName passed in (Handles optional tags by returning null)
+	 * @param document
+	 * @param tagName
+	 * @return
+	 * @throws XMLParseException
+	 */
+	public static String getFirstMatchingTagContentOptionalTag(Document document, String tagName) throws XMLParseException {
+		// Get all the nodes matching the tagName
+		NodeList nodeList = document.getElementsByTagName(tagName);
+		
+		// If no tags were found matching then return null
+		if (nodeList.getLength() == 0) {
+			return null;
+		}
+		
+		// We want the first one found (In a lot of cases there will only be one)
+		return nodeList.item(0).getTextContent();
+	}
+	
+	/**
 	 * Returns the name of the first child of the XML tag matching that passed in
 	 * @param document
 	 * @param parentTagName

@@ -6,7 +6,6 @@ import java.nio.file.Files;
 
 import main.java.filehandling.reader.exception.UnableToWriteContentException;
 import main.java.logging.SystemLogger;
-import main.java.properties.PropertyManager;
 
 /**
  * Class that handles the write operations of files

@@ -23,6 +23,10 @@ import main.java.properties.PropertyManager;
  */
 public class GameContentFileHandler {
 
+	private GameContentFileHandler() {
+		// Private constructor to prevent instantiation
+	}
+	
 	/**
 	 * Returns the content of the file in the form of an AbstractGameContent Realisation
 	 * @param filePath

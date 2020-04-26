@@ -13,7 +13,6 @@
 				<EventOptionImmunityModification>0</EventOptionImmunityModification>
 				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
 				<EventOptionKarmaModification>0</EventOptionKarmaModification>
-				<RequiredItemID>BananaID</RequiredItemID>
 				<EventOptionItems>
 					<Item>
 						<ItemID>ToiletRollID</ItemID>
@@ -22,6 +21,7 @@
 						<ItemUsageEventID>UseToiletRoll</ItemUsageEventID>
 					</Item>
 				</EventOptionItems>
+				<RequiredItemID>BananaID</RequiredItemID>
 				<FollowingEventID>ShopSell</FollowingEventID>
 			</EventOption>
 			<EventOption>

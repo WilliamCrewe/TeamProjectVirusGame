@@ -21,7 +21,6 @@
 						<ItemUsageEventID>UseBanana</ItemUsageEventID>
 					</Item>
 				</EventOptionItems>
-				<FollowingEventID>BananaCleanerEvent</FollowingEventID>
 			</EventOption>
 			<EventOption>
 				<EventOptionID>HospitalCleanerApologiseID</EventOptionID>
