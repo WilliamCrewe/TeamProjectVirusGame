@@ -24,7 +24,7 @@ public class EventOption {
 	private String followingEventID;
 	
 	public EventOption(Node eventNode) {
-		SystemLogger.finer("Creating a new SaveGameContent object");
+		SystemLogger.finer("Creating a new EventOption object");
 		NodeList childNodes = eventNode.getChildNodes();
 		
 		// loop over all the child nodes

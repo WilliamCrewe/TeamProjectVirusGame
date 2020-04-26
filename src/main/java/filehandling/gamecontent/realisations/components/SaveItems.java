@@ -34,6 +34,10 @@ public class SaveItems implements XMLSerializable {
 			saveItemsValues.add(new ItemType(childNodes.item(i)));
 		}
 	}
+	
+	public void addToSaveItems(ItemType itemType) {
+		saveItemsValues.add(itemType);
+	}
 
 	/**
 	 * @return The list of all ItemTypes beneath this SaveItems tag

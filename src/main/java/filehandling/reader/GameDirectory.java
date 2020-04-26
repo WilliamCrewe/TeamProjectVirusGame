@@ -7,7 +7,7 @@ package main.java.filehandling.reader;
  */
 public enum GameDirectory {
 	CHARACTERS_DIRECTORY("Characters"),
-	EVENTS_DIRECTORYT("Events"),
+	EVENTS_DIRECTORY("Events"),
 	SAVES_DIRECTORY("Saves"),
 	LOCATIONS_DIRECTORY("Locations"),
 	PROPERTIES_DIRECTORY("Properties");

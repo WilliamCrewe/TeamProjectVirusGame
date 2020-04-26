@@ -47,7 +47,7 @@ public class SaveGameContent extends AbstractGameContent implements XMLFileWrita
 		this.immunity = 0;
 		this.contagionLevel = 0;
 		this.karma = 0;
-		this.currentLocationID = "HomeID";
+		this.currentLocationID = "Home";
 		this.completedEvents = new CompletedEvents();
 		this.saveItems = new SaveItems();
 	}
@@ -109,7 +109,7 @@ public class SaveGameContent extends AbstractGameContent implements XMLFileWrita
 	}
 
 	/**
-	 * @return The number of days that have occured on this seed
+	 * @return The number of days that have occurred on this seed
 	 */
 	public int getDayNumber() {
 		return dayNumber;
@@ -172,4 +172,72 @@ public class SaveGameContent extends AbstractGameContent implements XMLFileWrita
 			return tag;
 		}
 	}
+	
+	
+	public void setDayNumber(int dayNumber) {
+		this.dayNumber = dayNumber;
+	}
+	
+	/**
+	 * @return The current immunity of this save
+	 */
+	public int getImmunity() {
+		return immunity;
+	}
+	
+	public void setImmunity(int immunity) {
+		this.immunity = immunity;
+	}
+	
+	/**
+	 * @return The current contagion level for this save
+	 */	
+	public int getContagionLevel() {
+		return contagionLevel;
+	}
+	
+	public void setContagionLevel(int contagionLevel) {
+		this.contagionLevel = contagionLevel;
+	}
+	
+	/**
+	 * @return The current karma level for this save
+	 */	
+	public int getKarma() {
+		return karma;
+	}
+	
+	public void setKarma(int karma) {
+		this.karma = karma;
+	}
+	
+	/**
+	 * @return The current location ID
+	 */
+	public String getCurrentLocationID() {
+		return currentLocationID;
+	}
+	
+	public void setCurrentLocationID(String currentLocationID) {
+		this.currentLocationID = currentLocationID;
+	}
+	
+	/**
+	 * @return The completed events in this save game
+	 */
+	public CompletedEvents getCompletedEvents() {
+		return completedEvents;
+	}
+	
+	/**
+	 * @return The items saved in this save game
+	 */
+	public SaveItems getSaveItems() {
+		return saveItems;
+	}
+	
+	public void addToSaveItems() {
+		
+	}
+	
 }

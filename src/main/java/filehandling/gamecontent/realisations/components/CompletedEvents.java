@@ -41,6 +41,19 @@ public class CompletedEvents implements XMLSerializable {
 		return completedEventsValues;
 	}
 	
+	public void addToCompletedEvent(CompletedEvent completedEvent) {
+		completedEventsValues.add(completedEvent);
+	}
+	
+	public boolean contains(String eventID) {
+		for(CompletedEvent c : completedEventsValues) {
+			if(c.getEventID().equals(eventID)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	@Override
 	public byte[] serialize() {
 		return toXMLString().getBytes();

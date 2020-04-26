@@ -45,6 +45,19 @@ public class ItemType implements XMLSerializable {
 			}
 		}
 	}
+	/**
+	 * Constructor for the GameController to create ItemType objects for storage in SaveItems
+	 * @param itemID
+	 * @param itemName
+	 * @param itemCount
+	 * @param itemUsageEventID
+	 */
+	public ItemType(String itemID, String itemName, int itemCount, String itemUsageEventID) {
+		this.itemID = itemID;
+		this.itemName = itemName;
+		this.itemCount = itemCount;
+		this.itemUsageEventID = itemUsageEventID;
+	}
 	
 	/**
 	 * @return the itemID

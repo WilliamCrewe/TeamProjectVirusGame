@@ -39,6 +39,16 @@ public class CompletedEvent implements XMLSerializable {
 	}
 	
 	/**
+	 * Constructor for the GameController to create CompletedEvent objects for storage in CompletedEvents
+	 * @param EventID
+	 * @param eventOptionID
+	 */
+	public CompletedEvent(String eventID, String eventOptionID) {
+		this.eventID = eventID;
+		this.eventOptionID = eventOptionID;
+	}
+	
+	/**
 	 * @return
 	 */
 	public String getEventID() {
