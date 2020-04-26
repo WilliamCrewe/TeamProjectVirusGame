@@ -5,9 +5,9 @@ package main.java.event.types;
  * @author Daniel
  *
  */
-public class PassiveEventType extends AbstractEvent {
+public class PassiveEvent extends AbstractEvent {
 
-	public PassiveEventType() {
+	public PassiveEvent() {
 		eventType = EventType.PASSIVE_EVENT;
 	}
 }

@@ -7,6 +7,7 @@ import main.java.event.types.MoveEvent;
 import main.java.gamecontrol.controllers.EventController;
 import main.java.gamecontrol.controllers.EventPickerController;
 import main.java.gamecontrol.controllers.MovementController;
+import main.java.gamecontrol.controllers.PassiveEventController;
 import main.java.logging.SystemLogger;
 
 public class GameController {
@@ -26,6 +27,8 @@ public class GameController {
 			break;
 		case SET_EVENT:
 		case PASSIVE_EVENT:
+			PassiveEventController.setActiveEventToPassiveForLocation();
+			break;
 		case ACTION_EVENT:
 			EventController.handleEvent((EventActionEvent) event);
 			break;

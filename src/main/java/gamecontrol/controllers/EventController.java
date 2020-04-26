@@ -57,6 +57,15 @@ public class EventController {
 			}
 		}
 		
+		if (chosenOption.getRequiredItemID() != null) {
+			save.getSaveItems().removeItem(chosenOption.getRequiredItemID());
+		}
+		
 		GameState.getInstance().completeEvent(event.getEventID());
+		
+		SystemLogger.finer("Setting the current event to %s", chosenOption.getFollowingEventID());
+		if (chosenOption.getFollowingEventID() != null) {
+			GameState.getInstance().updateCurrentEvent(chosenOption.getFollowingEventID());
+		}
 	}
 }

@@ -41,6 +41,22 @@ public class SaveItems implements XMLSerializable {
 	public void addToSaveItems(ItemType itemType) {
 		saveItemsValues.add(itemType);
 	}
+	
+	public void removeItem(String itemID) {
+		saveItemIDs.remove(itemID);
+		
+		ItemType matchingItem = null;
+		for (ItemType saveItem : saveItemsValues) {
+			if (saveItem.getItemID().equals(itemID)) {
+				matchingItem = saveItem;
+				break;
+			}
+		}
+		
+		if (matchingItem != null) {
+			saveItemsValues.remove(matchingItem);
+		}
+	}
 
 	/**
 	 * @return The list of all ItemTypes beneath this SaveItems tag

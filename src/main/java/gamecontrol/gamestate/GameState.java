@@ -78,7 +78,7 @@ public class GameState extends Observable {
 		// If the event is passive but has no location, this means it will only be triggered by other events (Or item usage)
 		if (newEvent.isPassiveEvent() && newEvent.getEventLocationID() == null) {
 			SystemLogger.finer("The event %s was identified as being only triggered by a call", newEvent.getEventID());
-			untriggeredEventMap.put(newEvent.getEventLocationID(), newEvent);
+			untriggeredEventMap.put(newEvent.getEventID(), newEvent);
 			return;
 		}
 		
@@ -157,6 +157,11 @@ public class GameState extends Observable {
 		this.currentEvent = newCurrentEvent;
 		this.notifyListenersOfGameState();
 	}
+	
+	public void updateCurrentEvent(String eventID) {
+		currentEvent = untriggeredEventMap.get(eventID);
+		this.notifyListenersOfGameState();
+	}
 
 	/**
 	 * Returns the combined Map of the non-location events as well as those events for the particular location
@@ -232,12 +237,20 @@ public class GameState extends Observable {
 		this.notifyObservers(this);
 	}
 	
+	public void setCurrentEventToPassiveLocationEvent() {
+		currentEvent = passiveEventMap.get(currentLocation.getLocationID());
+	}
+	
 	/**
 	 * @return all the options currently active for the Event
 	 */
 	public List<EventOption> getActiveOptions() {
 		List<EventOption> activeEventOptions = new ArrayList<>();
 
+		if (currentEvent == null) {
+			return activeEventOptions;
+		}
+		
 		// Loop over all the event options for the event
 		for (EventOption eventOption : currentEvent.getEventOptions().getEventOptionsValues()) {
 			// Check both the required item is present as well as the completed event ID
@@ -248,5 +261,9 @@ public class GameState extends Observable {
 		}
 		
 		return activeEventOptions;
+	}
+	
+	public String toString() {
+		return String.format("Current status is location %s, currentEvent %s", currentLocation, currentEvent.getEventID());
 	}
 }
