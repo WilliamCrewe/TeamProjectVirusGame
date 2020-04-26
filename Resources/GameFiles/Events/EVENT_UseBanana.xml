@@ -2,7 +2,7 @@
 	<Event>
 		<EventID>UseBanana</EventID>
 		<EventName>You decide to use the banana</EventName>
-		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsPassiveEvent>true</IsPassiveEvent>
 		<IsSingleOccurence>false</IsSingleOccurence>
 		<EventOptions>
 			<EventOption>
