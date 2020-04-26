@@ -1,7 +1,9 @@
 package main.java.filehandling.gamecontent.realisations.components;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -16,6 +18,7 @@ import main.java.filehandling.gamecontent.XMLSerializable;
 public class CompletedEvents implements XMLSerializable {
 
 	private final List<CompletedEvent> completedEventsValues = new ArrayList<>();
+	private Set<String> completedEventIDs = new HashSet<>();
 	
 	private static final String SERIALIZED_FORMAT = "<CompletedEvents>%s</CompletedEvents>";
 	
@@ -30,7 +33,9 @@ public class CompletedEvents implements XMLSerializable {
 		
 		// loop over all the child nodes (They will all be CompletedEventTypes)
 		for (int i = 0; i < childNodes.getLength(); i++) {
-			completedEventsValues.add(new CompletedEvent(childNodes.item(i)));
+			CompletedEvent completedEvent = new CompletedEvent(childNodes.item(i));
+			completedEventsValues.add(completedEvent);
+			completedEventIDs.add(completedEvent.getEventID());
 		}
 	}
 
@@ -43,15 +48,11 @@ public class CompletedEvents implements XMLSerializable {
 	
 	public void addToCompletedEvent(CompletedEvent completedEvent) {
 		completedEventsValues.add(completedEvent);
+		completedEventIDs.add(completedEvent.getEventID());
 	}
 	
-	public boolean contains(String eventID) {
-		for(CompletedEvent c : completedEventsValues) {
-			if(c.getEventID().equals(eventID)) {
-				return true;
-			}
-		}
-		return false;
+	public boolean containsCompletedEventID(String eventID) {
+		return completedEventIDs.contains(eventID);
 	}
 	
 	@Override
