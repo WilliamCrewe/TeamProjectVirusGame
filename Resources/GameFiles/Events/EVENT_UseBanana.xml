@@ -1,0 +1,19 @@
+<Content>
+	<Event>
+		<EventID>UseBanana</EventID>
+		<EventName>You decide to use the banana</EventName>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>false</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>EatBananaID</EventOptionID>
+				<EventOptionDescription>Eat the banana</EventOptionDescription>
+				<EventOptionPostDescription>You eat the banana in a manner which could only be described as ravanous, as bananas are your source of power you feel you risistance to illness increase</EventOptionPostDescription>
+				<EventOptionImmunityModification>10</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

@@ -1,0 +1,43 @@
+<Content>
+	<Event>
+		<EventID>HospitalCleaner</EventID>
+		<EventName>You see a cleaner in the hall, he's clearly tired and worn out. As you approach he says "excuse me, would you mind giving me a hand? I just need to lie down for a moment but this hall needs to be sanitised urgently"</EventName>
+		<EventLocationID>Hospital</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>HospitalCleanerHelpID</EventOptionID>
+				<EventOptionDescription>Give him a hand</EventOptionDescription>
+				<EventOptionPostDescription>After giving him a hand he looks much more relieved. He even gives you a banana</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>10</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>10</EventOptionKarmaModification>
+				<EventOptionItems>
+					<Item>
+						<ItemID>BananaID</ItemID>
+						<ItemName>Banana</ItemName>
+						<ItemCount>1</ItemCount>
+						<ItemUsageEventID>UseBanana</ItemUsageEventID>
+					</Item>
+				</EventOptionItems>
+				<FollowingEventID>BananaCleanerEvent</FollowingEventID>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>HospitalCleanerApologiseID</EventOptionID>
+				<EventOptionDescription>I'm way to busy to help him, apologise and move on</EventOptionDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>HospitalCleanerApologiseID</EventOptionID>
+				<EventOptionDescription>Absolutely not, berate him for not taking his job seriously</EventOptionDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>-15</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

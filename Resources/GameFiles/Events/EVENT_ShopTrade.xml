@@ -1,0 +1,28 @@
+<Content>
+	<Event>
+		<EventID>ShopTrade</EventID>
+		<EventName>Trade with Shop</EventName>
+		<EventLocationID>Shop</EventLocationID>
+		<IsPassiveEvent>true</IsPassiveEvent>
+		<IsSingleOccurence>false</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>ShopTradeBuyID</EventOptionID>
+				<EventOptionDescription>Purchase items</EventOptionDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+				<FollowingEventID>ShopSell</FollowingEventID>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>ShopTradeSellID</EventOptionID>
+				<EventOptionDescription>Sell Items</EventOptionDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+				<FollowingEventID>ShopBuy</FollowingEventID>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

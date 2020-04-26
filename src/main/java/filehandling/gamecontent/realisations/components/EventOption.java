@@ -14,6 +14,7 @@ public class EventOption {
 
 	private String eventOptionID;
 	private String eventOptionDescription;
+	private String eventOptionPostDescription;
 	private int eventOptionImmunityModification;
 	private int eventOptionContagionLevelModifier;
 	private int eventOptionKarmaModification;
@@ -39,6 +40,9 @@ public class EventOption {
 				break;
 			case EVENT_OPTION_DESCRIPTION:
 				eventOptionDescription = currentNode.getTextContent();
+				break;
+			case EVENT_OPTION_POST_DESCRIPTION:
+				eventOptionPostDescription = currentNode.getTextContent();
 				break;
 			case EVENT_OPTION_IMMUNITY_MODIFICATION:
 				eventOptionImmunityModification = Integer.parseInt(currentNode.getTextContent());
@@ -72,7 +76,13 @@ public class EventOption {
 	public String getEventOptionDescription() {
 		return eventOptionDescription;
 	}
-
+	
+	/**
+	 * @return the eventOptionPostDescription
+	 */
+	public String getEventOptionPostDescription() {
+		return eventOptionPostDescription;
+	}
 	/**
 	 * @return the eventOptionImmunityModification
 	 */
@@ -137,6 +147,7 @@ public class EventOption {
 	private enum EventOptionTag {
 		EVENT_OPTION_ID("EventOptionID"),
 		EVENT_OPTION_DESCRIPTION("EventOptionDescription"),
+		EVENT_OPTION_POST_DESCRIPTION("EventOptionPostDescription"),
 		EVENT_OPTION_IMMUNITY_MODIFICATION("EventOptionImmunityModification"),
 		EVENT_OPTION_CONTAGION_LEVEL_MODIFIER("EventOptionContagionLevelModifier"),
 		EVENT_OPTION_KARMA_MODIFICATION("EventOptionKarmaModification"),

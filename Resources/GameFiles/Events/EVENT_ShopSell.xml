@@ -1,0 +1,38 @@
+<Content>
+	<Event>
+		<EventID>ShopSell</EventID>
+		<EventName>Sell to the shop</EventName>
+		<EventLocationID>Shop</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>false</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>ShopTradeSellBananaID</EventOptionID>
+				<EventOptionDescription>Sell banana items</EventOptionDescription>
+				<EventOptionPostDescription>Having haggled for a few minutes, you end up with 4 toilet rolls, the new currency in this strange world</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+				<RequiredItemID>BananaID</RequiredItemID>
+				<EventOptionItems>
+					<Item>
+						<ItemID>ToiletRollID</ItemID>
+						<ItemName>Toilet Roll</ItemName>
+						<ItemCount>4</ItemCount>
+						<ItemUsageEventID>UseToiletRoll</ItemUsageEventID>
+					</Item>
+				</EventOptionItems>
+				<FollowingEventID>ShopSell</FollowingEventID>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>BackToShopTrade</EventOptionID>
+				<EventOptionDescription>I'd like to do something else</EventOptionDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+				<FollowingEventID>ShopTrade</FollowingEventID>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

@@ -9,6 +9,7 @@
 			<EventOption>
 				<EventOptionID>TestEventIDOptionOne</EventOptionID>
 				<EventOptionDescription>Test Event Option one description</EventOptionDescription>
+				<EventOptionPostDescription>Test Event Option one post description</EventOptionPostDescription>
 				<EventOptionImmunityModification>10</EventOptionImmunityModification>
 				<EventOptionContagionLevelModifier>-10</EventOptionContagionLevelModifier>
 				<EventOptionKarmaModification>5</EventOptionKarmaModification>

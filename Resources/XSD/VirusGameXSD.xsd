@@ -16,7 +16,7 @@
 		<xs:sequence maxOccurs="1">
 			<xs:element name="EventID" type="xs:string"/>
 			<xs:element name="EventName" type="xs:string" />
-			<xs:element name="EventLocationID" type="xs:string" />
+			<xs:element name="EventLocationID" type="xs:string" minOccurs="0" />
 			<xs:element name="IsPassiveEvent" type="xs:boolean" />
 			<xs:element name="IsSingleOccurence" type="xs:boolean" />
 			<xs:element name="EventOptions" type="EventOptionsType" />
@@ -34,6 +34,7 @@
 		<xs:sequence maxOccurs="1">
 			<xs:element name="EventOptionID" type="xs:string"/>
 			<xs:element name="EventOptionDescription" type="xs:string" />
+			<xs:element name="EventOptionPostDescription" type="xs:string" minOccurs="0" />
 			<xs:element name="EventOptionImmunityModification" type="xs:integer" />
 			<xs:element name="EventOptionContagionLevelModifier" type="xs:integer" />
 			<xs:element name="EventOptionKarmaModification" type="xs:integer" />

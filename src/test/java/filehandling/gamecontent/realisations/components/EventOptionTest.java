@@ -2,6 +2,9 @@ package test.java.filehandling.gamecontent.realisations.components;
 
 import static org.junit.Assert.assertEquals;
 
+import java.io.File;
+import java.nio.file.Files;
+
 import org.junit.Test;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
@@ -19,36 +22,12 @@ public class EventOptionTest {
 	 * @throws XMLParseException
 	 */
 	@Test
-	public void testConstructor() throws XMLParseException {
-		String testXML = "<Content>" + "	<Event>" + "		<EventID>TestEventID</EventID>"
-				+ "		<EventName>Test Event Name</EventName>" + "		<EventLocationID>Hospital</EventLocationID>"
-				+ "		<IsSingleOccurence>false</IsSingleOccurence>" + "		<EventOptions>"
-				+ "			<EventOption>" + "				<EventOptionID>TestEventIDOptionOne</EventOptionID>"
-				+ "				<EventOptionDescription>Test Event Option one description</EventOptionDescription>"
-				+ "				<EventOptionImmunityModification>10</EventOptionImmunityModification>"
-				+ "				<EventOptionContagionLevelModifier>-10</EventOptionContagionLevelModifier>"
-				+ "				<EventOptionKarmaModification>5</EventOptionKarmaModification>"
-				+ "				<EventOptionItems>" + "					<Item>"
-				+ "						<ItemID>ItemIDOne</ItemID>"
-				+ "						<ItemName>ItemNameOne</ItemName>"
-				+ "						<ItemCount>5</ItemCount>" + "					</Item>"
-				+ "				</EventOptionItems>"
-				+ "				<RequiredCompletedEventID>PriorEventID</RequiredCompletedEventID>"
-				+ "				<RequiredItemID>TestItemID</RequiredItemID>"
-				+ "		<FollowingEventID>TestEventID2</FollowingEventID>" + "			</EventOption>"
-				+ "			<EventOption>" + "				<EventOptionID>TestEventIDOptionTwo</EventOptionID>"
-				+ "				<EventOptionDescription>Test Event Option two description</EventOptionDescription>"
-				+ "				<EventOptionImmunityModification>20</EventOptionImmunityModification>"
-				+ "				<EventOptionContagionLevelModifier>-20</EventOptionContagionLevelModifier>"
-				+ "				<EventOptionKarmaModification>10</EventOptionKarmaModification>"
-				+ "			</EventOption>" + "		</EventOptions>" + "		<Rarity>Common</Rarity>"
-				+ "	</Event>" + "</Content>";
+	public void testConstructor() throws Exception {
+		String fullFilePath = System.getProperty("user.dir")
+				+ "\\Resources\\TestFiles\\Events\\EVENT_TestEventName.xml";
 
-		// Convert the testXML to a byte array for the method in test
-		byte[] xmlBytes = testXML.getBytes();
-
-		// Call the method in test
-		Document document = XMLUtils.convertByteArrayToDocument(xmlBytes);
+		// Create the XML document
+		Document document = XMLUtils.convertByteArrayToDocument(Files.readAllBytes(new File(fullFilePath).toPath()));
 
 		// Get the EventOption nodes
 		NodeList eventOptionNodeList = document.getElementsByTagName("EventOption");
@@ -59,6 +38,7 @@ public class EventOptionTest {
 		// Assert the object has the expected values
 		assertEquals("TestEventIDOptionOne", optionType.getEventOptionID());
 		assertEquals("Test Event Option one description", optionType.getEventOptionDescription());
+		assertEquals("Test Event Option one post description", optionType.getEventOptionPostDescription());
 		assertEquals(10, optionType.getEventOptionImmunityModification());
 		assertEquals(-10, optionType.getEventOptionContagionLevelModifier());
 		assertEquals(5, optionType.getEventOptionKarmaModification());
