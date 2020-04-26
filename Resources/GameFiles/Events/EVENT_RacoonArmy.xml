@@ -1,0 +1,27 @@
+<Content>
+	<Event>
+		<EventID>RacoonArmy</EventID>
+		<EventName>What's that coming over the hill? Is it a monster? Is it a monstaaaaaaaaaaaar? Oh, actually it's a lot of racoons</EventName>
+		<EventLocationID>Shop</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>RacoonArmyPasify</EventOptionID>
+				<EventOptionDescription>You witness thier holy quest for the holy grail, remarking on the flight ability of both african and european swallows and wish them well</EventOptionDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>20</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>RacoonArmyRevolt</EventOptionID>
+				<EventOptionDescription>A herd of racoons is no basis for a new government! You try to fight back against the oppresssors</EventOptionDescription>
+				<EventOptionPostDescription>They bite you in response, apparently there is no subtelty in racoon politics</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>15</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

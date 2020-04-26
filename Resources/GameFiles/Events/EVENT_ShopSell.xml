@@ -2,8 +2,7 @@
 	<Event>
 		<EventID>ShopSell</EventID>
 		<EventName>Sell to the shop</EventName>
-		<EventLocationID>Shop</EventLocationID>
-		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsPassiveEvent>true</IsPassiveEvent>
 		<IsSingleOccurence>false</IsSingleOccurence>
 		<EventOptions>
 			<EventOption>

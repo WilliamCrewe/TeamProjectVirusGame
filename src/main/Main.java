@@ -3,6 +3,8 @@ package main;
 import main.graphical_interface.GUIController;
 import main.java.event.EventQueue;
 import main.java.event.EventQueueObserver;
+import main.java.event.types.EventActionEvent;
+import main.java.event.types.MoveEvent;
 import main.java.gamecontrol.GameController;
 import main.java.gamecontrol.gamestate.GameState;
 import main.java.gamecontrol.gamestate.GameStateInitialisationHelper;
@@ -36,6 +38,22 @@ public class Main {
 		
 		SystemLogger.config("Initialising the game content");
 		GameStateInitialisationHelper.intitialiseGameState();
+
+		System.out.println(GameState.getInstance().getSave().toString());
+		
+		GameController.handleEvent(new MoveEvent("Hospital"));
+		System.out.println(GameState.getInstance().getSave().toString());
+		
+		GameController.handleEvent(new EventActionEvent("HospitalCleaner", "HospitalCleanerHelpID"));
+		System.out.println(GameState.getInstance().getSave().toString());
+		
+		GameController.handleEvent(new MoveEvent("Shop"));
+		System.out.println(GameState.getInstance().getSave().toString());
+		
+
+		GameController.handleEvent(new EventActionEvent("RacoonArmy", "RacoonArmyRevolt"));
+		System.out.println(GameState.getInstance().getSave().toString());
+		
 	}
 
 	public static void handleEvent() {

@@ -209,7 +209,6 @@ public class GameState extends Observable {
 
 	public void updateLocation(final String locationID) {
 		this.currentLocation = this.locationMap.get(locationID);
-		notifyListenersOfGameState();
 	}
 
 	public EventGameContent getCurrentEvent() {
