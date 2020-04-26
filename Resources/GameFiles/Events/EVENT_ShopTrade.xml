@@ -15,12 +15,12 @@
 				<FollowingEventID>ShopSell</FollowingEventID>
 			</EventOption>
 			<EventOption>
-				<EventOptionID>ShopTradeSellID</EventOptionID>
+				<EventOptionID>ShopSell</EventOptionID>
 				<EventOptionDescription>Sell Items</EventOptionDescription>
 				<EventOptionImmunityModification>0</EventOptionImmunityModification>
 				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
 				<EventOptionKarmaModification>0</EventOptionKarmaModification>
-				<FollowingEventID>ShopBuy</FollowingEventID>
+				<FollowingEventID>ShopSell</FollowingEventID>
 			</EventOption>
 			<EventOption>
 				<EventOptionID>ExitShopTrade</EventOptionID>
