@@ -16,6 +16,10 @@ import main.graphical_interface.util.GUIEventOption;
 import main.graphical_interface.util.GUIInventoryItem;
 import main.graphical_interface.util.GUILocation;
 
+/**
+ * @author wcrewe
+ *
+ */
 public class GUIController extends Application {
 
 	private static StackPane rootPane; //This is the window that will be changed.
@@ -62,6 +66,12 @@ public class GUIController extends Application {
 		launch(args);
 	}
 
+	/**
+	 *  @see javafx.application.Application#start(javafx.stage.Stage)
+	 *  
+	 *  Initialises the GUI variables.
+	 *  Generates the MainMenu and displays it on the user's screen.
+	 */
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		
@@ -86,6 +96,12 @@ public class GUIController extends Application {
 		primaryStage.show();	
 	}
 	
+	/**
+	 * @param Command c
+	 * 
+	 * Receives a Command from the currentWindow which alternates 
+	 * the user's stage to the appropriate stage.
+	 */
 	public static void updateWindow(Command c) {
 		switch (c) {
 		case SWITCH_GAMEPLAY_UI:
@@ -111,6 +127,9 @@ public class GUIController extends Application {
 		}
 	}
 
+	/**
+	 * Initialises all variables for GUIController.
+	 */
 	private void initialise() {
 		//Initialise EventVariables
 		GUIController.currentEventPage = 1;
@@ -193,6 +212,12 @@ public class GUIController extends Application {
 		}
 	}
 	
+	/**
+	 * @param Command c
+	 * 
+	 * Receives a Command from the User's input and creates an event to 
+	 * put into the EventQueue.
+	 */
 	public static void update(Command c) {
 		switch (c) {
 		case ACT_1:
@@ -362,6 +387,14 @@ public class GUIController extends Application {
 		}
 	}
 	
+	/**
+	 * @param Command c
+	 * @param int itemNumber
+	 * 
+	 * Receives the user's input for an Inventory Item and creates 
+	 * an EventAction which is inserted into the EventQueue.
+	 * Drop item is current disabled as the backend logic is not created.
+	 */
 	public static void updateItem(Command c, int itemNumber) {
 		switch (c) {
 		case USE_ITEM:
@@ -390,12 +423,18 @@ public class GUIController extends Application {
 		
 	}
 	
+	/**
+	 * Clears the currentEvent List
+	 */
 	private static void clearCurrentEventPage() {
 		for (int i = 0; i < currentEventOptions.length; i++) {
 			currentEventOptions[i] = null;
 		}
 	}
 	
+	/**
+	 * Clears the currentLocations List
+	 */
 	private static void clearLocationPage() {
 		for (int i = 0; i < currentLocations.length; i++) {
 			currentLocations[i] = null;
@@ -423,6 +462,10 @@ public class GUIController extends Application {
 		InGameWindow.setButtonText(buttonText);
 	}
 	
+	/**
+	 * Assigns the first 10 EventOptions to the 
+	 * player input buttons and refreshes the window.
+	 */
 	public static void setCurrentEvents() {
 		clearCurrentEventPage();
 		int firstPage = 0;
@@ -433,6 +476,9 @@ public class GUIController extends Application {
 		}
 	}
 	
+	/**
+	 * Sets the first 10 events from allEvents. 
+	 */
 	public static void setCurrentLocations() {
 		clearLocationPage();
 		int firstPage = 0;
