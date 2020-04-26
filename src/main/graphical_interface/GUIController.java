@@ -25,8 +25,8 @@ public class GUIController extends Application {
 	 * These variables perform eventHandling
 	 */
 	
-	private static ArrayList<GUILocation> allLocations;
-	private static GUILocation[] currentLocations;
+	static ArrayList<GUILocation> allLocations;
+	static GUILocation[] currentLocations;
 	private static int currentLocationPage;
 	private static int finalLocationPage;
 	
@@ -36,7 +36,7 @@ public class GUIController extends Application {
 	private static int currentEventPage;
 	private static int finalEventPage;
 	
-	private static HashMap<Integer ,GUIInventoryItem> allItems;
+	static HashMap<Integer ,GUIInventoryItem> allItems;
 	
 	private GameStateListener gameStateListener;
 	
@@ -424,11 +424,21 @@ public class GUIController extends Application {
 		}
 	}
 	
+	public static void setCurrentLocations() {
+		clearLocationPage();
+		int firstPage = 0;
+		for (int i = 0; i < GUIController.allLocations.size(); i++) {
+			if (GUIController.allLocations.get(i).getPage() == 1 && firstPage < 8) {
+				GUIController.currentLocations[i] = GUIController.allLocations.get(i);
+			}
+		}
+	}
+	
 	private static void setDisplayText(String text) {
 		InGameWindow.updateDisplayText(text);
 	}
 	
-	private static void updateAll() {
+	public static void updateAll() {
 		updateLocationButtonInput();
 		updatePlayerInventory();
 		updatePlayerButtonInput();

@@ -5,6 +5,7 @@ public class GUIEventOption {
 	private String description;
 	private String postDescription;
 	private String eventID;
+	private String followingEventID;
 	private int page;
 	private String eventTrigger;
 	private boolean eventAvailable;
@@ -15,6 +16,7 @@ public class GUIEventOption {
 		this.description = null;
 		this.postDescription = null;
 		this.eventID = null;
+		this.followingEventID = null;
 		this.page = -1;
 		this.eventTrigger = null;
 		this.eventAvailable = false;
@@ -83,6 +85,15 @@ public class GUIEventOption {
 
 	public void setCommand(Command command) {
 		this.command = command;
+	}
+
+	public String getFollowingEventID() {
+		return this.followingEventID;
+	}
+	
+	public void setFollowingEventID(String followingEventID) {
+		this.followingEventID = followingEventID;
+		
 	}
 	
 	
