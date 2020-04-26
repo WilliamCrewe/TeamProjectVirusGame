@@ -59,6 +59,7 @@ public class GameStateListener implements Observer{
 			GUIController.allItems = currentInventory;
 			GUIController.allLocations = allLocations;
 			GUIController.allEventOptions = allEventOptions;
+			GUIController.currentEventID = ((GameState)arg).getActiveEvent().getEventID();
 			
 			GUIController.setCurrentEvents();
 			GUIController.setCurrentLocations();

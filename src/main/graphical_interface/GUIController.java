@@ -12,6 +12,8 @@ import main.graphical_interface.util.Command;
 import main.graphical_interface.util.GUIEventOption;
 import main.graphical_interface.util.GUIInventoryItem;
 import main.graphical_interface.util.GUILocation;
+import main.java.event.EventQueue;
+import main.java.logging.SystemLogger;
 
 public class GUIController extends Application {
 
@@ -33,12 +35,15 @@ public class GUIController extends Application {
 	//private static Event currentEvent;
 	static ArrayList<GUIEventOption> allEventOptions;
 	static GUIEventOption[] currentEventOptions;
+	static String currentEventID;
 	private static int currentEventPage;
 	private static int finalEventPage;
+	
 	
 	static HashMap<Integer ,GUIInventoryItem> allItems;
 	
 	private GameStateListener gameStateListener;
+	private static EventQueueHandler eventQueueHandler;
 	
 	/*
 	 * Constants to be used to determine the size of the
@@ -110,8 +115,10 @@ public class GUIController extends Application {
 		GUIController.currentEventPage = 1;
 		GUIController.finalEventPage = 1;
 		GUIController.allEventOptions = new ArrayList<>();
+		GUIController.currentEventID = "";
 		GUIController.currentEventOptions = new GUIEventOption[10];
 		this.gameStateListener = new GameStateListener();
+		this.eventQueueHandler = new EventQueueHandler();
 		
 		if (!singleTestDone){
 			GUIEventOption e1 = new GUIEventOption(Command.ACT_0,"Jump!", "You Jumped", 1, "Nout", true);
@@ -188,58 +195,58 @@ public class GUIController extends Application {
 	public static void update(Command c) {
 		switch (c) {
 		case ACT_1:
-			System.out.println(currentEventOptions[0].getDescription());
+			GUIController.eventQueueHandler.addActionEvent(GUIController.currentEventID, currentEventOptions[0].getEventID());
 			break;
 		case ACT_2:
-			System.out.println(currentEventOptions[1].getDescription());
+			GUIController.eventQueueHandler.addActionEvent(GUIController.currentEventID, currentEventOptions[1].getEventID());
 			break;
 		case ACT_3:
-			System.out.println(currentEventOptions[2].getDescription());
+			GUIController.eventQueueHandler.addActionEvent(GUIController.currentEventID, currentEventOptions[2].getEventID());
 			break;
 		case ACT_4:
-			System.out.println(currentEventOptions[3].getDescription());
+			GUIController.eventQueueHandler.addActionEvent(GUIController.currentEventID, currentEventOptions[3].getEventID());
 			break;
 		case ACT_5:
-			System.out.println(currentEventOptions[4].getDescription());
+			GUIController.eventQueueHandler.addActionEvent(GUIController.currentEventID, currentEventOptions[4].getEventID());
 			break;
 		case ACT_6:
-			System.out.println(currentEventOptions[5].getDescription());
+			GUIController.eventQueueHandler.addActionEvent(GUIController.currentEventID, currentEventOptions[5].getEventID());
 			break;
 		case ACT_7:
-			System.out.println(currentEventOptions[6].getDescription());
+			GUIController.eventQueueHandler.addActionEvent(GUIController.currentEventID, currentEventOptions[6].getEventID());
 			break;
 		case ACT_8:
-			System.out.println(currentEventOptions[7].getDescription());
+			GUIController.eventQueueHandler.addActionEvent(GUIController.currentEventID, currentEventOptions[7].getEventID());
 			break;
 		case ACT_9:
-			System.out.println(currentEventOptions[8].getDescription());
+			GUIController.eventQueueHandler.addActionEvent(GUIController.currentEventID, currentEventOptions[8].getEventID());
 			break;
 		case ACT_0:
-			System.out.println(currentEventOptions[9].getDescription());
+			GUIController.eventQueueHandler.addActionEvent(GUIController.currentEventID, currentEventOptions[9].getEventID());
 			break;
 		case MOVE_1:
-			System.out.println(currentLocations[0].getName());
+			GUIController.eventQueueHandler.addMoveEvent(GUIController.currentLocations[0].getLocationID());
 			break;
 		case MOVE_2:
-			System.out.println(currentLocations[1].getName());
+			GUIController.eventQueueHandler.addMoveEvent(GUIController.currentLocations[1].getLocationID());
 			break;
 		case MOVE_3:
-			System.out.println(currentLocations[2].getName());
+			GUIController.eventQueueHandler.addMoveEvent(GUIController.currentLocations[2].getLocationID());
 			break;
 		case MOVE_4:
-			System.out.println(currentLocations[3].getName());
+			GUIController.eventQueueHandler.addMoveEvent(GUIController.currentLocations[3].getLocationID());
 			break;
 		case MOVE_5:
-			System.out.println(currentLocations[4].getName());
+			GUIController.eventQueueHandler.addMoveEvent(GUIController.currentLocations[4].getLocationID());
 			break;
 		case MOVE_6:
-			System.out.println(currentLocations[5].getName());
+			GUIController.eventQueueHandler.addMoveEvent(GUIController.currentLocations[5].getLocationID());
 			break;
 		case MOVE_7:
-			System.out.println(currentLocations[6].getName());
+			GUIController.eventQueueHandler.addMoveEvent(GUIController.currentLocations[6].getLocationID());
 			break;
 		case MOVE_8:
-			System.out.println(currentLocations[7].getName());
+			GUIController.eventQueueHandler.addMoveEvent(GUIController.currentLocations[7].getLocationID());
 			break;
 		case LOAD:
 			System.out.println("Load");
@@ -357,6 +364,7 @@ public class GUIController extends Application {
 	public static void updateItem(Command c, int itemNumber) {
 		switch (c) {
 		case USE_ITEM:
+			GUIController.eventQueueHandler.addActionEvent(GUIController.allItems.get(itemNumber).getItemID(), "Use");
 			System.out.println("Use Item: #"+itemNumber);
 			break;
 		case DROP_ITEM:
