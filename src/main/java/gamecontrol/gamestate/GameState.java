@@ -14,6 +14,7 @@ import main.java.filehandling.gamecontent.realisations.EventGameContent;
 import main.java.filehandling.gamecontent.realisations.LocationGameContent;
 import main.java.filehandling.gamecontent.realisations.SaveGameContent;
 import main.java.filehandling.gamecontent.realisations.components.CompletedEvent;
+import main.java.filehandling.gamecontent.realisations.components.EventOption;
 import main.java.logging.SystemLogger;
 import main.java.random.Rarity;
 
@@ -34,9 +35,12 @@ public class GameState extends Observable {
 	private Map<String, Map<Rarity, List<EventGameContent>>> locationEventMap;
 	private Set<EventGameContent> singleOccurenceEventsThatHaveOccured;
 	private Map<String, EventGameContent> passiveEventMap;
+	
+	
 	private LocationGameContent currentLocation;
 	private EventGameContent currentEvent;
 	private SaveGameContent save;
+	
 	private static GameState instance;
 
 	public GameState() {
@@ -158,5 +162,16 @@ public class GameState extends Observable {
 	public synchronized void notifyListenersOfGameState() {
 		this.setChanged();
 		this.notifyObservers(this);
+	}
+	
+	public List<EventOption> getActiveOptions() {
+		List<EventOption> activeEventOptions = new ArrayList<>();
+		Set<String> itemIDs = new HashSet<>();
+		for (EventOption eventOption : currentEvent.getEventOptions().getEventOptionsValues()) {
+			// required items are present
+			if (save.getSaveItems().containsItemID(eventOption.getRequiredItemID()) && ) {
+				
+			}
+		}
 	}
 }

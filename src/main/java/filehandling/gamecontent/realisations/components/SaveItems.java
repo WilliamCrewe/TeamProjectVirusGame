@@ -1,7 +1,9 @@
 package main.java.filehandling.gamecontent.realisations.components;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -17,7 +19,8 @@ import main.java.filehandling.gamecontent.XMLSerializable;
 public class SaveItems implements XMLSerializable {
 
 	private final List<ItemType> saveItemsValues = new ArrayList<>();
-
+	private final Set<String> saveItemIDs = new HashSet<>();
+	
 	private static final String SERIALIZED_FORMAT = "<SaveItems>%s</SaveItems>";
 
 	/**
@@ -47,12 +50,7 @@ public class SaveItems implements XMLSerializable {
 	}
 	
 	public boolean containsItemID(String itemID) {
-		for(ItemType i : saveItemsValues) {
-			if(i.getItemID().equals(itemID)) {
-				return true;
-			}
-		}
-		return false;
+		return saveItemIDs.contains(itemID);
 	}
 
 	@Override
