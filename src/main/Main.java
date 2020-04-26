@@ -4,6 +4,8 @@ import main.graphical_interface.GUIController;
 import main.java.event.EventQueue;
 import main.java.event.EventQueueObserver;
 import main.java.gamecontrol.GameController;
+import main.java.gamecontrol.gamestate.GameState;
+import main.java.logging.SystemLogger;
 
 public class Main {
 
@@ -12,19 +14,21 @@ public class Main {
 	}
 
 	public static void main(String[] args) {
-        GUIController.begin(args);
-        
-        while(true) {
-        	EventQueueObserver eventQueueObserver = new EventQueueObserver();
-        	try {
-				eventQueueObserver.waitForEvent();
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+		Thread thread = new Thread() {
+			public void run() {
+				SystemLogger.config("Starting thread for GUI");
+				GUIController.begin(args);
 			}
-        	
-        	GameController.handleEvent(EventQueue.getInstance().remove());
-        }
-    }
+		};
+		thread.start();
+		SystemLogger.config("Initialising Event Queue observer and gamestate");
+
+		new EventQueueObserver();
+		GameState.getInstance();
+	}
+
+	public static void handleEvent() {
+		GameController.handleEvent(EventQueue.getInstance().remove());
+	}
 
 }

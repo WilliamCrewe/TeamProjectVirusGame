@@ -46,6 +46,7 @@ public class EventQueue extends Observable {
 	 * @param newEvent
 	 */
 	public void add(AbstractEvent newEvent) {
+		SystemLogger.fine("Adding event to queue");
 		queue.add(newEvent);
 		setChanged();
 		notifyObservers();
