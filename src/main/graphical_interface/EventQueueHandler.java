@@ -3,6 +3,7 @@ package main.graphical_interface;
 import main.java.event.EventQueue;
 import main.java.event.types.EventActionEvent;
 import main.java.event.types.MoveEvent;
+import main.java.event.types.PassiveEvent;
 
 /**
  * @author wcrewe
@@ -33,5 +34,8 @@ public class EventQueueHandler {
 		EventQueue.getInstance().add(new MoveEvent(newLocationID));
 	}
 	
+	public void addPassiveEvent() {
+		EventQueue.getInstance().add(new PassiveEvent());
+	}
 
 }

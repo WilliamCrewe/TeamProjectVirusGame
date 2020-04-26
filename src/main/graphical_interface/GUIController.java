@@ -48,7 +48,7 @@ public class GUIController extends Application {
 	static HashMap<Integer ,GUIInventoryItem> allItems;
 	
 	private GameStateListener gameStateListener;
-	private static EventQueueHandler eventQueueHandler;
+	static EventQueueHandler eventQueueHandler;
 	
 	/*
 	 * Constants to be used to determine the size of the

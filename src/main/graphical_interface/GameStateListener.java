@@ -77,7 +77,7 @@ public class GameStateListener implements Observer{
 				GUIController.allLocations = allLocations;
 				
 				
-				if (((GameState)o).getActiveOptions() != null) {
+				if (((GameState)o).getActiveOptions() != null && ((GameState)o).getCurrentEvent() != null) {
 					ArrayList<GUIEventOption> allEventOptions = createEventOptions(
 							((GameState)o).getCurrentEvent(), ((GameState)o).getActiveOptions(), null);
 					GUIController.allEventOptions = allEventOptions;
@@ -85,7 +85,7 @@ public class GameStateListener implements Observer{
 					GUIController.setCurrentEvents();
 					GUIController.setDisplayText(((GameState)o).getCurrentEvent().getEventName());
 				} else {
-					GUIController.setDisplayText("Where will you go next?");
+					GUIController.eventQueueHandler.addPassiveEvent();
 				}
 			
 			
