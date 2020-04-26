@@ -45,6 +45,15 @@ public class SaveItems implements XMLSerializable {
 	public List<ItemType> getSaveItemsValues() {
 		return saveItemsValues;
 	}
+	
+	public boolean containsItemID(String itemID) {
+		for(ItemType i : saveItemsValues) {
+			if(i.getItemID().equals(itemID)) {
+				return true;
+			}
+		}
+		return false;
+	}
 
 	@Override
 	public byte[] serialize() {

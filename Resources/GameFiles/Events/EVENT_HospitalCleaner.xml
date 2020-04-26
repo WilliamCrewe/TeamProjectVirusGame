@@ -30,7 +30,7 @@
 				<EventOptionKarmaModification>0</EventOptionKarmaModification>
 			</EventOption>
 			<EventOption>
-				<EventOptionID>HospitalCleanerApologiseID</EventOptionID>
+				<EventOptionID>HospitalCleanerBerateID</EventOptionID>
 				<EventOptionDescription>Absolutely not, berate him for not taking his job seriously</EventOptionDescription>
 				<EventOptionImmunityModification>0</EventOptionImmunityModification>
 				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>

@@ -1,10 +1,10 @@
-package test.java.gamecontrol.gamestate;
+package test.java.gamecontrol.helpers;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import main.game_state.GameState;
-import main.java.gamecontrol.gamestate.GameStateInitialisationHelper;
+import main.java.gamecontrol.helpers.GameStateInitialisationHelper;
 import main.java.properties.PropertyManager;
 
 public class GameStateInitialisationHelperTest {

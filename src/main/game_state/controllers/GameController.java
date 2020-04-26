@@ -1,6 +1,6 @@
 package main.game_state.controllers;
 
-import main.java.gamecontrol.gamestate.GameStateInitialisationHelper;
+import main.java.gamecontrol.helpers.GameStateInitialisationHelper;
 import main.java.properties.PropertyManager;
 
 public class GameController{

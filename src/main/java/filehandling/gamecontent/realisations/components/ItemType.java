@@ -80,6 +80,10 @@ public class ItemType implements XMLSerializable {
 		return itemCount;
 	}
 	
+	public void changeItemCount(int change) {
+		itemCount += change;
+	}
+	
 	/**
 	 * @return the itemUsageEventID
 	 */
