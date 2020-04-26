@@ -40,6 +40,7 @@ public class SaveGameContent extends AbstractGameContent implements XMLFileWrita
 	 * @param seed
 	 */
 	public SaveGameContent(String saveName, String seed) {
+		SystemLogger.config("Creating new save with name %s and seed %s", saveName, seed);
 		contentType = ContentType.SAVE;
 		this.saveName = saveName;
 		this.seed = seed;
@@ -117,8 +118,8 @@ public class SaveGameContent extends AbstractGameContent implements XMLFileWrita
 
 	@Override
 	public String toString() {
-		return String.format("SaveGameContent object with values: saveName=%s, seed=%s, dayNumber=%s", saveName, seed,
-				dayNumber);
+		return String.format("SaveGameContent object with values: saveName=%s, seed=%s, dayNumber=%s, immunity=%s, contagionLevel=%s, karma=%s, currentLocationID=%s, completedEvents=%s, saveItems=%s", saveName, seed,
+				dayNumber, immunity, contagionLevel, karma, currentLocationID, completedEvents.toXMLString(), saveItems.toXMLString());
 	}
 
 	@Override

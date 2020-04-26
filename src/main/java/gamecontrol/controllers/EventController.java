@@ -10,6 +10,10 @@ import main.java.filehandling.gamecontent.realisations.components.EventOptions;
 import main.java.gamecontrol.gamestate.GameState;
 import main.java.logging.SystemLogger;
 
+/**
+ * @author Daniel
+ *
+ */
 public class EventController {
 
 	private EventController() {
@@ -38,9 +42,13 @@ public class EventController {
 		chosenOption.getEventOptionContagionLevelModifier();
 		
 		SaveGameContent save = GameState.getInstance().getSave();
+		
+		// Handle the modification of the integer values
 		save.alterImmunity(chosenOption.getEventOptionImmunityModification());
 		save.alterContagionLevel(chosenOption.getEventOptionContagionLevelModifier());
 		save.alterKarma(chosenOption.getEventOptionKarmaModification());
 		
+//		chosenOption.getEventOptionItems();
+//		save.getSaveItems().addToSaveItems("");
 	}
 }

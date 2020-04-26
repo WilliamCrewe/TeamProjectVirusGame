@@ -19,7 +19,7 @@ import main.java.logging.SystemLogger;
 import main.java.random.Rarity;
 
 /**
- * Static class holding the current state of the game. <br>
+ * Singleton class holding the current state of the game. <br>
  * <b> UPDATE </b> methods trigger the notify observers whereas <b> SET </b>
  * methods do not
  * 
@@ -29,13 +29,14 @@ import main.java.random.Rarity;
 public class GameState extends Observable {
 	
 	// Fields below are standard game content (and so non-save related)
-	private Map<String, LocationGameContent> locationMap;
-	private Map<String, CharacterGameContent> characterMap;
-	private Map<Rarity, List<EventGameContent>> nonLocationEventsMap;
-	private Map<String, Map<Rarity, List<EventGameContent>>> locationEventMap;
-	private Set<EventGameContent> singleOccurenceEventsThatHaveOccured;
-	private Map<String, EventGameContent> passiveEventMap;
+	private Map<String, LocationGameContent> locationMap = new HashMap<>();
+	private Map<String, CharacterGameContent> characterMap = new HashMap<>();
+	private Map<Rarity, List<EventGameContent>> nonLocationEventsMap = new EnumMap<>(Rarity.class);
+	private Map<String, Map<Rarity, List<EventGameContent>>> locationEventMap= new HashMap<>();
+	private Set<EventGameContent> singleOccurenceEventsThatHaveOccured = new HashSet<>();
+	private Map<String, EventGameContent> passiveEventMap = new HashMap<>();
 	
+	private Map<String, EventGameContent> untriggeredEventMap = new HashMap<>();
 	
 	private LocationGameContent currentLocation;
 	private EventGameContent currentEvent;
@@ -43,15 +44,9 @@ public class GameState extends Observable {
 	
 	private static GameState instance;
 
-	public GameState() {
-		this.locationMap = new HashMap<>();
-		this.characterMap = new HashMap<>();
-		this.nonLocationEventsMap = new EnumMap<>(Rarity.class);
-		this.locationEventMap = new HashMap<>();
-		this.singleOccurenceEventsThatHaveOccured = new HashSet<>();
-		this.passiveEventMap = new HashMap<>();
-	}
-
+	/**
+	 * @return The currently active instance of the GameState (Instantiating one if it doesn't exist)
+	 */
 	public static GameState getInstance() {
 		if (GameState.instance == null) {
 			SystemLogger.config("GameState does not yet exist, will instantiate");
@@ -60,32 +55,54 @@ public class GameState extends Observable {
 		return GameState.instance;
 	}
 
+	/**
+	 * @param newCharacter
+	 */
 	public void setNewCharacter(final CharacterGameContent newCharacter) {
 		SystemLogger.finer("Adding character %s", newCharacter.getCharacterID());
 		this.characterMap.put(newCharacter.getCharacterID(), newCharacter);
 	}
 
+	/**
+	 * @param newLocation
+	 */
 	public void setNewLocation(final LocationGameContent newLocation) {
 		SystemLogger.finer("Adding location %s", newLocation.getLocationID());
 		this.locationMap.put(newLocation.getLocationID(), newLocation);
 	}
 
+	/**
+	 * @param newEvent
+	 */
 	public void setNewEvent(final EventGameContent newEvent) {
+		// If the event is passive but has no location, this means it will only be triggered by other events (Or item usage)
+		if (newEvent.isPassiveEvent() && newEvent.getEventLocationID() == null) {
+			SystemLogger.finer("The event %s was identified as being only triggered by a call", newEvent.getEventID());
+			untriggeredEventMap.put(newEvent.getEventLocationID(), newEvent);
+			return;
+		}
+		
+		// If the event is passive, just add it to the passive event map
 		if (newEvent.isPassiveEvent()) {
 			SystemLogger.finer("The event %s was identified as the passive event for location %s", newEvent.getEventID(), newEvent.getEventLocationID());
 			this.passiveEventMap.put(newEvent.getEventLocationID(), newEvent);
 			return;
 		}
 
+		// If the event does not have a location, it goes into the non-location events map
 		if (newEvent.getEventLocationID() == null) {
 			SystemLogger.finer("Adding non-location event %s", newEvent.getEventID());
 			this.putEventIntoMap(this.nonLocationEventsMap, newEvent);
 			return;
 		}
-		final Map<Rarity, List<EventGameContent>> existingLocationMap = this.locationEventMap
+		
+		// Get the existing events for the location (may not exist yet)
+		Map<Rarity, List<EventGameContent>> existingLocationMap = this.locationEventMap
 				.get(newEvent.getEventLocationID());
+		
+		// If the no events already existed for the location then create a new map and list to store it in
 		if (existingLocationMap == null) {
-			final Map<Rarity, List<EventGameContent>> newLocationMap = new HashMap<>();
+			Map<Rarity, List<EventGameContent>> newLocationMap = new EnumMap<>(Rarity.class);
 			this.putEventIntoMap(newLocationMap, newEvent);
 			this.locationEventMap.put(newEvent.getEventLocationID(), newLocationMap);
 		} else {
@@ -93,9 +110,17 @@ public class GameState extends Observable {
 		}
 	}
 
+	/**
+	 * Utility method that will add to the existing rarity list if there is one, or will create a new one and add it if it's not there already
+	 * @param existingMap
+	 * @param newEvent
+	 */
 	private void putEventIntoMap(final Map<Rarity, List<EventGameContent>> existingMap,
 			final EventGameContent newEvent) {
+		// Try to get the existing list for the new Events rarity
 		final List<EventGameContent> existingList = existingMap.get(newEvent.getRarity());
+		
+		// If the existing list wasn't found create a new one
 		if (existingList == null) {
 			final List<EventGameContent> newList = new ArrayList<>();
 			newList.add(newEvent);
@@ -105,46 +130,86 @@ public class GameState extends Observable {
 		}
 	}
 
+	/**
+	 * Marks the event as completed and adds it to the save
+	 * @param eventOptionID
+	 */
 	public void completeEvent(final String eventOptionID) {
+		// If the event was single occurence add it to the list of events that has already occured
 		if (this.currentEvent.isSingleOccurence()) {
 			this.singleOccurenceEventsThatHaveOccured.add(this.currentEvent);
 		}
+		
+		// Update the save to say the event was completed
 		this.save.getCompletedEvents()
 				.addToCompletedEvent(new CompletedEvent(this.currentEvent.getEventLocationID(), eventOptionID));
+		
+		// Set the currentEvent back to null
 		this.currentEvent = null;
 		this.notifyListenersOfGameState();
 	}
 
+	/**
+	 * Updates the current event to the new one passed in
+	 * @param newCurrentEvent
+	 */
 	public void updateCurrentEvent(final EventGameContent newCurrentEvent) {
 		this.currentEvent = newCurrentEvent;
 		this.notifyListenersOfGameState();
 	}
 
+	/**
+	 * Returns the combined Map of the non-location events as well as those events for the particular location
+	 * @return
+	 */
 	public Map<Rarity, List<EventGameContent>> getEventsForCurrentLocation() {
-		final Map<Rarity, List<EventGameContent>> mapToReturn = new EnumMap<>(
+		SystemLogger.fine("Getting all available events for the current location %s", currentLocation.getLocationID());
+		
+		// Create a new map to hold the combined values
+		Map<Rarity, List<EventGameContent>> mapToReturn = new EnumMap<>(
 				Rarity.class);
+		
+		// Get the events for the current location
 		final Map<Rarity, List<EventGameContent>> currentLocationEvents = this.locationEventMap
 				.get(this.currentLocation.getLocationID());
-		Rarity[] values;
-		for (int length = (values = Rarity.values()).length, i = 0; i < length; ++i) {
-			final Rarity rarity = values[i];
-			final List<EventGameContent> eventGameContents = new ArrayList<EventGameContent>();
-			eventGameContents.addAll(currentLocationEvents.get(rarity));
-			eventGameContents.addAll(this.nonLocationEventsMap.get(rarity));
+
+		// Loop over each rarity
+		for (Rarity rarity : Rarity.values()) {
+			final List<EventGameContent> eventGameContents = new ArrayList<>();
+			
+			List<EventGameContent> locationEvents = currentLocationEvents.get(rarity);
+			// Add all the location events for this rarity
+			if (locationEvents != null) {
+				eventGameContents.addAll(locationEvents);
+			}
+			
+			List<EventGameContent> nonLocationEvents = nonLocationEventsMap.get(rarity);
+			// Add all the non location events for this rarity
+			if (nonLocationEvents != null) {
+				eventGameContents.addAll(nonLocationEvents);
+			}
+			
+			// Remove any single occurence events that have already run
 			this.removeSingleOccurenceEvents(eventGameContents);
+			
+			// Add the list to the rarity map
 			mapToReturn.put(rarity, eventGameContents);
 		}
+		
 		return mapToReturn;
 	}
 
+	/**
+	 * Removes all single occurence events that have already run from the list passed in
+	 * @param eventList
+	 */
 	private void removeSingleOccurenceEvents(final List<EventGameContent> eventList) {
 		eventList.removeAll(this.singleOccurenceEventsThatHaveOccured);
 	}
 
 	public void updateLocation(final String locationID) {
 		this.currentLocation = this.locationMap.get(locationID);
-		this.setChanged();
-		this.notifyObservers(this);
+		notifyListenersOfGameState();
 	}
 
 	public EventGameContent getCurrentEvent() {
@@ -156,6 +221,10 @@ public class GameState extends Observable {
 	}
 
 	public SaveGameContent getSave() {
+		if (save == null) {
+			save = new SaveGameContent("SaveGame", "AAAA");
+		}
+		
 		return this.save;
 	}
 
@@ -164,6 +233,9 @@ public class GameState extends Observable {
 		this.notifyObservers(this);
 	}
 	
+	/**
+	 * @return all the options currently active for the Event
+	 */
 	public List<EventOption> getActiveOptions() {
 		List<EventOption> activeEventOptions = new ArrayList<>();
 
