@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
-import main.game_state.GameState;
 import main.graphical_interface.util.Command;
 import main.graphical_interface.util.GUIEventOption;
 import main.graphical_interface.util.GUIInventoryItem;
@@ -16,6 +15,7 @@ import main.java.filehandling.gamecontent.realisations.LocationGameContent;
 import main.java.filehandling.gamecontent.realisations.components.EventOption;
 import main.java.filehandling.gamecontent.realisations.components.ItemType;
 import main.java.filehandling.gamecontent.realisations.components.SaveItems;
+import main.java.gamecontrol.gamestate.GameState;
 
 public class GameStateListener implements Observer{
 
@@ -48,18 +48,18 @@ public class GameStateListener implements Observer{
 		if (arg instanceof GameState) {
 			
 			HashMap<Integer, GUIInventoryItem> currentInventory = createInventory(
-					((GameState)arg).getSaveGame().getSaveItems());
+					((GameState)arg).getSave().getSaveItems());
 			ArrayList<GUIEventOption> allEventOptions = createEventOptions(
-					((GameState)arg).getActiveEvent(), null, null);
+					((GameState)arg).getCurrentEvent(), null, null);
 			
-			String locID = ((GameState)arg).getSaveGame().getCurrentLocationID();
-			ArrayList<GUILocation> allLocations = createLocationOptions(
-					((GameState)arg).getSaveGame().getCurrentLocation());
+			String locID = ((GameState)arg).getSave().getCurrentLocationID();
+			List<GUILocation> allLocations = createLocationOptions(
+					((GameState)arg).getCurrentLocation());
 			
 			GUIController.allItems = currentInventory;
 			GUIController.allLocations = allLocations;
 			GUIController.allEventOptions = allEventOptions;
-			GUIController.currentEventID = ((GameState)arg).getActiveEvent().getEventID();
+			GUIController.currentEventID = ((GameState)arg).getCurrentEvent().getEventID();
 			
 			GUIController.setCurrentEvents();
 			GUIController.setCurrentLocations();
@@ -126,7 +126,7 @@ public class GameStateListener implements Observer{
 		for (String locID : currentLocation.getConnectedLocations().getConnectedLocationIDs()) {
 			GUILocation newLocation = new GUILocation();
 			newLocation.setLocationID(locID);
-			newLocation.setName(GameState.getLocationName(locID));
+			newLocation.setName(currentLocation.getLocationName());
 			getLocationCommandAndPage(newLocation);
 			allLocations.add(newLocation);
 		}
