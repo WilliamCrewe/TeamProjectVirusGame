@@ -14,8 +14,8 @@ public class ButtonInputOption extends PlayerInputController {
 	private final double vSpacing = 10.0;
 	private final double hSpacing = 10.0;
 	
-	private final double buttonHeight = 50.0;
-	private final double buttonWidth = 100.0;
+	private final double buttonHeight = 80.0;
+	private final double buttonWidth = 120.0;
 	
 	public ButtonInputOption() {
 		setup();
@@ -77,6 +77,7 @@ public class ButtonInputOption extends PlayerInputController {
 		b.setVisible(visibility);
 		b.setPrefWidth(buttonWidth);
 		b.setPrefHeight(buttonHeight);
+		b.setWrapText(true);
 		
 		return b;
 	}

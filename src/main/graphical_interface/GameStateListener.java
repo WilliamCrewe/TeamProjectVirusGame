@@ -10,6 +10,7 @@ import main.graphical_interface.util.Command;
 import main.graphical_interface.util.GUIEventOption;
 import main.graphical_interface.util.GUIInventoryItem;
 import main.graphical_interface.util.GUILocation;
+import main.java.event.EventQueue;
 import main.java.filehandling.gamecontent.realisations.EventGameContent;
 import main.java.filehandling.gamecontent.realisations.LocationGameContent;
 import main.java.filehandling.gamecontent.realisations.components.EventOption;
@@ -39,6 +40,8 @@ public class GameStateListener implements Observer{
 		GameStateListener.eventCountPage= 0;
 		GameStateListener.locationCountOption = 0;
 		GameStateListener.locationCountPage = 0;
+		
+		GameState.getInstance().addObserver(this);
 
 	}
 
@@ -49,28 +52,45 @@ public class GameStateListener implements Observer{
 	 */
 	@Override
 	public void update(Observable o, Object arg) {
+		
 		GameStateListener.eventCountOption = 0;
 		GameStateListener.eventCountPage= 0;
 		GameStateListener.locationCountOption = 0;
 		GameStateListener.locationCountPage = 0;
 		
-		if (o instanceof GameState) {
-			
-			HashMap<Integer, GUIInventoryItem> currentInventory = createInventory(
-					((GameState)o).getSave().getSaveItems());
-			ArrayList<GUIEventOption> allEventOptions = createEventOptions(
-					((GameState)o).getCurrentEvent(), ((GameState)o).getActiveOptions(), null);
+		System.out.println("1");
+		System.out.println(o.getClass());		
 			
 			
 			List<GUILocation> allLocations = createLocationOptions(
 					((GameState)o).getCurrentLocation());
 			
-			GUIController.allItems = currentInventory;
-			GUIController.allLocations = allLocations;
-			GUIController.allEventOptions = allEventOptions;
-			GUIController.currentEventID = ((GameState)o).getCurrentEvent().getEventID();
 			
-			GUIController.setCurrentEvents();
+			
+			if (o instanceof GameState) {
+				System.out.println("Observable Begin");
+				
+				HashMap<Integer, GUIInventoryItem> currentInventory = createInventory(
+						((GameState)o).getSave().getSaveItems());
+				
+				GUIController.allItems = currentInventory;
+				GUIController.allLocations = allLocations;
+				
+				
+				if (((GameState)o).getActiveOptions() != null) {
+					ArrayList<GUIEventOption> allEventOptions = createEventOptions(
+							((GameState)o).getCurrentEvent(), ((GameState)o).getActiveOptions(), null);
+					GUIController.allEventOptions = allEventOptions;
+					GUIController.currentEventID = ((GameState)o).getCurrentEvent().getEventID();
+					GUIController.setCurrentEvents();
+					GUIController.setDisplayText(((GameState)o).getCurrentEvent().getEventName());
+				} else {
+					GUIController.setDisplayText("Where will you go next?");
+				}
+			
+			
+			
+			
 			GUIController.setCurrentLocations();
 			
 			GUIController.updateAll();
@@ -157,7 +177,7 @@ public class GameStateListener implements Observer{
 		for (String locID : currentLocation.getConnectedLocations().getConnectedLocationIDs()) {
 			GUILocation newLocation = new GUILocation();
 			newLocation.setLocationID(locID);
-			newLocation.setName(currentLocation.getLocationName());
+			newLocation.setName(locID);
 			getLocationCommandAndPage(newLocation);
 			allLocations.add(newLocation);
 		}

@@ -68,7 +68,7 @@ public class InGameWindow extends AbstractGameWindow {
 			VBox displayInputBox = new VBox();
 			{
 				//Create Display Window
-				DisplayWindowController displayController = new DisplayWindowController();
+				this.displayController = new DisplayWindowController();
 				TextArea display = displayController.getTextView();
 				
 				//Create Player Input

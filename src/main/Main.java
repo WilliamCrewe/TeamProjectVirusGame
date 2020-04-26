@@ -38,6 +38,8 @@ public class Main {
 		
 		SystemLogger.config("Initialising the game content");
 		GameStateInitialisationHelper.intitialiseGameState();
+		
+		/*
 
 		System.out.println(GameState.getInstance().getSave().toString());
 		
@@ -53,6 +55,7 @@ public class Main {
 
 		GameController.handleEvent(new EventActionEvent("RacoonArmy", "RacoonArmyRevolt"));
 		System.out.println(GameState.getInstance().getSave().toString());
+		*/
 		
 	}
 

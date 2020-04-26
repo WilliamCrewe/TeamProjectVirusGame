@@ -177,18 +177,14 @@ public class GUIController extends Application {
 			GUIController.currentLocationPage = 1;
 			GUIController.finalLocationPage = 1;
 			
-			GUILocation l1 = new GUILocation(Command.MOVE_1, "Hospital", 1);
-			GUILocation l2 = new GUILocation(Command.MOVE_2, "Home", 1);
-			GUILocation l3 = new GUILocation(Command.MOVE_3, "Police Station", 2);
-			GUILocation l4 = new GUILocation(Command.MOVE_4, "Work", 3);
-			GUILocation l5 = new GUILocation(Command.MOVE_5, "Asda", 4);
+			GUILocation l1 = new GUILocation(Command.MOVE_1, "Shop", 1);
+			l1.setLocationID("Shop");
+			GUILocation l2 = new GUILocation(Command.MOVE_2, "Hospital", 1);
+			l2.setLocationID("Hospital");
 			
 			ArrayList<GUILocation> test1 = new ArrayList<>();
 			test1.add(l1);
 			test1.add(l2);
-			test1.add(l3);
-			test1.add(l4);
-			test1.add(l5);
 			
 			GUIController.allLocations = test1;
 			
@@ -207,6 +203,8 @@ public class GUIController extends Application {
 			allItems.put(allItems.size(), i1);
 			allItems.put(allItems.size(), i2);
 			allItems.put(allItems.size(), i3);
+			
+			
 			
 			
 		}
@@ -489,7 +487,7 @@ public class GUIController extends Application {
 		}
 	}
 	
-	private static void setDisplayText(String text) {
+	public static void setDisplayText(String text) {
 		InGameWindow.updateDisplayText(text);
 	}
 	
