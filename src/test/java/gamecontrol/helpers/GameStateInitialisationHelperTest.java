@@ -17,9 +17,9 @@ public class GameStateInitialisationHelperTest {
 		
 		assertEquals("Old Man", GameState.getCharacterName("OldMan"));
 		
-		assertEquals("Home", GameState.getLocationName("Home"));
-		assertEquals("Hospital", GameState.getLocationName("Hospital"));
-		assertEquals("Market", GameState.getLocationName("Market"));
+		assertEquals("Home", GameState.getLocation("Home").getLocationName());
+		assertEquals("Hospital", GameState.getLocation("Hospital").getLocationName());
+		assertEquals("Market", GameState.getLocation("Market").getLocationName());
 		
 		assertEquals("HospitalCleaner", GameState.getEvent("HospitalCleaner").getEventID());
 		assertEquals("Hospital", GameState.getEvent("HospitalCleaner").getEventLocationID());

@@ -22,6 +22,18 @@ public class EventPickerControllerTest {
 		assertEquals("HospitalCleaner", GameState.getGameState().getActiveEvent().getEventID());
 	}
 	
+	@Test
+	public void eventIsInCompletedEvents() {
+		PropertyManager.setXSDLocation(PropertyManager.getBaseDirectory() + "\\Resources\\XSD\\VirusGameXSD.xsd");
+		GameStateInitialisationHelper.intitialiseGameState("TestSave", "000");
+		
+		GameState.getGameState().setActiveEvent(null);
+		MovementController.move("Hospital");
+		assertEquals(GameState.getLocation(GameState.getGameState().getSaveGame().getCurrentLocationID()).getLocationName(), "Hospital");
+		GameState.getGameState().getSaveGame().addCompletedEvent("HospitalCleaner", "HospitalCleanerHelpID");
+		EventPickerController.pickEvent();
+		assertEquals(null, GameState.getGameState().getActiveEvent());
+	}
 	//Negative testing 
 	//Event is in completed events
 	//event does not exist for those conditions

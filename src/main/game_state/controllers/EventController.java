@@ -13,6 +13,7 @@ public class EventController {
 			GameState.getGameState().getSaveGame().adjustContagionLevel(EventOptionsHelper.getEventOptionFromID(eventID, eventOptionID).getEventOptionContagionLevelModifier());
 			GameState.getGameState().getSaveGame().adjustKarma(EventOptionsHelper.getEventOptionFromID(eventID, eventOptionID).getEventOptionKarmaModification());
 			GameState.getGameState().getSaveGame().addCompletedEvent(eventID, eventOptionID);	
+			GameState.getGameState().setActiveEvent(null);
 		}
 	}
 	

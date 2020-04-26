@@ -15,9 +15,9 @@ public class MoveControllerTest {
 		PropertyManager.setXSDLocation(PropertyManager.getBaseDirectory() + "\\Resources\\XSD\\VirusGameXSD.xsd");
 		GameStateInitialisationHelper.intitialiseGameState("TestSave", "000");
 		
-		assertEquals(GameState.getLocationName(GameState.getGameState().getSaveGame().getCurrentLocationID()), "Home");
+		assertEquals(GameState.getLocation(GameState.getGameState().getSaveGame().getCurrentLocationID()).getLocationName(), "Home");
 		MovementController.move("Market");
-		assertEquals(GameState.getLocationName(GameState.getGameState().getSaveGame().getCurrentLocationID()), "Market");
+		assertEquals(GameState.getLocation(GameState.getGameState().getSaveGame().getCurrentLocationID()).getLocationName(), "Market");
 	}
 	
 	

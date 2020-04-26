@@ -12,7 +12,7 @@ import main.java.properties.PropertyManager;
 public class EventOptionsHelperTest {
 
 	@Test
-	public void testEventOptionsHelper() {
+	public void testIsOptionValid() {
 		PropertyManager.setXSDLocation(PropertyManager.getBaseDirectory() + "\\Resources\\XSD\\VirusGameXSD.xsd");
 		GameStateInitialisationHelper.intitialiseGameState("TestSave", "000");
 		
@@ -24,5 +24,32 @@ public class EventOptionsHelperTest {
 		
 		assertEquals(true, EventOptionsHelper.isEventOptionValid("ShopSell", "ShopTradeSellBananaID"));
 		
+	}
+	
+	
+	@Test
+	public void removeUsedItem() {
+		PropertyManager.setXSDLocation(PropertyManager.getBaseDirectory() + "\\Resources\\XSD\\VirusGameXSD.xsd");
+		GameStateInitialisationHelper.intitialiseGameState("TestSave", "000");
+		
+		GameState.getGameState().getSaveGame().addToSaveItems(new ItemType("BananaID", "Banana", 1, "UseBanana"));
+		
+		assertEquals(1, GameState.getGameState().getSaveGame().getSaveItems().getSaveItemsValues().size());
+		
+		EventOptionsHelper.removeUsedItems("ShopSell", "ShopTradeSellBananaID");
+		
+		assertEquals(0, GameState.getGameState().getSaveGame().getSaveItems().getSaveItemsValues().size());		
+		
+	}
+	
+	public void addNewItem() {
+		PropertyManager.setXSDLocation(PropertyManager.getBaseDirectory() + "\\Resources\\XSD\\VirusGameXSD.xsd");
+		GameStateInitialisationHelper.intitialiseGameState("TestSave", "000");
+		
+		assertEquals(0, GameState.getGameState().getSaveGame().getSaveItems().getSaveItemsValues().size());
+		
+		EventOptionsHelper.addGivenItems("HospitalCleaner", "HospitalCleanerHelpID");
+		
+		assertEquals(1, GameState.getGameState().getSaveGame().getSaveItems().getSaveItemsValues().size());
 	}
 }
