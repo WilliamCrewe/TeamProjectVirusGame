@@ -35,7 +35,7 @@ public class EventGameContent extends AbstractGameContent {
 		contentType = ContentType.EVENT;
 		eventID = XMLUtils.getFirstMatchingTagContent(document, EventGameContentTag.EVENT_ID.getTag());
 		eventName = XMLUtils.getFirstMatchingTagContent(document, EventGameContentTag.EVENT_NAME.getTag());
-		eventLocationID = XMLUtils.getFirstMatchingTagContent(document, EventGameContentTag.EVENT_LOCATION_ID.getTag());
+		eventLocationID = XMLUtils.getFirstMatchingTagContentOptionalTag(document, EventGameContentTag.EVENT_LOCATION_ID.getTag());
 		isPassiveEvent = Boolean.parseBoolean(XMLUtils.getFirstMatchingTagContent(document, EventGameContentTag.IS_PASSIVE_EVENT.getTag())); 
 		isSingleOccurence = Boolean.parseBoolean(XMLUtils.getFirstMatchingTagContent(document, EventGameContentTag.IS_SINGLE_OCCURENCE.getTag()));
 		eventOptions = new EventOptions(document.getElementsByTagName(EventGameContentTag.EVENT_OPTIONS.getTag()).item(0));

@@ -1,11 +1,19 @@
 package main.game_state.controllers;
 
+import main.game_state.GameState;
+import main.java.gamecontrol.helpers.EventOptionsHelper;
+
 public class EventController {
 	
-	public static void eventChoice(String eventID, int eventOption) {
-		//get event ID and add to completed events in save game stored in game state
-		//grab items from save game in game state
-		//validation for items required (any number of required items)
-		//also adjust immunity, contagion level, karma and money
+	public static void eventChoice(String eventID, String eventOptionID) {
+		if(EventOptionsHelper.isEventOptionValid(eventID, eventOptionID)) {
+			EventOptionsHelper.addGivenItems(eventID, eventOptionID);
+			EventOptionsHelper.removeUsedItems(eventID, eventOptionID);
+			GameState.getGameState().getSaveGame().adjustImmunity(EventOptionsHelper.getEventOptionFromID(eventID, eventOptionID).getEventOptionImmunityModification());
+			GameState.getGameState().getSaveGame().adjustContagionLevel(EventOptionsHelper.getEventOptionFromID(eventID, eventOptionID).getEventOptionContagionLevelModifier());
+			GameState.getGameState().getSaveGame().adjustKarma(EventOptionsHelper.getEventOptionFromID(eventID, eventOptionID).getEventOptionKarmaModification());
+			GameState.getGameState().getSaveGame().addCompletedEvent(eventID, eventOptionID);	
+		}
 	}
+	
 }

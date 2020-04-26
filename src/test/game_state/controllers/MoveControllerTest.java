@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import main.game_state.GameState;
 import main.game_state.controllers.MovementController;
-import main.java.gamecontrol.gamestate.GameStateInitialisationHelper;
+import main.java.gamecontrol.helpers.GameStateInitialisationHelper;
 import main.java.properties.PropertyManager;
 
 public class MoveControllerTest {

@@ -1,9 +1,7 @@
 package main.game_state;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Observable;
-import java.util.Observer;
-
 import main.java.filehandling.gamecontent.realisations.CharacterGameContent;
 import main.java.filehandling.gamecontent.realisations.EventGameContent;
 import main.java.filehandling.gamecontent.realisations.LocationGameContent;
@@ -15,9 +13,9 @@ public class GameState extends Observable {
 	private static SaveGameContent saveGame;
 	private static EventGameContent activeEvent;
 	
-	private final static ArrayList<CharacterGameContent> characters = new ArrayList<>();
-	private final static ArrayList<EventGameContent> events = new ArrayList<>();
-	private final static ArrayList<LocationGameContent> locations = new ArrayList<>();
+	private final static HashMap<String, CharacterGameContent> characters = new HashMap<>();
+	private final static HashMap<String, EventGameContent> events = new HashMap<>();
+	private final static HashMap<String, LocationGameContent> locations = new HashMap<>();
 	
 	private GameState(String saveName, String seed) {
 		GameState.saveGame = new SaveGameContent(saveName, seed);
@@ -55,79 +53,74 @@ public class GameState extends Observable {
 	
 	public void setActiveEvent(EventGameContent activeEvent) {
 		GameState.activeEvent = activeEvent;
-		notifyObservers();
+		notifyObservers(GAMESTATEINSTANCE);
 	}
 	
 	public void increaseDayNumber() {
 		saveGame.setDayNumber(saveGame.getDayNumber() + 1);
-		notifyObservers();
+		notifyObservers(GAMESTATEINSTANCE);
 	}
 	
 	public void setImmunityLevel(int immunity) {
-		saveGame.setImmunity(immunity);
-		notifyObservers();
+		saveGame.adjustImmunity(immunity);
+		notifyObservers(GAMESTATEINSTANCE);
 	}
 	
 	public void setContagionLevel(int contagionLevel) {
-		saveGame.setContagionLevel(contagionLevel);
-		notifyObservers();
+		saveGame.adjustContagionLevel(contagionLevel);
+		notifyObservers(GAMESTATEINSTANCE);
 	}
 	
 	public void setKarma(int karma) {
-		saveGame.setKarma(karma);
-		notifyObservers();
+		saveGame.adjustKarma(karma);
+		notifyObservers(GAMESTATEINSTANCE);
 	}
 	
-	public static ArrayList<CharacterGameContent> getCharacters() {
+	public static HashMap<String, CharacterGameContent> getCharacters() {
 		return characters;
 	}
 	
 	public static String getCharacterName(String characterID) {
-		for(CharacterGameContent c : characters) {
-			if(c.getCharacterID().equals(characterID)) {
-				return c.getCharacterName();
-			}
+		if(characters.get(characterID) != null) {
+			return characters.get(characterID).getCharacterName();
 		}
 		return null;
 	}
 	
 	public static void addCharacter(CharacterGameContent character) {
-		characters.add(character);
+		characters.put(character.getCharacterID(), character);
 	}
 	
-	public static ArrayList<EventGameContent> getEvents() {
+	public static HashMap<String, EventGameContent> getEvents() {
 		return events;
 	}
 	
 	public static EventGameContent getEvent(String eventID) {
-		for(EventGameContent e : events) {
-			if(e.getEventID().equals(eventID)) {
-				return e;
-			}
+		if(events.get(eventID) != null) {
+			return events.get(eventID);
 		}
 		return null;
 	}
 	
 	public static void addEvent(EventGameContent event) {
-		events.add(event);
+		events.put(event.getEventID(), event);
+		System.out.println("Event added: " + event.getEventID());
 	}
 	
-	public static ArrayList<LocationGameContent> getLocations() {
+	public static HashMap<String, LocationGameContent> getLocations() {
 		return locations;
 	}
 	
-	public static String getLocationName(String locationID) {
-		for(LocationGameContent l : locations) {
-			if(l.getLocationID().equals(locationID)) {
-				return l.getLocationName();
-			}
+	public static LocationGameContent getLocation(String locationID) {
+		if(locations.get(locationID) != null) {
+			return locations.get(locationID);
 		}
-		return "No location found with supplied ID";
+		return null;
 	}
 	
 	public static void addLocation(LocationGameContent location) {
-		System.out.println("Location added: " + location.getLocationName());
-		locations.add(location);
+		locations.put(location.getLocationID(), location);
+		System.out.println("Location added: " + location.getLocationID());
 	}
 
 }

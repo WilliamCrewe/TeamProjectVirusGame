@@ -6,7 +6,9 @@ import org.w3c.dom.NodeList;
 import main.java.filehandling.gamecontent.AbstractGameContent;
 import main.java.filehandling.gamecontent.ContentType;
 import main.java.filehandling.gamecontent.XMLFileWritable;
+import main.java.filehandling.gamecontent.realisations.components.CompletedEvent;
 import main.java.filehandling.gamecontent.realisations.components.CompletedEvents;
+import main.java.filehandling.gamecontent.realisations.components.ItemType;
 import main.java.filehandling.gamecontent.realisations.components.SaveItems;
 import main.java.filehandling.reader.GameDirectory;
 import main.java.filehandling.xml.XMLUtils;
@@ -185,8 +187,8 @@ public class SaveGameContent extends AbstractGameContent implements XMLFileWrita
 		return immunity;
 	}
 	
-	public void setImmunity(int immunity) {
-		this.immunity = immunity;
+	public void adjustImmunity(int immunity) {
+		this.immunity += immunity;
 	}
 	
 	/**
@@ -196,8 +198,8 @@ public class SaveGameContent extends AbstractGameContent implements XMLFileWrita
 		return contagionLevel;
 	}
 	
-	public void setContagionLevel(int contagionLevel) {
-		this.contagionLevel = contagionLevel;
+	public void adjustContagionLevel(int contagionLevel) {
+		this.contagionLevel += contagionLevel;
 	}
 	
 	/**
@@ -207,8 +209,8 @@ public class SaveGameContent extends AbstractGameContent implements XMLFileWrita
 		return karma;
 	}
 	
-	public void setKarma(int karma) {
-		this.karma = karma;
+	public void adjustKarma(int karma) {
+		this.karma += karma;
 	}
 	
 	/**
@@ -229,6 +231,10 @@ public class SaveGameContent extends AbstractGameContent implements XMLFileWrita
 		return completedEvents;
 	}
 	
+	public void addCompletedEvent(String eventID, String eventOptionID) {
+		completedEvents.addToCompletedEvent(new CompletedEvent(eventID, eventOptionID));
+	}
+	
 	/**
 	 * @return The items saved in this save game
 	 */
@@ -236,8 +242,8 @@ public class SaveGameContent extends AbstractGameContent implements XMLFileWrita
 		return saveItems;
 	}
 	
-	public void addToSaveItems() {
-		
+	public void addToSaveItems(ItemType item) {
+		saveItems.addToSaveItems(item);
 	}
 	
 }

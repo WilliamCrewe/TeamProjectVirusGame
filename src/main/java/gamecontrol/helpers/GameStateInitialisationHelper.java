@@ -1,4 +1,4 @@
-package main.java.gamecontrol.gamestate;
+package main.java.gamecontrol.helpers;
 
 import java.io.File;
 import java.util.List;
