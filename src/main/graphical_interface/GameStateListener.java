@@ -17,6 +17,10 @@ import main.java.filehandling.gamecontent.realisations.components.ItemType;
 import main.java.filehandling.gamecontent.realisations.components.SaveItems;
 import main.java.gamecontrol.gamestate.GameState;
 
+/**
+ * @author wcrewe
+ *
+ */
 public class GameStateListener implements Observer{
 
 	private static int eventCountOption;
@@ -38,6 +42,11 @@ public class GameStateListener implements Observer{
 
 	}
 
+	/** 
+	 *  @see java.util.Observer#update(java.util.Observable, java.lang.Object)
+	 *  
+	 *  Accepts the GameState and generates objects to be used by the GUIController based on the current GameState.
+	 */
 	@Override
 	public void update(Observable o, Object arg) {
 		GameStateListener.eventCountOption = 0;
@@ -45,21 +54,21 @@ public class GameStateListener implements Observer{
 		GameStateListener.locationCountOption = 0;
 		GameStateListener.locationCountPage = 0;
 		
-		if (arg instanceof GameState) {
+		if (o instanceof GameState) {
 			
 			HashMap<Integer, GUIInventoryItem> currentInventory = createInventory(
-					((GameState)arg).getSave().getSaveItems());
+					((GameState)o).getSave().getSaveItems());
 			ArrayList<GUIEventOption> allEventOptions = createEventOptions(
-					((GameState)arg).getCurrentEvent(), null, null);
+					((GameState)o).getCurrentEvent(), ((GameState)o).getActiveOptions(), null);
 			
-			String locID = ((GameState)arg).getSave().getCurrentLocationID();
+			
 			List<GUILocation> allLocations = createLocationOptions(
-					((GameState)arg).getCurrentLocation());
+					((GameState)o).getCurrentLocation());
 			
 			GUIController.allItems = currentInventory;
 			GUIController.allLocations = allLocations;
 			GUIController.allEventOptions = allEventOptions;
-			GUIController.currentEventID = ((GameState)arg).getCurrentEvent().getEventID();
+			GUIController.currentEventID = ((GameState)o).getCurrentEvent().getEventID();
 			
 			GUIController.setCurrentEvents();
 			GUIController.setCurrentLocations();
@@ -72,6 +81,12 @@ public class GameStateListener implements Observer{
 
 	}
 
+	/**
+	 * @param items
+	 * @return Map of Key: Intenger, Object: GUIInventoryItem
+	 * 
+	 * Creates a HashMap of GUIInventoryItems from the current Player inventory items.
+	 */
 	private HashMap<Integer, GUIInventoryItem> createInventory(SaveItems items){
 		HashMap<Integer, GUIInventoryItem> inventory = new HashMap<>();
 
@@ -89,6 +104,16 @@ public class GameStateListener implements Observer{
 		return inventory;
 	}
 
+	/**
+	 * @param event
+	 * @param availableEventOptions
+	 * @param unavailableEventOptions
+	 * @return ArrayList<GUIEventOption>
+	 * 
+	 * Creates an array of GUIEventOptions using the currentActiveEvent. This method checks whether each
+	 * EventOption should be displayed or not from the availableEventOptions list.
+	 * EventOptions are initialised disable to later be enabled if they are on the availableEventOptions list.
+	 */
 	private ArrayList<GUIEventOption> createEventOptions(EventGameContent event, List<EventOption> availableEventOptions,
 			ArrayList<EventOption> unavailableEventOptions){
 
@@ -120,6 +145,12 @@ public class GameStateListener implements Observer{
 
 	}
 
+	/**
+	 * @param currentLocation
+	 * @return List<GUILocation>
+	 * 
+	 * Creates a List of GUILocations based on the current location and its connecting locations.
+	 */
 	private List<GUILocation> createLocationOptions(LocationGameContent currentLocation){
 		ArrayList<GUILocation> allLocations = new ArrayList<>();
 
@@ -133,6 +164,12 @@ public class GameStateListener implements Observer{
 		return allLocations;
 	}
 
+	/**
+	 * @param eventOption
+	 * 
+	 * Generates the appropriate action button input for the EventAction depending
+	 * on where it will appear on the current action bar.
+	 */
 	private void getEventOptionCommandAndPage(GUIEventOption eventOption) {
 		if (GameStateListener.eventCountOption < 10) {
 			if (GameStateListener.eventCountOption == 1) {
@@ -164,6 +201,12 @@ public class GameStateListener implements Observer{
 		}
 	}
 
+	/**
+	 * @param GUILocation loc
+	 * 
+	 * Generates the appropriate location button input for the Location depending
+	 * on where it will appear on the current action bar.
+	 */
 	private void getLocationCommandAndPage(GUILocation loc) {
 		if (GameStateListener.locationCountOption < 10) {
 			if (GameStateListener.locationCountOption == 1) {
