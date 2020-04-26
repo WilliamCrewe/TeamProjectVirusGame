@@ -424,7 +424,7 @@ public class GUIController extends Application {
 	/**
 	 * Clears the currentEvent List
 	 */
-	private static void clearCurrentEventPage() {
+	public static void clearCurrentEventPage() {
 		for (int i = 0; i < currentEventOptions.length; i++) {
 			currentEventOptions[i] = null;
 		}
@@ -433,7 +433,7 @@ public class GUIController extends Application {
 	/**
 	 * Clears the currentLocations List
 	 */
-	private static void clearLocationPage() {
+	public static void clearLocationPage() {
 		for (int i = 0; i < currentLocations.length; i++) {
 			currentLocations[i] = null;
 		}

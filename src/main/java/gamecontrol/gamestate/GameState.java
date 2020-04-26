@@ -160,7 +160,6 @@ public class GameState extends Observable {
 	
 	public void updateCurrentEvent(String eventID) {
 		currentEvent = untriggeredEventMap.get(eventID);
-		this.notifyListenersOfGameState();
 	}
 
 	/**

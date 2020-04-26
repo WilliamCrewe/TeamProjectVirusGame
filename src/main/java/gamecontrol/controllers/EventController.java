@@ -67,5 +67,7 @@ public class EventController {
 		if (chosenOption.getFollowingEventID() != null) {
 			GameState.getInstance().updateCurrentEvent(chosenOption.getFollowingEventID());
 		}
+		
+		GameState.getInstance().notifyListenersOfGameState();
 	}
 }

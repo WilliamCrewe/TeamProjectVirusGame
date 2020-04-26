@@ -73,6 +73,7 @@ public class GameStateListener implements Observer{
 				HashMap<Integer, GUIInventoryItem> currentInventory = createInventory(
 						((GameState)o).getSave().getSaveItems());
 				
+				GUIController.clearCurrentEventPage();
 				GUIController.allItems = currentInventory;
 				GUIController.allLocations = allLocations;
 				
