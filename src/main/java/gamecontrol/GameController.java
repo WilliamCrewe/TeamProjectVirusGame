@@ -10,6 +10,11 @@ import main.java.gamecontrol.controllers.MovementController;
 import main.java.gamecontrol.controllers.PassiveEventController;
 import main.java.logging.SystemLogger;
 
+/**
+ * High level controller which delegates the handling of the event passed in to the correct sub-controller
+ * @author Daniel
+ *
+ */
 public class GameController {
 
 	private GameController() {
@@ -20,6 +25,7 @@ public class GameController {
 		EventType eventType = event.getEventType();
 		
 		SystemLogger.config("An event of type %s will be actioned", eventType);
+		// Call the controller for the eventType passed in
 		switch (eventType) {
 		case MOVE:
 			MovementController.handleMove((MoveEvent) event);

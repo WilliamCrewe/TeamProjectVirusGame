@@ -38,14 +38,24 @@ public class SaveItems implements XMLSerializable {
 		}
 	}
 	
+	/**
+	 * Adds the item to the saveItems
+	 * @param itemType
+	 */
 	public void addToSaveItems(ItemType itemType) {
 		saveItemsValues.add(itemType);
+		saveItemIDs.add(itemType.getItemID());
 	}
 	
+	/**
+	 * Remove the item with the ItemID passed in from the saveItems
+	 * @param itemID
+	 */
 	public void removeItem(String itemID) {
 		saveItemIDs.remove(itemID);
 		
 		ItemType matchingItem = null;
+		// Find any matching items in the itemList
 		for (ItemType saveItem : saveItemsValues) {
 			if (saveItem.getItemID().equals(itemID)) {
 				matchingItem = saveItem;
@@ -53,6 +63,7 @@ public class SaveItems implements XMLSerializable {
 			}
 		}
 		
+		// If an item was found in the list remove it
 		if (matchingItem != null) {
 			saveItemsValues.remove(matchingItem);
 		}

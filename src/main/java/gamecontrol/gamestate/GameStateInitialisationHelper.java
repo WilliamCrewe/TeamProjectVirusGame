@@ -26,6 +26,9 @@ public class GameStateInitialisationHelper {
 		// Private constructor to prevent instantiation
 	}
 	
+	/**
+	 * Initialise the gameState with the contents of all the various game files
+	 */
 	public static void intitialiseGameState() {
 		SystemLogger.config("Starting the initialisation of the GameState");
 		
@@ -40,12 +43,18 @@ public class GameStateInitialisationHelper {
 		
 	}
 	
+	/**
+	 * Initialise all the characters of the game
+	 */
 	private static void initialiseCharacters() {
 		SystemLogger.fine("Starting the initialisation of the GameState Characters");
 		String characterDirectoryPath = PropertyManager.getBaseDirectory()+ File.separator + GameDirectory.CHARACTERS_DIRECTORY.getDirctoryName();
 		String[] fileNames = FileReader.getFilesInDirectory(characterDirectoryPath);
+
+		// Read in all the files in the directory
 		for (String filePath : fileNames) {
 			try {
+				// Get the file contents
 				AbstractGameContent character = GameContentFileHandler.getGameContentOfFile(characterDirectoryPath + File.separator + filePath);
 				
 				// add to gameState
@@ -58,12 +67,18 @@ public class GameStateInitialisationHelper {
 		
 	}
 	
+	/**
+	 * Initialise all the locations of the game
+	 */
 	private static void initialiseLocations() {
 		SystemLogger.fine("Starting the initialisation of the GameState Locations");
 		String characterDirectoryPath = PropertyManager.getBaseDirectory()+ File.separator + GameDirectory.LOCATIONS_DIRECTORY.getDirctoryName();
 		String[] fileNames = FileReader.getFilesInDirectory(characterDirectoryPath);
+		
+		// Read in all the files in the directory
 		for (String filePath : fileNames) {
 			try {
+				// Get the file contents
 				AbstractGameContent location = GameContentFileHandler.getGameContentOfFile(characterDirectoryPath + File.separator + filePath);
 				
 				// add to gameState
@@ -72,25 +87,31 @@ public class GameStateInitialisationHelper {
 				SystemLogger.severe("An exception occured reading in the contents of file %s, reason was %s", filePath, e.getMessage());
 			}
 		}
-		SystemLogger.finer("Finished the initialisation of the GameState Locations");
 		
+		SystemLogger.finer("Finished the initialisation of the GameState Locations");
 	}
 	
+	/**
+	 * Initialise all the events of the game
+	 */
 	private static void initialiseEvents() {
 		SystemLogger.fine("Starting the initialisation of the GameState Events");
-		String characterDirectoryPath = PropertyManager.getBaseDirectory()+ File.separator + GameDirectory.EVENTS_DIRECTORY.getDirctoryName();
-		String[] fileNames = FileReader.getFilesInDirectory(characterDirectoryPath);
+		String eventDirectoryPath = PropertyManager.getBaseDirectory()+ File.separator + GameDirectory.EVENTS_DIRECTORY.getDirctoryName();
+		String[] fileNames = FileReader.getFilesInDirectory(eventDirectoryPath);
+		
+		// Read in all the files in the directory
 		for (String filePath : fileNames) {
 			try {
-				AbstractGameContent location = GameContentFileHandler.getGameContentOfFile(characterDirectoryPath + File.separator + filePath);
+				// Get the file contents
+				AbstractGameContent event = GameContentFileHandler.getGameContentOfFile(eventDirectoryPath + File.separator + filePath);
 				
 				// add to gameState
-				GameState.getInstance().setNewEvent((EventGameContent) location);
+				GameState.getInstance().setNewEvent((EventGameContent) event);
 			} catch (XMLParseException | FileReadException | XMLValidationException e) {
 				SystemLogger.severe("An exception occured reading in the contents of file %s, reason was %s", filePath, e.getMessage());
 			}
 		}
-		SystemLogger.finer("Finished the initialisation of the GameState Events");
 		
+		SystemLogger.finer("Finished the initialisation of the GameState Events");
 	}
 }
