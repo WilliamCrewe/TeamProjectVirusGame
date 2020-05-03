@@ -40,7 +40,9 @@ public class GameState extends Observable {
 	
 	private LocationGameContent currentLocation;
 	private EventGameContent currentEvent;
-	private SaveGameContent save;
+	private SaveGameContent save = new SaveGameContent("SaveGame", "AAAA");
+	
+	private boolean gameOver;
 	
 	private static GameState instance;
 
@@ -53,6 +55,13 @@ public class GameState extends Observable {
 			GameState.instance = new GameState();
 		}
 		return GameState.instance;
+	}
+	
+	/**
+	 * Destroys the current GameState so the next time getInstance is called a new instance is created
+	 */
+	public static void destroy() {
+		GameState.instance = null;
 	}
 
 	/**
@@ -224,10 +233,6 @@ public class GameState extends Observable {
 	}
 
 	public SaveGameContent getSave() {
-		if (save == null) {
-			save = new SaveGameContent("SaveGame", "AAAA");
-		}
-		
 		return this.save;
 	}
 
@@ -238,6 +243,15 @@ public class GameState extends Observable {
 	
 	public void setCurrentEventToPassiveLocationEvent() {
 		currentEvent = passiveEventMap.get(currentLocation.getLocationID());
+	}
+	
+	public void setGameOver(boolean newGameOver) {
+		gameOver = newGameOver;
+		notifyListenersOfGameState();
+	}
+	
+	public boolean isGameOver() {
+		return gameOver;
 	}
 	
 	/**

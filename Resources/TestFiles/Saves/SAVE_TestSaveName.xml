@@ -6,6 +6,7 @@
 		<CurrentLocationID>TestLocationID</CurrentLocationID>
 		<Immunity>20</Immunity>
 		<ContagionLevel>15</ContagionLevel>
+		<IllnessLevel>5</IllnessLevel>
 		<Karma>16</Karma>
 		<CompletedEvents>
 			<CompletedEvent>

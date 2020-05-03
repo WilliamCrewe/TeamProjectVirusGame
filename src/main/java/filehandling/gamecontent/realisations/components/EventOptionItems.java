@@ -24,6 +24,10 @@ public class EventOptionItems {
 		}
 	}
 	
+	public EventOptionItems(List<ItemType> eventOptionItemsValues) {
+		this.eventOptionItemsValues.addAll(eventOptionItemsValues);
+	}
+	
 	/**
 	 * @return The list of all ItemTypes beneath this EventOptionItems tag
 	 */

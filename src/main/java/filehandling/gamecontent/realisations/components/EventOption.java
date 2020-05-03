@@ -7,6 +7,7 @@ import main.java.logging.SystemLogger;
 
 /**
  * Class representing the EventOption item in the XSD
+ * 
  * @author Daniel
  *
  */
@@ -22,18 +23,18 @@ public class EventOption {
 	private String requiredCompletedEventID;
 	private String requiredItemID;
 	private String followingEventID;
-	
+
 	public EventOption(Node eventNode) {
 		SystemLogger.finer("Creating a new EventOption object");
 		NodeList childNodes = eventNode.getChildNodes();
-		
+
 		// loop over all the child nodes
 		for (int i = 0; i < childNodes.getLength(); i++) {
 			Node currentNode = childNodes.item(i);
-			
+
 			// Find the correct Enum value for the element and set the field based on it
 			EventOptionTag eventOptionTag = EventOptionTag.getByTag(currentNode.getNodeName());
-			
+
 			switch (eventOptionTag) {
 			case EVENT_OPTION_ID:
 				eventOptionID = currentNode.getTextContent();
@@ -62,27 +63,44 @@ public class EventOption {
 			case REQUIRED_ITEM_ID:
 				requiredItemID = currentNode.getTextContent();
 				break;
-			case FOLLOWING_EVENT_ID:	
+			case FOLLOWING_EVENT_ID:
 				followingEventID = currentNode.getTextContent();
 				break;
 			}
 		}
 		SystemLogger.fine("A new %s was created", toString());
 	}
-	
+
+	public EventOption(String eventOptionID, String eventOptionDescription, String eventOptionPostDescription,
+			int eventOptionImmunityModification, int eventOptionContagionLevelModifier,
+			int eventOptionKarmaModification, EventOptionItems eventOptionItems, String requiredCompletedEventID,
+			String requiredItemID, String followingEventID) {
+		this.eventOptionID = eventOptionID;
+		this.eventOptionDescription = eventOptionDescription;
+		this.eventOptionPostDescription = eventOptionPostDescription;
+		this.eventOptionImmunityModification = eventOptionImmunityModification;
+		this.eventOptionContagionLevelModifier = eventOptionContagionLevelModifier;
+		this.eventOptionKarmaModification = eventOptionKarmaModification;
+		this.eventOptionItems = eventOptionItems;
+		this.requiredCompletedEventID = requiredCompletedEventID;
+		this.requiredItemID = requiredItemID;
+		this.followingEventID = followingEventID;
+	}
+
 	/**
 	 * @return the eventOptionDescription
 	 */
 	public String getEventOptionDescription() {
 		return eventOptionDescription;
 	}
-	
+
 	/**
 	 * @return the eventOptionPostDescription
 	 */
 	public String getEventOptionPostDescription() {
 		return eventOptionPostDescription;
 	}
+
 	/**
 	 * @return the eventOptionImmunityModification
 	 */
@@ -131,47 +149,50 @@ public class EventOption {
 	public String getEventOptionID() {
 		return eventOptionID;
 	}
-	
+
 	/**
 	 * @return the followingEventID
 	 */
 	public String getFollowingEventID() {
 		return followingEventID;
 	}
-	
+
 	/**
 	 * private enum representing the tags available under the CompletedEvent element
+	 * 
 	 * @author Daniel
 	 *
 	 */
 	private enum EventOptionTag {
-		EVENT_OPTION_ID("EventOptionID"),
-		EVENT_OPTION_DESCRIPTION("EventOptionDescription"),
-		EVENT_OPTION_POST_DESCRIPTION("EventOptionPostDescription"),
-		EVENT_OPTION_IMMUNITY_MODIFICATION("EventOptionImmunityModification"),
-		EVENT_OPTION_CONTAGION_LEVEL_MODIFIER("EventOptionContagionLevelModifier"),
-		EVENT_OPTION_KARMA_MODIFICATION("EventOptionKarmaModification"),
-		EVENT_OPTION_ITEMS("EventOptionItems"),
-		REQUIRED_COMPLETED_EVENT_ID("RequiredCompletedEventID"),
-		REQUIRED_ITEM_ID("RequiredItemID"),
-		FOLLOWING_EVENT_ID("FollowingEventID");
-		
+		EVENT_OPTION_ID("EventOptionID"), EVENT_OPTION_DESCRIPTION(
+				"EventOptionDescription"), EVENT_OPTION_POST_DESCRIPTION(
+						"EventOptionPostDescription"), EVENT_OPTION_IMMUNITY_MODIFICATION(
+								"EventOptionImmunityModification"), EVENT_OPTION_CONTAGION_LEVEL_MODIFIER(
+										"EventOptionContagionLevelModifier"), EVENT_OPTION_KARMA_MODIFICATION(
+												"EventOptionKarmaModification"), EVENT_OPTION_ITEMS(
+														"EventOptionItems"), REQUIRED_COMPLETED_EVENT_ID(
+																"RequiredCompletedEventID"), REQUIRED_ITEM_ID(
+																		"RequiredItemID"), FOLLOWING_EVENT_ID(
+																				"FollowingEventID");
+
 		private String tag;
-		
+
 		private EventOptionTag(String tag) {
 			this.tag = tag;
 		}
-		
+
 		/**
 		 * Returns the exact format of the tag in the XSD/XML
+		 * 
 		 * @return
 		 */
 		public String getTag() {
 			return tag;
 		}
-		
+
 		/**
 		 * Returns the enum value matching the tag passed in
+		 * 
 		 * @param searchTag
 		 * @return
 		 */
@@ -181,8 +202,9 @@ public class EventOption {
 					return currentTag;
 				}
 			}
-			
-			// As the XML passed in has been verified against the XSD, this case cannot occur
+
+			// As the XML passed in has been verified against the XSD, this case cannot
+			// occur
 			throw new IllegalArgumentException(String.format("No CompletedEventTag has the tag %s", searchTag));
 		}
 	}

@@ -26,6 +26,7 @@ public class SaveGameContent extends AbstractGameContent implements XMLFileWrita
 	private int dayNumber;
 	private int immunity;
 	private int contagionLevel;
+	private int illnessLevel;
 	private int karma;
 	private String currentLocationID;
 	private CompletedEvents completedEvents;
@@ -69,6 +70,8 @@ public class SaveGameContent extends AbstractGameContent implements XMLFileWrita
 				.parseInt(XMLUtils.getFirstMatchingTagContent(document, SaveGameContentTag.IMMUNITY.getTag()));
 		contagionLevel = Integer
 				.parseInt(XMLUtils.getFirstMatchingTagContent(document, SaveGameContentTag.CONTAGION_LEVEL.getTag()));
+		illnessLevel = Integer
+				.parseInt(XMLUtils.getFirstMatchingTagContent(document, SaveGameContentTag.ILLNESS_LEVEL.getTag()));
 		karma = Integer
 				.parseInt(XMLUtils.getFirstMatchingTagContent(document, SaveGameContentTag.KARMA.getTag()));
 		
@@ -168,6 +171,14 @@ public class SaveGameContent extends AbstractGameContent implements XMLFileWrita
 		contagionLevel += contagionLevelModification;
 	}
 	
+	public int getIllnessLevel() {
+		return illnessLevel;
+	}
+	
+	public void alterIllnessLevel(int illnessModification) {
+		illnessLevel += illnessModification;
+	}
+	
 	/**
 	 * @return The current karma level for this save
 	 */	
@@ -215,6 +226,7 @@ public class SaveGameContent extends AbstractGameContent implements XMLFileWrita
 		DAY_NUMBER("DayNumber"),
 		IMMUNITY("Immunity"),
 		CONTAGION_LEVEL("ContagionLevel"),
+		ILLNESS_LEVEL("IllnessLevel"),
 		KARMA("Karma"),
 		CURRENT_LOCATION_ID("CurrentLocationID"),
 		COMPLETED_EVENTS("CompletedEvents"),

@@ -78,6 +78,7 @@
 			<xs:element name="CurrentLocationID" type="xs:string" />
 			<xs:element name="Immunity" type="xs:integer" />
 			<xs:element name="ContagionLevel" type="xs:integer" />
+			<xs:element name="IllnessLevel" type="xs:integer" />
 			<xs:element name="Karma" type="xs:integer" />
 			<xs:element name="CompletedEvents" type="CompletedEventsType" />
 			<xs:element name="SaveItems" type="SaveItemsType" />

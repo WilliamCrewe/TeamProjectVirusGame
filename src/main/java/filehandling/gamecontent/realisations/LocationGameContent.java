@@ -41,6 +41,20 @@ public class LocationGameContent extends AbstractGameContent {
 	}
 	
 	/**
+	 * Constructor for use with junits
+	 * @param locationID
+	 * @param locationName
+	 * @param locationPassiveEventID
+	 * @param connectedLocations
+	 */
+	public LocationGameContent(String locationID, String locationName, String locationPassiveEventID, ConnectedLocations connectedLocations) {
+		this.locationID = locationID;
+		this.locationName = locationName;
+		this.locationPassiveEventID = locationPassiveEventID;
+		this.connectedLocations = connectedLocations;
+	}
+	
+	/**
 	 * @return Returns the ID of the location
 	 */
 	public String getLocationID() {

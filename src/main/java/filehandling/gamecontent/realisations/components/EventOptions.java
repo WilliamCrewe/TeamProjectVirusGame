@@ -24,6 +24,14 @@ public class EventOptions {
 	}
 	
 	/**
+	 * Constructor to be used for junit testing
+	 * @param eventOptionsValues
+	 */
+	public EventOptions(List<EventOption> eventOptionsValues) {
+		this.eventOptionsValues.addAll(eventOptionsValues);
+	}
+	
+	/**
 	 * @return
 	 */
 	public List<EventOption> getEventOptionsValues() {
