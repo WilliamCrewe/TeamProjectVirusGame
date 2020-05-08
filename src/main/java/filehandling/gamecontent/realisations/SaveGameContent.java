@@ -98,6 +98,7 @@ public class SaveGameContent extends AbstractGameContent implements XMLFileWrita
 		SystemLogger.fine("A new %s was created", toString());
 	}
 
+
 	/**
 	 * @return The unique name of the save
 	 */

@@ -5,5 +5,7 @@ public enum EventType {
 	SET_EVENT,
 	PASSIVE_EVENT,
 	ACTION_EVENT,
+	SAVE,
+	LOAD,
 	EXIT
 }

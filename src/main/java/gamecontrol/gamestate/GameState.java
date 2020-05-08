@@ -235,6 +235,11 @@ public class GameState extends Observable {
 	public SaveGameContent getSave() {
 		return this.save;
 	}
+	
+	public void setSave(SaveGameContent saveGameContent) {
+		this.save = saveGameContent;
+		notifyListenersOfGameState();
+	}
 
 	public synchronized void notifyListenersOfGameState() {
 		this.setChanged();
