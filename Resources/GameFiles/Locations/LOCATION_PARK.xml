@@ -1,0 +1,11 @@
+<Content>
+	<Location>
+		<LocationID>Park</LocationID>
+		<LocationName>Park</LocationName>
+		<LocationPassiveEventID>ParkPassive</LocationPassiveEventID>
+		<ConnectedLocations>
+			<ConnectedLocationID>Bank</ConnectedLocationID>
+			<ConnectedLocationID>PoliceStation</ConnectedLocationID>
+		</ConnectedLocations>
+	</Location>
+</Content>

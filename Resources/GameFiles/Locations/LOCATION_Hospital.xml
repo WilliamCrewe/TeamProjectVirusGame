@@ -5,7 +5,8 @@
 		<LocationPassiveEventID>HospitalPassive</LocationPassiveEventID>
 		<ConnectedLocations>
 			<ConnectedLocationID>Home</ConnectedLocationID>
-			<ConnectedLocationID>Shop</ConnectedLocationID>
+			<ConnectedLocationID>PoliceStation</ConnectedLocationID>
+			<ConnectedLocationID>Market</ConnectedLocationID>
 		</ConnectedLocations>
 	</Location>
 </Content>

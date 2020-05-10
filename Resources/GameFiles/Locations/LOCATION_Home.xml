@@ -4,8 +4,9 @@
 		<LocationName>Home</LocationName>
 		<LocationPassiveEventID>Sleep</LocationPassiveEventID>
 		<ConnectedLocations>
-			<ConnectedLocationID>Shop</ConnectedLocationID>
+			<ConnectedLocationID>Market</ConnectedLocationID>
 			<ConnectedLocationID>Hospital</ConnectedLocationID>
+			<ConnectedLocationID>Pub</ConnectedLocationID>
 		</ConnectedLocations>
 	</Location>
 </Content>

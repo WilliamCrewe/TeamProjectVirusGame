@@ -1,0 +1,10 @@
+<Content>
+	<Location>
+		<LocationID>Pub</LocationID>
+		<LocationName>Pub</LocationName>
+		<LocationPassiveEventID>PubPassive</LocationPassiveEventID>
+		<ConnectedLocations>
+			<ConnectedLocationID>Home</ConnectedLocationID>
+		</ConnectedLocations>
+	</Location>
+</Content>

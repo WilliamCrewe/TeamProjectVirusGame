@@ -1,0 +1,13 @@
+<Content>
+	<Location>
+		<LocationID>Market</LocationID>
+		<LocationName>Market</LocationName>
+		<LocationPassiveEventID>MarketPassive</LocationPassiveEventID>
+		<ConnectedLocations>
+			<ConnectedLocationID>Hospital</ConnectedLocationID>
+			<ConnectedLocationID>Shop</ConnectedLocationID>
+			<ConnectedLocationID>Bank</ConnectedLocationID>
+			<ConnectedLocationID>Home</ConnectedLocationID>
+		</ConnectedLocations>
+	</Location>
+</Content>
