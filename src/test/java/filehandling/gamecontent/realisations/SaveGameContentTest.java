@@ -31,6 +31,7 @@ public class SaveGameContentTest {
 		assertEquals("NewSaveName", saveGameContent.getSaveName());
 		assertEquals("AABBCC", saveGameContent.getSeed());
 		assertEquals(0, saveGameContent.getDayNumber());
+		assertEquals("00:00", saveGameContent.getTime().getTime());
 		assertEquals(
 				"SaveGameContent object with values: saveName=NewSaveName, seed=AABBCC, dayNumber=0, immunity=0, contagionLevel=0, karma=0, currentLocationID=Home, completedEvents=<CompletedEvents></CompletedEvents>, saveItems=<SaveItems></SaveItems>",
 				saveGameContent.toString());
@@ -58,6 +59,7 @@ public class SaveGameContentTest {
 		assertEquals("TestSaveName", saveGameContent.getSaveName());
 		assertEquals("AABBCC12", saveGameContent.getSeed());
 		assertEquals(42, saveGameContent.getDayNumber());
+		assertEquals("6:30", saveGameContent.getTime().getTime());
 		assertEquals(
 				"SaveGameContent object with values: saveName=TestSaveName, seed=AABBCC12, dayNumber=42, immunity=20, contagionLevel=15, karma=16, currentLocationID=TestLocationID, completedEvents=<CompletedEvents><CompletedEvent><EventID>TestEventID1</EventID><EventOptionID>TestOptionID1</EventOptionID></CompletedEvent><CompletedEvent><EventID>TestEventID2</EventID><EventOptionID>TestOptionID2</EventOptionID></CompletedEvent></CompletedEvents>, saveItems=<SaveItems><Item><ItemID>ItemID1</ItemID><ItemName>ItemNameOne</ItemName><ItemCount>2</ItemCount><ItemUsageEventID>UseItem1EventID</ItemUsageEventID></Item></SaveItems>",
 				saveGameContent.toString());
@@ -98,7 +100,7 @@ public class SaveGameContentTest {
 		SaveGameContent saveGameContent = new SaveGameContent(document);
 
 		String expectedXML = "<Content>" + "<Save>" + "<SaveName>TestSaveName</SaveName>" + "<Seed>AABBCC12</Seed>"
-				+ "<DayNumber>42</DayNumber>" + "<Immunity>20</Immunity>" + "<ContagionLevel>15</ContagionLevel>"
+				+ "<Difficulty>Easy</Difficulty><DayNumber>42</DayNumber>" + "<Immunity>20</Immunity>" + "<ContagionLevel>15</ContagionLevel>"
 				+ "<Karma>16</Karma>" + "<CurrentLocationID>TestLocationID</CurrentLocationID>" + "<CompletedEvents>"
 				+ "<CompletedEvent>" + "<EventID>TestEventID1</EventID>"
 				+ "<EventOptionID>TestOptionID1</EventOptionID>" + "</CompletedEvent>" + "<CompletedEvent>"

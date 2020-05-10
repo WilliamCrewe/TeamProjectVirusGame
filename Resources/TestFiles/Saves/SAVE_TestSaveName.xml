@@ -2,7 +2,9 @@
 	<Save>
 		<SaveName>TestSaveName</SaveName>
 		<Seed>AABBCC12</Seed>
+		<Difficulty>Easy</Difficulty>
 		<DayNumber>42</DayNumber>
+		<Time>6:30</Time>
 		<CurrentLocationID>TestLocationID</CurrentLocationID>
 		<Immunity>20</Immunity>
 		<ContagionLevel>15</ContagionLevel>

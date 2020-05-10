@@ -1,5 +1,6 @@
 package main.java.logging;
 
+import java.lang.invoke.MethodHandles;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
@@ -18,7 +19,7 @@ public class SystemLogger {
 		// Private constructor to prevent instantiation
 	}
 
-	private static final Logger LOGGER = Logger.getLogger(SystemLogger.class.getName());
+	private static final Logger LOGGER = Logger.getLogger(MethodHandles.lookup().lookupClass().getCanonicalName());
 	private static final String LOGGER_FORMAT = "[%4$s] %5$s %n";
 	
 	private static final String SYSTEM_OUT_FORMAT = "[%s] %s";

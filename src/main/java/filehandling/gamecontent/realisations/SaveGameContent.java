@@ -8,9 +8,11 @@ import main.java.filehandling.gamecontent.ContentType;
 import main.java.filehandling.gamecontent.XMLFileWritable;
 import main.java.filehandling.gamecontent.realisations.components.CompletedEvents;
 import main.java.filehandling.gamecontent.realisations.components.SaveItems;
+import main.java.filehandling.gamecontent.realisations.components.TimeType;
 import main.java.filehandling.reader.GameDirectory;
 import main.java.filehandling.xml.XMLUtils;
 import main.java.filehandling.xml.exception.XMLParseException;
+import main.java.gamecontrol.controllers.difficulty.Difficulty;
 import main.java.logging.SystemLogger;
 
 /**
@@ -23,17 +25,19 @@ public class SaveGameContent extends AbstractGameContent implements XMLFileWrita
 
 	private final String saveName;
 	private String seed;
+	private Difficulty difficulty;
 	private int dayNumber;
 	private int immunity;
 	private int contagionLevel;
 	private int illnessLevel;
 	private int karma;
 	private String currentLocationID;
+	private TimeType time;
 	private CompletedEvents completedEvents;
 	private SaveItems saveItems;
 	
 
-	private static final String SERIALIZED_FORMAT = "<Content><Save><SaveName>%s</SaveName><Seed>%s</Seed><DayNumber>%s</DayNumber><Immunity>%s</Immunity><ContagionLevel>%s</ContagionLevel><Karma>%s</Karma><CurrentLocationID>%s</CurrentLocationID>%s%s</Save></Content>";
+	private static final String SERIALIZED_FORMAT = "<Content><Save><SaveName>%s</SaveName><Seed>%s</Seed><Difficulty>%s</Difficulty><DayNumber>%s</DayNumber><Immunity>%s</Immunity><ContagionLevel>%s</ContagionLevel><Karma>%s</Karma><CurrentLocationID>%s</CurrentLocationID>%s%s</Save></Content>";
 
 	/**
 	 * Constructor to be used when a new save is created
@@ -45,11 +49,13 @@ public class SaveGameContent extends AbstractGameContent implements XMLFileWrita
 		contentType = ContentType.SAVE;
 		this.saveName = saveName;
 		this.seed = seed;
+		this.difficulty = Difficulty.EASY;
 		this.dayNumber = 0;
 		this.immunity = 0;
 		this.contagionLevel = 0;
 		this.karma = 0;
 		this.currentLocationID = "Home";
+		this.setTime(new TimeType("00:00"));
 		this.completedEvents = new CompletedEvents();
 		this.saveItems = new SaveItems();
 	}
@@ -64,6 +70,7 @@ public class SaveGameContent extends AbstractGameContent implements XMLFileWrita
 		contentType = ContentType.SAVE;
 		saveName = XMLUtils.getFirstMatchingTagContent(document, SaveGameContentTag.SAVE_NAME.getTag());
 		seed = XMLUtils.getFirstMatchingTagContent(document, SaveGameContentTag.SEED.getTag());
+		difficulty = Difficulty.getByXmlValue( XMLUtils.getFirstMatchingTagContent(document, SaveGameContentTag.DIFFICULTY.getTag()));
 		dayNumber = Integer
 				.parseInt(XMLUtils.getFirstMatchingTagContent(document, SaveGameContentTag.DAY_NUMBER.getTag()));
 		immunity = Integer
@@ -76,6 +83,8 @@ public class SaveGameContent extends AbstractGameContent implements XMLFileWrita
 				.parseInt(XMLUtils.getFirstMatchingTagContent(document, SaveGameContentTag.KARMA.getTag()));
 		
 		currentLocationID = XMLUtils.getFirstMatchingTagContent(document, SaveGameContentTag.CURRENT_LOCATION_ID.getTag());
+		
+		time = new TimeType(XMLUtils.getFirstMatchingTagContent(document, SaveGameContentTag.TIME.getTag()));
 		
 		NodeList completedEventsNodeList = document.getElementsByTagName(SaveGameContentTag.COMPLETED_EVENTS.getTag());
 		
@@ -112,6 +121,10 @@ public class SaveGameContent extends AbstractGameContent implements XMLFileWrita
 	public String getSeed() {
 		return seed;
 	}
+	
+	public Difficulty getDifficulty() {
+		return difficulty;
+	}
 
 	/**
 	 * @return The number of days that have occurred on this seed
@@ -133,7 +146,7 @@ public class SaveGameContent extends AbstractGameContent implements XMLFileWrita
 
 	@Override
 	public String toXMLString() {
-		return String.format(SERIALIZED_FORMAT, saveName, seed, dayNumber, immunity, contagionLevel, karma, currentLocationID, completedEvents.toXMLString(), saveItems.toXMLString());
+		return String.format(SERIALIZED_FORMAT, saveName, seed, difficulty.getXmlValue(), dayNumber, immunity, contagionLevel, karma, currentLocationID, completedEvents.toXMLString(), saveItems.toXMLString());
 	}
 	
 	@Override
@@ -202,6 +215,14 @@ public class SaveGameContent extends AbstractGameContent implements XMLFileWrita
 		this.currentLocationID = currentLocationID;
 	}
 	
+	public TimeType getTime() {
+		return time;
+	}
+
+	public void setTime(TimeType time) {
+		this.time = time;
+	}
+
 	/**
 	 * @return The completed events in this save game
 	 */
@@ -224,12 +245,14 @@ public class SaveGameContent extends AbstractGameContent implements XMLFileWrita
 	private enum SaveGameContentTag {
 		SAVE_NAME("SaveName"),
 		SEED("Seed"),
+		DIFFICULTY("Difficulty"),
 		DAY_NUMBER("DayNumber"),
 		IMMUNITY("Immunity"),
 		CONTAGION_LEVEL("ContagionLevel"),
 		ILLNESS_LEVEL("IllnessLevel"),
 		KARMA("Karma"),
 		CURRENT_LOCATION_ID("CurrentLocationID"),
+		TIME("Time"),
 		COMPLETED_EVENTS("CompletedEvents"),
 		SAVE_ITEMS("SaveItems");
 

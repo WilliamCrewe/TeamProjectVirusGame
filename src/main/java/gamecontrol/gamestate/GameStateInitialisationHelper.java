@@ -32,6 +32,10 @@ public class GameStateInitialisationHelper {
 	public static void intitialiseGameState() {
 		SystemLogger.config("Starting the initialisation of the GameState");
 		
+		if (!verifyBaseDirectory()) {
+			return;
+		}
+		
 		// Read in the characters
 		initialiseCharacters();
 		
@@ -41,6 +45,30 @@ public class GameStateInitialisationHelper {
 		// Read in the events
 		initialiseEvents();
 		
+	}
+	
+	private static boolean verifyBaseDirectory() {
+		SystemLogger.fine("Verifying the base directory %s contains all the expected game folders", PropertyManager.getBaseDirectory());
+		
+		File charactersDirectory = new File(PropertyManager.getBaseDirectory()+ File.separator + GameDirectory.CHARACTERS_DIRECTORY.getDirctoryName());
+		if (!charactersDirectory.exists() || !charactersDirectory.isDirectory()) {
+			SystemLogger.severe("The characters directory  at path %s either couldn't be found, or was not a directory", charactersDirectory.getAbsolutePath());
+			return false;
+		}
+		
+		File eventsDirectory = new File(PropertyManager.getBaseDirectory()+ File.separator + GameDirectory.EVENTS_DIRECTORY.getDirctoryName());
+		if (!eventsDirectory.exists() || !eventsDirectory.isDirectory()) {
+			SystemLogger.severe("The events directory  at path %s either couldn't be found, or was not a directory", eventsDirectory.getAbsolutePath());
+			return false;
+		}
+		
+		File locationsDirectory = new File(PropertyManager.getBaseDirectory()+ File.separator + GameDirectory.LOCATIONS_DIRECTORY.getDirctoryName());
+		if (!locationsDirectory.exists() || !locationsDirectory.isDirectory()) {
+			SystemLogger.severe("The locations directory  at path %s either couldn't be found, or was not a directory", locationsDirectory.getAbsolutePath());
+			return false;
+		}
+		
+		return true;
 	}
 	
 	/**

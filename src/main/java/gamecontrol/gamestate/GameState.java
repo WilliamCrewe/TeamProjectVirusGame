@@ -17,6 +17,7 @@ import main.java.filehandling.gamecontent.realisations.components.CompletedEvent
 import main.java.filehandling.gamecontent.realisations.components.EventOption;
 import main.java.logging.SystemLogger;
 import main.java.random.Rarity;
+import main.java.time.TimeLord;
 
 /**
  * Singleton class holding the current state of the game. <br>
@@ -43,6 +44,7 @@ public class GameState extends Observable {
 	private SaveGameContent save = new SaveGameContent("SaveGame", "AAAA");
 	
 	private boolean gameOver;
+	private TimeLord timeLord;
 	
 	private static GameState instance;
 
@@ -233,6 +235,9 @@ public class GameState extends Observable {
 	}
 
 	public SaveGameContent getSave() {
+		// Make sure the save is up to date 
+		save.setTime(timeLord.getTime());
+		
 		return this.save;
 	}
 	
@@ -257,6 +262,10 @@ public class GameState extends Observable {
 	
 	public boolean isGameOver() {
 		return gameOver;
+	}
+	
+	public TimeLord getTimeLord() {
+		return timeLord;
 	}
 	
 	/**

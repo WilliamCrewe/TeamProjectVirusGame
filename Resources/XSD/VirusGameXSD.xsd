@@ -74,7 +74,9 @@
 		<xs:sequence maxOccurs="1">
 			<xs:element name="SaveName" type="xs:string" />
 			<xs:element name="Seed" type="xs:hexBinary" />
+			<xs:element name="Difficulty" type="DifficultyType" />
 			<xs:element name="DayNumber" type="xs:integer" />
+			<xs:element name="Time" type="TimeType" />
 			<xs:element name="CurrentLocationID" type="xs:string" />
 			<xs:element name="Immunity" type="xs:integer" />
 			<xs:element name="ContagionLevel" type="xs:integer" />
@@ -85,6 +87,19 @@
 		</xs:sequence>
 	</xs:complexType>
 
+	<xs:simpleType  name="DifficultyType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Easy"/>
+			<xs:enumeration value="Medium"/>
+			<xs:enumeration value="Hard"/>
+		</xs:restriction>
+	</xs:simpleType >
+	
+	<xs:simpleType name="TimeType">
+		<xs:restriction base="xs:string">
+		</xs:restriction>
+	</xs:simpleType>
+	
 	<xs:complexType name="SaveItemsType">
 		<xs:sequence minOccurs="0" maxOccurs="unbounded">
 			<xs:element name="Item" type="ItemType" />

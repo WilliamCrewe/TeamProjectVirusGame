@@ -21,10 +21,9 @@ public class Main {
 	}
 
 	public static void main(String[] args) {
-		// If there were args passed in then they will be override values for the base directory and XSD location
+		// If there were args passed in then it will be the filepath to the properties file used for development testing
 		if (args.length > 0) {
-			PropertyManager.setBaseDirectory(args[0]);
-			PropertyManager.setXSDLocation(args[1]);
+			PropertyManager.initialiseProperties(args[0]);
 		}
 		
 		// Create a new thread for the GUI

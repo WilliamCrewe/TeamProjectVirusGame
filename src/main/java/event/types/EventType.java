@@ -7,5 +7,7 @@ public enum EventType {
 	ACTION_EVENT,
 	SAVE,
 	LOAD,
+	TIME,
+	SLEEP,
 	EXIT
 }
