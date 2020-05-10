@@ -1,6 +1,9 @@
 package main.java.logging;
 
+import java.io.File;
+import java.io.IOException;
 import java.lang.invoke.MethodHandles;
+import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
@@ -23,7 +26,8 @@ public class SystemLogger {
 	private static final String LOGGER_FORMAT = "[%4$s] %5$s %n";
 	
 	private static final String SYSTEM_OUT_FORMAT = "[%s] %s";
-	private static boolean useLogger = false;
+	private static boolean useLogger = true;
+	private static boolean createLogFile = true;
 
 	private static Level logLevel = Level.ALL;
 
@@ -41,8 +45,32 @@ public class SystemLogger {
 		LOGGER.addHandler(handler);
 		LOGGER.setLevel(logLevel);
 		LOGGER.setUseParentHandlers(false);
+		
+		if (createLogFile) {
+			setupLogFile();
+		}
 	}
 
+	/**
+	 * Sets up a log file 
+	 */
+	private static void setupLogFile() {
+		FileHandler fh;  
+	    try {  
+
+	        // This block configure the logger with handler and formatter  
+	        fh = new FileHandler(System.getProperty("user.dir") +  File.separator + "javaLog.log");  
+	        LOGGER.addHandler(fh);
+	        SimpleFormatter formatter = new SimpleFormatter();  
+	        fh.setFormatter(formatter);  
+
+	    } catch (SecurityException e) {  
+	        e.printStackTrace();  
+	    } catch (IOException e) {  
+	        e.printStackTrace();  
+	    }  
+	}
+	
 	/**
 	 * Used to initialise the log level and logger as part of the normal execution
 	 * 
