@@ -36,10 +36,13 @@ public class FileReaderTest {
 				"	<Save>\r\n" + 
 				"		<SaveName>TestSaveName</SaveName>\r\n" + 
 				"		<Seed>AABBCC12</Seed>\r\n" + 
+				"		<Difficulty>Easy</Difficulty>\r\n" + 
 				"		<DayNumber>42</DayNumber>\r\n" + 
+				"		<Time>6:30</Time>\r\n" + 
 				"		<CurrentLocationID>TestLocationID</CurrentLocationID>\r\n" + 
 				"		<Immunity>20</Immunity>\r\n" + 
 				"		<ContagionLevel>15</ContagionLevel>\r\n" + 
+				"		<IllnessLevel>5</IllnessLevel>\r\n" + 
 				"		<Karma>16</Karma>\r\n" + 
 				"		<CompletedEvents>\r\n" + 
 				"			<CompletedEvent>\r\n" + 

@@ -69,6 +69,20 @@ public class TimeLord {
 	}
 
 	/**
+	 * @return
+	 */
+	public int getPreHours() {
+		return preHours;
+	}
+	
+	/**
+	 * @return
+	 */
+	public int getPreMinutes() {
+		return preMinutes;
+	}
+	
+	/**
 	 * method to get the hour value of the clock
 	 */
 	public int getTimeHour() {

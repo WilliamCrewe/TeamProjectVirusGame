@@ -1,0 +1,12 @@
+<Content>
+	<Event>
+		<EventID>BankRoot</EventID>
+		<EventName>A sign hanging on the door to the bank reads 'Closed until further notice for health reasons', guess you're not cashing any chequeus today</EventName>
+		<EventLocationID>Bank</EventLocationID>
+		<IsPassiveEvent>true</IsPassiveEvent>
+		<IsSingleOccurence>false</IsSingleOccurence>
+		<EventOptions>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

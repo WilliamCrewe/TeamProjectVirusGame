@@ -1,0 +1,26 @@
+<Content>
+	<Event>
+		<EventID>BankByteCoinMan</EventID>
+		<EventName>A man approaches wearing a trench coat, as you approach he unclasps and shows you the lining, it holds a great many usb sticks. These he explains contain 'ByteCoins' which will be the new big thing</EventName>
+		<EventLocationID>Bank</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>false</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>BankByteCoinManBuy</EventOptionID>
+				<EventOptionDescription>You offer to trade him the breath from your lungs for some of his useless tat, he graciously accepts</EventOptionDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>BankByteCoinManSell</EventOptionID>
+				<EventOptionDescription>You do not buy any useless tat</EventOptionDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

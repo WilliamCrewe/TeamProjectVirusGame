@@ -1,0 +1,27 @@
+<Content>
+	<Event>
+		<EventID>ParkDog</EventID>
+		<EventName>It's a little known fact that the word Alsatian comes from the German French border area of Alsace-Lorraine, where the British forces were locked in a fearce battle with the Germans during WW2. What is more well known is that one is running at light speed towards you</EventName>
+		<EventLocationID>Park</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>false</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>ParkDogRun</EventOptionID>
+				<EventOptionDescription>An Alsation running at you is no joke, you turn tail and flee. After 10 minutes chasing it eventually gets bored and goes off to find an interesting twig</EventOptionDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>ParkDogStay</EventOptionID>
+				<EventOptionDescription>As you can't see the owner around you decide the best course of action is to stay with the dof and wait for the owner to turn up.</EventOptionDescription>
+				<EventOptionPostDescription>After a couple minutes a panicked looking owner appears and upon seeing you looks instantly relieved. She comes over and thanks you saying that the dog has never been that good with anyone before</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>10</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

@@ -1,0 +1,12 @@
+<Content>
+	<Event>
+		<EventID>PoliceStationRoot</EventID>
+		<EventName>The police station looks very much like you'de expect a police station to look, complete with Inspector Raymond Fowler being played by Rowan Atkinston </EventName>
+		<EventLocationID>PoliceStation</EventLocationID>
+		<IsPassiveEvent>true</IsPassiveEvent>
+		<IsSingleOccurence>false</IsSingleOccurence>
+		<EventOptions>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

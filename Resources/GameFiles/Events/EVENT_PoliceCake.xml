@@ -1,0 +1,27 @@
+<Content>
+	<Event>
+		<EventID>PoliceCake</EventID>
+		<EventName>When you enter the police stations you see a cake in the foyer with the sign 'free, confiscated from a prisoner'</EventName>
+		<EventLocationID>PoliceStation</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>false</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>PoliceCakeEat</EventOptionID>
+				<EventOptionDescription>Who says you can't have your cake and eat it, take a mouthful</EventOptionDescription>
+				<EventOptionPostDescription>As you chow down your teeth crack on something hard... its a file... yes... really. Unfortunately your cracked tooth has opened up a new avenue for infections as well as reducing your immune system</EventOptionPostDescription>
+				<EventOptionImmunityModification>-10</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>10</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>PoliceCakeLeave</EventOptionID>
+				<EventOptionDescription>I don't think eating a criminals cake is a good idea, better leave it alone</EventOptionDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>00</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

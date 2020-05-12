@@ -1,0 +1,39 @@
+<Content>
+	<Event>
+		<EventID>HospitalDonation</EventID>
+		<EventName>Donate to the shop</EventName>
+		<EventLocationID>Hospital</EventLocationID>
+		<IsPassiveEvent>true</IsPassiveEvent>
+		<IsSingleOccurence>false</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>HospitalDonateMask</EventOptionID>
+				<EventOptionDescription>Donate a mask you have gathered</EventOptionDescription>
+				<EventOptionPostDescription>After handing the mask over you feel a great sense of pride knowing the mask you donated will decrease the chance of infection for those on the front line</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>10</EventOptionKarmaModification>
+				<RequiredItemID>MaskID</RequiredItemID>
+				<FollowingEventID>HospitalDonation</FollowingEventID>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>HospitalDonateAntiseptic</EventOptionID>
+				<EventOptionDescription>Donate a bottle of antiseptic you have gathered</EventOptionDescription>
+				<EventOptionPostDescription>Having handed over the antiseptic you reminisce on how important cleanliness is in stopping the spread of illness, it's one of the most impactful things you can do to stay safe</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>10</EventOptionKarmaModification>
+				<RequiredItemID>AntisepticID</RequiredItemID>
+				<FollowingEventID>HospitalDonation</FollowingEventID>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>ExitHospitalDonation</EventOptionID>
+				<EventOptionDescription>Exit</EventOptionDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

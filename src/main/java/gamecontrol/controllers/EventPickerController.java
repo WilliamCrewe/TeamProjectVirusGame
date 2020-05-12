@@ -28,6 +28,11 @@ public class EventPickerController {
 		SystemLogger.config("Choosing a new random event");
 		GameState gameStateInstance = GameState.getInstance();
 		
+		// No random events should occur at home
+		if (gameStateInstance.getCurrentLocation().getLocationID() == "Home") {
+			return;
+		}
+		
 		// Get all the events available at the current location
 		Map<Rarity, List<EventGameContent>> availableEvents = GameState.getInstance().getEventsForCurrentLocation();
 		

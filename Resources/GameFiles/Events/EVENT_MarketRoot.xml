@@ -1,0 +1,27 @@
+<Content>
+	<Event>
+		<EventID>MarketRoot</EventID>
+		<EventName>Investigate the market</EventName>
+		<EventLocationID>Market</EventLocationID>
+		<IsPassiveEvent>true</IsPassiveEvent>
+		<IsSingleOccurence>false</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>MarketRootCheckJobBoard</EventOptionID>
+				<EventOptionDescription>Check out the job board</EventOptionDescription>
+				<EventOptionPostDescription>Looks like one of the impacts from the current outbreak is a downturn in the job market, this is going to impact a lot of people so helping out where you can is more important than ever</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>00</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>ExitHospitalDonation</EventOptionID>
+				<EventOptionDescription>Exit</EventOptionDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

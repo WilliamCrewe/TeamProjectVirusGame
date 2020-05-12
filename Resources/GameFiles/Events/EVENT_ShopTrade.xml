@@ -12,7 +12,7 @@
 				<EventOptionImmunityModification>0</EventOptionImmunityModification>
 				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
 				<EventOptionKarmaModification>0</EventOptionKarmaModification>
-				<FollowingEventID>ShopSell</FollowingEventID>
+				<FollowingEventID>ShopBoy</FollowingEventID>
 			</EventOption>
 			<EventOption>
 				<EventOptionID>ShopSell</EventOptionID>

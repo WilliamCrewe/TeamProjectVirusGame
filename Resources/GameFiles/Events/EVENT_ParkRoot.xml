@@ -1,0 +1,12 @@
+<Content>
+	<Event>
+		<EventID>ParkRoot</EventID>
+		<EventName>The park is a lot quieter than normal for the time of the year, clearly people are listening to the governments advice on daily exercise</EventName>
+		<EventLocationID>Park</EventLocationID>
+		<IsPassiveEvent>true</IsPassiveEvent>
+		<IsSingleOccurence>false</IsSingleOccurence>
+		<EventOptions>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

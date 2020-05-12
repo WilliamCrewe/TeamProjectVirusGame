@@ -11,7 +11,7 @@
 				<EventOptionImmunityModification>0</EventOptionImmunityModification>
 				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
 				<EventOptionKarmaModification>0</EventOptionKarmaModification>
-				<FollowingEventID>ShopSell</FollowingEventID>
+				<FollowingEventID>ShopBuy</FollowingEventID>
 			</EventOption>
 			<EventOption>
 				<EventOptionID>BackToShopTrade</EventOptionID>
