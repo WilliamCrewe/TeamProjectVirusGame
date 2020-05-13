@@ -24,7 +24,7 @@ public class EventQueueHandler {
 	 * 
 	 * Creates an ActionEvent from the player's action choice and adds it to the EventQueue
 	 */
-	public void addActionEvent(String eventID, String eventOptionID) {
+	public static void addActionEvent(String eventID, String eventOptionID) {
 		EventQueue.getInstance().add(new EventActionEvent(eventID, eventOptionID));
 	}
 	
@@ -33,11 +33,11 @@ public class EventQueueHandler {
 	 * 
 	 * Creates a MoveEvent from the player's location choice and adds it to the EventQueue
 	 */
-	public void addMoveEvent(String newLocationID) {
+	public static void addMoveEvent(String newLocationID) {
 		EventQueue.getInstance().add(new MoveEvent(newLocationID));
 	}
 	
-	public void addPassiveEvent() {
+	public static void addPassiveEvent() {
 		EventQueue.getInstance().add(new PassiveEvent());
 	}
 	
@@ -46,15 +46,15 @@ public class EventQueueHandler {
 	 * 
 	 * Recieves the file locatation as a String and loads it as an event into the EventQueue.
 	 */
-	public void loadGame(String s) {
+	public static void addLoadEvent(String s) {
 		EventQueue.getInstance().add(new LoadEvent(s));
 	}
 	
-	public void saveGame() {
+	public static void addSaveEvent() {
 		EventQueue.getInstance().add(new SaveEvent());
 	}
 	
-	public void addSleepEvent() {
+	public static void addSleepEvent() {
 		EventQueue.getInstance().add(new SleepEvent());
 	}
 

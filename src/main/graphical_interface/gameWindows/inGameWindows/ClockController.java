@@ -28,11 +28,11 @@ public class ClockController {
 	}
 	
 	private void setup() {		
-		this.hours = new Label("08");
+		this.hours = new Label("07");
 		hours.setFont(numberFont);
 		Label spacer = new Label(":");
 		spacer.setFont(numberFont);
-		this.minutes = new Label("00");
+		this.minutes = new Label("30");
 		minutes.setFont(numberFont);
 		this.clockPane = new AnchorPane();
 		
