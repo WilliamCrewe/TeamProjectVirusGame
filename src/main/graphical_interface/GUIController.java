@@ -235,6 +235,7 @@ public class GUIController extends Application {
 			//chooser.setInitialDirectory();
 			File file = chooser.showOpenDialog(GUIController.primaryStage);
 			if (file != null) {
+				GUIController.updateWindow(Command.SWITCH_GAMEPLAY_UI);
 				GUIController.eventQueueHandler.loadGame(file.getAbsolutePath());
 			}
 			break;
