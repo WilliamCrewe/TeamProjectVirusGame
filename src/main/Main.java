@@ -1,5 +1,6 @@
 package main;
 
+import main.graphical_interface.AlertQueueObserver;
 import main.graphical_interface.GUIController;
 import main.java.event.EventQueue;
 import main.java.event.EventQueueObserver;
@@ -41,6 +42,9 @@ public class Main {
 
 		// Create the event queue observer (And event queue)
 		new EventQueueObserver();
+		
+		//Create the alert queue observer 
+		new AlertQueueObserver();
 		
 		// Create the gamestate
 		GameState.getInstance();

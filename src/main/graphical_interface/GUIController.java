@@ -470,6 +470,10 @@ public class GUIController extends Application {
 		}
 	}
 	
+	public static void createAlert(String title, String description) {
+		
+	}
+	
 	/**
 	 * Clears the currentEvent List
 	 */

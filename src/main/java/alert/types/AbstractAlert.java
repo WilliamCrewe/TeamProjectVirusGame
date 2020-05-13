@@ -7,4 +7,9 @@ public abstract class AbstractAlert {
 	public AlertType getEventType() {
 		return alertType;
 	}
+	
+	public String getMessage() {
+		return null;
+		
+	}
 }
