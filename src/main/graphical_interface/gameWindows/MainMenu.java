@@ -1,24 +1,32 @@
 package main.graphical_interface.gameWindows;
 
-import java.io.File;
-
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import javafx.stage.FileChooser;
+import main.graphical_interface.EventQueueHandler;
 import main.graphical_interface.GUIController;
 import main.graphical_interface.util.Command;
+import main.java.alert.AlertQueue;
+import main.java.alert.types.DefaultAlert;
+import main.java.logging.SystemLogger;
 
 public class MainMenu {
 	
 	private final Background bg = new Background(new BackgroundFill(new Color(0.4, 0.4, 0.4, 0.5),null,new Insets(-15.0, -10.0, -15.0, -10.0)));
+	private final Background bgRadio = new Background(new BackgroundFill(new Color(0.8, 0.8, 0.8, 0.8),null,new Insets(-5.0, 0.0, -5.0, 0.0)));
 	private VBox menu1; //baseMenu
 	private VBox menu2; //newGameMenu
+	private Label invalidInputLabel;
 
 	public MainMenu() {
 		setupMainMenu();
@@ -50,19 +58,95 @@ public class MainMenu {
 	}
 	
 	public void setupNewGameMenu() {
-		Button easy = createDifficultyButton("Easy");
-		easy.setOnAction(clicked -> {
-			GUIController.updateWindow(Command.SWITCH_GAMEPLAY_UI);
-		});
-		Button medium = createDifficultyButton("Medium");
-		disableButton(medium);
-		Button hard = createDifficultyButton("Hard");
-		disableButton(hard);
 		
-		VBox centralContainer = new VBox(easy, medium, hard);
+		Label labelSaveName = new Label("Save Name");
+		
+		TextField textField = new TextField();
+		textField.setPromptText("SaveName");
+		
+		HBox saveNameTextField = new HBox(labelSaveName, textField);
+		saveNameTextField.setBackground(this.bgRadio);
+		saveNameTextField.setSpacing(40.0);
+		saveNameTextField.setAlignment(Pos.CENTER);
+		
+		RadioButton easyRadio = new RadioButton("Easy");
+		easyRadio.setPrefWidth(100.0);
+		easyRadio.setPrefHeight(25.0);
+		easyRadio.setSelected(true);
+		
+		HBox easyRadioContainer = new HBox(easyRadio);
+		easyRadioContainer.setBackground(this.bgRadio);
+		easyRadioContainer.setSpacing(40.0);
+		easyRadioContainer.setAlignment(Pos.CENTER);
+		
+		
+		RadioButton mediumRadio = new RadioButton("Medium");
+		mediumRadio.setPrefWidth(100.0);
+		mediumRadio.setPrefHeight(25.0);
+		
+		HBox mediumRadioContainer = new HBox(mediumRadio);
+		mediumRadioContainer.setBackground(this.bgRadio);
+		mediumRadioContainer.setSpacing(40.0);
+		mediumRadioContainer.setAlignment(Pos.CENTER);
+		
+		
+		Label labelSeed = new Label("Seed (optional)");
+		
+		TextField textFieldSeed = new TextField();
+		textFieldSeed.setPromptText("Seed");
+		HBox seedTextField = new HBox(labelSeed, textFieldSeed);
+		seedTextField.setBackground(this.bgRadio);
+		seedTextField.setSpacing(40.0);
+		seedTextField.setAlignment(Pos.CENTER);
+		
+		RadioButton hardRadio = new RadioButton("Hard");
+		hardRadio.setPrefWidth(100.0);
+		hardRadio.setPrefHeight(25.0);
+
+		HBox hardRadioContainer = new HBox(hardRadio);
+		hardRadioContainer.setBackground(this.bgRadio);
+		hardRadioContainer.setSpacing(40.0);
+		hardRadioContainer.setAlignment(Pos.CENTER);
+		
+		ToggleGroup radioGroup = new ToggleGroup();
+		easyRadio.setToggleGroup(radioGroup);
+		mediumRadio.setToggleGroup(radioGroup);
+		hardRadio.setToggleGroup(radioGroup);
+
+		VBox centralContainer = new VBox(saveNameTextField, easyRadioContainer, mediumRadioContainer, hardRadioContainer, seedTextField);
 		centralContainer.setBackground(this.bg);
 		centralContainer.setSpacing(40.0);
 		centralContainer.setAlignment(Pos.CENTER);
+		
+		Button goDifficulty = createStandardButton("Go");
+		goDifficulty.setOnAction(click -> {
+			if (!verifySaveName(textField.getText())) {
+				SystemLogger.severe("The name %s is not a valid save name, it must not contain any spaces or special characters", textField.getText());
+				AlertQueue.getInstance().add(new DefaultAlert("Invalid input", String.format("The name %s is not a valid save name, it must not contain any spaces or special characters", textField.getText())));
+				
+				return;
+			}
+			
+			if (!verifySeed(textFieldSeed.getText())) {
+				SystemLogger.severe("The seed %s is not a valid hex value", textFieldSeed.getText());
+				AlertQueue.getInstance().add(new DefaultAlert("Invalid input", String.format("The seed %s is not a valid hex value", textFieldSeed.getText())));
+				
+				return;
+			}
+			
+			String difficulty = "";
+			if (easyRadio.isSelected()) {
+				difficulty = "Easy";
+			} else if (mediumRadio.isSelected()) {
+				difficulty = "Medium";
+			} else {
+				difficulty = "Hard";
+			}
+
+			GUIController.updateWindow(Command.SWITCH_GAMEPLAY_UI);
+			
+			EventQueueHandler.addNewSaveEvent(textField.getText(), difficulty, textFieldSeed.getText());
+		});
 		
 		Button cancelDifficulty = createStandardButton("Cancel");
 		cancelDifficulty.setOnAction(click -> {
@@ -70,7 +154,9 @@ public class MainMenu {
 			menu2.setVisible(false);
 		});
 		
-		this.menu2 = new VBox(centralContainer, cancelDifficulty);
+		HBox buttonBox = new HBox(cancelDifficulty, goDifficulty);
+		
+		this.menu2 = new VBox(centralContainer, buttonBox);
 		this.menu2.setBackground(bg);
 		this.menu2.setSpacing(50.0);
 		this.menu2.setMaxWidth(300.0);
@@ -99,14 +185,23 @@ public class MainMenu {
 		b.setPrefHeight(25.0);
 		return b;
 	}
-	
-	private Button createDifficultyButton(String title) {
-		Button b = new Button(title);
-		b.setPrefWidth(200.0);
-		b.setPrefHeight(50.0);
-		Font f = new Font(30.0);
-		b.setFont(f);
-		return b;
-	}
 
+	private boolean verifySeed(String seed) {
+		if (seed == null || seed.isEmpty()) {
+			return true;
+		}
+		
+		SystemLogger.fine("Verifying the seed %s", seed);
+		try {
+			Long.parseLong(seed,16);
+			return true;
+		} catch (NumberFormatException e) {
+			return false;
+		}
+	}
+	
+	private boolean verifySaveName(String saveName) {
+		return saveName.matches("^[^*&\\.%\\s]+$");
+	}
+	
 }

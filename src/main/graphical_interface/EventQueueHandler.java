@@ -4,6 +4,7 @@ import main.java.event.EventQueue;
 import main.java.event.types.EventActionEvent;
 import main.java.event.types.LoadEvent;
 import main.java.event.types.MoveEvent;
+import main.java.event.types.NewSaveEvent;
 import main.java.event.types.PassiveEvent;
 import main.java.event.types.SaveEvent;
 import main.java.event.types.SleepEvent;
@@ -56,6 +57,10 @@ public class EventQueueHandler {
 	
 	public static void addSleepEvent() {
 		EventQueue.getInstance().add(new SleepEvent());
+	}
+	
+	public static void addNewSaveEvent(String saveName, String difficulty, String seed) {
+		EventQueue.getInstance().add(new NewSaveEvent(saveName, seed, difficulty));
 	}
 
 }

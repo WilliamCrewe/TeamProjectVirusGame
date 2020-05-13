@@ -292,6 +292,8 @@ public class GUIController extends Application {
 			File file = chooser.showOpenDialog(GUIController.primaryStage);
 			if (file != null) {
 				GUIController.eventQueueHandler.addLoadEvent(file.getAbsolutePath());
+				GUIController.updateWindow(Command.SWITCH_GAMEPLAY_UI);
+				GUIController.eventQueueHandler.loadGame(file.getAbsolutePath());
 			}
 			break;
 		case SAVE:
