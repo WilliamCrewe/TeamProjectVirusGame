@@ -293,7 +293,6 @@ public class GUIController extends Application {
 			if (file != null) {
 				GUIController.eventQueueHandler.addLoadEvent(file.getAbsolutePath());
 				GUIController.updateWindow(Command.SWITCH_GAMEPLAY_UI);
-				GUIController.eventQueueHandler.loadGame(file.getAbsolutePath());
 			}
 			break;
 		case SAVE:
