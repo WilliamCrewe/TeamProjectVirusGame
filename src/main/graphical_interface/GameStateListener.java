@@ -84,6 +84,7 @@ public class GameStateListener implements Observer{
 				sleepEvent.setEventAvailable(true);
 				sleepEvent.setPage(1);
 
+				GUIController.currentEventOption = sleepEvent;
 				ArrayList<GUIEventOption> newArray = new ArrayList<>();
 				newArray.add(sleepEvent);
 				GUIController.allEventOptions = newArray;
