@@ -6,6 +6,7 @@ import main.java.event.types.LoadEvent;
 import main.java.event.types.MoveEvent;
 import main.java.event.types.PassiveEvent;
 import main.java.event.types.SaveEvent;
+import main.java.event.types.SleepEvent;
 
 /**
  * @author wcrewe
@@ -51,6 +52,10 @@ public class EventQueueHandler {
 	
 	public void saveGame() {
 		EventQueue.getInstance().add(new SaveEvent());
+	}
+	
+	public void addSleepEvent() {
+		EventQueue.getInstance().add(new SleepEvent());
 	}
 
 }
