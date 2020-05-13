@@ -4,7 +4,7 @@
 		<EventName>What's that coming over the hill? Is it a monster? Is it a monstaaaaaaaaaaaar? Oh, actually it's a lot of racoons</EventName>
 		<EventLocationID>Shop</EventLocationID>
 		<IsPassiveEvent>false</IsPassiveEvent>
-		<IsSingleOccurence>true</IsSingleOccurence>
+		<IsSingleOccurence>false</IsSingleOccurence>
 		<EventOptions>
 			<EventOption>
 				<EventOptionID>RacoonArmyPasify</EventOptionID>
