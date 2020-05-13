@@ -37,7 +37,7 @@ public class SaveGameContent extends AbstractGameContent implements XMLFileWrita
 	private SaveItems saveItems;
 	
 
-	private static final String SERIALIZED_FORMAT = "<Content><Save><SaveName>%s</SaveName><Seed>%s</Seed><Difficulty>%s</Difficulty><DayNumber>%s</DayNumber><Immunity>%s</Immunity><ContagionLevel>%s</ContagionLevel><Karma>%s</Karma><CurrentLocationID>%s</CurrentLocationID>%s%s</Save></Content>";
+	private static final String SERIALIZED_FORMAT = "<Content><Save><SaveName>%s</SaveName><Seed>%s</Seed><Difficulty>%s</Difficulty><DayNumber>%s</DayNumber>%s<CurrentLocationID>%s</CurrentLocationID><Immunity>%s</Immunity><ContagionLevel>%s</ContagionLevel><IllnessLevel>%s</IllnessLevel><Karma>%s</Karma>%s%s</Save></Content>";
 
 	/**
 	 * Constructor to be used when a new save is created
@@ -146,7 +146,7 @@ public class SaveGameContent extends AbstractGameContent implements XMLFileWrita
 
 	@Override
 	public String toXMLString() {
-		return String.format(SERIALIZED_FORMAT, saveName, seed, difficulty.getXmlValue(), dayNumber, immunity, contagionLevel, karma, currentLocationID, completedEvents.toXMLString(), saveItems.toXMLString());
+		return String.format(SERIALIZED_FORMAT, saveName, seed, difficulty.getXmlValue(), dayNumber, time.toXMLString(), currentLocationID, immunity, contagionLevel, illnessLevel, karma, completedEvents.toXMLString(), saveItems.toXMLString());
 	}
 	
 	@Override

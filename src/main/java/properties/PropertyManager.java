@@ -51,7 +51,7 @@ public class PropertyManager {
 	
 	public static String getXSDLocation() {
 		if (xsdLocation == null) {
-			xsdLocation = getBaseDirectory() + File.pathSeparator + "XSD"  + File.pathSeparator + "VirusGameXSD.xsd";
+			xsdLocation = getBaseDirectory() + File.separator + "XSD"  + File.separator + "VirusGameXSD.xsd";
 		}
 		
 		return xsdLocation;
