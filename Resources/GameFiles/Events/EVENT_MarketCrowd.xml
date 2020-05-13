@@ -4,7 +4,7 @@
 		<EventName>There's a large amount of hubbub in the market today, lots of people gathered around closely looking angry</EventName>
 		<EventLocationID>Market</EventLocationID>
 		<IsPassiveEvent>false</IsPassiveEvent>
-		<IsSingleOccurence>false</IsSingleOccurence>
+		<IsSingleOccurence>true</IsSingleOccurence>
 		<EventOptions>
 			<EventOption>
 				<EventOptionID>MarketCrowdLookCloser</EventOptionID>
