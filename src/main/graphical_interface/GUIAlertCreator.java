@@ -24,7 +24,7 @@ public class GUIAlertCreator {
 	
 	public static void createQuitAlert(String title, String descriptionText) {
 		SystemLogger.config("Creating a Warning Alert");
-		Alert alert = new Alert(AlertType.WARNING);
+		Alert alert = new Alert(AlertType.ERROR);
 		alert.setTitle(title);
 		alert.setHeaderText(descriptionText);
 		alert.showAndWait();

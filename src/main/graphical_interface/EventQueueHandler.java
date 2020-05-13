@@ -2,6 +2,7 @@ package main.graphical_interface;
 
 import main.java.event.EventQueue;
 import main.java.event.types.EventActionEvent;
+import main.java.event.types.ExitEvent;
 import main.java.event.types.LoadEvent;
 import main.java.event.types.MoveEvent;
 import main.java.event.types.NewSaveEvent;
@@ -61,6 +62,10 @@ public class EventQueueHandler {
 	
 	public static void addNewSaveEvent(String saveName, String difficulty, String seed) {
 		EventQueue.getInstance().add(new NewSaveEvent(saveName, seed, difficulty));
+	}
+	
+	public static void addQuitEvent() {
+		EventQueue.getInstance().add(new ExitEvent());
 	}
 
 }

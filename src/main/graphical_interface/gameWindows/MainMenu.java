@@ -1,5 +1,6 @@
 package main.graphical_interface.gameWindows;
 
+import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -49,7 +50,8 @@ public class MainMenu {
 		disableButton(achievements);
 		Button quit = createStandardButton("Quit Game");
 		quit.setOnAction(clicked -> {
-			
+			Runnable x = Platform::exit;
+			x.run();
 		});
 		
 		this.menu1 = new VBox(newGame, loadGame, options, achievements, quit);

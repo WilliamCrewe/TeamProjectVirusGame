@@ -14,6 +14,8 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Alert.AlertType;
+import main.graphical_interface.GUIController;
+import main.graphical_interface.util.Command;
 
 public class MenuBarController {
 	
@@ -52,7 +54,15 @@ public class MenuBarController {
 		ArrayList<MenuItem> items = new ArrayList<>();
 		MenuItem menuItem1 = createMenuItem("New Game");
 		menuItem1.setOnAction(e -> {
-			System.out.println("Menu 1 Action!");
+			Alert alert = new Alert(AlertType.WARNING);
+			alert.setTitle("Return to Main Menu?");
+			alert.setHeaderText("Any unsaved progress will be lost!.\n"
+								+ "Are you sure you want to continue?\n");
+			alert.showAndWait();
+			if (alert.getResult() != ButtonType.OK) {
+				return;
+			}
+			GUIController.updateWindow(Command.SWITCH_MAINMENU_UI);
 		});
 		
 		MenuItem menuItem2 = createMenuItem("Quit");
