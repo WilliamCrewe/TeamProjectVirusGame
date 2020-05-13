@@ -44,12 +44,12 @@ public class SaveGameContent extends AbstractGameContent implements XMLFileWrita
 	 * @param saveName
 	 * @param seed
 	 */
-	public SaveGameContent(String saveName, String seed) {
+	public SaveGameContent(String saveName, String seed, Difficulty difficulty) {
 		SystemLogger.config("Creating new save with name %s and seed %s", saveName, seed);
 		contentType = ContentType.SAVE;
 		this.saveName = saveName;
 		this.seed = seed;
-		this.difficulty = Difficulty.EASY;
+		this.difficulty = difficulty;
 		this.dayNumber = 0;
 		this.immunity = 0;
 		this.contagionLevel = 0;

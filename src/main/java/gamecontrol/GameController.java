@@ -1,16 +1,17 @@
 package main.java.gamecontrol;
 
 import main.java.alert.AlertQueue;
-import main.java.alert.types.DefaultAlert;
 import main.java.alert.types.ExhaustionAlert;
 import main.java.event.types.AbstractEvent;
 import main.java.event.types.EventActionEvent;
 import main.java.event.types.EventType;
 import main.java.event.types.LoadEvent;
 import main.java.event.types.MoveEvent;
+import main.java.event.types.NewSaveEvent;
 import main.java.event.types.TimeEvent;
 import main.java.gamecontrol.controllers.EventController;
 import main.java.gamecontrol.controllers.EventPickerController;
+import main.java.gamecontrol.controllers.InfectionController;
 import main.java.gamecontrol.controllers.MovementController;
 import main.java.gamecontrol.controllers.PassiveEventController;
 import main.java.gamecontrol.controllers.SaveController;
@@ -63,6 +64,10 @@ public class GameController {
 			break;
 		case SLEEP:
 			TimeController.handleDayEnd();
+			InfectionController.handleInfection();
+			break;
+		case NEW_SAVE:
+			SaveController.handleSaveCreation((NewSaveEvent) event); 
 			break;
 		case LOAD:
 			SaveController.handleLoad((LoadEvent) event);
