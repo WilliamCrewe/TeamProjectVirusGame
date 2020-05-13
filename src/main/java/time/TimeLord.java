@@ -1,6 +1,7 @@
 package main.java.time;
 
 import main.java.filehandling.gamecontent.realisations.components.TimeType;
+import main.java.logging.SystemLogger;
 
 /**
  * Object to manage the time in the system
@@ -66,6 +67,7 @@ public class TimeLord {
 			hours -= 24;
 			exhaustionTimeReached = true;
 		}
+		SystemLogger.fine("Time after add was %s", getTime().getTime());
 	}
 
 	/**

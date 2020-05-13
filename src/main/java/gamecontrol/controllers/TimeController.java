@@ -24,9 +24,9 @@ public class TimeController {
 		TimeLord timeLord = GameState.getInstance().getTimeLord();
 		
 		// Set the time to that waited until
-		timeLord.setTime(timeEvent.getHours(), timeEvent.getMinutes());
+		timeLord.addTime((timeEvent.getHours() * 60 + timeEvent.getMinutes()));
 		
-		GameState.getInstance().initialiseTimeLordFromSave();
+		GameState.getInstance().updateSaveFromTimeLord();
 		
 		// Make sure the GUI refreshes
 		GameState.getInstance().notifyListenersOfGameState();
@@ -46,7 +46,7 @@ public class TimeController {
 		timeLord.setTime(7, 0);
 		timeLord.resetExhaustionTimeReached();
 		
-		GameState.getInstance().initialiseTimeLordFromSave();
+		GameState.getInstance().updateSaveFromTimeLord();
 		
 		// Make sure the GUI refreshes
 		GameState.getInstance().notifyListenersOfGameState();

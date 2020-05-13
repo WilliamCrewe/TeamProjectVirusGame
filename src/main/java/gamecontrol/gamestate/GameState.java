@@ -244,7 +244,7 @@ public class GameState extends Observable {
 		}
 		
 		// Make sure the save is up to date 
-		save.setTime(timeLord.getTime());
+		updateSaveFromTimeLord();
 		
 		return this.save;
 	}
@@ -256,7 +256,7 @@ public class GameState extends Observable {
 		notifyListenersOfGameState();
 	}
 	
-	public void initialiseTimeLordFromSave() {
+	private void initialiseTimeLordFromSave() {
 		timeLord = new TimeLord(save.getTime());
 	}
 
@@ -284,6 +284,10 @@ public class GameState extends Observable {
 		}
 		
 		return timeLord;
+	}
+	
+	public void updateSaveFromTimeLord() {
+		save.setTime(timeLord.getTime());
 	}
 	
 	/**
