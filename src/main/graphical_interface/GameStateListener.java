@@ -55,7 +55,7 @@ public class GameStateListener implements Observer{
 	 */
 	@Override
 	public void update(Observable o, Object arg) {
-
+		SystemLogger.config("Refreshing GUI");
 		GameStateListener.eventCountOption = 0;
 		GameStateListener.eventCountPage= 0;
 		GameStateListener.locationCountOption = 0;
@@ -77,7 +77,11 @@ public class GameStateListener implements Observer{
 						+ "Oh, and a bed."
 						+ "(You can rest here)");
 				GUIController.clearCurrentEventPage();
+				HashMap<Integer, GUIInventoryItem> currentInventory = createInventory(
+						((GameState)o).getSave().getSaveItems());
 
+				GUIController.allItems = currentInventory;
+				
 				GUIEventOption sleepEvent = new GUIEventOption();
 				sleepEvent.setCommand(Command.SLEEP);
 				sleepEvent.setDescription("Go to Sleep");
@@ -123,6 +127,7 @@ public class GameStateListener implements Observer{
 
 		}
 
+		SystemLogger.config("GUI Refresh complete");
 
 
 	}

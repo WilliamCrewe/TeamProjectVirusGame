@@ -228,6 +228,7 @@ public class GameState extends Observable {
 
 	public void updateLocation(final String locationID) {
 		this.currentLocation = this.locationMap.get(locationID);
+		save.setCurrentLocationID(locationID);
 	}
 
 	public EventGameContent getCurrentEvent() {
