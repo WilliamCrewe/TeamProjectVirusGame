@@ -30,7 +30,8 @@ public class TimeController {
 		
 		
 		TimeLord timeLord = GameState.getInstance().getTimeLord();
-		timeLord.setTime(0, 0);
+		timeLord.setTime(7, 0);
+		timeLord.resetExhaustionTimeReached();
 		
 		InfectionController.handleInfection();
 		

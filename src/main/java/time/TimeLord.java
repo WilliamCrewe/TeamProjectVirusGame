@@ -99,4 +99,8 @@ public class TimeLord {
 	public boolean isExhaustionTimeReached() {
 		return exhaustionTimeReached;
 	}
+	
+	public void resetExhaustionTimeReached() {
+		exhaustionTimeReached = false;
+	}
 }

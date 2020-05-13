@@ -1,5 +1,8 @@
 package main.java.gamecontrol;
 
+import main.java.alert.AlertQueue;
+import main.java.alert.types.DefaultAlert;
+import main.java.alert.types.ExhaustionAlert;
 import main.java.event.types.AbstractEvent;
 import main.java.event.types.EventActionEvent;
 import main.java.event.types.EventType;
@@ -12,6 +15,7 @@ import main.java.gamecontrol.controllers.MovementController;
 import main.java.gamecontrol.controllers.PassiveEventController;
 import main.java.gamecontrol.controllers.SaveController;
 import main.java.gamecontrol.controllers.TimeController;
+import main.java.gamecontrol.gamestate.GameState;
 import main.java.logging.SystemLogger;
 
 /**
@@ -27,6 +31,13 @@ public class GameController {
 	
 	public static void handleEvent(AbstractEvent event) {
 		EventType eventType = event.getEventType();
+		
+		// If the user is exhausted then block them from doing some actions
+		if (GameState.getInstance().getTimeLord().isExhaustionTimeReached() && !(eventType == EventType.MOVE || eventType == EventType.SLEEP)) {
+			SystemLogger.config("The user is exhausted, cannot action event %s", eventType);
+			AlertQueue.getInstance().add(new ExhaustionAlert());
+			return;
+		}
 		
 		SystemLogger.config("An event of type %s will be actioned", eventType);
 		// Call the controller for the eventType passed in
