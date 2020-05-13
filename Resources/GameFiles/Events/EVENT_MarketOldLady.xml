@@ -1,0 +1,36 @@
+<Content>
+	<Event>
+		<EventID>MarketOldLady</EventID>
+		<EventName>As you enter the market you notice a kindly looking old lady looking around for a hand, as you approach she says 'Oh hello deary, I wonder if you could do me a favour and donate this antiseptic to the hospital for me. I'd do it myself but elderly people such as myself are more at risk to the infection'</EventName>
+		<EventLocationID>Market</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>false</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>MarketOldLadyAgreeToHelp</EventOptionID>
+				<EventOptionDescription>Agree to help</EventOptionDescription>
+				<EventOptionPostDescription>She looks ever so greateful and passes you the antiseptic to deliver</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>20</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+				<EventOptionItems>
+					<Item>
+						<ItemID>AntisepticID</ItemID>
+						<ItemName>Antiseptic</ItemName>
+						<ItemCount>1</ItemCount>
+						<ItemUsageEventID>UseAntiseptic</ItemUsageEventID>
+					</Item>
+				</EventOptionItems>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>MarketOldLadyTooBusy</EventOptionID>
+				<EventOptionDescription>You apologise to the old lady but you just don't have the time</EventOptionDescription>
+				<EventOptionPostDescription>She looks dissapointed but says farewel in a friendly enough tone that you don't think too much of it</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>
