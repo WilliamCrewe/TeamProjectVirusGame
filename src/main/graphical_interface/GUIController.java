@@ -213,10 +213,6 @@ public class GUIController extends Application {
 			allItems.put(allItems.size(), i1);
 			allItems.put(allItems.size(), i2);
 			allItems.put(allItems.size(), i3);
-			
-			
-			
-			
 		}
 	}
 	
@@ -458,13 +454,13 @@ public class GUIController extends Application {
 			GUIController.eventQueueHandler.addMoveEvent("Park");
 			break;
 		case MOVE_POLICE:
-			GUIController.eventQueueHandler.addMoveEvent("Police");
+			GUIController.eventQueueHandler.addMoveEvent("PoliceStation");
 			break;
 		case MOVE_PUB:
 			GUIController.eventQueueHandler.addMoveEvent("Pub");
 			break;
 		case MOVE_SUPERMARKET:
-			GUIController.eventQueueHandler.addMoveEvent("Supermarket");
+			GUIController.eventQueueHandler.addMoveEvent("Shop");
 			break;
 		default:
 			break;
@@ -581,6 +577,10 @@ public class GUIController extends Application {
 	
 	private static Scene updateScene() {
 		return new Scene(GUIController.rootPane, PREFWIDTH, PREFHEIGHT);
+	}
+	
+	public static void changeCurrency(int i) {
+		InGameWindow.changeCurrency(i);
 	}
 
 }
