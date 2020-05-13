@@ -11,6 +11,7 @@ import main.java.event.types.NewSaveEvent;
 import main.java.event.types.TimeEvent;
 import main.java.gamecontrol.controllers.EventController;
 import main.java.gamecontrol.controllers.EventPickerController;
+import main.java.gamecontrol.controllers.GameLossController;
 import main.java.gamecontrol.controllers.InfectionController;
 import main.java.gamecontrol.controllers.MovementController;
 import main.java.gamecontrol.controllers.PassiveEventController;
@@ -75,5 +76,7 @@ public class GameController {
 		case EXIT:
 		
 		}
+		
+		GameLossController.handleGameLossIfRequired();
 	}
 }

@@ -15,7 +15,7 @@ import main.java.logging.SystemLogger;
  */
 public class GameLossController {
 
-	public void handleGameLossIfRequired() {
+	public static void handleGameLossIfRequired() {
 		SystemLogger.fine("Checking if the game has finished");
 
 		// Check if the game should be finished
