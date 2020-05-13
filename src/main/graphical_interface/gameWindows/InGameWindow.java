@@ -191,5 +191,13 @@ public class InGameWindow extends AbstractGameWindow {
 		
 		return saveLoadBar;
 	}
+	
+	public static void changeCurrency(int i) {
+		InGameWindow.inventoryController.updateCurrency(i);
+	}
+	
+	public static void setCurrency(int i) {
+		InGameWindow.inventoryController.setCurrency(i);
+	}
 
 }

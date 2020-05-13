@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
+import main.graphical_interface.gameWindows.InGameWindow;
 import main.graphical_interface.util.Command;
 import main.graphical_interface.util.GUIEventOption;
 import main.graphical_interface.util.GUIInventoryItem;
@@ -112,14 +113,20 @@ public class GameStateListener implements Observer{
 		HashMap<Integer, GUIInventoryItem> inventory = new HashMap<>();
 
 		for (ItemType i : items.getSaveItemsValues()) {
-			GUIInventoryItem newItem = new GUIInventoryItem();
-			newItem.setName(i.getItemName());
-			newItem.setQuantity(i.getItemCount());
-			newItem.setItemID(i.getItemID());
-			newItem.setDroppable(true);
-			newItem.setUsable(true); //For now, all items are usable and droppable.
+			InGameWindow.setCurrency(0);
+			if (i.getItemName().contains("Toilet Roll")) { //Toilet roll is a currency, not an inventory item for the UI
+				GUIController.changeCurrency(i.getItemCount());
+			} else {
+				GUIInventoryItem newItem = new GUIInventoryItem();
+				newItem.setName(i.getItemName());
+				newItem.setQuantity(i.getItemCount());
+				newItem.setItemID(i.getItemID());
+				newItem.setDroppable(true);
+				newItem.setUsable(true); //For now, all items are usable and droppable.
 
-			inventory.put(inventory.size(), newItem);
+				inventory.put(inventory.size(), newItem);
+			}
+			
 		}
 
 		return inventory;

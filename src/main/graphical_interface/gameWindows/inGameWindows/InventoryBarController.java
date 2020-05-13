@@ -28,6 +28,7 @@ public class InventoryBarController {
 	private VBox returnedBox;
 	private VBox inventoryBox;
 	private HBox currencyBox;
+	private GUICurrencyElement currency;
 	private int numberOfItems;
 	
 	public InventoryBarController() {
@@ -78,7 +79,8 @@ public class InventoryBarController {
 	
 	private HBox setupCurrency() {
 		HBox currency = new HBox();
-		HBox toiletRoll = new GUICurrencyElement().getElement();
+		this.currency = new GUICurrencyElement();
+		HBox toiletRoll = this.currency.getElement();
 		currency.getChildren().add(toiletRoll);
 		return currency;
 	}
@@ -148,6 +150,15 @@ public class InventoryBarController {
 	private void clearInventory() {
 		this.inventoryBox.getChildren().clear();
 		this.numberOfItems = 0;
+	}
+	
+	public void updateCurrency(int i) {
+		this.currency.addToCurrencyQuantity(i);
+	}
+
+	public void setCurrency(int i) {
+		this.currency.changeCurrencyQuantity(i);
+		
 	}
 
 }

@@ -26,8 +26,8 @@ public class SystemLogger {
 	private static final String LOGGER_FORMAT = "[%4$s] %5$s %n";
 	
 	private static final String SYSTEM_OUT_FORMAT = "[%s] %s";
-	private static boolean useLogger = true;
-	private static boolean createLogFile = true;
+	private static boolean useLogger = false;
+	private static boolean createLogFile = false;
 
 	private static Level logLevel = Level.ALL;
 
