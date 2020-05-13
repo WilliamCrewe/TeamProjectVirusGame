@@ -12,6 +12,7 @@ import main.java.filehandling.gamecontent.ContentType;
 import main.java.filehandling.gamecontent.realisations.SaveGameContent;
 import main.java.filehandling.xml.XMLUtils;
 import main.java.filehandling.xml.exception.XMLParseException;
+import main.java.gamecontrol.controllers.difficulty.Difficulty;
 
 public class SaveGameContentTest {
 
@@ -24,7 +25,7 @@ public class SaveGameContentTest {
 	@Test
 	public void testConstructorNoDocument() throws Exception {
 		// Call the method in test (Constructor so instantiate the object)
-		SaveGameContent saveGameContent = new SaveGameContent("NewSaveName", "AABBCC");
+		SaveGameContent saveGameContent = new SaveGameContent("NewSaveName", "AABBCC", Difficulty.EASY);
 
 		// Assert the values on the object are as expected
 		assertEquals(ContentType.SAVE, saveGameContent.getContentType());

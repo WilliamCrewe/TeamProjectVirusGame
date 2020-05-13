@@ -15,6 +15,7 @@ import main.java.filehandling.gamecontent.realisations.LocationGameContent;
 import main.java.filehandling.gamecontent.realisations.SaveGameContent;
 import main.java.filehandling.gamecontent.realisations.components.CompletedEvent;
 import main.java.filehandling.gamecontent.realisations.components.EventOption;
+import main.java.gamecontrol.controllers.difficulty.Difficulty;
 import main.java.logging.SystemLogger;
 import main.java.random.Rarity;
 import main.java.time.TimeLord;
@@ -41,7 +42,7 @@ public class GameState extends Observable {
 	
 	private LocationGameContent currentLocation;
 	private EventGameContent currentEvent;
-	private SaveGameContent save = new SaveGameContent("SaveGame", "AAAA");
+	private SaveGameContent save = new SaveGameContent("SaveGame", "AAAA", Difficulty.EASY);
 	
 	private boolean gameOver;
 	private TimeLord timeLord;
