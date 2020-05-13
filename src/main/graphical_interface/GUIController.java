@@ -468,6 +468,7 @@ public class GUIController extends Application {
 	public static void moveLocation(Command c) {
 		SystemLogger.fine("Player input the %s command.", c.toString());
 		System.out.println("Player moving to: "+c.toString());
+		GUIController.currentEventOption = null;
 		switch (c) {
 		case MOVE_BANK:
 			GUIController.eventQueueHandler.addMoveEvent("Bank");
