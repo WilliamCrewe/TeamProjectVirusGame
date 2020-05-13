@@ -1,0 +1,12 @@
+<Content>
+	<Event>
+		<EventID>PubRoot</EventID>
+		<EventName>The sign reads 'The Winchester', sounds familiar</EventName>
+		<EventLocationID>Pub</EventLocationID>
+		<IsPassiveEvent>true</IsPassiveEvent>
+		<IsSingleOccurence>false</IsSingleOccurence>
+		<EventOptions>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

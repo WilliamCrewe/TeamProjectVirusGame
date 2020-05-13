@@ -1,0 +1,26 @@
+<Content>
+	<Event>
+		<EventID>PubSnooker</EventID>
+		<EventName>As you enter the pub, you hear the familiar clunking of a game of snooker. As you approach one of the guys playing asks if you're up for a wager. Got some loo roll spare out back if you win, if not you've gotta help my gran</EventName>
+		<EventLocationID>Pub</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>false</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>PubSnookerDeal</EventOptionID>
+				<EventOptionDescription>You agree to his terms</EventOptionDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>PubSnookerReject</EventOptionID>
+				<EventOptionDescription>You're not much of a snooker player, you've never been able to get it in the net (Or is that basketball). Either way gamblings a suckers game</EventOptionDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>
