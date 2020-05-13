@@ -29,7 +29,7 @@ public class EventPickerController {
 		GameState gameStateInstance = GameState.getInstance();
 		
 		// No random events should occur at home
-		if (gameStateInstance.getCurrentLocation().getLocationID() == "Home") {
+		if (gameStateInstance.getCurrentLocation().getLocationID().equals("Home")) {
 			return;
 		}
 		
