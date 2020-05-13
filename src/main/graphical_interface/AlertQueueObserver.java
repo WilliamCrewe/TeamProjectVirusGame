@@ -27,20 +27,7 @@ public class AlertQueueObserver implements Observer{
 	private void handleEvent(AbstractAlert alert) {
 		SystemLogger.config("Handling alert %s", alert.getEventType().toString());
 		AlertType alertType = alert.getEventType();
-		switch (alertType) {
-		case DEFAULT:
-			
-			break;
-		case EXHAUSTION:
-			GUIAlertCreator.createWarningAlert(alertType.toString(), alert.getMessage());
-			break;
-		default:
-			break;
-			
-		}
-	}
-	
-	private void createAlert() {
+		GUIAlertCreator.createWarningAlert(alertType.toString(), alert.getMessage());
 		
 	}
 
