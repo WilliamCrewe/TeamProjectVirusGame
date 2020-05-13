@@ -251,6 +251,7 @@ public class GameState extends Observable {
 	
 	public void setSave(SaveGameContent saveGameContent) {
 		this.save = saveGameContent;
+		this.updateLocation(save.getCurrentLocationID());
 		
 		initialiseTimeLordFromSave();
 		notifyListenersOfGameState();

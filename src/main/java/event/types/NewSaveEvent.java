@@ -12,7 +12,7 @@ public class NewSaveEvent extends AbstractEvent {
 	private String difficulty;
 	
 	public NewSaveEvent(String saveName, String seed, String difficulty) {
-		eventType = EventType.PASSIVE_EVENT;
+		eventType = EventType.NEW_SAVE;
 		this.saveName = saveName;
 		this.seed = seed;
 		this.difficulty = difficulty;
