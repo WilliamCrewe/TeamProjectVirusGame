@@ -192,11 +192,14 @@ public class GameState extends Observable {
 		for (Rarity rarity : Rarity.values()) {
 			final List<EventGameContent> eventGameContents = new ArrayList<>();
 			
-			List<EventGameContent> locationEvents = currentLocationEvents.get(rarity);
-			// Add all the location events for this rarity
-			if (locationEvents != null) {
-				eventGameContents.addAll(locationEvents);
+			List<EventGameContent> locationEvents = new ArrayList<>();
+			
+			if (currentLocationEvents != null && currentLocationEvents.get(rarity) != null) {
+				locationEvents.addAll(currentLocationEvents.get(rarity));
 			}
+			
+			// Add all the location events for this rarity
+			eventGameContents.addAll(locationEvents);
 			
 			List<EventGameContent> nonLocationEvents = nonLocationEventsMap.get(rarity);
 			// Add all the non location events for this rarity
