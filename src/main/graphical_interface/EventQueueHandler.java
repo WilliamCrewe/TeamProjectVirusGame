@@ -2,8 +2,10 @@ package main.graphical_interface;
 
 import main.java.event.EventQueue;
 import main.java.event.types.EventActionEvent;
+import main.java.event.types.LoadEvent;
 import main.java.event.types.MoveEvent;
 import main.java.event.types.PassiveEvent;
+import main.java.event.types.SaveEvent;
 
 /**
  * @author wcrewe
@@ -36,6 +38,19 @@ public class EventQueueHandler {
 	
 	public void addPassiveEvent() {
 		EventQueue.getInstance().add(new PassiveEvent());
+	}
+	
+	/**
+	 * @param s: String
+	 * 
+	 * Recieves the file locatation as a String and loads it as an event into the EventQueue.
+	 */
+	public void loadGame(String s) {
+		EventQueue.getInstance().add(new LoadEvent(s));
+	}
+	
+	public void saveGame() {
+		EventQueue.getInstance().add(new SaveEvent());
 	}
 
 }

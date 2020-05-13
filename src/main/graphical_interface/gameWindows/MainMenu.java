@@ -1,5 +1,7 @@
 package main.graphical_interface.gameWindows;
 
+import java.io.File;
+
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -8,6 +10,7 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.stage.FileChooser;
 import main.graphical_interface.GUIController;
 import main.graphical_interface.util.Command;
 
@@ -29,12 +32,17 @@ public class MainMenu {
 			this.menu2.setVisible(true);
 		});
 		Button loadGame = createStandardButton("Load Game");
-		disableButton(loadGame);
+		loadGame.setOnAction(clicked -> {
+			GUIController.update(Command.LOAD);
+		});
 		Button options = createStandardButton("Options");
 		disableButton(options);
 		Button achievements = createStandardButton("Achievements");
 		disableButton(achievements);
 		Button quit = createStandardButton("Quit Game");
+		quit.setOnAction(clicked -> {
+			
+		});
 		
 		this.menu1 = new VBox(newGame, loadGame, options, achievements, quit);
 		this.menu1.setBackground(this.bg);
