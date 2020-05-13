@@ -16,6 +16,8 @@ import javafx.scene.text.Font;
 import main.graphical_interface.EventQueueHandler;
 import main.graphical_interface.GUIController;
 import main.graphical_interface.util.Command;
+import main.java.alert.AlertQueue;
+import main.java.alert.types.DefaultAlert;
 import main.java.logging.SystemLogger;
 
 public class MainMenu {
@@ -111,34 +113,23 @@ public class MainMenu {
 		mediumRadio.setToggleGroup(radioGroup);
 		hardRadio.setToggleGroup(radioGroup);
 
-		
-		invalidInputLabel= new Label();
-		VBox centralContainer = new VBox(saveNameTextField, easyRadioContainer, mediumRadioContainer, hardRadioContainer, seedTextField, invalidInputLabel);
+		VBox centralContainer = new VBox(saveNameTextField, easyRadioContainer, mediumRadioContainer, hardRadioContainer, seedTextField);
 		centralContainer.setBackground(this.bg);
 		centralContainer.setSpacing(40.0);
 		centralContainer.setAlignment(Pos.CENTER);
-		
-		invalidInputLabel.setTextFill(Color.web("#FF0000"));
-		invalidInputLabel.setVisible(false);
-		invalidInputLabel.setBackground(this.bgRadio);
-		invalidInputLabel.setAlignment(Pos.CENTER);
-		Font f = new Font(15.0);
-		invalidInputLabel.setFont(f);
 		
 		Button goDifficulty = createStandardButton("Go");
 		goDifficulty.setOnAction(click -> {
 			if (!verifySaveName(textField.getText())) {
 				SystemLogger.severe("The name %s is not a valid save name, it must not contain any spaces or special characters", textField.getText());
-				invalidInputLabel.setText(String.format("The name %s is not a valid save name, it must not contain any spaces or special characters", textField.getText()));
-				invalidInputLabel.setVisible(true);
+				AlertQueue.getInstance().add(new DefaultAlert("Invalid input", String.format("The name %s is not a valid save name, it must not contain any spaces or special characters", textField.getText())));
 				
 				return;
 			}
 			
 			if (!verifySeed(textFieldSeed.getText())) {
 				SystemLogger.severe("The seed %s is not a valid hex value", textFieldSeed.getText());
-				invalidInputLabel.setText(String.format("The seed %s is not a valid hex value", textFieldSeed.getText()));
-				invalidInputLabel.setVisible(true);
+				AlertQueue.getInstance().add(new DefaultAlert("Invalid input", String.format("The seed %s is not a valid hex value", textFieldSeed.getText())));
 				
 				return;
 			}
@@ -210,7 +201,7 @@ public class MainMenu {
 	}
 	
 	private boolean verifySaveName(String saveName) {
-		return saveName.matches("^[^*&%\\s]+$");
+		return saveName.matches("^[^*&\\.%\\s]+$");
 	}
 	
 }
