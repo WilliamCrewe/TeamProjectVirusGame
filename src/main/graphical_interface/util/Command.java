@@ -13,6 +13,8 @@ public enum Command {
 	ACT_9,
 	ACT_0,
 	
+	ACT_EVENT,
+	
 	PAGE_NEXT,
 	PAGE_PREV,
 	

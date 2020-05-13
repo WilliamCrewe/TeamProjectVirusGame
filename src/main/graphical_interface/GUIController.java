@@ -46,9 +46,11 @@ public class GUIController extends Application {
 	//private static Event currentEvent;
 	static List<GUIEventOption> allEventOptions;
 	static GUIEventOption[] currentEventOptions;
+	static GUIEventOption currentEventOption;
 	static String currentEventID;
 	private static int currentEventPage;
 	private static int finalEventPage;
+	static boolean isPassiveEvent = false;
 	
 	public static Stage primaryStage;
 
@@ -173,34 +175,88 @@ public class GUIController extends Application {
 	public static void update(Command c) {
 		switch (c) {
 		case ACT_1:
-			GUIController.eventQueueHandler.addActionEvent(GUIController.currentEventID, currentEventOptions[0].getEventID());
+			if (GUIController.currentEventOption == null) {
+				GUIController.currentEventOption = currentEventOptions[0];
+				handledEvent();
+			} else {
+				update(GUIController.currentEventOption.getCommand());
+			}
 			break;
 		case ACT_2:
-			GUIController.eventQueueHandler.addActionEvent(GUIController.currentEventID, currentEventOptions[1].getEventID());
+			if (GUIController.currentEventOption == null) {
+				GUIController.currentEventOption = currentEventOptions[1];
+				handledEvent();
+			} else {
+				update(GUIController.currentEventOption.getCommand());
+			}
 			break;
 		case ACT_3:
-			GUIController.eventQueueHandler.addActionEvent(GUIController.currentEventID, currentEventOptions[2].getEventID());
+			if (GUIController.currentEventOption == null) {
+				GUIController.currentEventOption = currentEventOptions[2];
+				handledEvent();
+			} else {
+				update(GUIController.currentEventOption.getCommand());
+			}
 			break;
 		case ACT_4:
-			GUIController.eventQueueHandler.addActionEvent(GUIController.currentEventID, currentEventOptions[3].getEventID());
+			if (GUIController.currentEventOption == null) {
+				GUIController.currentEventOption = currentEventOptions[3];
+				handledEvent();
+			} else {
+				update(GUIController.currentEventOption.getCommand());
+			}
 			break;
 		case ACT_5:
-			GUIController.eventQueueHandler.addActionEvent(GUIController.currentEventID, currentEventOptions[4].getEventID());
+			if (GUIController.currentEventOption == null) {
+				GUIController.currentEventOption = currentEventOptions[4];
+				handledEvent();
+			} else {
+				update(GUIController.currentEventOption.getCommand());
+			}
 			break;
 		case ACT_6:
-			GUIController.eventQueueHandler.addActionEvent(GUIController.currentEventID, currentEventOptions[5].getEventID());
+			if (GUIController.currentEventOption == null) {
+				GUIController.currentEventOption = currentEventOptions[5];
+				handledEvent();
+			} else {
+				update(GUIController.currentEventOption.getCommand());
+			}
 			break;
 		case ACT_7:
-			GUIController.eventQueueHandler.addActionEvent(GUIController.currentEventID, currentEventOptions[6].getEventID());
+			if (GUIController.currentEventOption == null) {
+				GUIController.currentEventOption = currentEventOptions[6];
+				handledEvent();
+			} else {
+				update(GUIController.currentEventOption.getCommand());
+			}
 			break;
 		case ACT_8:
-			GUIController.eventQueueHandler.addActionEvent(GUIController.currentEventID, currentEventOptions[7].getEventID());
+			if (GUIController.currentEventOption == null) {
+				GUIController.currentEventOption = currentEventOptions[7];
+				handledEvent();
+			} else {
+				update(GUIController.currentEventOption.getCommand());
+			}
 			break;
 		case ACT_9:
-			GUIController.eventQueueHandler.addActionEvent(GUIController.currentEventID, currentEventOptions[8].getEventID());
+			if (GUIController.currentEventOption == null) {
+				GUIController.currentEventOption = currentEventOptions[8];
+				handledEvent();
+			} else {
+				update(GUIController.currentEventOption.getCommand());
+			}
 			break;
 		case ACT_0:
-			GUIController.eventQueueHandler.addActionEvent(GUIController.currentEventID, currentEventOptions[9].getEventID());
+			if (GUIController.currentEventOption == null) {
+				GUIController.currentEventOption = currentEventOptions[9];
+				handledEvent();
+			} else {
+				update(GUIController.currentEventOption.getCommand());
+			}
+			break;
+		case ACT_EVENT:
+			GUIController.eventQueueHandler.addActionEvent(GUIController.currentEventID, GUIController.currentEventOption.getEventID());
+			GUIController.currentEventOption = null;
 			break;
 		case SLEEP:
 			GUIController.eventQueueHandler.addSleepEvent();
@@ -235,12 +291,13 @@ public class GUIController extends Application {
 			//chooser.setInitialDirectory();
 			File file = chooser.showOpenDialog(GUIController.primaryStage);
 			if (file != null) {
+				GUIController.eventQueueHandler.addLoadEvent(file.getAbsolutePath());
 				GUIController.updateWindow(Command.SWITCH_GAMEPLAY_UI);
 				GUIController.eventQueueHandler.loadGame(file.getAbsolutePath());
 			}
 			break;
 		case SAVE:
-			GUIController.eventQueueHandler.saveGame();
+			GUIController.eventQueueHandler.addSaveEvent();
 			break;
 		case NEW_GAME:
 			System.out.println("New Game");
@@ -349,6 +406,29 @@ public class GUIController extends Application {
 		}
 	}
 	
+	
+	private static void handledEvent() {
+
+		GUIController.setDisplayText(GUIController.currentEventOption.getPostDescription());
+		
+		GUIController.clearCurrentEventPage();
+
+		GUIEventOption eventOption = new GUIEventOption();
+		eventOption.setCommand(Command.ACT_EVENT);
+		eventOption.setDescription("OK");
+		eventOption.setEventAvailable(true);
+		eventOption.setEventID(GUIController.currentEventOption.getEventID());
+		eventOption.setPage(1);
+
+		
+		ArrayList<GUIEventOption> newArray = new ArrayList<>();
+		newArray.add(eventOption);
+		GUIController.allEventOptions = newArray;
+		GUIController.currentEventOption = eventOption;
+		
+		GUIController.setCurrentEvents();
+		GUIController.updateAll();
+	}
 	
 	/**
 	 * @param Command c

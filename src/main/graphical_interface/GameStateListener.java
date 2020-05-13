@@ -111,11 +111,13 @@ public class GameStateListener implements Observer{
 				ArrayList<GUIEventOption> allEventOptions = createEventOptions(
 						((GameState)o).getCurrentEvent(), ((GameState)o).getActiveOptions(), null);
 				GUIController.allEventOptions = allEventOptions;
+				
 				GUIController.currentEventID = ((GameState)o).getCurrentEvent().getEventID();
 				GUIController.setCurrentEvents();
 				GUIController.setDisplayText(((GameState)o).getCurrentEvent().getEventName());
 			} else {
 				GUIController.eventQueueHandler.addPassiveEvent();
+				GUIController.isPassiveEvent = true;
 			}
 
 
