@@ -1,5 +1,6 @@
 package main.graphical_interface;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -7,6 +8,7 @@ import java.util.List;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import main.graphical_interface.gameWindows.AbstractGameWindow;
 import main.graphical_interface.gameWindows.InGameWindow;
@@ -15,6 +17,7 @@ import main.graphical_interface.util.Command;
 import main.graphical_interface.util.GUIEventOption;
 import main.graphical_interface.util.GUIInventoryItem;
 import main.graphical_interface.util.GUILocation;
+import main.java.logging.SystemLogger;
 
 /**
  * @author wcrewe
@@ -44,7 +47,8 @@ public class GUIController extends Application {
 	private static int currentEventPage;
 	private static int finalEventPage;
 	
-	
+	public static Stage primaryStage;
+
 	static HashMap<Integer ,GUIInventoryItem> allItems;
 	
 	private GameStateListener gameStateListener;
@@ -54,10 +58,12 @@ public class GUIController extends Application {
 	 * Constants to be used to determine the size of the
 	 * game window (For now)
 	 */
-	private final static double PREFWIDTH = 1000.00;
-	private final static double PREFHEIGHT = 700.00;
+	private final static double PREFWIDTH = 1100.00;
+	private final static double PREFHEIGHT = 800.00;
 	private final double MINWIDTH = 500.00;
 	private final double MINHEIGHT = 300.00;
+	
+	
 
 	public GUIController() {
 	}
@@ -73,8 +79,8 @@ public class GUIController extends Application {
 	 *  Generates the MainMenu and displays it on the user's screen.
 	 */
 	@Override
-	public void start(Stage primaryStage) throws Exception {
-		
+	public void start(final Stage primaryStage) throws Exception {
+		this.primaryStage = primaryStage;
 		if (isRunning) {
 			System.out.println("Game already running?");
 			return;
@@ -89,8 +95,12 @@ public class GUIController extends Application {
 		rootPane = menu.getWindow();
 		
 		primaryStage.setScene(updateScene());
-		primaryStage.setMinWidth(MINWIDTH);
-		primaryStage.setMinHeight(MINHEIGHT);
+		primaryStage.setMinHeight(PREFHEIGHT);
+		primaryStage.setMaxHeight(PREFHEIGHT);
+		primaryStage.setMinWidth(PREFWIDTH);
+		primaryStage.setMaxWidth(PREFWIDTH);
+		primaryStage.setResizable(false);
+		
 		
 		this.isRunning = true;
 		primaryStage.show();	
@@ -273,7 +283,16 @@ public class GUIController extends Application {
 			GUIController.eventQueueHandler.addMoveEvent(GUIController.currentLocations[7].getLocationID());
 			break;
 		case LOAD:
-			System.out.println("Load");
+			FileChooser chooser = new FileChooser();
+			chooser.setTitle("Load File");
+			//chooser.setInitialDirectory();
+			File file = chooser.showOpenDialog(GUIController.primaryStage);
+			if (file != null) {
+				GUIController.eventQueueHandler.loadGame(file.getAbsolutePath());
+			}
+			break;
+		case SAVE:
+			GUIController.eventQueueHandler.saveGame();
 			break;
 		case NEW_GAME:
 			System.out.println("New Game");
@@ -376,14 +395,12 @@ public class GUIController extends Application {
 		case PROPERTIES:
 			System.out.println("Properties");
 			break;
-		case SAVE:
-			System.out.println("Save");
-			break;
 		default:
 			break;
 		
 		}
 	}
+	
 	
 	/**
 	 * @param Command c
@@ -419,6 +436,39 @@ public class GUIController extends Application {
 			break;
 		}
 		
+	}
+	
+	public static void moveLocation(Command c) {
+		SystemLogger.fine("Player input the %s command.", c.toString());
+		System.out.println("Player moving to: "+c.toString());
+		switch (c) {
+		case MOVE_BANK:
+			GUIController.eventQueueHandler.addMoveEvent("Bank");
+			break;
+		case MOVE_HOME:
+			GUIController.eventQueueHandler.addMoveEvent("Home");
+			break;
+		case MOVE_HOSPITAL:
+			GUIController.eventQueueHandler.addMoveEvent("Hospital");
+			break;
+		case MOVE_MARKET:
+			GUIController.eventQueueHandler.addMoveEvent("Market");
+			break;
+		case MOVE_PARK:
+			GUIController.eventQueueHandler.addMoveEvent("Park");
+			break;
+		case MOVE_POLICE:
+			GUIController.eventQueueHandler.addMoveEvent("Police");
+			break;
+		case MOVE_PUB:
+			GUIController.eventQueueHandler.addMoveEvent("Pub");
+			break;
+		case MOVE_SUPERMARKET:
+			GUIController.eventQueueHandler.addMoveEvent("Supermarket");
+			break;
+		default:
+			break;
+		}
 	}
 	
 	/**
@@ -492,7 +542,7 @@ public class GUIController extends Application {
 	}
 	
 	public static void updateAll() {
-		updateLocationButtonInput();
+		//updateLocationButtonInput();
 		updatePlayerInventory();
 		updatePlayerButtonInput();
 	}
