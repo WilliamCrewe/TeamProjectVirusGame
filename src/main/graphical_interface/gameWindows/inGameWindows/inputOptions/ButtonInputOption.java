@@ -6,6 +6,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import main.graphical_interface.GUIController;
 import main.graphical_interface.util.Command;
+import main.java.logging.SystemLogger;
 
 public class ButtonInputOption extends PlayerInputController {
 	
@@ -83,6 +84,7 @@ public class ButtonInputOption extends PlayerInputController {
 	}
 	
 	public void setVisibileButtons(boolean[] buttonVisibility) {
+		SystemLogger.config("Assigning EventLocation Buttons.");
 		if (buttonVisibility.length != 12) {
 			System.out.println("Array length is "+buttonVisibility.length+" and must be 12.");
 			return;
@@ -90,7 +92,6 @@ public class ButtonInputOption extends PlayerInputController {
 		int i = 0;
 		for (Node n : primaryGrid.getChildren()) {
 			n.setVisible(buttonVisibility[i]);
-			System.out.println("Button "+(i+1)+" set to "+buttonVisibility[i]);
 			i++;
 		}
 	}

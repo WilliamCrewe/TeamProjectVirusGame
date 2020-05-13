@@ -11,6 +11,7 @@ import main.graphical_interface.util.Command;
 import main.graphical_interface.util.GUIEventOption;
 import main.graphical_interface.util.GUIInventoryItem;
 import main.graphical_interface.util.GUILocation;
+import main.java.alert.AlertQueue;
 import main.java.event.EventQueue;
 import main.java.filehandling.gamecontent.realisations.EventGameContent;
 import main.java.filehandling.gamecontent.realisations.LocationGameContent;
@@ -31,7 +32,7 @@ public class GameStateListener implements Observer{
 
 	private static int locationCountOption;
 	private static int locationCountPage;
-	
+
 
 	public GameStateListener() {
 		setup();
@@ -42,7 +43,7 @@ public class GameStateListener implements Observer{
 		GameStateListener.eventCountPage= 0;
 		GameStateListener.locationCountOption = 0;
 		GameStateListener.locationCountPage = 0;
-		
+
 		GameState.getInstance().addObserver(this);
 
 	}
@@ -54,83 +55,86 @@ public class GameStateListener implements Observer{
 	 */
 	@Override
 	public void update(Observable o, Object arg) {
-		
+
 		GameStateListener.eventCountOption = 0;
 		GameStateListener.eventCountPage= 0;
 		GameStateListener.locationCountOption = 0;
-		GameStateListener.locationCountPage = 0;	
-			
-			
-			List<GUILocation> allLocations = createLocationOptions(
-					((GameState)o).getCurrentLocation());
-			
-			
-			
-			if (o instanceof GameState) {
-				
-				setNewTime((GameState)o);
-				
-				if (((GameState)o).getCurrentLocation().getLocationName().contains("Home")){
-					GUIController.setDisplayText("Welcome home.");
-					GUIController.clearCurrentEventPage();
-					
-					GUIEventOption sleepEvent = new GUIEventOption();
-					sleepEvent.setCommand(Command.SLEEP);
-					sleepEvent.setDescription("Go to Sleep");
-					sleepEvent.setEventAvailable(true);
-					sleepEvent.setPage(1);
-					
-					ArrayList<GUIEventOption> newArray = new ArrayList<>();
-					newArray.add(sleepEvent);
-					GUIController.allEventOptions = newArray;
-					GUIController.setCurrentEvents();
-					GUIController.updateAll();
-					
-					return;
-				}
-				
-				
-				
-				HashMap<Integer, GUIInventoryItem> currentInventory = createInventory(
-						((GameState)o).getSave().getSaveItems());
-				
+		GameStateListener.locationCountPage = 0;
+
+
+		List<GUILocation> allLocations = createLocationOptions(
+				((GameState)o).getCurrentLocation());
+
+
+
+		if (o instanceof GameState) {
+
+			setNewTime((GameState)o);
+
+			if (((GameState)o).getCurrentLocation().getLocationName().contains("Home")){
+				GUIController.setDisplayText("Your Home."
+						+ "The standard apparel is dotted around your shocking plainly described home. Blank white walls. Blank white floors."
+						+ "Oh, and a bed."
+						+ "(You can rest here)");
 				GUIController.clearCurrentEventPage();
-				GUIController.allItems = currentInventory;
-				GUIController.allLocations = allLocations;
-				
-				
-				if (((GameState)o).getActiveOptions() != null && ((GameState)o).getCurrentEvent() != null) {
-					ArrayList<GUIEventOption> allEventOptions = createEventOptions(
-							((GameState)o).getCurrentEvent(), ((GameState)o).getActiveOptions(), null);
-					GUIController.allEventOptions = allEventOptions;
-					GUIController.currentEventID = ((GameState)o).getCurrentEvent().getEventID();
-					GUIController.setCurrentEvents();
-					GUIController.setDisplayText(((GameState)o).getCurrentEvent().getEventName());
-				} else {
-					GUIController.eventQueueHandler.addPassiveEvent();
-				}
-			
-			
-			
-			
+
+				GUIEventOption sleepEvent = new GUIEventOption();
+				sleepEvent.setCommand(Command.SLEEP);
+				sleepEvent.setDescription("Go to Sleep");
+				sleepEvent.setEventAvailable(true);
+				sleepEvent.setPage(1);
+
+				ArrayList<GUIEventOption> newArray = new ArrayList<>();
+				newArray.add(sleepEvent);
+				GUIController.allEventOptions = newArray;
+				GUIController.setCurrentEvents();
+				GUIController.updateAll();
+
+				return;
+			}
+
+
+
+			HashMap<Integer, GUIInventoryItem> currentInventory = createInventory(
+					((GameState)o).getSave().getSaveItems());
+
+			GUIController.clearCurrentEventPage();
+			GUIController.allItems = currentInventory;
+			GUIController.allLocations = allLocations;
+
+
+			if (((GameState)o).getActiveOptions() != null && ((GameState)o).getCurrentEvent() != null) {
+				ArrayList<GUIEventOption> allEventOptions = createEventOptions(
+						((GameState)o).getCurrentEvent(), ((GameState)o).getActiveOptions(), null);
+				GUIController.allEventOptions = allEventOptions;
+				GUIController.currentEventID = ((GameState)o).getCurrentEvent().getEventID();
+				GUIController.setCurrentEvents();
+				GUIController.setDisplayText(((GameState)o).getCurrentEvent().getEventName());
+			} else {
+				GUIController.eventQueueHandler.addPassiveEvent();
+			}
+
+
+
+
 			GUIController.setCurrentLocations();
-			
+
 			GUIController.updateAll();
-			
+
 		}
 
-		
+
 
 	}
 
 	private void setNewTime(GameState o) {
 		int hour = o.getTimeLord().getTimeHour();
 		int minute = o.getTimeLord().getTimeMinute();
-		
+
 		SystemLogger.fine("Time update recieved of %d : %d", hour, minute);
-		
+
 		GUIController.updateTime(hour, minute);
-		
+
 	}
 
 	/**
@@ -156,7 +160,7 @@ public class GameStateListener implements Observer{
 
 				inventory.put(inventory.size(), newItem);
 			}
-			
+
 		}
 
 		return inventory;

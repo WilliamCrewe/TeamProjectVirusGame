@@ -29,7 +29,10 @@ public class GUIController extends Application {
 	private static Stage rootStage;
 	private boolean isRunning = false; //A check whether the game has started yet.
 	
-	private static boolean singleTestDone = false;
+	private final static String bootText = "Welcome to Lockdown! "
+			+ ""
+			+ "Please choose a location from the minimap (Top Right) to begin your adventure!";
+	
 	
 	/*
 	 * These variables perform eventHandling
@@ -124,6 +127,7 @@ public class GUIController extends Application {
 			updatePlayerButtonInput();
 			updateLocationButtonInput();
 			updatePlayerInventory();
+			GUIController.setDisplayText(GUIController.bootText);
 			break;
 		
 		case SWITCH_MAINMENU_UI:
@@ -147,73 +151,17 @@ public class GUIController extends Application {
 		GUIController.allEventOptions = new ArrayList<>();
 		GUIController.currentEventID = "";
 		GUIController.currentEventOptions = new GUIEventOption[10];
+		
+		GUIController.allLocations = new ArrayList<>();
+		GUIController.currentLocations = new GUILocation[8];
+		GUIController.currentLocationPage = 1;
+		GUIController.finalLocationPage = 1;
+		
+		GUIController.allItems = new HashMap<>();
+		
 		this.gameStateListener = new GameStateListener();
 		this.eventQueueHandler = new EventQueueHandler();
 		
-		if (!singleTestDone){
-			GUIEventOption e1 = new GUIEventOption(Command.ACT_0,"Jump!", "You Jumped", 1, "Nout", true);
-			GUIEventOption e2 = new GUIEventOption(Command.ACT_1,"Hide!", "You Hid", 1, "Nout", true);
-			
-			GUIEventOption e3 = new GUIEventOption(Command.ACT_1,"Kiss!", "Kiss who?!", 2, "Nout", false);
-			GUIEventOption e4 = new GUIEventOption(Command.ACT_2,"Quack!", "Good duck", 2, "Nout", true);
-			GUIEventOption e5 = new GUIEventOption(Command.ACT_3,"Duck!", "Bad Duck", 2, "Nout", true);
-			
-			GUIEventOption e6 = new GUIEventOption(Command.ACT_1,"Panic!", "Aaargh!", 3, "Nout", true);
-			GUIEventOption e7 = new GUIEventOption(Command.ACT_2,"Leer!", "Their defense was lowered.",  3, "Nout", false);
-			GUIEventOption e8 = new GUIEventOption(Command.ACT_3,"Thrust!", "Oh my", 3, "Nout", true);
-			
-			ArrayList<GUIEventOption> test = new ArrayList<>();
-			test.add(e1);
-			test.add(e2);
-			test.add(e3);
-			test.add(e4);
-			test.add(e5);
-			test.add(e6);
-			test.add(e7);
-			test.add(e8);
-			
-			GUIController.allEventOptions = test;
-			
-			GUIController.currentEventOptions[0] = e1;
-			GUIController.currentEventOptions[1] = e2;
-			
-			GUIController.finalEventPage = 3;
-			
-			
-			//Initialise Location Test
-			
-			GUIController.allLocations = new ArrayList<>();
-			GUIController.currentLocations = new GUILocation[8];
-			GUIController.currentLocationPage = 1;
-			GUIController.finalLocationPage = 1;
-			
-			GUILocation l1 = new GUILocation(Command.MOVE_1, "Shop", 1);
-			l1.setLocationID("Shop");
-			GUILocation l2 = new GUILocation(Command.MOVE_2, "Hospital", 1);
-			l2.setLocationID("Hospital");
-			
-			ArrayList<GUILocation> test1 = new ArrayList<>();
-			test1.add(l1);
-			test1.add(l2);
-			
-			GUIController.allLocations = test1;
-			
-			GUIController.currentLocations[0] = l1;
-			GUIController.currentLocations[1] = l2;
-			
-			GUIController.finalLocationPage = 4;
-			
-			GUIController.allItems = new HashMap<>();
-			
-			GUIInventoryItem i1 = new GUIInventoryItem("Easter Egg", "How did this get in here?", 1, true, true);
-			GUIInventoryItem i2 = new GUIInventoryItem("Lucky Rabbits Foot", "You've had it since you were a child.\n"
-					+ "No one knows why.", 1, true, false);
-			GUIInventoryItem i3 = new GUIInventoryItem("Testing", "Test", 5, true, true);
-			
-			allItems.put(allItems.size(), i1);
-			allItems.put(allItems.size(), i2);
-			allItems.put(allItems.size(), i3);
-		}
 	}
 	
 	/**
@@ -468,6 +416,10 @@ public class GUIController extends Application {
 		default:
 			break;
 		}
+	}
+	
+	public static void createAlert(String title, String description) {
+		
 	}
 	
 	/**

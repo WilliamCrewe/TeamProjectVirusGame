@@ -50,6 +50,7 @@ public class AlertQueue extends Observable {
 		SystemLogger.fine("Adding alert to queue");
 		queue.add(newAlert);
 		setChanged();
+		System.out.println("Alerting Observers");
 		notifyObservers();
 	}
 }
