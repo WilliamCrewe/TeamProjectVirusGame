@@ -256,7 +256,7 @@ public class GameState extends Observable {
 		notifyListenersOfGameState();
 	}
 	
-	private void initialiseTimeLordFromSave() {
+	public void initialiseTimeLordFromSave() {
 		timeLord = new TimeLord(save.getTime());
 	}
 
