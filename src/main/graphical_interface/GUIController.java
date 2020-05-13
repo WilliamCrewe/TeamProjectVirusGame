@@ -254,6 +254,9 @@ public class GUIController extends Application {
 		case ACT_0:
 			GUIController.eventQueueHandler.addActionEvent(GUIController.currentEventID, currentEventOptions[9].getEventID());
 			break;
+		case SLEEP:
+			GUIController.eventQueueHandler.addSleepEvent();
+			break;
 		case MOVE_1:
 			GUIController.eventQueueHandler.addMoveEvent(GUIController.currentLocations[0].getLocationID());
 			break;
@@ -581,6 +584,10 @@ public class GUIController extends Application {
 	
 	public static void changeCurrency(int i) {
 		InGameWindow.changeCurrency(i);
+	}
+	
+	public static void updateTime(int hour, int minute) {
+		InGameWindow.updateTime(hour, minute);
 	}
 
 }

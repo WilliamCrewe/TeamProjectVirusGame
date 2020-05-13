@@ -18,6 +18,7 @@ import main.java.filehandling.gamecontent.realisations.components.EventOption;
 import main.java.filehandling.gamecontent.realisations.components.ItemType;
 import main.java.filehandling.gamecontent.realisations.components.SaveItems;
 import main.java.gamecontrol.gamestate.GameState;
+import main.java.logging.SystemLogger;
 
 /**
  * @author wcrewe
@@ -57,10 +58,7 @@ public class GameStateListener implements Observer{
 		GameStateListener.eventCountOption = 0;
 		GameStateListener.eventCountPage= 0;
 		GameStateListener.locationCountOption = 0;
-		GameStateListener.locationCountPage = 0;
-		
-		System.out.println("1");
-		System.out.println(o.getClass());		
+		GameStateListener.locationCountPage = 0;	
 			
 			
 			List<GUILocation> allLocations = createLocationOptions(
@@ -69,7 +67,29 @@ public class GameStateListener implements Observer{
 			
 			
 			if (o instanceof GameState) {
-				System.out.println("Observable Begin");
+				
+				setNewTime((GameState)o);
+				
+				if (((GameState)o).getCurrentLocation().getLocationName().contains("Home")){
+					GUIController.setDisplayText("Welcome home.");
+					GUIController.clearCurrentEventPage();
+					
+					GUIEventOption sleepEvent = new GUIEventOption();
+					sleepEvent.setCommand(Command.SLEEP);
+					sleepEvent.setDescription("Go to Sleep");
+					sleepEvent.setEventAvailable(true);
+					sleepEvent.setPage(1);
+					
+					ArrayList<GUIEventOption> newArray = new ArrayList<>();
+					newArray.add(sleepEvent);
+					GUIController.allEventOptions = newArray;
+					GUIController.setCurrentEvents();
+					GUIController.updateAll();
+					
+					return;
+				}
+				
+				
 				
 				HashMap<Integer, GUIInventoryItem> currentInventory = createInventory(
 						((GameState)o).getSave().getSaveItems());
@@ -101,6 +121,16 @@ public class GameStateListener implements Observer{
 
 		
 
+	}
+
+	private void setNewTime(GameState o) {
+		int hour = o.getTimeLord().getTimeHour();
+		int minute = o.getTimeLord().getTimeMinute();
+		
+		SystemLogger.fine("Time update recieved of %d : %d", hour, minute);
+		
+		GUIController.updateTime(hour, minute);
+		
 	}
 
 	/**

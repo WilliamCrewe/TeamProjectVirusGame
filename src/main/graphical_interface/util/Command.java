@@ -51,6 +51,7 @@ public enum Command {
 	MOVE_PUB,
 	MOVE_SUPERMARKET,
 	
+	SLEEP,
 	
 	LOC_MOVE_NEXT,
 	LOC_MOVE_PREV,

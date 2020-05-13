@@ -14,6 +14,7 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import main.graphical_interface.GUIController;
+import main.graphical_interface.gameWindows.inGameWindows.ClockController;
 import main.graphical_interface.gameWindows.inGameWindows.DisplayWindowController;
 import main.graphical_interface.gameWindows.inGameWindows.InventoryBarController;
 import main.graphical_interface.gameWindows.inGameWindows.MenuBarController;
@@ -29,6 +30,7 @@ public class InGameWindow extends AbstractGameWindow {
 	private static MiniMapController miniMap;
 	private static DisplayWindowController displayController;
 	private static InventoryBarController inventoryController;
+	private static ClockController clockController;
 	
 	public InGameWindow() {
 		createWindow();
@@ -99,9 +101,14 @@ public class InGameWindow extends AbstractGameWindow {
 				InGameWindow.inventoryController = new InventoryBarController();
 				VBox invBox = inventoryController.getInventoryBox();
 				
+				//Create Clock Box
+				InGameWindow.clockController = new ClockController();
+				Pane digitalClock = InGameWindow.clockController.getDigitalClock();
+				
 				//Assign to VBox
 				minimapInventoryBox.getChildren().add(tempMap);
 				minimapInventoryBox.getChildren().add(invBox);
+				minimapInventoryBox.getChildren().add(digitalClock);
 				
 				//Format minimapInvBox
 				VBox.setVgrow(minimapInventoryBox, Priority.SOMETIMES);
@@ -198,6 +205,10 @@ public class InGameWindow extends AbstractGameWindow {
 	
 	public static void setCurrency(int i) {
 		InGameWindow.inventoryController.setCurrency(i);
+	}
+	
+	public static void updateTime(int hour, int minute) {
+		InGameWindow.clockController.updateTime(hour, minute);
 	}
 
 }
