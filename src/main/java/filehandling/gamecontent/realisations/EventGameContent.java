@@ -1,5 +1,7 @@
 package main.java.filehandling.gamecontent.realisations;
 
+import java.util.Objects;
+
 import org.w3c.dom.Document;
 
 import main.java.filehandling.gamecontent.AbstractGameContent;
@@ -113,6 +115,41 @@ public class EventGameContent extends AbstractGameContent {
 	public Rarity getRarity() {
 		return rarity;
 	}
+	
+    /* (non-Javadoc)
+     * @see java.lang.Object#equals(java.lang.Object)
+     */
+    @Override
+    public boolean equals(Object o) { 
+  
+        // If the object is compared with itself then return true   
+        if (o == this) { 
+            return true; 
+        } 
+  
+        /* Check if o is an instance of EventGameContent or not 
+          "null instanceof [type]" also returns false */
+        if (!(o instanceof EventGameContent)) { 
+            return false; 
+        } 
+          
+        // typecast o to EventGameContent so that we can compare data members  
+        EventGameContent c = (EventGameContent) o; 
+          
+        // Compare the data members and return accordingly  
+        return eventID.equals(c.eventID);
+    } 
+    
+    /* 
+     * (non-Javadoc)
+     * @see java.lang.Object#hashCode()
+     */
+    @Override
+    public int hashCode() {
+    	// Only hash the eventID as this is the unique Identifier of the event
+        return Objects.hash(eventID);
+    }
+
 
 	/**
 	 * private enum representing the tags available under the EVENT element
