@@ -15,7 +15,7 @@
 			</EventOption>
 			<EventOption>
 				<EventOptionID>ParkDogStay</EventOptionID>
-				<EventOptionDescription>As you can't see the owner around you decide the best course of action is to stay with the dof and wait for the owner to turn up.</EventOptionDescription>
+				<EventOptionDescription>As you can't see the owner around you decide the best course of action is to stay with the dog and wait for the owner to turn up.</EventOptionDescription>
 				<EventOptionPostDescription>After a couple minutes a panicked looking owner appears and upon seeing you looks instantly relieved. She comes over and thanks you saying that the dog has never been that good with anyone before</EventOptionPostDescription>
 				<EventOptionImmunityModification>0</EventOptionImmunityModification>
 				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
