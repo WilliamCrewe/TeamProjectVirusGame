@@ -1,0 +1,28 @@
+<Content>
+	<Event>
+		<EventID>HomeWashHands</EventID>
+		<EventName>You've just come home from today's adventure.</EventName>
+		<EventLocationID>Home</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>false</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>HomeWashHandsDo</EventOptionID>
+				<EventOptionDescription>Go wash your hands before you do anything else.</EventOptionDescription>
+				<EventOptionPostDescription>You're glad you washed your hands, you never know what might be on them!</EventOptionPostDescription>
+				<EventOptionImmunityModification>10</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>HomeWashHandsDoNot</EventOptionID>
+				<EventOptionDescription>It's been a long day. Decide to sit down for a well deserved rest</EventOptionDescription>
+				<EventOptionPostDescription>In heinsight maybe you should have washed your hands... you can't quite remember what you've touched today.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>10</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

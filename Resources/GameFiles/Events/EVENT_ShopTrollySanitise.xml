@@ -1,0 +1,28 @@
+<Content>
+	<Event>
+		<EventID>ShopTrollySanitise</EventID>
+		<EventName>There's a sanitise point at the front of the Shop.</EventName>
+		<EventLocationID>Shop</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>false</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>ShopTrollySanitiseDo</EventOptionID>
+				<EventOptionDescription>Wipe down your trolly.</EventOptionDescription>
+				<EventOptionPostDescription>You follow the shop's recommendation and wipe down the handle of your trolly and sanitise your hands before you start shopping.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>10</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>-10</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>ShopTrollySanitiseDoNot</EventOptionID>
+				<EventOptionDescription>Get straight to shopping</EventOptionDescription>
+				<EventOptionPostDescription>You start shopping before sanitising anything, you remember the shop suggests sanitising trollys to stop the spread of the virus.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>10</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

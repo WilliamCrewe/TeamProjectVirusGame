@@ -1,0 +1,28 @@
+<Content>
+	<Event>
+		<EventID>HospitalVisitPatient</EventID>
+		<EventName>Your childhood friend mentioned that their mother is in hospital, do you go see her?</EventName>
+		<EventLocationID>Hospital</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>HospitalVisitPatientDo</EventOptionID>
+				<EventOptionDescription>Go visit her, it must be very lonely in hospital.</EventOptionDescription>
+				<EventOptionPostDescription>She is very happy to see a friendly face although she doesn't seem too well and is coughing alot. A passing nurse tells you no visitors are allowed right now and escorts you to the entrance.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>20</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>10</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>HospitalVisitPatientDoNot</EventOptionID>
+				<EventOptionDescription>Decide not to go see her right now.</EventOptionDescription>
+				<EventOptionPostDescription>Visiters aren't allowed right now anyway, although it would have been nice to see her.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

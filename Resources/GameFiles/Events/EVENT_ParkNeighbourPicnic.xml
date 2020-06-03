@@ -1,0 +1,28 @@
+<Content>
+	<Event>
+		<EventID>ParkNeighbourPicnic</EventID>
+		<EventName>You spot your neighbours having a picnic, they wave you over.</EventName>
+		<EventLocationID>Park</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>ParkNeighbourPicnicJoin</EventOptionID>
+				<EventOptionDescription>Go over and sit down for a chat.</EventOptionDescription>
+				<EventOptionPostDescription>It was nice to see them although you had some stares from people walking around the park.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>10</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>ParkNeighbourPicnicNotJoin</EventOptionID>
+				<EventOptionDescription>Wave from afar and shout some greetings.</EventOptionDescription>
+				<EventOptionPostDescription>It would have been nice to talk to them but you're glad you socially distanced.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>
