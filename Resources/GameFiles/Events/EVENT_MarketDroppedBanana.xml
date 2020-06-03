@@ -1,0 +1,44 @@
+<Content>
+	<Event>
+		<EventID>MarketDroppedBanana</EventID>
+		<EventName>You see a woman infront of you drop a banana.</EventName>
+		<EventLocationID>Market</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>MarketDroppedBananaKeep</EventOptionID>
+				<EventOptionDescription>Pick up a banana and keep it</EventOptionDescription>
+				<EventOptionPostDescription>Find a banana pick it up I guess?</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>5</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>-10</EventOptionKarmaModification>
+				<EventOptionItems>
+					<Item>
+						<ItemID>BananaID</ItemID>
+						<ItemName>Banana</ItemName>
+						<ItemCount>1</ItemCount>
+						<ItemUsageEventID>UseBanana</ItemUsageEventID>
+					</Item>
+				</EventOptionItems>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>MarketDroppedBananaShout</EventOptionID>
+				<EventOptionDescription>Let the woman know she dropped her banana.</EventOptionDescription>
+				<EventOptionPostDescription>The woman thanks you and picks up her banana.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>10</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>MarketDroppedBananaDoNothing</EventOptionID>
+				<EventOptionDescription>Do nothing</EventOptionDescription>
+				<EventOptionPostDescription>You do nothing and walk around the banana.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

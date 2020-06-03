@@ -1,0 +1,45 @@
+<Content>
+	<Event>
+		<EventID>HomeNeighbourFlour</EventID>
+		<EventName>Your neighbour knocks on the front door and asks if they could have some flour as they're running short.</EventName>
+		<EventLocationID>Home</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>HomeNeighbourFlourGive</EventOptionID>
+				<EventOptionDescription>Give some flour to them.</EventOptionDescription>
+				<EventOptionPostDescription>They thank you and give you a pack of pasta in return.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>10</EventOptionKarmaModification>
+				<EventOptionItems>
+					<Item>
+						<ItemID>PastaID</ItemID>
+						<ItemName>Pasta</ItemName>
+						<ItemCount>1</ItemCount>
+						<ItemUsageEventID>UsePasta</ItemUsageEventID>
+					</Item>
+				</EventOptionItems>
+				<RequiredItemID>FlourID</RequiredItemID>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>HomeNeighbourFlourNone</EventOptionID>
+				<EventOptionDescription>Tell them you don't have any flour to give and apologise.</EventOptionDescription>
+				<EventOptionPostDescription></EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>HomeNeighbourRude</EventOptionID>
+				<EventOptionDescription>Shout at them for even assuming you'd give up anything at this time.</EventOptionDescription>
+				<EventOptionPostDescription></EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>-10</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>
