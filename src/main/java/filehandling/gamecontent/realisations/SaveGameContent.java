@@ -7,6 +7,9 @@ import main.java.filehandling.gamecontent.AbstractGameContent;
 import main.java.filehandling.gamecontent.ContentType;
 import main.java.filehandling.gamecontent.XMLFileWritable;
 import main.java.filehandling.gamecontent.realisations.components.CompletedEvents;
+import main.java.filehandling.gamecontent.realisations.components.ItemType;
+import main.java.filehandling.gamecontent.realisations.components.RequiredItemType;
+import main.java.filehandling.gamecontent.realisations.components.RequiredItemsType;
 import main.java.filehandling.gamecontent.realisations.components.SaveItems;
 import main.java.filehandling.gamecontent.realisations.components.TimeType;
 import main.java.filehandling.reader.GameDirectory;
@@ -235,6 +238,26 @@ public class SaveGameContent extends AbstractGameContent implements XMLFileWrita
 	 */
 	public SaveItems getSaveItems() {
 		return saveItems;
+	}
+	
+	public boolean containsRequiredItems(RequiredItemsType requiredItems) { 
+		for (RequiredItemType requiredItem : requiredItems.getRequiredItemsTypesValues()) {
+			
+			// Confirm the save contains the item
+			ItemType saveItem = saveItems.getItemByID(requiredItem.getItemID());
+			if (saveItem == null) {
+				SystemLogger.config("The required item %s was not present in the save", requiredItem.getItemID());
+				return false;
+			}
+			
+			// Confirm there are the required number of items
+			if (saveItem.getItemCount() < requiredItem.getItemCount()) {
+				SystemLogger.config("There were %s items of type %s required, but the save only has %s", requiredItem.getItemCount(), saveItem.getItemCount());
+				return false;
+			}
+		}
+		
+		return true;
 	}
 	
 	/**

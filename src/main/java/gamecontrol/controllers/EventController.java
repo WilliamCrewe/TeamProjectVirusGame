@@ -53,11 +53,11 @@ public class EventController {
 
 		// If there were items required for the option check the save has them (This
 		// situation should be limited by the GUI)
-		if (chosenOption.getRequiredItemID() != null
-				&& !save.getSaveItems().containsItemID(chosenOption.getRequiredItemID())) {
+		if (chosenOption.getRequiredItems() != null
+				&& !save.containsRequiredItems(chosenOption.getRequiredItems())) {
 			SystemLogger.severe(
-					"An invalid option of %s was chosen for event %s as the required item %s was not held, no update to the gameState will be made",
-					event.getEventOptionID(), event.getEventID(), chosenOption.getRequiredItemID());
+					"An invalid option of %s was chosen for event %s as the required items were not held, no update to the gameState will be made",
+					event.getEventOptionID(), event.getEventID());
 			return;
 		}
 
@@ -71,14 +71,14 @@ public class EventController {
 		EventOptionItems eventOptionItems = chosenOption.getEventOptionItems();
 		if (eventOptionItems != null) {
 			for (ItemType item : eventOptionItems.getEventOptionItemsValues()) {
-				save.getSaveItems().addToSaveItems(item);
+				save.getSaveItems().addToSaveItemsMap(item);
 			}
 		}
 
 		// If there were items required for the option remove them (All items are single
 		// use)
-		if (chosenOption.getRequiredItemID() != null) {
-			save.getSaveItems().removeItem(chosenOption.getRequiredItemID());
+		if (chosenOption.getRequiredItems() != null) {
+			save.getSaveItems().removeItems(chosenOption.getRequiredItems());
 		}
 
 		GameState.getInstance().completeEvent(event.getEventID());

@@ -101,8 +101,10 @@ public class SaveGameContentTest {
 		SaveGameContent saveGameContent = new SaveGameContent(document);
 
 		String expectedXML = "<Content>" + "<Save>" + "<SaveName>TestSaveName</SaveName>" + "<Seed>AABBCC12</Seed>"
-				+ "<Difficulty>Easy</Difficulty><DayNumber>42</DayNumber>" + "<Immunity>20</Immunity>" + "<ContagionLevel>15</ContagionLevel>"
-				+ "<Karma>16</Karma>" + "<CurrentLocationID>TestLocationID</CurrentLocationID>" + "<CompletedEvents>"
+				+ "<Difficulty>Easy</Difficulty><DayNumber>42</DayNumber><Time>6:30</Time>" + "<CurrentLocationID>TestLocationID</CurrentLocationID>" + 
+				"<Immunity>20</Immunity>" + "<ContagionLevel>15</ContagionLevel>"
+				+ "<IllnessLevel>5</IllnessLevel>"
+				+ "<Karma>16</Karma>" + "<CompletedEvents>"
 				+ "<CompletedEvent>" + "<EventID>TestEventID1</EventID>"
 				+ "<EventOptionID>TestOptionID1</EventOptionID>" + "</CompletedEvent>" + "<CompletedEvent>"
 				+ "<EventID>TestEventID2</EventID>" + "<EventOptionID>TestOptionID2</EventOptionID>"

@@ -21,7 +21,7 @@ public class EventOption {
 	private int eventOptionKarmaModification;
 	private EventOptionItems eventOptionItems;
 	private String requiredCompletedEventID;
-	private String requiredItemID;
+	private RequiredItemsType requiredItems;
 	private String followingEventID;
 
 	public EventOption(Node eventNode) {
@@ -60,8 +60,8 @@ public class EventOption {
 			case REQUIRED_COMPLETED_EVENT_ID:
 				requiredCompletedEventID = currentNode.getTextContent();
 				break;
-			case REQUIRED_ITEM_ID:
-				requiredItemID = currentNode.getTextContent();
+			case REQUIRED_ITEMS:
+				requiredItems = new RequiredItemsType(currentNode);
 				break;
 			case FOLLOWING_EVENT_ID:
 				followingEventID = currentNode.getTextContent();
@@ -74,7 +74,7 @@ public class EventOption {
 	public EventOption(String eventOptionID, String eventOptionDescription, String eventOptionPostDescription,
 			int eventOptionImmunityModification, int eventOptionContagionLevelModifier,
 			int eventOptionKarmaModification, EventOptionItems eventOptionItems, String requiredCompletedEventID,
-			String requiredItemID, String followingEventID) {
+			RequiredItemsType requiredItems, String followingEventID) {
 		this.eventOptionID = eventOptionID;
 		this.eventOptionDescription = eventOptionDescription;
 		this.eventOptionPostDescription = eventOptionPostDescription;
@@ -83,7 +83,7 @@ public class EventOption {
 		this.eventOptionKarmaModification = eventOptionKarmaModification;
 		this.eventOptionItems = eventOptionItems;
 		this.requiredCompletedEventID = requiredCompletedEventID;
-		this.requiredItemID = requiredItemID;
+		this.requiredItems = requiredItems;
 		this.followingEventID = followingEventID;
 	}
 
@@ -139,8 +139,8 @@ public class EventOption {
 	/**
 	 * @return the requiredItemID
 	 */
-	public String getRequiredItemID() {
-		return requiredItemID;
+	public RequiredItemsType getRequiredItems() {
+		return requiredItems;
 	}
 
 	/**
@@ -164,16 +164,16 @@ public class EventOption {
 	 *
 	 */
 	private enum EventOptionTag {
-		EVENT_OPTION_ID("EventOptionID"), EVENT_OPTION_DESCRIPTION(
-				"EventOptionDescription"), EVENT_OPTION_POST_DESCRIPTION(
-						"EventOptionPostDescription"), EVENT_OPTION_IMMUNITY_MODIFICATION(
-								"EventOptionImmunityModification"), EVENT_OPTION_CONTAGION_LEVEL_MODIFIER(
-										"EventOptionContagionLevelModifier"), EVENT_OPTION_KARMA_MODIFICATION(
-												"EventOptionKarmaModification"), EVENT_OPTION_ITEMS(
-														"EventOptionItems"), REQUIRED_COMPLETED_EVENT_ID(
-																"RequiredCompletedEventID"), REQUIRED_ITEM_ID(
-																		"RequiredItemID"), FOLLOWING_EVENT_ID(
-																				"FollowingEventID");
+		EVENT_OPTION_ID("EventOptionID"), 
+		EVENT_OPTION_DESCRIPTION("EventOptionDescription"), 
+		EVENT_OPTION_POST_DESCRIPTION("EventOptionPostDescription"), 
+		EVENT_OPTION_IMMUNITY_MODIFICATION("EventOptionImmunityModification"), 
+		EVENT_OPTION_CONTAGION_LEVEL_MODIFIER("EventOptionContagionLevelModifier"), 
+		EVENT_OPTION_KARMA_MODIFICATION("EventOptionKarmaModification"), 
+		EVENT_OPTION_ITEMS("EventOptionItems"), 
+		REQUIRED_COMPLETED_EVENT_ID("RequiredCompletedEventID"), 
+		REQUIRED_ITEMS("RequiredItems"), 
+		FOLLOWING_EVENT_ID("FollowingEventID");
 
 		private String tag;
 
