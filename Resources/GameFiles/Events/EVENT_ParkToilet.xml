@@ -1,0 +1,28 @@
+<Content>
+	<Event>
+		<EventID>ParkToilet</EventID>
+		<EventName>You could do with the loo, do you use the public toilet.</EventName>
+		<EventLocationID>Park</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>ParkToiletUse</EventOptionID>
+				<EventOptionDescription>Use the toilet</EventOptionDescription>
+				<EventOptionPostDescription>The toilet is a bit dirty, you make sure to wash your hands for 30 seconds after.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModified>5</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>ParkToiletWait</EventOptionID>
+				<EventOptionDescription>Wait until you can use your home toilet</EventOptionDescription>
+				<EventOptionPostDescription>You hold it in</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

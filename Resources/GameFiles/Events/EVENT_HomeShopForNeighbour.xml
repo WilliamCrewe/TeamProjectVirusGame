@@ -1,0 +1,36 @@
+<Content>
+	<Event>
+		<EventID>HomeShopForNeighbour</EventID>
+		<EventName>Your neighbour knocks on your door and says she is concerned about going food shopping as she is a vunerable person and should be sheltering.</EventName>
+		<EventLocationID>Home</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>false</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>HomeShopForNeighbourHelp</EventOptionID>
+				<EventOptionDescription>Go shopping for your neighbour</EventOptionDescription>
+				<EventOptionPostDescription>Your neighbour is very thankful and gives you a loo roll!</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>5</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>10</EventOptionKarmaModification>
+				<EventOptionItems>
+					<Item>
+						<ItemID>ChocolateID</ItemID>
+						<ItemName>Chocolate</ItemName>
+						<ItemCount>1</ItemCount>
+						<ItemUsageEventID>UseChocolate</ItemUsageEventID>
+					</Item>
+				</EventOptionItems>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>HomeShopForNeighbourDontHelp</EventOptionID>
+				<EventOptionDescription>Don't go shopping for your neighbour</EventOptionDescription>
+				<EventOptionPostDescription>You apologise. You explain it is getting more risky to go to the shops and you could do without going an extra time this week.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

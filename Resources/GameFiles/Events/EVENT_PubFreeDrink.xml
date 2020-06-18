@@ -1,0 +1,28 @@
+<Content>
+	<Event>
+		<EventID>PubFreeDrink</EventID>
+		<EventName>Someone comes upto you and explains they bought an extra drink but no longer wants it, they ask if you want it.</EventName>
+		<EventLocationID>Pub</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>PubFreeDrinkAccept</EventOptionID>
+				<EventOptionDescription>Take the drink</EventOptionDescription>
+				<EventOptionPostDescription>You take the drink and drink it. Maybe you shouldn't have, you don't know where the drink has been.</EventOptionPostDescription>
+				<EventOptionImmunityModification>-5</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>5</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>PubFreeDrinkDeny</EventOptionID>
+				<EventOptionDescription>Turn down the drink</EventOptionDescription>
+				<EventOptionPostDescription>You say no thank you, you don't know where the drink has been.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

@@ -1,18 +1,18 @@
 <Content>
 	<Event>
 		<EventID>MarketDroppedBanana</EventID>
-		<EventName>You see a woman infront of you drop a banana.</EventName>
+		<EventName>You see someone drop a banana</EventName>
 		<EventLocationID>Market</EventLocationID>
 		<IsPassiveEvent>false</IsPassiveEvent>
 		<IsSingleOccurence>true</IsSingleOccurence>
 		<EventOptions>
 			<EventOption>
 				<EventOptionID>MarketDroppedBananaKeep</EventOptionID>
-				<EventOptionDescription>Pick up a banana and keep it</EventOptionDescription>
-				<EventOptionPostDescription>Find a banana pick it up I guess?</EventOptionPostDescription>
-				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionDescription>Pick up and keep the banana</EventOptionDescription>
+				<EventOptionPostDescription>You got a banana! You put it in your pocket, you wonder where it has been...</EventOptionPostDescription>
+				<EventOptionImmunityModification>-5</EventOptionImmunityModification>
 				<EventOptionContagionLevelModifier>5</EventOptionContagionLevelModifier>
-				<EventOptionKarmaModification>-10</EventOptionKarmaModification>
+				<EventOptionKarmaModification>-5</EventOptionKarmaModification>
 				<EventOptionItems>
 					<Item>
 						<ItemID>BananaID</ItemID>
@@ -23,20 +23,20 @@
 				</EventOptionItems>
 			</EventOption>
 			<EventOption>
-				<EventOptionID>MarketDroppedBananaShout</EventOptionID>
-				<EventOptionDescription>Let the woman know she dropped her banana.</EventOptionDescription>
-				<EventOptionPostDescription>The woman thanks you and picks up her banana.</EventOptionPostDescription>
+				<EventOptionID>MarketDroppedBananaLeave</EventOptionID>
+				<EventOptionDescription>Ignore the banana</EventOptionDescription>
+				<EventOptionPostDescription>You walk over the banana, someone behind you stands on it.</EventOptionPostDescription>
 				<EventOptionImmunityModification>0</EventOptionImmunityModification>
 				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
-				<EventOptionKarmaModification>10</EventOptionKarmaModification>
+				<EventOptionKarmaModification>-5</EventOptionKarmaModification>
 			</EventOption>
 			<EventOption>
-				<EventOptionID>MarketDroppedBananaDoNothing</EventOptionID>
-				<EventOptionDescription>Do nothing</EventOptionDescription>
-				<EventOptionPostDescription>You do nothing and walk around the banana.</EventOptionPostDescription>
+				<EventOptionID>MarketDroppedBananaReturn</EventOptionID>
+				<EventOptionDescription>Tell the person</EventOptionDescription>
+				<EventOptionPostDescription>You tell the person that they dropped their banana, they thank you and pick it uo.</EventOptionPostDescription>
 				<EventOptionImmunityModification>0</EventOptionImmunityModification>
 				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
-				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+				<EventOptionKarmaModification>5</EventOptionKarmaModification>
 			</EventOption>
 		</EventOptions>
 		<Rarity>Common</Rarity>

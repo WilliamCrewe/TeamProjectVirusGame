@@ -1,0 +1,28 @@
+<Content>
+	<Event>
+		<EventID>ParkIceCream</EventID>
+		<EventName>You see an icecream van.</EventName>
+		<EventLocationID>Park</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>ParkIceCreamBuy</EventOptionID>
+				<EventOptionDescription>Buy an icecream</EventOptionDescription>
+				<EventOptionPostDescription>There's a bit of a crowd around the van, but you get an icecream.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>5</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>ParkIceCreamNoBuy</EventOptionID>
+				<EventOptionDescription>Don't buy an icecream.</EventOptionDescription>
+				<EventOptionPostDescription>You see the crowd of people around the van and all closer than 2m.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>
