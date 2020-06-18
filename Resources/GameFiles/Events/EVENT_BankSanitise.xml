@@ -15,7 +15,7 @@
 				<EventOptionKarmaModification>0</EventOptionKarmaModification>
 			</EventOption>
 			<EventOption>
-				<EventOptionID>PubSanitiseDoNot</EventOptionID>
+				<EventOptionID>BankSanitiseDoNot</EventOptionID>
 				<EventOptionDescription>Don't sanitise your hands.</EventOptionDescription>
 				<EventOptionPostDescription>You walk straight into the bank.</EventOptionPostDescription>
 				<EventOptionImmunityModification>0</EventOptionImmunityModification>
