@@ -13,7 +13,12 @@
 				<EventOptionImmunityModification>0</EventOptionImmunityModification>
 				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
 				<EventOptionKarmaModification>10</EventOptionKarmaModification>
-				<RequiredItemID>MaskID</RequiredItemID>
+				<RequiredItems>
+					<RequiredItem>
+						<ItemID>MaskID</ItemID>
+						<ItemCount>1</ItemCount>
+					</RequiredItem>
+				</RequiredItems>
 				<FollowingEventID>HospitalDonation</FollowingEventID>
 			</EventOption>
 			<EventOption>
@@ -23,7 +28,12 @@
 				<EventOptionImmunityModification>0</EventOptionImmunityModification>
 				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
 				<EventOptionKarmaModification>10</EventOptionKarmaModification>
-				<RequiredItemID>AntisepticID</RequiredItemID>
+				<RequiredItems>
+					<RequiredItem>
+						<ItemID>AntisepticID</ItemID>
+						<ItemCount>1</ItemCount>
+					</RequiredItem>
+				</RequiredItems>
 				<FollowingEventID>HospitalDonation</FollowingEventID>
 			</EventOption>
 			<EventOption>
