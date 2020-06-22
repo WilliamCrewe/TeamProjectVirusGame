@@ -21,7 +21,12 @@
 						<ItemUsageEventID>UsePasta</ItemUsageEventID>
 					</Item>
 				</EventOptionItems>
-				<RequiredItemID>FlourID</RequiredItemID>
+				<RequiredItems>
+					<RequiredItem>
+						<ItemID>FlourID</ItemID>
+						<ItemCount>1</ItemCount>
+					</RequiredItem>
+				</RequiredItems>
 			</EventOption>
 			<EventOption>
 				<EventOptionID>HomeNeighbourFlourNone</EventOptionID>
