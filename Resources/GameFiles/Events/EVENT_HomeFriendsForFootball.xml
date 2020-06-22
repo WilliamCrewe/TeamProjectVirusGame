@@ -1,0 +1,29 @@
+<Content>
+	<Event>
+		<EventID>HomeFriendsForFootball</EventID>
+		<EventName>Football is back! Your friend asks you to come over to watch the game.</EventName>
+		<EventLocationID>Home</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>HomeFriendsForFootballGo</EventOptionID>
+				<EventOptionDescription>Go over and watch the game.</EventOptionDescription>
+				<EventOptionPostDescription>It was nice to see your mates after so long although your team lost :(</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>20</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification></EventOptionKarmaModification>
+
+			</EventOption>
+			<EventOption>
+				<EventOptionID>HomeFriendsForFootballStay</EventOptionID>
+				<EventOptionDescription>Stay home and watch the football</EventOptionDescription>
+				<EventOptionPostDescription>You stay home and socially distance</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

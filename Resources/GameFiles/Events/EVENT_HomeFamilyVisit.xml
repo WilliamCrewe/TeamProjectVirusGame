@@ -1,0 +1,36 @@
+<Content>
+	<Event>
+		<EventID>HomeFamilyVisit</EventID>
+		<EventName>Your family asks you to go and visit them.</EventName>
+		<EventLocationID>Home</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>false</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>HomeFamilyVisitDo</EventOptionID>
+				<EventOptionDescription>Visit them</EventOptionDescription>
+				<EventOptionPostDescription>You visit them and have a lovely cup of Yorkshire tea.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>10</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>HomeFamilyVisitDoNot</EventOptionID>
+				<EventOptionDescription>Stay home</EventOptionDescription>
+				<EventOptionPostDescription>You stay home. You think of how next time you could visit your family while socially distanced.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>HomeFamilyVisitSDVisit</EventOptionID>
+				<EventOptionDescription>Social distance visit</EventOptionDescription>
+				<EventOptionPostDescription>Visit your family at 2 meter distance</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>[Common/Uncommon/Rare/VeryRare/Legendary]</Rarity>
+	</Event>
+</Content>

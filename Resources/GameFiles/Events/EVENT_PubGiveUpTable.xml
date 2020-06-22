@@ -1,0 +1,28 @@
+<Content>
+	<Event>
+		<EventID>PubGiveUpTable</EventID>
+		<EventName>You currently have a table. A couple walk in and there are no tables left.</EventName>
+		<EventLocationID>Pub</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>PubGiveUpTableDo</EventOptionID>
+				<EventOptionDescription>Give up your table</EventOptionDescription>
+				<EventOptionPostDescription>The couple thank you and sit down.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>10</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>PubGiveUpTableDoNot</EventOptionID>
+				<EventOptionDescription>Keep your table</EventOptionDescription>
+				<EventOptionPostDescription>You ignore the couple and they stand at the bar.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

@@ -1,0 +1,28 @@
+<Content>
+	<Event>
+		<EventID>BankTalkToPensioner</EventID>
+		<EventName>You see a pensioner on a bench outside </EventName>
+		<EventLocationID>Bank</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>false</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>BankTalkToPensionerTalk</EventOptionID>
+				<EventOptionDescription>Sit down and talk to the pensioner</EventOptionDescription>
+				<EventOptionPostDescription>You have a nice chat, in heinsight maybe you should have socially distanced.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>10</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>BankTalkToPensionerIgnore</EventOptionID>
+				<EventOptionDescription>Do not talk to the pensioner</EventOptionDescription>
+				<EventOptionPostDescription>You smile at the pensioner but walk past them in a socially distanced way.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

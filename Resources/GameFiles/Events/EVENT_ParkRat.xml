@@ -1,0 +1,28 @@
+<Content>
+	<Event>
+		<EventID>ParkRat</EventID>
+		<EventName>You see a group of 10 children having a non-socially distanced picnic in a concealed area of the park.</EventName>
+		<EventLocationID>Park</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>ParkRatTell</EventOptionID>
+				<EventOptionDescription>Tell a park attendant about the kids</EventOptionDescription>
+				<EventOptionPostDescription>The park attendant goes to break up the group of kids.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>ParkRatIgnore</EventOptionID>
+				<EventOptionDescription>Ignore the kids</EventOptionDescription>
+				<EventOptionPostDescription>You decide to ignore the kids and let them be.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

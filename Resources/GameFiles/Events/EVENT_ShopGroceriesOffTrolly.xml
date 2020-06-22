@@ -1,0 +1,44 @@
+<Content>
+	<Event>
+		<EventID>ShopGroceriesOffTrolly</EventID>
+		<EventName>Someone pushes a trolly across the car park and items fall out of the top of their bag, a loo roll rolls towards you.</EventName>
+		<EventLocationID>Shop</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>ShopGroceriesOffTrollyHelp</EventOptionID>
+				<EventOptionDescription>Go give them a hand.</EventOptionDescription>
+				<EventOptionPostDescription>You pick up the fallen items and put them in the trolly. They thank you.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>5</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>ShopGroceriesOffTrollyIgnore</EventOptionID>
+				<EventOptionDescription>Leave the person to pick up their own groceries.</EventOptionDescription>
+				<EventOptionPostDescription>You keep your distance as the person picks up their items.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>ShopGroceriesOffTrollySteal</EventOptionID>
+				<EventOptionDescription>Steal the loo roll</EventOptionDescription>
+				<EventOptionPostDescription>You grab the loo roll and leg it back to your car. The loo roll is grubby and you're a bad person.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>-20</EventOptionKarmaModification>
+				<EventOptionItems>
+					<Item>
+						<ItemID>ToiletRollID</ItemID>
+						<ItemName>Toilet Roll</ItemName>
+						<ItemCount>1</ItemCount>
+						<ItemUsageEventID>UseToiletRoll</ItemUsageEventID>
+					</Item>
+				</EventOptionItems>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

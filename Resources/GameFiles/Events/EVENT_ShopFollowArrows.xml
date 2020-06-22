@@ -1,0 +1,28 @@
+<Content>
+	<Event>
+		<EventID>ShopFollowArrows</EventID>
+		<EventName>You see the arrows along the floor in the shop to show which way to go down isles.</EventName>
+		<EventLocationID>Shop</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>false</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>ShopFollowArrowsDo</EventOptionID>
+				<EventOptionDescription>Follow the arrows</EventOptionDescription>
+				<EventOptionPostDescription>You follow the arrows as they were intended.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>ShopFollowArrowsDoNot</EventOptionID>
+				<EventOptionDescription>Go the fastest route</EventOptionDescription>
+				<EventOptionPostDescription>You ignore the arrows and others follow, you create a non-socially distance chaos.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>5</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

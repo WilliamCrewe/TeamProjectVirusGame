@@ -1,0 +1,28 @@
+<Content>
+	<Event>
+		<EventID>BankRobberChase</EventID>
+		<EventName>A robber runs out of the bank with a bag of money.</EventName>
+		<EventLocationID>Bank</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>BankRobberChaseRun</EventOptionID>
+				<EventOptionDescription>Chase after them!</EventOptionDescription>
+				<EventOptionPostDescription>You start running, then trip and scrape your knee. The robber gets away and you are going to have a nasty scar.</EventOptionPostDescription>
+				<EventOptionImmunityModification>-10</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>5</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>BankRobberChaseIgnore</EventOptionID>
+				<EventOptionDescription>Leave the robbers to the cops</EventOptionDescription>
+				<EventOptionPostDescription>You go about what you were going to do and hear sirens in the distance.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>
