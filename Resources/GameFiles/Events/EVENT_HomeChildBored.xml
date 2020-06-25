@@ -1,0 +1,36 @@
+<Content>
+	<Event>
+		<EventID>HomeChildBored</EventID>
+		<EventName>Your Child is bored and is starting to disrupt your conference calls</EventName>
+		<EventLocationID>Home</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>false</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>HomeChildGoOutside</EventOptionID>
+				<EventOptionDescription>Tell them to go outside and play with friends</EventOptionDescription>
+				<EventOptionPostDescription></EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>10</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>-20</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>HomeTakeTimeOffWork</EventOptionID>
+				<EventOptionDescription>Take time off work to help them through the school work they were set</EventOptionDescription>
+				<EventOptionPostDescription></EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>20</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>HomeChildPlayVideoGames</EventOptionID>
+				<EventOptionDescription>Tell them to just play video games</EventOptionDescription>
+				<EventOptionPostDescription>Non-educational video games aren't the best way for a child to learn. If only someone had designed an educational game around Lockdown.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>-10</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Uncommon</Rarity>
+	</Event>
+</Content>

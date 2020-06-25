@@ -1,0 +1,28 @@
+<Content>
+	<Event>
+		<EventID>ParkRubbish</EventID>
+		<EventName>People have left some rubbish in the park.</EventName>
+		<EventLocationID>Park</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>ParkRubbishPickup</EventOptionID>
+				<EventOptionDescription>Pick up the rubbish and but it in the bin</EventOptionDescription>
+				<EventOptionPostDescription>By picking up the rubbish you have increased the chance of you catching the virus.</EventOptionPostDescription>
+				<EventOptionImmunityModification>-5</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>5</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>5</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>ParkRubbishLeave</EventOptionID>
+				<EventOptionDescription>Don’t pick up the rubbish</EventOptionDescription>
+				<EventOptionPostDescription>By not picking up the rubbish you reduced the chance of you catching the virus.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>-5</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

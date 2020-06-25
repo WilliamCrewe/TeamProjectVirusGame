@@ -1,0 +1,28 @@
+<Content>
+	<Event>
+		<EventID>ParkBench</EventID>
+		<EventName>You're feeling tired and decide you need to sit down.</EventName>
+		<EventLocationID>Park</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>ParkBenchYes</EventOptionID>
+				<EventOptionDescription>Sit down on park bench.</EventOptionDescription>
+				<EventOptionPostDescription>By sitting down on the bench you could have picked up the virus from someone that has sat on the bench before you.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>5</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>ParkBenchNo</EventOptionID>
+				<EventOptionDescription>Sit down on park grass.</EventOptionDescription>
+				<EventOptionPostDescription>By sitting down on the grass you have now recovered your energy.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

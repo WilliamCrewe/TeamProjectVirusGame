@@ -1,0 +1,28 @@
+<Content>
+	<Event>
+		<EventID>ShopGooseChase</EventID>
+		<EventName>A goose grabs your shopping bags and makes off with them! What do you do?</EventName>
+		<EventLocationID>Shop</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>ShopChaseGoose</EventOptionID>
+				<EventOptionDescription>Chase the goose</EventOptionDescription>
+				<EventOptionPostDescription></EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>ShopLetGooseGo</EventOptionID>
+				<EventOptionDescription>Mourn the loss of the food and just let the goose have it</EventOptionDescription>
+				<EventOptionPostDescription></EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>10</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Rare</Rarity>
+	</Event>
+</Content>

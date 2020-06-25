@@ -1,0 +1,57 @@
+<Content>
+	<Event>
+		<EventID>ParkBored</EventID>
+		<EventName>You're feeling bored and look into your pockets for something to do.</EventName>
+		<EventLocationID>Park</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>false</IsSingleOccurence>
+		<EventOptions>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>ParkLongThrow</EventOptionID>
+				<EventOptionDescription>You look at the ball with fond memories of the dog who gave it to you. You do a long throw at the tree in the distance where people are having a picnic</EventOptionDescription>
+				<EventOptionPostDescription>Another dog jumps out and steals the ball from you. It gives you some miscellaneous food in return</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>-10</EventOptionKarmaModification>
+				<EventOptionItems>
+					<Item>
+						<ItemID>MiscellaneousFoodID</ItemID>
+						<ItemName>MiscellaneousFood</ItemName>
+						<ItemCount>1</ItemCount>
+						<ItemUsageEventID>UseMiscellaneousFood</ItemUsageEventID>
+					</Item>
+				</EventOptionItems>
+				<RequiredItems>
+					<RequiredItem>
+						<ItemID>DogBallID</ItemID>
+						<ItemCount>1</ItemCount>
+					</RequiredItem>
+				</RequiredItems>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>ParkShortThrow</EventOptionID>
+				<EventOptionDescription>You look at the ball with fond memories of the dog who gave it to you. You bounce it off the wall near you where some teenagers standing by</EventOptionDescription>
+				<EventOptionPostDescription>It hits one of them and a nearby police officer arrests you for assault</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>-10</EventOptionKarmaModification>
+				<RequiredItems>
+					<RequiredItem>
+						<ItemID>DogBallID</ItemID>
+						<ItemCount>1</ItemCount>
+					</RequiredItem>
+				</RequiredItems>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>ParkDoNothing</EventOptionID>
+				<EventOptionDescription>Do Nothing</EventOptionDescription>
+				<EventOptionPostDescription>You decide to do nothing</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Rare</Rarity>
+	</Event>
+</Content>

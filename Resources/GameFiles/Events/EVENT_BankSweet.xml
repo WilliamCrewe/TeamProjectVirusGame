@@ -1,0 +1,52 @@
+<Content>
+	<Event>
+		<EventID>BankSweet</EventID>
+		<EventName>You go to take some cash and talk through the screen to the person working there. They’re really friendly and offer you a sweet! What do you do?</EventName>
+		<EventLocationID>Bank</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>BankTakeSweet</EventOptionID>
+				<EventOptionDescription>Take your money and the sweet</EventOptionDescription>
+				<EventOptionPostDescription>You take the sweet, not knowing how many people had touched it beforehand</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>10</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>-10</EventOptionKarmaModification>
+				<EventOptionItems>
+					<Item>
+						<ItemID>SweetID</ItemID>
+						<ItemName>Sweet</ItemName>
+						<ItemCount>1</ItemCount>
+						<ItemUsageEventID>UseSweet</ItemUsageEventID>
+					</Item>
+				</EventOptionItems>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>BankTakeMultiple</EventOptionID>
+				<EventOptionDescription>Take less money and the sweet so that you can go tomorrow for another sweet and a chat</EventOptionDescription>
+				<EventOptionPostDescription>You return the next day and the woman gives you even more potentially infected sweets. Result!</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>20</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>-20</EventOptionKarmaModification>
+				<EventOptionItems>
+					<Item>
+						<ItemID>SweetID</ItemID>
+						<ItemName>Sweet</ItemName>
+						<ItemCount>3</ItemCount>
+						<ItemUsageEventID>UseSweet</ItemUsageEventID>
+					</Item>
+				</EventOptionItems>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>BankTakeNone</EventOptionID>
+				<EventOptionDescription>Take your money but refuse the sweet politely</EventOptionDescription>
+				<EventOptionPostDescription>The woman understands and doesn't feel insulted. After all, it's safer not to share food outside your household</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>20</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

@@ -1,0 +1,28 @@
+<Content>
+	<Event>
+		<EventID>HospitalCough</EventID>
+		<EventName>You have a recently got a cough. Are you going to enter the hospital?</EventName>
+		<EventLocationID>Hospital</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>HospitalCoughEnter</EventOptionID>
+				<EventOptionDescription>Go into the hospital.</EventOptionDescription>
+				<EventOptionPostDescription>By going into the hospital, you could have potential increased the chase to spreading the virus.</EventOptionPostDescription>
+				<EventOptionImmunityModification>-5</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>5</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>HospitalCoughDontEnter</EventOptionID>
+				<EventOptionDescription>Don’t go into the hospital.</EventOptionDescription>
+				<EventOptionPostDescription>By not going into the hospital, you have reduced the chance of spreading the virus.</EventOptionPostDescription>
+				<EventOptionImmunityModification>5</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Rare</Rarity>
+	</Event>
+</Content>

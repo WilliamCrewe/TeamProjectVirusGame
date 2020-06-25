@@ -1,0 +1,28 @@
+<Content>
+	<Event>
+		<EventID>HomeEyeTest</EventID>
+		<EventName>You become worried that you’re going blind and want to test your eyesight.</EventName>
+		<EventLocationID>Home</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>HomeGoForDrive</EventOptionID>
+				<EventOptionDescription>Go for a drive</EventOptionDescription>
+				<EventOptionPostDescription>Your eyesight turns out to be fine! Your logic however...</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>-20</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>HomeGetEyeCosultation</EventOptionID>
+				<EventOptionDescription>Get a private online consultation</EventOptionDescription>
+				<EventOptionPostDescription>The doctor says your eyes are fine. Hurray!</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>10</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Uncommon</Rarity>
+	</Event>
+</Content>
