@@ -1,7 +1,8 @@
 package test.java.gamecontrol.controllers;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,6 +16,8 @@ import main.java.filehandling.gamecontent.realisations.components.EventOption;
 import main.java.filehandling.gamecontent.realisations.components.EventOptionItems;
 import main.java.filehandling.gamecontent.realisations.components.EventOptions;
 import main.java.filehandling.gamecontent.realisations.components.ItemType;
+import main.java.filehandling.gamecontent.realisations.components.RequiredItemType;
+import main.java.filehandling.gamecontent.realisations.components.RequiredItemsType;
 import main.java.gamecontrol.controllers.EventController;
 import main.java.gamecontrol.gamestate.GameState;
 import main.java.random.Rarity;
@@ -85,9 +88,8 @@ public class EventContollerTest {
 		assertEquals(11, GameState.getInstance().getSave().getContagionLevel());
 		assertEquals(12, GameState.getInstance().getSave().getKarma());
 
-		assertEquals(1, GameState.getInstance().getSave().getSaveItems().getSaveItemsValues().size());
-		assertEquals("TestItemID",
-				GameState.getInstance().getSave().getSaveItems().getSaveItemsValues().get(0).getItemID());
+		assertEquals(1, GameState.getInstance().getSave().getSaveItems().getSaveItemsMap().keySet().size());
+		assertTrue(GameState.getInstance().getSave().getSaveItems().getSaveItemsMap().keySet().contains("TestItemID"));
 	}
 
 	/**
@@ -97,8 +99,10 @@ public class EventContollerTest {
 	public void testHandleEventOptionHasRequiredItemWhichSaveDoesNot() {
 		// Initialise the EventGameContent
 		EventOptionItems eventOptionItems = new EventOptionItems(new ArrayList<>());
+		
+		RequiredItemsType requiredItems = new RequiredItemsType(Arrays.asList(new RequiredItemType("RequiredItemID", 1)));
 		EventOption testEventOption = new EventOption("TestOptionID1", "Test Option Description",
-				"Test Option post Description", 10, 11, 12, eventOptionItems, null, "RequiredItemID", null);
+				"Test Option post Description", 10, 11, 12, eventOptionItems, null, requiredItems, null);
 		EventOptions testEventOptions = new EventOptions(Arrays.asList(testEventOption));
 		EventGameContent testEvent = new EventGameContent("TestEventID", "Test event", "TestLocationID", true, true,
 				testEventOptions, Rarity.COMMON);
@@ -126,8 +130,9 @@ public class EventContollerTest {
 	public void testHandleEventOptionHasRequiredItem() {
 		// Initialise the EventGameContent
 		EventOptionItems eventOptionItems = new EventOptionItems(new ArrayList<>());
+		RequiredItemsType requiredItems = new RequiredItemsType(Arrays.asList(new RequiredItemType("RequiredItemID", 1)));
 		EventOption testEventOption = new EventOption("TestOptionID1", "Test Option Description",
-				"Test Option post Description", 10, 11, 12, eventOptionItems, null, "RequiredItemID", null);
+				"Test Option post Description", 10, 11, 12, eventOptionItems, null, requiredItems, null);
 		EventOptions testEventOptions = new EventOptions(Arrays.asList(testEventOption));
 		EventGameContent testEvent = new EventGameContent("TestEventID", "Test event", "TestLocationID", true, true,
 				testEventOptions, Rarity.COMMON);
@@ -138,7 +143,7 @@ public class EventContollerTest {
 
 		// Set the Required Item on the save
 		ItemType testItem = new ItemType("RequiredItemID", "Test Item", 1, null);
-		GameState.getInstance().getSave().getSaveItems().addToSaveItems(testItem);
+		GameState.getInstance().getSave().getSaveItems().addToSaveItemsMap(testItem);
 		
 		// Create the Event to pass in
 		EventActionEvent testEventActionEvent = new EventActionEvent("TestEventID", "TestOptionID1");
@@ -152,7 +157,7 @@ public class EventContollerTest {
 		assertEquals(12, GameState.getInstance().getSave().getKarma());
 		
 		// Assert the required item was removed from the save
-		assertFalse(GameState.getInstance().getSave().getSaveItems().containsItemID("RequiredItemID"));
+		assertNull(GameState.getInstance().getSave().getSaveItems().getItemByID("RequiredItemID"));
 	}
 
 	/**

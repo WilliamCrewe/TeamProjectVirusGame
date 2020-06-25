@@ -1,9 +1,7 @@
 package main.java.filehandling.gamecontent.realisations.components;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -18,8 +16,7 @@ import main.java.filehandling.gamecontent.XMLSerializable;
  */
 public class SaveItems implements XMLSerializable {
 
-	private final List<ItemType> saveItemsValues = new ArrayList<>();
-	private final Set<String> saveItemIDs = new HashSet<>();
+	private final Map<String, ItemType> saveItemsMap = new HashMap<>();
 	
 	private static final String SERIALIZED_FORMAT = "<SaveItems>%s</SaveItems>";
 
@@ -34,7 +31,7 @@ public class SaveItems implements XMLSerializable {
 
 		// Each child node will be an Item so construct a new ItemType and add it
 		for (int i = 0; i < childNodes.getLength(); i++) {
-			saveItemsValues.add(new ItemType(childNodes.item(i)));
+			addToSaveItemsMap(new ItemType(childNodes.item(i)));
 		}
 	}
 	
@@ -42,42 +39,28 @@ public class SaveItems implements XMLSerializable {
 	 * Adds the item to the saveItems
 	 * @param itemType
 	 */
-	public void addToSaveItems(ItemType itemType) {
-		saveItemsValues.add(itemType);
-		saveItemIDs.add(itemType.getItemID());
+	public void addToSaveItemsMap(ItemType itemType) {
+		saveItemsMap.put(itemType.getItemID(), itemType);
 	}
 	
-	/**
-	 * Remove the item with the ItemID passed in from the saveItems
-	 * @param itemID
-	 */
-	public void removeItem(String itemID) {
-		saveItemIDs.remove(itemID);
-		
-		ItemType matchingItem = null;
-		// Find any matching items in the itemList
-		for (ItemType saveItem : saveItemsValues) {
-			if (saveItem.getItemID().equals(itemID)) {
-				matchingItem = saveItem;
-				break;
+	public void removeItems(RequiredItemsType requiredItems) {
+		for (RequiredItemType requiredItem : requiredItems.getRequiredItemsTypesValues()) {
+			
+			ItemType saveItem = saveItemsMap.get(requiredItem.getItemID());
+			saveItem.changeItemCount(-requiredItem.getItemCount());
+			
+			if (saveItem.getItemCount() <= 0) {
+				saveItemsMap.remove(saveItem.getItemID());
 			}
 		}
-		
-		// If an item was found in the list remove it
-		if (matchingItem != null) {
-			saveItemsValues.remove(matchingItem);
-		}
-	}
-
-	/**
-	 * @return The list of all ItemTypes beneath this SaveItems tag
-	 */
-	public List<ItemType> getSaveItemsValues() {
-		return saveItemsValues;
 	}
 	
-	public boolean containsItemID(String itemID) {
-		return saveItemIDs.contains(itemID);
+	public ItemType getItemByID(String itemID) {
+		return saveItemsMap.get(itemID);
+	}
+	
+	public  Map<String, ItemType> getSaveItemsMap() {
+		return saveItemsMap;
 	}
 
 	@Override
@@ -89,7 +72,7 @@ public class SaveItems implements XMLSerializable {
 	public String toXMLString() {
 
 		StringBuilder saveItemsStringBuilder = new StringBuilder();
-		for (ItemType saveItem : saveItemsValues) {
+		for (ItemType saveItem : saveItemsMap.values()) {
 			saveItemsStringBuilder.append(saveItem.toXMLString());
 		}
 

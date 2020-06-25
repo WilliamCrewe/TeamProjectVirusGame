@@ -1,6 +1,7 @@
 package test.java.filehandling.gamecontent.realisations.components;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.io.File;
 import java.nio.file.Files;
@@ -36,8 +37,8 @@ public class SaveItemsTest {
 		SaveItems saveItems = new  SaveItems(completedEventNodeList.item(0));
 
 		// Assert the values on the object are as expected
-		assertEquals(1, saveItems.getSaveItemsValues().size());
-		assertEquals("ItemID1", saveItems.getSaveItemsValues().get(0).getItemID());
+		assertEquals(1, saveItems.getSaveItemsMap().entrySet().size());
+		assertNotNull(saveItems.getItemByID("ItemID1"));
 	}
 	
 	/**

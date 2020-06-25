@@ -40,7 +40,7 @@
 			<xs:element name="EventOptionKarmaModification" type="xs:integer" />
 			<xs:element name="EventOptionItems" type="EventOptionItemsType" minOccurs="0" />
 			<xs:element name="RequiredCompletedEventID" type="xs:string" minOccurs="0" />
-			<xs:element name="RequiredItemID" type="xs:string" minOccurs="0" />
+			<xs:element name="RequiredItems" type="RequiredItemsType" minOccurs="0" />
 			<xs:element name="FollowingEventID" type="xs:string" minOccurs="0" />
 		</xs:sequence>
 	</xs:complexType>
@@ -60,6 +60,19 @@
 		</xs:sequence>
 	</xs:complexType>
 
+	<xs:complexType name="RequiredItemsType">
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="RequiredItem" type="RequiredItemType" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="RequiredItemType">
+		<xs:sequence maxOccurs="1">
+			<xs:element name="ItemID" type="xs:string"/>
+			<xs:element name="ItemCount" type="xs:integer"/>
+		</xs:sequence>
+	</xs:complexType>
+	
 	<xs:simpleType  name="RarityType">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Common"/>

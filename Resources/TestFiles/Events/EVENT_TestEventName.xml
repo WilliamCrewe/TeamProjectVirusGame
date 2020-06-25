@@ -22,7 +22,12 @@
 					</Item>
 				</EventOptionItems>
 				<RequiredCompletedEventID>PriorEventID</RequiredCompletedEventID>
-				<RequiredItemID>TestItemID</RequiredItemID>
+				<RequiredItems>
+					<RequiredItem>
+						<ItemID>TestItemID</ItemID>
+						<ItemCount>3</ItemCount>
+					</RequiredItem>
+				</RequiredItems>
 				<FollowingEventID>TestEventID2</FollowingEventID>
 			</EventOption>
 			<EventOption>

@@ -47,7 +47,8 @@ public class EventOptionTest {
 		assertEquals(1, eventOptionItems.getEventOptionItemsValues().size());
 
 		assertEquals("PriorEventID", optionType.getRequiredCompletedEventID());
-		assertEquals("TestItemID", optionType.getRequiredItemID());
+		assertEquals("TestItemID", optionType.getRequiredItems().getRequiredItemsTypesValues().get(0).getItemID());
+		assertEquals(3, optionType.getRequiredItems().getRequiredItemsTypesValues().get(0).getItemCount());
 		assertEquals("TestEventID2", optionType.getFollowingEventID());
 	}
 

@@ -20,7 +20,12 @@
 						<ItemUsageEventID>UseToiletRoll</ItemUsageEventID>
 					</Item>
 				</EventOptionItems>
-				<RequiredItemID>BananaID</RequiredItemID>
+				<RequiredItems>
+					<RequiredItem>
+						<ItemID>BananaID</ItemID>
+						<ItemCount>1</ItemCount>
+					</RequiredItem>
+				</RequiredItems>
 				<FollowingEventID>ShopSell</FollowingEventID>
 			</EventOption>
 			<EventOption>
@@ -58,6 +63,29 @@
 				</EventOptionItems>
 				<RequiredItemID>PastaID</RequiredItemID>
 				<FollowingEventID>ShopSell</FollowingEventID>
+       </EventOption>
+       <EventOption>
+				<EventOptionID>ShopTradeSellPizza</EventOptionID>
+				<EventOptionDescription>Sell pizza items</EventOptionDescription>
+				<EventOptionPostDescription>Confusingly, you sell the pizza</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>5</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>10</EventOptionKarmaModification>
+				<EventOptionItems>
+					<Item>
+						<ItemID>BagelID</ItemID>
+						<ItemName>Bagel</ItemName>
+						<ItemCount>8</ItemCount>
+						<ItemUsageEventID>UseBagel</ItemUsageEventID>
+					</Item>
+				</EventOptionItems>
+				<RequiredItems>
+					<RequiredItem>
+						<ItemID>PizzaID</ItemID>
+						<ItemCount>1</ItemCount>
+					</RequiredItem>
+				</RequiredItems>
+				<FollowingEventID>ShopTrade</FollowingEventID>
 			</EventOption>
 			<EventOption>
 				<EventOptionID>BackToShopTrade</EventOptionID>

@@ -304,8 +304,8 @@ public class GameState extends Observable {
 		
 		// Loop over all the event options for the event
 		for (EventOption eventOption : currentEvent.getEventOptions().getEventOptionsValues()) {
-			// Check both the required item is present as well as the completed event ID
-			if (save.getSaveItems().containsItemID(eventOption.getRequiredItemID())
+				// Check both the required item is present as well as the completed event ID
+			if (save.containsRequiredItems( eventOption.getRequiredItems())
 					&& save.getCompletedEvents().containsCompletedEventID(eventOption.getRequiredCompletedEventID())) {
 				activeEventOptions.add(eventOption);
 			}
