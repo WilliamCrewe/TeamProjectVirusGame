@@ -12,7 +12,7 @@
 				<EventOptionPostDescription>You drive your neighbour home. They thank you with a box of chocolates.</EventOptionPostDescription>
 				<EventOptionImmunityModification>0</EventOptionImmunityModification>
 				<EventOptionContagionLevelModifier>5</EventOptionContagionLevelModifier>
-				<EventOptionKarmaModification></EventOptionKarmaModification>
+				<EventOptionKarmaModification>5</EventOptionKarmaModification>
 				<EventOptionItems>
 					<Item>
 						<ItemID>ChocolateID</ItemID>
