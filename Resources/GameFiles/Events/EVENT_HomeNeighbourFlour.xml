@@ -31,7 +31,7 @@
 			<EventOption>
 				<EventOptionID>HomeNeighbourFlourNone</EventOptionID>
 				<EventOptionDescription>Tell them you don't have any flour to give and apologise.</EventOptionDescription>
-				<EventOptionPostDescription></EventOptionPostDescription>
+				<EventOptionPostDescription>You apologise and they say they will ask around the others neighbours.</EventOptionPostDescription>
 				<EventOptionImmunityModification>0</EventOptionImmunityModification>
 				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
 				<EventOptionKarmaModification>0</EventOptionKarmaModification>
