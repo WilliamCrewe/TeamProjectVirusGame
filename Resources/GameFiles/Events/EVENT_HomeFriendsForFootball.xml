@@ -12,7 +12,7 @@
 				<EventOptionPostDescription>It was nice to see your mates after so long although your team lost :(</EventOptionPostDescription>
 				<EventOptionImmunityModification>0</EventOptionImmunityModification>
 				<EventOptionContagionLevelModifier>20</EventOptionContagionLevelModifier>
-				<EventOptionKarmaModification></EventOptionKarmaModification>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
 
 			</EventOption>
 			<EventOption>
