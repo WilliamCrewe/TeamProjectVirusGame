@@ -17,7 +17,7 @@
 			<EventOption>
 				<EventOptionID>BankSneezeElbow</EventOptionID>
 				<EventOptionDescription>Sneeze into your elbow</EventOptionDescription>
-				<EventOptionPostDescription>[Option2Consequence]</EventOptionPostDescription>
+				<EventOptionPostDescription>You sneeze into your elbow as per government guidelines. This will help stop the spread of germs.</EventOptionPostDescription>
 				<EventOptionImmunityModification>0</EventOptionImmunityModification>
 				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
 				<EventOptionKarmaModification>0</EventOptionKarmaModification>
