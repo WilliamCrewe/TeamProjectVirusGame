@@ -16,6 +16,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import main.graphical_interface.EventQueueHandler;
 import main.graphical_interface.GUIController;
+import main.graphical_interface.gameWindows.constants.SplashScreenConstants;
 import main.graphical_interface.util.Command;
 import main.java.alert.AlertQueue;
 import main.java.alert.types.DefaultAlert;
@@ -35,27 +36,38 @@ public class MainMenu {
 	}
 	
 	public void setupMainMenu() {
+		
+		// Create and configure the 'New Game button'
 		Button newGame = createStandardButton("New Game");
+		newGame.setStyle(SplashScreenConstants.INACTIVE_BUTTON_STYLE);
+		newGame.setOnMouseEntered(e -> newGame.setStyle(SplashScreenConstants.ACTIVE_BUTTON_STYLE));
+		newGame.setOnMouseExited(e -> newGame.setStyle(SplashScreenConstants.INACTIVE_BUTTON_STYLE));
+		
 		newGame.setOnAction(clicked -> {
 			this.menu1.setVisible(false);
 			this.menu2.setVisible(true);
 		});
+		
+		// Create and configure the 'Load Game' button
 		Button loadGame = createStandardButton("Load Game");
+		loadGame.setStyle(SplashScreenConstants.INACTIVE_BUTTON_STYLE);
+		loadGame.setOnMouseEntered(e -> loadGame.setStyle(SplashScreenConstants.ACTIVE_BUTTON_STYLE));
+		loadGame.setOnMouseExited(e -> loadGame.setStyle(SplashScreenConstants.INACTIVE_BUTTON_STYLE));
 		loadGame.setOnAction(clicked -> {
 			GUIController.update(Command.LOAD);
 		});
-		Button options = createStandardButton("Options");
-		disableButton(options);
-		Button achievements = createStandardButton("Achievements");
-		disableButton(achievements);
+		
+		// Create and configure the 'Quit' button
 		Button quit = createStandardButton("Quit Game");
+		quit.setStyle(SplashScreenConstants.INACTIVE_BUTTON_STYLE);
+		quit.setOnMouseEntered(e -> quit.setStyle(SplashScreenConstants.ACTIVE_BUTTON_STYLE));
+		quit.setOnMouseExited(e -> quit.setStyle(SplashScreenConstants.INACTIVE_BUTTON_STYLE));
 		quit.setOnAction(clicked -> {
 			Runnable x = Platform::exit;
 			x.run();
 		});
 		
-		this.menu1 = new VBox(newGame, loadGame, options, achievements, quit);
-		this.menu1.setBackground(this.bg);
+		this.menu1 = new VBox(newGame, loadGame, quit);
 		this.menu1.setSpacing(10.0);
 	}
 	
@@ -183,7 +195,7 @@ public class MainMenu {
 	
 	private Button createStandardButton(String title) {
 		Button b = new Button(title);
-		b.setPrefWidth(100.0);
+//		b.setPrefWidth(1000.0);
 		b.setPrefHeight(25.0);
 		return b;
 	}

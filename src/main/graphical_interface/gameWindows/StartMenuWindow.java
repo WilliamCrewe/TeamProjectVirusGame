@@ -18,7 +18,7 @@ public class StartMenuWindow extends AbstractGameWindow {
 
 	private StackPane mainWindow;
 	
-	private final Image background = new Image("/main/graphical_interface/util/BrickExtraGloomy.jpg");
+	private final Image background = new Image("/main/graphical_interface/util/SplashScreen.png");
 	
 	public StartMenuWindow() {
 		createWindow();

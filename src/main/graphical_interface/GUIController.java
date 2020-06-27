@@ -12,6 +12,8 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import main.graphical_interface.gameWindows.AbstractGameWindow;
 import main.graphical_interface.gameWindows.InGameWindow;
+import main.graphical_interface.gameWindows.OptionsMenu;
+import main.graphical_interface.gameWindows.SplashScreen;
 import main.graphical_interface.gameWindows.StartMenuWindow;
 import main.graphical_interface.util.Command;
 import main.graphical_interface.util.GUIEventOption;
@@ -96,8 +98,8 @@ public class GUIController extends Application {
 		primaryStage.setTitle("Lockdown");
 		GUIController.rootPane = new StackPane();
 		
-		AbstractGameWindow menu = new StartMenuWindow();
-		rootPane = menu.getWindow();
+		SplashScreen splashScreen = new SplashScreen();
+		rootPane = splashScreen.getStackPane();
 		
 		primaryStage.setScene(updateScene());
 		primaryStage.setMinHeight(PREFHEIGHT);
@@ -140,6 +142,18 @@ public class GUIController extends Application {
 			
 			GUIController.rootStage.setScene(updateScene());
 			break;
+		case SWITCH_SPLASH_SCREEN:
+			SystemLogger.config("Changing screen to the splash screen");
+			GUIController.rootPane = new SplashScreen().getStackPane();
+
+			GUIController.rootStage.setScene(updateScene());
+			break;
+		case SWITCH_OPTIONS_SCREEN:
+			System.out.println("dong");
+			SystemLogger.config("Changing screen to the options screen");
+			GUIController.rootPane = new OptionsMenu().getStackPane();
+			
+			GUIController.rootStage.setScene(updateScene());
 		}
 	}
 
@@ -173,6 +187,7 @@ public class GUIController extends Application {
 	 * put into the EventQueue.
 	 */
 	public static void update(Command c) {
+		System.out.println(c.name());
 		switch (c) {
 		case ACT_1:
 			if (GUIController.currentEventOption == null) {
@@ -408,7 +423,12 @@ public class GUIController extends Application {
 	
 	private static void handledEvent() {
 
-		GUIController.setDisplayText(GUIController.currentEventOption.getPostDescription());
+		if (GUIController.currentEventOption.getPostDescription() == null) {
+			GUIController.setDisplayText("Hmmm, I wonder if that was a good idea");
+		} else {
+			GUIController.setDisplayText(GUIController.currentEventOption.getPostDescription());
+		}
+		
 		
 		GUIController.clearCurrentEventPage();
 
@@ -429,42 +449,6 @@ public class GUIController extends Application {
 		GUIController.updateAll();
 	}
 	
-	/**
-	 * @param Command c
-	 * @param int itemNumber
-	 * 
-	 * Receives the user's input for an Inventory Item and creates 
-	 * an EventAction which is inserted into the EventQueue.
-	 * Drop item is current disabled as the backend logic is not created.
-	 */
-	public static void updateItem(Command c, int itemNumber) {
-		switch (c) {
-		case USE_ITEM:
-			GUIController.eventQueueHandler.addActionEvent(GUIController.allItems.get(itemNumber).getItemID(), "Use");
-			System.out.println("Use Item: #"+itemNumber);
-			break;
-		case DROP_ITEM:
-			GUIInventoryItem item = GUIController.allItems.get(itemNumber);
-			if (item.getQuantity() == 1) {
-				GUIController.allItems.remove(itemNumber);
-			} else {
-				item.updateQuantity(-1);
-				GUIController.allItems.replace(itemNumber, item);
-			}
-			HashMap<Integer, GUIInventoryItem> newInventory = new HashMap<>();
-			for (Integer i : GUIController.allItems.keySet()) {
-				newInventory.put(newInventory.size(), GUIController.allItems.get(i));
-			}
-			GUIController.allItems = newInventory;
-			updatePlayerInventory();
-			System.out.println("Drop Item: #"+itemNumber);
-			break;
-		default:
-			break;
-		}
-		
-	}
-	
 	public static void moveLocation(Command c) {
 		SystemLogger.fine("Player input the %s command.", c.toString());
 		System.out.println("Player moving to: "+c.toString());
@@ -472,30 +456,38 @@ public class GUIController extends Application {
 		switch (c) {
 		case MOVE_BANK:
 			GUIController.eventQueueHandler.addMoveEvent("Bank");
+			InGameWindow.updateCurrenLocation(c);
 			break;
 		case MOVE_HOME:
 			GUIController.eventQueueHandler.addMoveEvent("Home");
+			InGameWindow.updateCurrenLocation(c);
 			break;
 		case MOVE_HOSPITAL:
 			GUIController.eventQueueHandler.addMoveEvent("Hospital");
+			InGameWindow.updateCurrenLocation(c);
 			break;
 		case MOVE_MARKET:
 			GUIController.eventQueueHandler.addMoveEvent("Market");
+			InGameWindow.updateCurrenLocation(c);
 			break;
 		case MOVE_PARK:
 			GUIController.eventQueueHandler.addMoveEvent("Park");
+			InGameWindow.updateCurrenLocation(c);
 			break;
 		case MOVE_POLICE:
 			GUIController.eventQueueHandler.addMoveEvent("PoliceStation");
+			InGameWindow.updateCurrenLocation(c);
 			break;
 		case MOVE_PUB:
 			GUIController.eventQueueHandler.addMoveEvent("Pub");
+			InGameWindow.updateCurrenLocation(c);
 			break;
 		case MOVE_SUPERMARKET:
 			GUIController.eventQueueHandler.addMoveEvent("Shop");
+			InGameWindow.updateCurrenLocation(c);
 			break;
 		default:
-			break;
+			return;
 		}
 	}
 	

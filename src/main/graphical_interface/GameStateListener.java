@@ -11,8 +11,6 @@ import main.graphical_interface.util.Command;
 import main.graphical_interface.util.GUIEventOption;
 import main.graphical_interface.util.GUIInventoryItem;
 import main.graphical_interface.util.GUILocation;
-import main.java.alert.AlertQueue;
-import main.java.event.EventQueue;
 import main.java.filehandling.gamecontent.realisations.EventGameContent;
 import main.java.filehandling.gamecontent.realisations.LocationGameContent;
 import main.java.filehandling.gamecontent.realisations.components.EventOption;
@@ -153,7 +151,7 @@ public class GameStateListener implements Observer{
 	 */
 	private HashMap<Integer, GUIInventoryItem> createInventory(SaveItems items){
 		HashMap<Integer, GUIInventoryItem> inventory = new HashMap<>();
-
+		
 		for (ItemType i : items.getSaveItemsValues()) {
 			InGameWindow.setCurrency(0);
 			if (i.getItemName().contains("Toilet Roll")) { //Toilet roll is a currency, not an inventory item for the UI
@@ -170,7 +168,7 @@ public class GameStateListener implements Observer{
 			}
 
 		}
-
+		SystemLogger.fine("Finished creating the inventory with %s values", inventory.keySet().toArray().length);
 		return inventory;
 	}
 

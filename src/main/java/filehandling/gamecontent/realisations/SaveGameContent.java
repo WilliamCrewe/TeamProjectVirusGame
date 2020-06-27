@@ -241,6 +241,11 @@ public class SaveGameContent extends AbstractGameContent implements XMLFileWrita
 	}
 	
 	public boolean containsRequiredItems(RequiredItemsType requiredItems) { 
+		
+		if (requiredItems == null) {
+			return true;
+		}
+		
 		for (RequiredItemType requiredItem : requiredItems.getRequiredItemsTypesValues()) {
 			
 			// Confirm the save contains the item

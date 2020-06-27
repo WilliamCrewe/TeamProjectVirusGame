@@ -2,11 +2,18 @@ package main.graphical_interface.gameWindows;
 
 import java.util.HashMap;
 
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Control;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -19,11 +26,14 @@ import main.graphical_interface.gameWindows.inGameWindows.DisplayWindowControlle
 import main.graphical_interface.gameWindows.inGameWindows.InventoryBarController;
 import main.graphical_interface.gameWindows.inGameWindows.MenuBarController;
 import main.graphical_interface.gameWindows.inGameWindows.MiniMapController;
-import main.graphical_interface.gameWindows.inGameWindows.inputOptions.*;
+import main.graphical_interface.gameWindows.inGameWindows.inputOptions.ButtonInputOption;
+import main.graphical_interface.gameWindows.inGameWindows.inputOptions.PlayerInputController;
 import main.graphical_interface.util.Command;
 import main.graphical_interface.util.GUIInventoryItem;
 
 public class InGameWindow extends AbstractGameWindow {
+	
+	private final Image background = new Image("/main/graphical_interface/util/BrickExtraGloomy.jpg");
 	
 	private StackPane mainWindow;
 	private static PlayerInputController input;
@@ -40,27 +50,32 @@ public class InGameWindow extends AbstractGameWindow {
 	public void createWindow() {
 		this.mainWindow = new StackPane();
 		AnchorPane mainAnchor = new AnchorPane();
+		BackgroundSize size = new BackgroundSize(100.0, 100.0, true, true, false, true);
+		BackgroundImage bcImg = new BackgroundImage(this.background, BackgroundRepeat.NO_REPEAT, 
+				BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, size);
+		Background background = new Background(bcImg);
+		mainAnchor.setBackground(background);
+		
+		
 		VBox allSections = new VBox();
 		
 		//Create Top Section
 		HBox topBar = new HBox();
 		
-		{
-			//Create MenuBar
-			MenuBarController menuBar = new MenuBarController();
-			Control menu = menuBar.getMainMenuBar();
+		//Create MenuBar
+		MenuBarController menuBar = new MenuBarController();
+		Control menu = menuBar.getMainMenuBar();
 
-			//Create Save/Load Buttons
-			HBox saveLoad = createLoadSaveBar();
+		//Create Save/Load Buttons
+		HBox saveLoad = createLoadSaveBar();
 
-			//Assign to HBox
-			topBar.getChildren().add(menu);
-			topBar.getChildren().add(saveLoad);
+		//Assign to HBox
+		topBar.getChildren().add(menu);
+		topBar.getChildren().add(saveLoad);
 
-			//Format TopSection
-			HBox.setHgrow(menu, Priority.ALWAYS);
-			topBar.setAlignment(Pos.CENTER_RIGHT);
-		}
+		//Format TopSection
+		HBox.setHgrow(menu, Priority.ALWAYS);
+		topBar.setAlignment(Pos.CENTER_RIGHT);
 
 		// Create and Assign Bottom Half
 		AnchorPane bottomAnchor = new AnchorPane();
@@ -71,24 +86,29 @@ public class InGameWindow extends AbstractGameWindow {
 			{
 				//Create Display Window
 				this.displayController = new DisplayWindowController();
-				TextArea display = displayController.getTextView();
+				Label display = displayController.getTextView();
+				display.setStyle("-fx-background-color: rgba(177,177,177,0.6);");
+				display.setAlignment(Pos.TOP_LEFT);
+				display.setPadding(new Insets(0.0, 10.0, 0.0,  0.0));
 				
 				//Create Player Input
 				InGameWindow.input = new ButtonInputOption();
-				GridPane playerInput = input.getInput();
+//				GridPane playerInput = input.getInput();
 				
 				//Assign to VBox
 				displayInputBox.getChildren().add(display);
-				displayInputBox.getChildren().add(playerInput);
+				displayInputBox.getChildren().add(input.getButtonBox());
 				
 				//Format Components
 				HBox.setHgrow(display, Priority.ALWAYS);
 				VBox.setVgrow(display, Priority.ALWAYS);
-				playerInput.setAlignment(Pos.BOTTOM_LEFT);
+//				playerInput.setAlignment(Pos.BOTTOM_LEFT);
 				
 				//Format DisplayInput
-				displayInputBox.setAlignment(Pos.CENTER_LEFT);
+				displayInputBox.setAlignment(Pos.TOP_LEFT);
 			}
+			
+			displayInputBox.setStyle("-fx-background-color: rgba(177,177,177,0.7);");
 			
 			
 			VBox minimapInventoryBox = new VBox();
@@ -100,6 +120,7 @@ public class InGameWindow extends AbstractGameWindow {
 				//Create Inventory Box
 				InGameWindow.inventoryController = new InventoryBarController();
 				VBox invBox = inventoryController.getInventoryBox();
+				invBox.setStyle("-fx-background-color: transparent;");
 				
 				//Create Clock Box
 				InGameWindow.clockController = new ClockController();
@@ -171,10 +192,18 @@ public class InGameWindow extends AbstractGameWindow {
 		InGameWindow.miniMap.setButtonText(buttonText);
 	}
 	
+	public static void updateMiniMap() {
+		
+	}
+	
 	public static void updateDisplayText(String text) {
-		if (InGameWindow.displayController.getTextView() instanceof TextArea) {
+		if (InGameWindow.displayController.getTextView() instanceof Label) {
 			InGameWindow.displayController.updateDisplayTest(text);
 		}
+	}
+	
+	public static void updateCurrenLocation(Command moveCommand) {
+		InGameWindow.miniMap.updateCurrentLocationHighlighting(moveCommand);
 	}
 	
 	public static void updatePlayerInventory(HashMap<Integer, GUIInventoryItem> inventoryUpdate) {

@@ -1,6 +1,8 @@
 package main.java.filehandling.gamecontent.realisations.components;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.w3c.dom.Node;
@@ -17,7 +19,8 @@ import main.java.filehandling.gamecontent.XMLSerializable;
 public class SaveItems implements XMLSerializable {
 
 	private final Map<String, ItemType> saveItemsMap = new HashMap<>();
-	
+	private final List<ItemType> saveItemsValues = new ArrayList<>();
+
 	private static final String SERIALIZED_FORMAT = "<SaveItems>%s</SaveItems>";
 
 	/**
@@ -31,7 +34,9 @@ public class SaveItems implements XMLSerializable {
 
 		// Each child node will be an Item so construct a new ItemType and add it
 		for (int i = 0; i < childNodes.getLength(); i++) {
-			addToSaveItemsMap(new ItemType(childNodes.item(i)));
+			ItemType item = new ItemType(childNodes.item(i));
+			addToSaveItemsMap(item);
+			saveItemsValues.add(item);
 		}
 	}
 	
@@ -41,6 +46,11 @@ public class SaveItems implements XMLSerializable {
 	 */
 	public void addToSaveItemsMap(ItemType itemType) {
 		saveItemsMap.put(itemType.getItemID(), itemType);
+		saveItemsValues.add(itemType);
+	}
+	
+	public List<ItemType> getSaveItemsValues() {
+		return saveItemsValues;
 	}
 	
 	public void removeItems(RequiredItemsType requiredItems) {
@@ -51,7 +61,24 @@ public class SaveItems implements XMLSerializable {
 			
 			if (saveItem.getItemCount() <= 0) {
 				saveItemsMap.remove(saveItem.getItemID());
+				removeItemFromSaveItemValues(saveItem);
 			}
+		}
+	}
+	
+	private void removeItemFromSaveItemValues(ItemType saveItem) {
+		int indexToRemove = -1;
+		boolean itemFound = false;
+		for (int i = 0; i < saveItemsValues.size(); i++) {
+			if (saveItemsValues.get(i) == saveItem) {
+				indexToRemove = i;
+				itemFound = true;
+				break;
+			}
+		}
+		
+		if (itemFound) {
+			saveItemsValues.remove(indexToRemove);
 		}
 	}
 	

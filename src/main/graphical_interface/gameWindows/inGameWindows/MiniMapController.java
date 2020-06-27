@@ -19,13 +19,16 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.RowConstraints;
 import main.graphical_interface.GUIController;
+import main.graphical_interface.gameWindows.constants.SplashScreenConstants;
 import main.graphical_interface.util.Command;
+import main.java.gamecontrol.gamestate.GameState;
+import main.java.logging.SystemLogger;
 
 public class MiniMapController {
 	
 	private GridPane buttonGrid;
 	private AnchorPane tempMap;
-	private final Image background = new Image("/main/graphical_interface/util/MapComponents/map_layout.png");
+	private final Image background = new Image("/main/graphical_interface/util/MapComponents/new_map_layout.png");
 	
 	private final double LOCBUTTONWIDTH = 80.0;
 	private final double LOCBUTTONHEIGHT = 50.0;
@@ -36,6 +39,14 @@ public class MiniMapController {
 	private final double VGAP = 15.0;
 	private final double HGAP = 40.0;
 	
+	private Button parkButton;
+	private Button bankButton;
+	private Button superMarketButton;
+	private Button hospitalButton;
+	private Button pubButton;
+	private Button homeButton;
+	private Button marketButton;
+	private Button policeButton;
 	
 	public MiniMapController() {
 		setup();
@@ -67,13 +78,6 @@ public class MiniMapController {
 	
 	private AnchorPane setupBackground() {
 		AnchorPane ap = new AnchorPane();
-		/*
-		BackgroundSize size = new BackgroundSize(100.0, 100.0, true, true, false, true);
-		BackgroundImage bcImg = new BackgroundImage(this.background, BackgroundRepeat.NO_REPEAT, 
-				BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, size);
-		Background newbg = new Background(bcImg);
-		ap.setBackground(newbg);
-		*/
 		return ap;	
 	}
 	
@@ -99,146 +103,118 @@ public class MiniMapController {
 			buttonGrid.getRowConstraints().add(row);
 		}
 		
-		/*
-		Button b1 = addMapButton("1", true);
-			b1.setOnAction(clicked -> {GUIController.update(Command.MOVE_1);});
-		Button b2 = addMapButton("2", true);
-			b2.setOnAction(clicked -> {GUIController.update(Command.MOVE_2);});
-		Button b3 = addMapButton("3", true);
-			b3.setOnAction(clicked -> {GUIController.update(Command.MOVE_3);});
-		Button b4 = addMapButton("4", true);
-			b4.setOnAction(clicked -> {GUIController.update(Command.MOVE_4);});
-		Button b5 = addMapButton("5", true);
-			b5.setOnAction(clicked -> {GUIController.update(Command.MOVE_5);});
-		Button b6 = addMapButton("6", true);
-			b6.setOnAction(clicked -> {GUIController.update(Command.MOVE_6);});
-		Button b7 = addMapButton("7", true);
-			b7.setOnAction(clicked -> {GUIController.update(Command.MOVE_7);});
-		Button b8 = addMapButton("8", true);
-			b8.setOnAction(clicked -> {GUIController.update(Command.MOVE_8);});
+		String currentLocation = "Home";
 		
-		Button next = addLocMoveButton("->", true);
-			next.setOnAction(clicked -> {GUIController.update(Command.LOC_MOVE_NEXT);});
-		Button prev = addLocMoveButton("<-", true);
-			prev.setOnAction(clicked -> {GUIController.update(Command.LOC_MOVE_PREV);});
+		if (GameState.getInstance()  != null && GameState.getInstance().getCurrentLocation() != null) {
+			currentLocation = GameState.getInstance().getCurrentLocation().getLocationName();
+		}
 		
-		buttonGrid.add(b1, 0, 0);
-		buttonGrid.add(b2, 1, 0);
-		buttonGrid.add(b3, 2, 0);
-		buttonGrid.add(b4, 0, 1);
-		buttonGrid.add(b5, 2, 1);
-		buttonGrid.add(b6, 0, 2);
-		buttonGrid.add(b7, 1, 2);
-		buttonGrid.add(b8, 2, 2);
+		System.out.println("CurrentLocation" + currentLocation);
 		
-		buttonGrid.add(next, 2, 4);
-		buttonGrid.add(prev, 1, 4);
-		*/
+		parkButton = addMapButton("Park", currentLocation.equals("Park"), true);
+		parkButton.setOnAction(clicked -> {GUIController.moveLocation(Command.MOVE_PARK);});
+		buttonGrid.add(parkButton, 0, 0);
+		parkButton = setButtonImage(parkButton, "/main/graphical_interface/util/MapComponents/ColourIcons/icon_park.png");
 		
-		Button b1 = addMapButton("Park", true);
-		b1.setOnAction(clicked -> {GUIController.moveLocation(Command.MOVE_PARK);});
-		buttonGrid.add(b1, 0, 0);
-		b1 = setButtonImage(b1, "/main/graphical_interface/util/MapComponents/ColourIcons/icon_park.png");
-		Button b2 = addMapButton("", false);
+		Button b2 = addMapButton("", false, false);
 		b2.setOnAction(clicked -> {GUIController.moveLocation(Command.MOVE_2);});
 		buttonGrid.add(b2, 1, 0);
-		Button b3 = addMapButton("Bank", true);
-		b3.setOnAction(clicked -> {GUIController.moveLocation(Command.MOVE_BANK);});
-		buttonGrid.add(b3, 2, 0);
-		b3 = setButtonImage(b3, "/main/graphical_interface/util/MapComponents/ColourIcons/icon_bank.png");
-		Button b4 = addMapButton("Supermarket", true);
-		b4.setOnAction(clicked -> {GUIController.moveLocation(Command.MOVE_SUPERMARKET);});
-		buttonGrid.add(b4, 3, 0);
-		b4 = setButtonImage(b4, "/main/graphical_interface/util/MapComponents/ColourIcons/icon_supermarket.png");
-		Button b5 = addMapButton("", false);
+		
+		bankButton = addMapButton("Bank", currentLocation.equals("Bank"),true);
+		bankButton.setOnAction(clicked -> {GUIController.moveLocation(Command.MOVE_BANK);});
+		buttonGrid.add(bankButton, 2, 0);
+		bankButton = setButtonImage(bankButton, "/main/graphical_interface/util/MapComponents/ColourIcons/icon_bank.png");
+		
+		superMarketButton = addMapButton("Supermarket", currentLocation.equals("Supermarket"),true);
+		superMarketButton.setOnAction(clicked -> {GUIController.moveLocation(Command.MOVE_SUPERMARKET);});
+		buttonGrid.add(superMarketButton, 3, 0);
+		superMarketButton = setButtonImage(superMarketButton, "/main/graphical_interface/util/MapComponents/ColourIcons/icon_supermarket.png");
+		
+		Button b5 = addMapButton("", false, false);
 		b5.setOnAction(clicked -> {GUIController.moveLocation(Command.MOVE_5);});
 		buttonGrid.add(b5, 4, 0);
 		
-		Button b6 = addMapButton("Police Station", true);
-		b6.setOnAction(clicked -> {GUIController.moveLocation(Command.MOVE_POLICE);});
-		buttonGrid.add(b6, 0, 1);
-		b6 = setButtonImage(b6, "/main/graphical_interface/util/MapComponents/ColourIcons/icon_police.png");
-		Button b7 = addMapButton("", false);
+		policeButton = addMapButton("Police Station", currentLocation.equals("PoliceStation"),true);
+		policeButton.setOnAction(clicked -> {GUIController.moveLocation(Command.MOVE_POLICE);});
+		buttonGrid.add(policeButton, 0, 1);
+		policeButton = setButtonImage(policeButton, "/main/graphical_interface/util/MapComponents/ColourIcons/icon_police.png");
+		
+		Button b7 = addMapButton("", false, false);
 		b7.setOnAction(clicked -> {GUIController.moveLocation(Command.MOVE_7);});
 		buttonGrid.add(b7, 1, 1);
-		Button b8 = addMapButton("", false);
+		Button b8 = addMapButton("", false, false);
 		b8.setOnAction(clicked -> {GUIController.moveLocation(Command.MOVE_8);});
 		buttonGrid.add(b8, 2, 1);
-		Button b9 = addMapButton("Market", true);
-		b9.setOnAction(clicked -> {GUIController.moveLocation(Command.MOVE_MARKET);});
-		buttonGrid.add(b9, 3, 1);
-		b9 = setButtonImage(b9, "/main/graphical_interface/util/MapComponents/ColourIcons/icon_market.png");
-		Button b10 = addMapButton("", false);
+		
+		marketButton = addMapButton("Market", currentLocation.equals("Market"),true);
+		marketButton.setOnAction(clicked -> {GUIController.moveLocation(Command.MOVE_MARKET);});
+		buttonGrid.add(marketButton, 3, 1);
+		marketButton = setButtonImage(marketButton, "/main/graphical_interface/util/MapComponents/ColourIcons/icon_market.png");
+		
+		Button b10 = addMapButton("", false, false);
 		b10.setOnAction(clicked -> {GUIController.moveLocation(Command.MOVE_10);});
 		buttonGrid.add(b10, 4, 1);
 		
-		Button b11 = addMapButton("", false);
+		Button b11 = addMapButton("", false, false);
 		b11.setOnAction(clicked -> {GUIController.moveLocation(Command.MOVE_11);});
 		buttonGrid.add(b11, 0, 2);
-		Button b12 = addMapButton("", false);
+		Button b12 = addMapButton("", false, false);
 		b12.setOnAction(clicked -> {GUIController.moveLocation(Command.MOVE_12);});
 		buttonGrid.add(b12, 1, 2);
-		Button b13 = addMapButton("", false);
+		Button b13 = addMapButton("", false, false);
 		b13.setOnAction(clicked -> {GUIController.moveLocation(Command.MOVE_13);});
 		buttonGrid.add(b13, 2, 2);
-		Button b14 = addMapButton("", false);
+		Button b14 = addMapButton("", false, false);
 		b14.setOnAction(clicked -> {GUIController.moveLocation(Command.MOVE_14);});
 		buttonGrid.add(b14, 3, 2);
-		Button b15 = addMapButton("", false);
+		Button b15 = addMapButton("", false, false);
 		b15.setOnAction(clicked -> {GUIController.moveLocation(Command.MOVE_15);});
 		buttonGrid.add(b15, 4, 2);
 		
-		Button b16 = addMapButton("Hospital", true);
-		b16.setOnAction(clicked -> {GUIController.moveLocation(Command.MOVE_HOSPITAL);});
-		buttonGrid.add(b16, 0, 3);
-		b16 = setButtonImage(b16, "/main/graphical_interface/util/MapComponents/ColourIcons/icon_hospital.png");
-		Button b17 = addMapButton("", false);
+
+		hospitalButton = addMapButton("Hospital", currentLocation.equals("Hospital"),true);
+		hospitalButton.setOnAction(clicked -> {GUIController.moveLocation(Command.MOVE_HOSPITAL);});
+		buttonGrid.add(hospitalButton, 0, 3);
+		hospitalButton = setButtonImage(hospitalButton, "/main/graphical_interface/util/MapComponents/ColourIcons/icon_hospital.png");
+		
+		Button b17 = addMapButton("", false, false);
 		b17.setOnAction(clicked -> {GUIController.moveLocation(Command.MOVE_17);});
 		buttonGrid.add(b17, 1, 3);
-		Button b18 = addMapButton("Pub", true);
-		b18.setOnAction(clicked -> {GUIController.moveLocation(Command.MOVE_PUB);});
-		buttonGrid.add(b18, 2, 3);
-		b18 = setButtonImage(b18, "/main/graphical_interface/util/MapComponents/ColourIcons/icon_pub.png");
-		Button b19 = addMapButton("", false);
+		
+		pubButton = addMapButton("Pub", currentLocation.equals("Pub"),true);
+		pubButton.setOnAction(clicked -> {GUIController.moveLocation(Command.MOVE_PUB);});
+		buttonGrid.add(pubButton, 2, 3);
+		pubButton = setButtonImage(pubButton, "/main/graphical_interface/util/MapComponents/ColourIcons/icon_pub.png");
+		
+		
+		Button b19 = addMapButton("", false, false);
 		b19.setOnAction(clicked -> {GUIController.moveLocation(Command.MOVE_19);});
 		buttonGrid.add(b19, 3, 3);
-		Button b20 = addMapButton("", false);
+		Button b20 = addMapButton("", false, false);
 		b20.setOnAction(clicked -> {GUIController.moveLocation(Command.MOVE_20);});
 		buttonGrid.add(b20, 4, 3);
 		
-		Button b21 = addMapButton("", false);
+		Button b21 = addMapButton("", false, false);
 		b21.setOnAction(clicked -> {GUIController.moveLocation(Command.MOVE_21);});
 		buttonGrid.add(b21, 0, 4);
-		Button b22 = addMapButton("", false);
+		Button b22 = addMapButton("", false, false);
 		b22.setOnAction(clicked -> {GUIController.moveLocation(Command.MOVE_22);});
 		buttonGrid.add(b22, 1, 4);
-		Button b23 = addMapButton("Home", true);
-		b23.setOnAction(clicked -> {GUIController.moveLocation(Command.MOVE_HOME);});
-		buttonGrid.add(b23, 2, 4);
-		b23 = setButtonImage(b23, "/main/graphical_interface/util/MapComponents/ColourIcons/icon_home.png");
-		Button b24 = addMapButton("", false);
+		
+		homeButton = addMapButton("Home", currentLocation.equals("Home"),true);
+		homeButton.setOnAction(clicked -> {GUIController.moveLocation(Command.MOVE_HOME);});
+		buttonGrid.add(homeButton, 2, 4);
+		homeButton = setButtonImage(homeButton, "/main/graphical_interface/util/MapComponents/ColourIcons/icon_home.png");
+		Button b24 = addMapButton("", false, false);
 		b24.setOnAction(clicked -> {GUIController.moveLocation(Command.MOVE_24);});
 		buttonGrid.add(b24, 3, 4);
-		Button b25 = addMapButton("", false);
+		Button b25 = addMapButton("", false, false);
 		b25.setOnAction(clicked -> {GUIController.moveLocation(Command.MOVE_25);});
 		buttonGrid.add(b25, 4, 4);
 		
+		updateCurrentLocationHighlighting(Command.MOVE_HOME);
 		return buttonGrid;
 	}
-	
-	/*
-	private Button addMapButton(String title, boolean visibility) {
-		Button button = new Button(title);
-		
-		button.setVisible(visibility);
-		button.setPrefWidth(LOCBUTTONWIDTH);
-		button.setPrefHeight(LOCBUTTONHEIGHT);
-		GridPane.setHalignment(button, HPos.CENTER);
-		GridPane.setValignment(button, VPos.CENTER);
-		
-		return button;
-	}
-	*/
 	
 	private Button setButtonImage(Button b, String imageLoc) {
 		Image image = new Image(getClass().getResourceAsStream(imageLoc));
@@ -247,9 +223,14 @@ public class MiniMapController {
 		return b;
 	}
 	
-	private Button addMapButton(String tooltip, boolean visibility) {
+	private Button addMapButton(String tooltip, boolean isCurrentLocation, boolean visibility) {
 		
 		Button button = new Button();
+		button.setStyle("-fx-background-color: transparent;");
+		
+		button.setOnMouseEntered(e -> button.setStyle("-fx-background-color:rgba(255,0,0,0.8);"));
+		button.setOnMouseExited(e -> button.setStyle("-fx-background-color: transparent;"));
+		
 		button.setTooltip(new Tooltip(tooltip));
 		button.setVisible(visibility);
 		button.setPrefWidth(LOCBUTTONWIDTH);
@@ -262,29 +243,12 @@ public class MiniMapController {
 		return button;
 	}
 	
-	private Button addLocMoveButton(String title, boolean visibility) {
-		Button button = new Button(title);
-		
-		button.setVisible(visibility);
-		button.setPrefWidth(CHANGEPAGEWIDTH);
-		button.setPrefHeight(CHANGEPAGEHEIGHT);
-		
-		return button;
-	}
-
 	public void setVisibileButtons(boolean[] visibileButtons) {
 		if (visibileButtons.length != 10) {
 			System.out.println("Array length is "+visibileButtons.length+" and must be 10.");
 			return;
 		}
 		int i = 0;
-		/*
-		for (Node n : this.buttonGrid.getChildren()) {
-			n.setVisible(visibileButtons[i]);
-			System.out.println("Button "+(i+1)+" set to "+visibileButtons[i]);
-			i++;
-		}
-		*/
 	}
 
 	public void setButtonText(String[] buttonText) {
@@ -298,6 +262,70 @@ public class MiniMapController {
 				((Button) n).setText(buttonText[i]);
 				i++;
 			}
+		}
+	}
+	
+	private void setButtonStyling(Button button) {
+		button.setStyle("-fx-background-color: transparent;");
+		
+		button.setOnMouseEntered(e -> button.setStyle("-fx-background-color:rgba(255,0,0,0.8);"));
+		button.setOnMouseExited(e -> button.setStyle("-fx-background-color: transparent;"));
+	}
+	
+	private void setButtonStylingCurrentLocation(Button button) {
+		button.setStyle("-fx-background-color:rgba(99,193,193,0.8);");
+		
+		button.setOnMouseEntered(null);
+		button.setOnMouseExited(null);
+	}
+	
+	public void updateCurrentLocationHighlighting(Command moveCommand) {
+		System.out.println("DingUpdate" + moveCommand.name());
+		
+		if (!(moveCommand == Command.MOVE_BANK || moveCommand == Command.MOVE_HOME || moveCommand == Command.MOVE_HOSPITAL
+				|| moveCommand == Command.MOVE_MARKET || moveCommand == Command.MOVE_PARK ||
+				moveCommand == Command.MOVE_POLICE || moveCommand == Command.MOVE_PUB || moveCommand == Command.MOVE_SUPERMARKET)) {
+			SystemLogger.severe("Unexpected move command of %s", moveCommand.name());
+			return;
+		}
+		// Set all the locations to default
+		setButtonStyling(bankButton);
+		setButtonStyling(parkButton);
+		setButtonStyling(superMarketButton);
+		setButtonStyling(hospitalButton);
+		setButtonStyling(pubButton);
+		setButtonStyling(homeButton);
+		setButtonStyling(marketButton);
+		setButtonStyling(policeButton);
+		
+		// Set the new location to active
+		switch (moveCommand) {
+		case MOVE_BANK:
+			setButtonStylingCurrentLocation(bankButton);
+			break;
+		case MOVE_HOME:
+			setButtonStylingCurrentLocation(homeButton);
+			break;
+		case MOVE_HOSPITAL:
+			setButtonStylingCurrentLocation(hospitalButton);
+			break;
+		case MOVE_MARKET:
+			setButtonStylingCurrentLocation(marketButton);
+			break;
+		case MOVE_PARK:
+			setButtonStylingCurrentLocation(parkButton);
+			break;
+		case MOVE_POLICE:
+			setButtonStylingCurrentLocation(policeButton);
+			break;
+		case MOVE_PUB:
+			setButtonStylingCurrentLocation(pubButton);
+			break;
+		case MOVE_SUPERMARKET:
+			setButtonStylingCurrentLocation(superMarketButton);
+			break;
+		default:
+			SystemLogger.severe("Unexpected move command of %s", moveCommand.name());
 		}
 	}
 
