@@ -1,0 +1,28 @@
+<Content>
+	<Event>
+		<EventID>HomeWFH</EventID>
+		<EventName>You have the option to work from home for the forseeable future</EventName>
+		<EventLocationID>Home</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>HomeWFHDo</EventOptionID>
+				<EventOptionDescription>Work from home for now on</EventOptionDescription>
+				<EventOptionPostDescription>You decide to follow government guidelines and socially distance.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>HomeWFHDoNot</EventOptionID>
+				<EventOptionDescription>Continue to go into the office</EventOptionDescription>
+				<EventOptionPostDescription>You continue to go into the office, social distance measures will be in place where possible.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>10</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

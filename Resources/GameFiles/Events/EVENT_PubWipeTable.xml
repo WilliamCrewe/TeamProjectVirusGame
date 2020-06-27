@@ -1,0 +1,28 @@
+<Content>
+	<Event>
+		<EventID>PubWipeTable</EventID>
+		<EventName>You sit down at a table and there are saniting wipes avaliable.</EventName>
+		<EventLocationID>Pub</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>false</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>PubWipeTableDo</EventOptionID>
+				<EventOptionDescription>Wipe down your table</EventOptionDescription>
+				<EventOptionPostDescription>You wipe down your table so that it is nice and clean.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>PubWipeTableDoNot</EventOptionID>
+				<EventOptionDescription>Do not wipe the table.</EventOptionDescription>
+				<EventOptionPostDescription>You do not wipe the table and rely on hoping that staff cleaned it before you sat down.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>5</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

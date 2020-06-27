@@ -1,0 +1,36 @@
+<Content>
+	<Event>
+		<EventID>HospitalMissingMask</EventID>
+		<EventName>You forgot to bring a mask to the hospital! What do you do?</EventName>
+		<EventLocationID>Hospital</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>false</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>HospitalGoWithoutMask</EventOptionID>
+				<EventOptionDescription>Just go in past reception without one</EventOptionDescription>
+				<EventOptionPostDescription></EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>20</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>-20</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>HospitalGrabMaskFromTray</EventOptionID>
+				<EventOptionDescription>Grab one from the tray nearby</EventOptionDescription>
+				<EventOptionPostDescription>You're not sure how hygenic it is as the mask might have already been used, but it's better than nothing!</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>10</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>-10</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>HospitalGoHomeForMask</EventOptionID>
+				<EventOptionDescription>Go back home to grab one</EventOptionDescription>
+				<EventOptionPostDescription></EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>20</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Uncommon</Rarity>
+	</Event>
+</Content>

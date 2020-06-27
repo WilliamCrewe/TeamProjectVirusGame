@@ -1,0 +1,28 @@
+<Content>
+	<Event>
+		<EventID>ParkEnterPlayground</EventID>
+		<EventName>The playground is empty and the gate going into it is locked. Do you jump over the fence to go in?</EventName>
+		<EventLocationID>Park</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>ParkJumpFence</EventOptionID>
+				<EventOptionDescription>Yes</EventOptionDescription>
+				<EventOptionPostDescription>Someone sees you and reports you to the police. You get arrested for breaking and entering</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>-10</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>ParkWalkAway</EventOptionID>
+				<EventOptionDescription>No</EventOptionDescription>
+				<EventOptionPostDescription>There's other things you can do which aren't breaking and entering.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>10</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Uncommon</Rarity>
+	</Event>
+</Content>

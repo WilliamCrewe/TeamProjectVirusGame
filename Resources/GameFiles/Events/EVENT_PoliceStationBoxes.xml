@@ -1,0 +1,36 @@
+<Content>
+	<Event>
+		<EventID>PoliceStationBoxes</EventID>
+		<EventName>You see a man carrying boxes from a van to the police station.</EventName>
+		<EventLocationID>PoliceStation</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>PoliceStationBoxesHelp</EventOptionID>
+				<EventOptionDescription>Help the man move the boxes</EventOptionDescription>
+				<EventOptionPostDescription>The man thanks you and gives you a loo roll. It seems like an odd thank you gift but oh well.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>5</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>10</EventOptionKarmaModification>
+				<EventOptionItems>
+					<Item>
+						<ItemID>ToiletRollID</ItemID>
+						<ItemName>Toilet Roll</ItemName>
+						<ItemCount>1</ItemCount>
+						<ItemUsageEventID>UseToiletRoll</ItemUsageEventID>
+					</Item>
+				</EventOptionItems>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>PoliceStationBoxesIgnore</EventOptionID>
+				<EventOptionDescription>Let the man finish moving the boxes on his own</EventOptionDescription>
+				<EventOptionPostDescription>You ignore the man and go straight into the Police Station</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

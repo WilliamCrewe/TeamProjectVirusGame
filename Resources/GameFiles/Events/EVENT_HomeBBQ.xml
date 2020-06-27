@@ -1,0 +1,36 @@
+<Content>
+	<Event>
+		<EventID>HomeBBQ</EventID>
+		<EventName>You want a BBQ with your family from another household.</EventName>
+		<EventLocationID>Home</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>HomeBBQCookAll</EventOptionID>
+				<EventOptionDescription>Cook food for everyone</EventOptionDescription>
+				<EventOptionPostDescription></EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>5</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>HomeBBQCookOwn</EventOptionID>
+				<EventOptionDescription>Ask everyone to cook their own food</EventOptionDescription>
+				<EventOptionPostDescription>You have a great (socially distanced) time!</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>HomeBBQNoBBQ</EventOptionID>
+				<EventOptionDescription>Do not have the BBQ</EventOptionDescription>
+				<EventOptionPostDescription>You decide to not have a BBQ due to being scared of coronavirus. In heinsight you can still enjoy lockdown if you are careful and follow well researched advice.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

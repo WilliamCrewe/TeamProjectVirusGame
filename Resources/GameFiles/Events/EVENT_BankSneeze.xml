@@ -1,0 +1,36 @@
+<Content>
+	<Event>
+		<EventID>BankSneeze</EventID>
+		<EventName>You are about to sneeze!!!</EventName>
+		<EventLocationID>Bank</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>BankSneezeTissue</EventOptionID>
+				<EventOptionDescription>Ask someone for a tissue</EventOptionDescription>
+				<EventOptionPostDescription>You quickly ask someone for a tissue, they hand you one and you sneeze into it.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>10</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>BankSneezeElbow</EventOptionID>
+				<EventOptionDescription>Sneeze into your elbow</EventOptionDescription>
+				<EventOptionPostDescription>You sneeze into your elbow as per government guidelines. This will help stop the spread of germs.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>BankSneezeEverywhere</EventOptionID>
+				<EventOptionDescription>Sneeze in your hand</EventOptionDescription>
+				<EventOptionPostDescription>You sneeze into your hand and then use sanitiser to kill the germs.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

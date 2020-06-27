@@ -1,0 +1,28 @@
+<Content>
+	<Event>
+		<EventID>ShopLastHandwash</EventID>
+		<EventName>You have been struggling to get handwash for the last few shops and you see 4 left on the shelves.</EventName>
+		<EventLocationID>Shop</EventLocationID>
+		<IsPassiveEvent>true</IsPassiveEvent>
+		<IsSingleOccurence>false</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>ShopLastHandwashTakeAll</EventOptionID>
+				<EventOptionDescription>Buy it all</EventOptionDescription>
+				<EventOptionPostDescription>You buy all of the handwash for later use. You are suprised there is not a ban on this yet.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>-5</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>ShopLastHandwashTakeOne</EventOptionID>
+				<EventOptionDescription>Take one.</EventOptionDescription>
+				<EventOptionPostDescription>You only take what you need, others may also have been struggling to get handwash.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>5</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

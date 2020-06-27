@@ -1,0 +1,36 @@
+<Content>
+	<Event>
+		<EventID>ParkFootball</EventID>
+		<EventName>You see a friend at the park. They ask you to play football.</EventName>
+		<EventLocationID>Park</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>ParkFootballSociallyDistance</EventOptionID>
+				<EventOptionDescription>Play socially distanced football</EventOptionDescription>
+				<EventOptionPostDescription>You play the game. You keep 2 meters away from everyone and don't touch the ball with your hands. You had a great time!</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>ParkFootballPlay</EventOptionID>
+				<EventOptionDescription>Play football as usual</EventOptionDescription>
+				<EventOptionPostDescription>You play football as you usually do, shoving and all.</EventOptionPostDescription>
+				<EventOptionImmunityModification>5</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>10</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>ParkFootballDoNotPlay</EventOptionID>
+				<EventOptionDescription>Do not play football</EventOptionDescription>
+				<EventOptionPostDescription>You say no to playing football. It is a shame you missed out on a fun time.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

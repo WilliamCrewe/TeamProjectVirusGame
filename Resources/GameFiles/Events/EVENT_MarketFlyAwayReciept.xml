@@ -1,0 +1,28 @@
+<Content>
+	<Event>
+		<EventID>MarketFlyAwayReciept</EventID>
+		<EventName>A reciept on the floor gets blown by the wind and flies past you, a man seems to be chasing after it.</EventName>
+		<EventLocationID>Market</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>MarketFlyAwayRecieptCatch</EventOptionID>
+				<EventOptionDescription>Catch the reciept</EventOptionDescription>
+				<EventOptionPostDescription>You catch the reciept and the man keeps his distence and asks you to bin it.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>5</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>5</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>MarketFlyAwayRecieptLeave</EventOptionID>
+				<EventOptionDescription>Leave the reciept</EventOptionDescription>
+				<EventOptionPostDescription>You leave the reciept and the man continues to run after it.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

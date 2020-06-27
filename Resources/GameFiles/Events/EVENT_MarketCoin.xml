@@ -1,0 +1,36 @@
+<Content>
+	<Event>
+		<EventID>MarketCoin</EventID>
+		<EventName>You find a coin on the floor! Do you pick it up?</EventName>
+		<EventLocationID>Market</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>MarketPickUp</EventOptionID>
+				<EventOptionDescription>Yes</EventOptionDescription>
+				<EventOptionPostDescription></EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>10</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>-10</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>MarketDontPickUp</EventOptionID>
+				<EventOptionDescription>No</EventOptionDescription>
+				<EventOptionPostDescription></EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>10</EventOptionKarmaModification>
+			</EventOption>
+			<EventOptionItems>
+				<Item>
+					<ItemID>CoinID</ItemID>
+					<ItemName>Coin</ItemName>
+					<ItemCount>1</ItemCount>
+					<ItemUsageEventID>UseCoin</ItemUsageEventID>
+				</Item>
+			</EventOptionItems>
+		</EventOptions>
+		<Rarity>Rare</Rarity>
+	</Event>
+</Content>

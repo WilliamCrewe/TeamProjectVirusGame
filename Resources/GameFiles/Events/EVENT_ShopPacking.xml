@@ -1,0 +1,28 @@
+<Content>
+	<Event>
+		<EventID>ShopPacking</EventID>
+		<EventName>A woman seems to be struggling with packing her shopping</EventName>
+		<EventLocationID>Shop</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>false</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>ShopPackingHelp</EventOptionID>
+				<EventOptionDescription>Offer the woman help</EventOptionDescription>
+				<EventOptionPostDescription>You offer the woman some help. She thanks you and you pack her things.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>ShopPackingNoHelp</EventOptionID>
+				<EventOptionDescription>Do not offer any help</EventOptionDescription>
+				<EventOptionPostDescription>You decide to socially distance, the woman slowly packs her groceries.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

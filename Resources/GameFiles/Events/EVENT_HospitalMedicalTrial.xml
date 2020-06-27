@@ -1,0 +1,36 @@
+<Content>
+	<Event>
+		<EventID>HospitalMedicalTrial</EventID>
+		<EventName>You see an advert for a medical trial testing out a new drug for flu.</EventName>
+		<EventLocationID>Hospital</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>HospitalMedicalTrialJoin</EventOptionID>
+				<EventOptionDescription>Join the trial</EventOptionDescription>
+				<EventOptionPostDescription>You join the trial but get a small cold in the process. You get paid for your help... paid with 5 loo rolls.</EventOptionPostDescription>
+				<EventOptionImmunityModification>-20</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>10</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+				<EventOptionItems>
+					<Item>
+						<ItemID>ToiletRollID</ItemID>
+						<ItemName>ToiletRoll</ItemName>
+						<ItemCount>5</ItemCount>
+						<ItemUsageEventID>UseToiletRoll</ItemUsageEventID>
+					</Item>
+				</EventOptionItems>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>HospitalMedicalTrialIgnore</EventOptionID>
+				<EventOptionDescription>Don't join the trial</EventOptionDescription>
+				<EventOptionPostDescription>You don't join the trial, it is probably best to avoid hospitals when necessary.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Uncommon</Rarity>
+	</Event>
+</Content>

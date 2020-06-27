@@ -1,0 +1,34 @@
+<Content>
+	<Event>
+		<EventID>HomeChildBonfire</EventID>
+		<EventName>The children say they want to invite friends round to have a bonfire in the garden. What do you do?</EventName>
+		<EventLocationID>Home</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>HomeGetSuppliesAndInviteFriends</EventOptionID>
+				<EventOptionDescription>Go out and buy supplies for the get together</EventOptionDescription>
+				<EventOptionPostDescription></EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>10</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>-20</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>HomeBonfireAlone</EventOptionID>
+				<EventOptionDescription>Use the stick the dog gave you to light a fire, but tell the children they’re not allowed to have friends over</EventOptionDescription>
+				<EventOptionPostDescription></EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>10</EventOptionKarmaModification>
+				<RequiredItems>
+					<RequiredItem>
+						<ItemID>StickID</ItemID>
+						<ItemCount>1</ItemCount>
+					</RequiredItem>
+				</RequiredItems>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Uncommon</Rarity>
+	</Event>
+</Content>

@@ -1,0 +1,36 @@
+<Content>
+	<Event>
+		<EventID>BankWithdrawCash</EventID>
+		<EventName>You see a cash maching and could do with withdrawring some cash, there's a crowd by the inside terminal.</EventName>
+		<EventLocationID>Bank</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>BankWithdrawCashOutside</EventOptionID>
+				<EventOptionDescription>Use the outside cash machine</EventOptionDescription>
+				<EventOptionPostDescription>You get some cash out.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>BankWithdrawCashQueue</EventOptionID>
+				<EventOptionDescription>Queue outside until it is less busy</EventOptionDescription>
+				<EventOptionPostDescription>You queue up outside, you see someone sanitising the inside machine between uses.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>BankWithdrawCashInside</EventOptionID>
+				<EventOptionDescription>Go inside to use a machine</EventOptionDescription>
+				<EventOptionPostDescription>You join the crowd around the machine inside.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>10</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

@@ -1,0 +1,36 @@
+<Content>
+	<Event>
+		<EventID>HospitalTakeNeighbourHome</EventID>
+		<EventName>You see your neighbour being discharged from hospital</EventName>
+		<EventLocationID>Hospital</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>HospitalTakeNeighbourHomeTake</EventOptionID>
+				<EventOptionDescription>Take neighbour home</EventOptionDescription>
+				<EventOptionPostDescription>You drive your neighbour home. They thank you with a box of chocolates.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>5</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>5</EventOptionKarmaModification>
+				<EventOptionItems>
+					<Item>
+						<ItemID>ChocolateID</ItemID>
+						<ItemName>Chocolate</ItemName>
+						<ItemCount>1</ItemCount>
+						<ItemUsageEventID>UseChocolate</ItemUsageEventID>
+					</Item>
+				</EventOptionItems>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>HospitalTakeNeighbourHomeDoNotHelp</EventOptionID>
+				<EventOptionDescription>Do not take them home</EventOptionDescription>
+				<EventOptionPostDescription>You keep a social distance and say hi to them.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

@@ -1,0 +1,28 @@
+<Content>
+	<Event>
+		<EventID>PoliceStationLineUp</EventID>
+		<EventName>The police need an extra person for a line up.</EventName>
+		<EventLocationID>PoliceStation</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>PoliceStationLineUpHelp</EventOptionID>
+				<EventOptionDescription>Help out</EventOptionDescription>
+				<EventOptionPostDescription>You help out and the police officer thanks you.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>PoliceStationLineUpDontHelp</EventOptionID>
+				<EventOptionDescription>Do not help</EventOptionDescription>
+				<EventOptionPostDescription>It wasn't really your kind of thing, someone else helps.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

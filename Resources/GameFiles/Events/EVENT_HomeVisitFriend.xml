@@ -1,0 +1,28 @@
+<Content>
+	<Event>
+		<EventID>HomeVisitFriend</EventID>
+		<EventName>Your friend calls you and asks if you want to come over for a cup of tea.</EventName>
+		<EventLocationID>Home</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>false</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>HomeVisitFriendDo</EventOptionID>
+				<EventOptionDescription>Go for a cup of tea</EventOptionDescription>
+				<EventOptionPostDescription>Your friend tells you about how work has been going at work on the hospital's Covid-19 ward... you forgot what they did for work...</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>10</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>HomeVisitFriendDoNot</EventOptionID>
+				<EventOptionDescription>Have a chat over the phone instead</EventOptionDescription>
+				<EventOptionPostDescription>You have a good chat over the phone and wish them well</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

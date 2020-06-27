@@ -1,0 +1,28 @@
+<Content>
+	<Event>
+		<EventID>BankBin</EventID>
+		<EventName>While walking into the bank you bump into a bin and knock it over. You see the janitor in PPE equiptment</EventName>
+		<EventLocationID>Bank</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>false</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>BankBinHelp</EventOptionID>
+				<EventOptionDescription>Help clean up the bin</EventOptionDescription>
+				<EventOptionPostDescription>You pick up the bin and start scooping up the rubbish including many dirty tissues.</EventOptionPostDescription>
+				<EventOptionImmunityModification>-5</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>20</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>BankBinIgnore</EventOptionID>
+				<EventOptionDescription>Let someone else clean it up</EventOptionDescription>
+				<EventOptionPostDescription>You apologise to the janitor and let him clean up</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Uncommon</Rarity>
+	</Event>
+</Content>

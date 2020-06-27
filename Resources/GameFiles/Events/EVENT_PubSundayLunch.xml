@@ -1,0 +1,36 @@
+<Content>
+	<Event>
+		<EventID>PubSundayLunch</EventID>
+		<EventName>The pub is offering take-away Sunday lunches! The line for them is very long though and there isn’t any social distancing..</EventName>
+		<EventLocationID>Pub</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>PubHaveSundayLunch</EventOptionID>
+				<EventOptionDescription>Get in the queue, it’s worth it for the gravy!</EventOptionDescription>
+				<EventOptionPostDescription></EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>10</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>-10</EventOptionKarmaModification>
+				<EventOptionItems>
+					<Item>
+						<ItemID>SundayLunchID</ItemID>
+						<ItemName>SundayLunch</ItemName>
+						<ItemCount>1</ItemCount>
+						<ItemUsageEventID>UseSundayLunch</ItemUsageEventID>
+					</Item>
+				</EventOptionItems>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>PubWitholdFromSundayLunch</EventOptionID>
+				<EventOptionDescription>Hold off your gravy cravings and just grab something at home</EventOptionDescription>
+				<EventOptionPostDescription></EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>10</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

@@ -1,0 +1,28 @@
+<Content>
+	<Event>
+		<EventID>PoliceStationSanitise</EventID>
+		<EventName>There's a hand sanitising point at the entrance of the police station.</EventName>
+		<EventLocationID>PoliceStation</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>false</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>PoliceStationSanitiseDo</EventOptionID>
+				<EventOptionDescription>Sanitise your hands.</EventOptionDescription>
+				<EventOptionPostDescription>You feel satisfied that your hands are clean.</EventOptionPostDescription>
+				<EventOptionImmunityModification>10</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>PoliceStationSanitiseDoNot</EventOptionID>
+				<EventOptionDescription>Don't sanitise your hands.</EventOptionDescription>
+				<EventOptionPostDescription>You walk straight into the police station.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>10</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

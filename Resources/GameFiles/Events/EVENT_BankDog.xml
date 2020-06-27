@@ -1,0 +1,65 @@
+<Content>
+	<Event>
+		<EventID>BankDog</EventID>
+		<EventName>Your neighbour knocks on the front door and asks if they could have some flour as they're running short.</EventName>
+		<EventLocationID>Bank</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>false</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>BankPetDog</EventOptionID>
+				<EventOptionDescription>Pet the dog, it’s still really cute from the first time seeing it!</EventOptionDescription>
+				<EventOptionPostDescription>The owner comes out whilst you’re petting it and chases you until you get home</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>10</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>-10</EventOptionKarmaModification>
+				<RequiredItemID>DogBallID</RequiredItemID>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>BankDogBallGive</EventOptionID>
+				<EventOptionDescription>Give its ball back.</EventOptionDescription>
+				<EventOptionPostDescription>It gives you a stick it was chewing on in return in return.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+				<EventOptionItems>
+					<Item>
+						<ItemID>StickID</ItemID>
+						<ItemName>Stick</ItemName>
+						<ItemCount>1</ItemCount>
+						<ItemUsageEventID>UseStick</ItemUsageEventID>
+					</Item>
+				</EventOptionItems>
+				<RequiredItems>
+					<RequiredItem>
+						<ItemID>DogBallID</ItemID>
+						<ItemCount>1</ItemCount>
+					</RequiredItem>
+				</RequiredItems>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>BankDogIgnore</EventOptionID>
+				<EventOptionDescription>Ignore it and enter the bank, you don’t want the owner to be mad at you again</EventOptionDescription>
+				<EventOptionPostDescription></EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>10</EventOptionKarmaModification>
+				<RequiredItems>
+					<RequiredItem>
+						<ItemID>DogBallID</ItemID>
+						<ItemCount>1</ItemCount>
+					</RequiredItem>
+				</RequiredItems>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>BankNeverSeenDog</EventOptionID>
+				<EventOptionDescription>Nope, not familiar at all</EventOptionDescription>
+				<EventOptionPostDescription>Maybe your paths will cross again…</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Rare</Rarity>
+	</Event>
+</Content>

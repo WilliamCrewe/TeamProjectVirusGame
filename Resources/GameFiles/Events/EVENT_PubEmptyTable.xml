@@ -1,0 +1,28 @@
+<Content>
+	<Event>
+		<EventID>PubEmptyTable</EventID>
+		<EventName>You see a free table with empty glasses on it.</EventName>
+		<EventLocationID>Pub</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>PubEmptyTableMoveGlasses</EventOptionID>
+				<EventOptionDescription>Move the glasses and put them on the bar. </EventOptionDescription>
+				<EventOptionPostDescription>You saved the bar staff from having to clean the table but by touching the glasses you have increased your chances of catching the virus.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>5</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>5</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>PubEmptyTableLeaveGlasses</EventOptionID>
+				<EventOptionDescription>Ask the bar staff to clean the table for you.</EventOptionDescription>
+				<EventOptionPostDescription>By getting the bar staff to clean the table you have reduced your chance of catching the virus.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

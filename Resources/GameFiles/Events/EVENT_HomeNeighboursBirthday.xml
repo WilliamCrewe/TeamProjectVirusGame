@@ -1,0 +1,64 @@
+<Content>
+	<Event>
+		<EventID>HomeNeighbourBirthday</EventID>
+		<EventName>It's your neighbour's birthday and you usually give them some sort of food as a present. What do you do?</EventName>
+		<EventLocationID>Home</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>HomeGiveLeftovers</EventOptionID>
+				<EventOptionDescription>Give Picnic Leftovers</EventOptionDescription>
+				<EventOptionPostDescription>The neighbour looks at them with disgust but still takes them and gives you a Spanner as a thank you.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>10</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+				<EventOptionItems>
+					<Item>
+						<ItemID>SpannerID</ItemID>
+						<ItemName>Spanner</ItemName>
+						<ItemCount>1</ItemCount>
+						<ItemUsageEventID>UseSpanner</ItemUsageEventID>
+					</Item>
+				</EventOptionItems>
+				<RequiredItems>
+					<RequiredItem>
+						<ItemID>LeftoversID</ItemID>
+						<ItemCount>1</ItemCount>
+					</RequiredItem>
+				</RequiredItems>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>HomeGiveCupcake</EventOptionID>
+				<EventOptionDescription>Give Cupcake</EventOptionDescription>
+				<EventOptionPostDescription>The neighbour looks at it with delight and strangely gives you a Spanner as a thank you.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>10</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>20</EventOptionKarmaModification>
+				<EventOptionItems>
+					<Item>
+						<ItemID>SpannerID</ItemID>
+						<ItemName>Spanner</ItemName>
+						<ItemCount>1</ItemCount>
+						<ItemUsageEventID>UseSpanner</ItemUsageEventID>
+					</Item>
+				</EventOptionItems>
+				<RequiredItems>
+					<RequiredItem>
+						<ItemID>CupcakeID</ItemID>
+						<ItemCount>1</ItemCount>
+					</RequiredItem>
+				</RequiredItems>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>HomeGiveNoPresent</EventOptionID>
+				<EventOptionDescription>It's safer to give them nothing during this time, you'll bake them something outside of lockdown</EventOptionDescription>
+				<EventOptionPostDescription></EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>10</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Uncommon</Rarity>
+	</Event>
+</Content>

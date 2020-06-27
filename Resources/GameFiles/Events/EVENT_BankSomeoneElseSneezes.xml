@@ -1,0 +1,28 @@
+<Content>
+	<Event>
+		<EventID>BankSomeoneElseSneezes</EventID>
+		<EventName>The person using the cash machine before you just sneezed into their hands and continues to use the cash machine.</EventName>
+		<EventLocationID>Bank</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>BankSomeoneElseSneezesUseCashMachine</EventOptionID>
+				<EventOptionDescription>Once they have finished, use the cash machine.</EventOptionDescription>
+				<EventOptionPostDescription>By using the cash machine you have increased your chance of catching the virus. </EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>5</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>BankSomeoneElseSneezesDontUseCashMachine</EventOptionID>
+				<EventOptionDescription>Once they have finished, ask someone to clean the cash machine before you use it.</EventOptionDescription>
+				<EventOptionPostDescription>By getting the cash machine cleaned you have reduced your chance of catching the virus.</EventOptionPostDescription>
+				<EventOptionImmunityModification>5</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

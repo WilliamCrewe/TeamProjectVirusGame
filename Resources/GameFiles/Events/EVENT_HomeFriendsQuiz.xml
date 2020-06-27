@@ -1,0 +1,28 @@
+<Content>
+	<Event>
+		<EventID>HomeFriendsQuiz</EventID>
+		<EventName>A friend suggests doing a quiz at your house.</EventName>
+		<EventLocationID>Home</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>HomeQuizYes</EventOptionID>
+				<EventOptionDescription>Say yes and have the quiz at your house.</EventOptionDescription>
+				<EventOptionPostDescription>You do the quiz at your house and have a great time with your friends, however, this has increased the likelihood of spreading the virus.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>5</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>5</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>HomeQuizNo</EventOptionID>
+				<EventOptionDescription>Say no and suggest doing the quiz on facetime. </EventOptionDescription>
+				<EventOptionPostDescription>You do the quiz on facetime and have a great time with your friends.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>5</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Rare</Rarity>
+	</Event>
+</Content>

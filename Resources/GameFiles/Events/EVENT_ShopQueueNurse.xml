@@ -1,0 +1,28 @@
+<Content>
+	<Event>
+		<EventID>ShopQueueNurse</EventID>
+		<EventName>Theres a large queue for the shop and you see a man in a nurse’s outfit beginning the long walk to the back of the queue.</EventName>
+		<EventLocationID>Shop</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>ShopQueueNurseDo</EventOptionID>
+				<EventOptionDescription>Call him over to cut infront of you.</EventOptionDescription>
+				<EventOptionPostDescription>He thanks you and seems relieved to be able to get into the shop quickly.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>20</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>ShopQueueNurseDoNot</EventOptionID>
+				<EventOptionDescription>Don't do anything</EventOptionDescription>
+				<EventOptionPostDescription></EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Uncommon</Rarity>
+	</Event>
+</Content>

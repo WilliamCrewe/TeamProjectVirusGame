@@ -1,0 +1,36 @@
+<Content>
+	<Event>
+		<EventID>ParkBallGame</EventID>
+		<EventName>A ball rolls past you</EventName>
+		<EventLocationID>Park</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>false</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>ParkBallGameCatch</EventOptionID>
+				<EventOptionDescription>Catch the ball and throw it back</EventOptionDescription>
+				<EventOptionPostDescription>The kid sneezes into his hands, picks up the ball and says thanks... you hope he didn't do that before you picked it up.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>5</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>ParkBallGameKick</EventOptionID>
+				<EventOptionDescription>Kick the ball back</EventOptionDescription>
+				<EventOptionPostDescription>You kick the ball back and the kid sneezes into his hands, picks up the ball and says thanks.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>ParkBallGameLeave</EventOptionID>
+				<EventOptionDescription>Leave the ball</EventOptionDescription>
+				<EventOptionPostDescription>You leave the ball and a kid runs after it</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

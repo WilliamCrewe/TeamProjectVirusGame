@@ -1,0 +1,36 @@
+<Content>
+	<Event>
+		<EventID>PoliceStationCat</EventID>
+		<EventName>A cat runs out of the police station and you hear a women shout "Tabby! No!!"</EventName>
+		<EventLocationID>PoliceStation</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>PoliceStationCatCatch</EventOptionID>
+				<EventOptionDescription>Run after the cat.</EventOptionDescription>
+				<EventOptionPostDescription>You grab the cat dispite its resistance, the woman thanks you and gives you a bag of flour. Why she had a cat and why she had flour with her you'll never know.</EventOptionPostDescription>
+				<EventOptionImmunityModification>5</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>10</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>10</EventOptionKarmaModification>
+				<EventOptionItems>
+					<Item>
+						<ItemID>FlourID</ItemID>
+						<ItemName>Flour</ItemName>
+						<ItemCount>1</ItemCount>
+						<ItemUsageEventID>UseFlour</ItemUsageEventID>
+					</Item>
+				</EventOptionItems>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>PoliceStationCatLeave</EventOptionID>
+				<EventOptionDescription>You ignore the cat, you dont know where it has been</EventOptionDescription>
+				<EventOptionPostDescription>The woman runs after the cat.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Uncommon</Rarity>
+	</Event>
+</Content>

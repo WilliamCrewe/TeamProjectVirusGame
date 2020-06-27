@@ -1,0 +1,28 @@
+<Content>
+	<Event>
+		<EventID>HomeOrderTV</EventID>
+		<EventName>You are ordering a TV online but you’re unsure on which delivery option to pick.</EventName>
+		<EventLocationID>Home</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>HomeOrderTVDelivery</EventOptionID>
+				<EventOptionDescription>Get the TV delivered to your house within 3-4 working days.</EventOptionDescription>
+				<EventOptionPostDescription>By having the TV delivered you have reduced your chance of catching the virus.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>5</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>HomeOrderTVCollect</EventOptionID>
+				<EventOptionDescription>Get the TV delivered to store within 1-2 working days. Where you can then collect it from.</EventOptionDescription>
+				<EventOptionPostDescription>By having to collect TV from the store you have increased your chance of catching the virus.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>10</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Rare</Rarity>
+	</Event>
+</Content>
