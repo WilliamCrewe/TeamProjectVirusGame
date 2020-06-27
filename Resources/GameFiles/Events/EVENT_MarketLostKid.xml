@@ -1,0 +1,28 @@
+<Content>
+	<Event>
+		<EventID>MarketLostKid</EventID>
+		<EventName>You see a kid on his own, he asks if you've seen his mum </EventName>
+		<EventLocationID>Market</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>MarketLostKidHelp</EventOptionID>
+				<EventOptionDescription>Help the kid find his mum.</EventOptionDescription>
+				<EventOptionPostDescription>You talk to kid and find his mum around the courner, she thanks you.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>5</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>10</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>MarketLostKidIgnore</EventOptionID>
+				<EventOptionDescription>Ignore the kid and stay away</EventOptionDescription>
+				<EventOptionPostDescription>You keep your distance, someone else helps the kid find his mum.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>-10</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

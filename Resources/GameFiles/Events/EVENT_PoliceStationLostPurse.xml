@@ -1,0 +1,28 @@
+<Content>
+	<Event>
+		<EventID>PoliceStationLostPurse</EventID>
+		<EventName>On your way to the police station you see a purse on the floor.</EventName>
+		<EventLocationID>PoliceStation</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>PoliceStationLostPurseLeave</EventOptionID>
+				<EventOptionDescription>Leave it</EventOptionDescription>
+				<EventOptionPostDescription>You ignore it and go to the police station</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>PoliceStationLostPurseTake</EventOptionID>
+				<EventOptionDescription>Take it with you to the police station</EventOptionDescription>
+				<EventOptionPostDescription>You hand the purse into the police station. An officer thanks you and asks you to sanitise your hands after handling it.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>15</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

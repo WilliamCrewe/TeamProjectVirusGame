@@ -1,0 +1,28 @@
+<Content>
+	<Event>
+		<EventID>PubFriend</EventID>
+		<EventName>Tables are separated by 2 meters and almost all taken up, your friend calls you over to their table.</EventName>
+		<EventLocationID>Pub</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>false</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>PubFriendJoin</EventOptionID>
+				<EventOptionDescription>Go and join them for a pint, you haven't seen them in ages!</EventOptionDescription>
+				<EventOptionPostDescription>You have a drink or 3 then they leave for home.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>10</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>PubFriendNotJoin</EventOptionID>
+				<EventOptionDescription>Politely decline and keep a 2m distance.</EventOptionDescription>
+				<EventOptionPostDescription>You feel happy that you've kept to government guidelines.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>10</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

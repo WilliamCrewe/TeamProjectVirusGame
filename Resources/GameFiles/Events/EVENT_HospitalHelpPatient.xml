@@ -1,0 +1,28 @@
+<Content>
+	<Event>
+		<EventID>HospitalHelpPatient</EventID>
+		<EventName>You see a patient struggling to get to the reception desk on their own.</EventName>
+		<EventLocationID>Hospital</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>HospitalHelpPatientDo</EventOptionID>
+				<EventOptionDescription>Help out the patient</EventOptionDescription>
+				<EventOptionPostDescription>You help the elderly patient walk to the reception by giving them something to lean on.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>10</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>10</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>HospitalHelpPatientDoNot</EventOptionID>
+				<EventOptionDescription>Leave the patient alone</EventOptionDescription>
+				<EventOptionPostDescription>You keep your distance, you decide it is best to keep social distance.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

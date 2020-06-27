@@ -1,0 +1,29 @@
+<Content>
+	<Event>
+		<EventID>BankDroppedPaper</EventID>
+		<EventName>A woman drops a pile of paper</EventName>
+		<EventLocationID>Bank</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>BankDroppedPaperHelp</EventOptionID>
+				<EventOptionDescription>Help pick up the paper.</EventOptionDescription>
+				<EventOptionPostDescription>You break social distancing rules and help pick up the paper</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>5</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>5</EventOptionKarmaModification>
+				</EventOptionItems>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>BankDroppedPaperIgnore</EventOptionID>
+				<EventOptionDescription>Leave the woman to pick up the paper.</EventOptionDescription>
+				<EventOptionPostDescription>You continue to social distance and let her pick up the paper herself</EventOptionPostDescription>
+				<EventOptionImmunityModification>[0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

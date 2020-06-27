@@ -29,6 +29,42 @@
 				<FollowingEventID>ShopSell</FollowingEventID>
 			</EventOption>
 			<EventOption>
+				<EventOptionID>ShopTradeSellChocolateID</EventOptionID>
+				<EventOptionDescription>Sell chocolate items</EventOptionDescription>
+				<EventOptionPostDescription>You probably wont eat the chocolate anyway. You get 1 toilet roll in return.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+				<EventOptionItems>
+					<Item>
+						<ItemID>ToiletRollID</ItemID>
+						<ItemName>Toilet Roll</ItemName>
+						<ItemCount>1</ItemCount>
+						<ItemUsageEventID>UseToiletRoll</ItemUsageEventID>
+					</Item>
+				</EventOptionItems>
+				<RequiredItemID>ChocolateID</RequiredItemID>
+				<FollowingEventID>ShopSell</FollowingEventID>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>ShopTradeSellPastaID</EventOptionID>
+				<EventOptionDescription>Sell pasta items</EventOptionDescription>
+				<EventOptionPostDescription>Pasta is a hot commodity at the moment and the shop is happy to take it off your hands for a pack of 9 loo rolls!</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+				<EventOptionItems>
+					<Item>
+						<ItemID>ToiletRollID</ItemID>
+						<ItemName>Toilet Roll</ItemName>
+						<ItemCount>9</ItemCount>
+						<ItemUsageEventID>UseToiletRoll</ItemUsageEventID>
+					</Item>
+				</EventOptionItems>
+				<RequiredItemID>PastaID</RequiredItemID>
+				<FollowingEventID>ShopSell</FollowingEventID>
+       </EventOption>
+       <EventOption>
 				<EventOptionID>ShopTradeSellPizza</EventOptionID>
 				<EventOptionDescription>Sell pizza items</EventOptionDescription>
 				<EventOptionPostDescription>Confusingly, you sell the pizza</EventOptionPostDescription>

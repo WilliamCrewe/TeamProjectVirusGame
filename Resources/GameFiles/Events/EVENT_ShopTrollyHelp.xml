@@ -1,0 +1,36 @@
+<Content>
+	<Event>
+		<EventID>ShopTrollyHelp</EventID>
+		<EventName>You see an elderly woman is struggling to push a trolly around the shop.</EventName>
+		<EventLocationID>Shop</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>Offer to help her shop</EventOptionID>
+				<EventOptionDescription>ShopTrollyHelpDO</EventOptionDescription>
+				<EventOptionPostDescription>You help the woman shop, she thanks you and gives you a box of chocolate. In heinsight maybe you should have social distanced.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>10</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>5</EventOptionKarmaModification>
+				<EventOptionItems>
+					<Item>
+						<ItemID>ChocolateID</ItemID>
+						<ItemName>Chocolate</ItemName>
+						<ItemCount>1</ItemCount>
+						<ItemUsageEventID>UseChocolate</ItemUsageEventID>
+					</Item>
+				</EventOptionItems>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>Let her shop alone</EventOptionID>
+				<EventOptionDescription>ShopTrollyHelpDoNot</EventOptionDescription>
+				<EventOptionPostDescription>You let the woman shop on her own, it is probably best to keep a social distance.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

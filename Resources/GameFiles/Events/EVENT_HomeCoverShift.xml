@@ -1,0 +1,36 @@
+<Content>
+	<Event>
+		<EventID>HomeCoverShift</EventID>
+		<EventName>Your phone rings, its your collegue saying they're not feeling too well and ask you to cover their shift in the office.</EventName>
+		<EventLocationID>Home</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>HomeCoverShiftDo</EventOptionID>
+				<EventOptionDescription>Agree to help out and go into the office.</EventOptionDescription>
+				<EventOptionPostDescription>Your collegue thanks you and gives you a box of chocolates. You try to social distance as much as possible.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>5</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>5</EventOptionKarmaModification>
+				<EventOptionItems>
+					<Item>
+						<ItemID>ChocolateID</ItemID>
+						<ItemName>Chocolate</ItemName>
+						<ItemCount>1</ItemCount>
+						<ItemUsageEventID>UseChocolate</ItemUsageEventID>
+					</Item>
+				</EventOptionItems>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>HomeCoverShiftDoNot</EventOptionID>
+				<EventOptionDescription>Don't go into the office.</EventOptionDescription>
+				<EventOptionPostDescription>You don't go in and your collegue is pressured to go in. Due to her cough the office is locked down for a week for disinfecting.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>-5</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

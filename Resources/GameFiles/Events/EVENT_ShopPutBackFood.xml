@@ -1,0 +1,28 @@
+<Content>
+	<Event>
+		<EventID>ShopPutBackFood</EventID>
+		<EventName>You pick up a pack of strawberries and see a fuller pack below it.</EventName>
+		<EventLocationID>Shop</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>ShopPutBackFoodSwap</EventOptionID>
+				<EventOptionDescription>Pick up the bigger pack and put back the other one.</EventOptionDescription>
+				<EventOptionPostDescription>You swap the strawberries. You recall a sign earlier asking customers to buy any product they touch to stop virus spread.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>-5</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>ShopPutBackKeep</EventOptionID>
+				<EventOptionDescription>Keep the pack you have</EventOptionDescription>
+				<EventOptionPostDescription> You recall a sign earlier asking customers to buy any product they touch to stop virus spread and decide you did the right thing.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

@@ -1,0 +1,28 @@
+<Content>
+	<Event>
+		<EventID>PubUseOwnGlass</EventID>
+		<EventName>You order a drink in a bottle and have the option to use your own glass.</EventName>
+		<EventLocationID>Pub</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>false</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>PubUseOwnGlassDo</EventOptionID>
+				<EventOptionDescription>Use your glass</EventOptionDescription>
+				<EventOptionPostDescription>You drink out of your own glass for cleanliness</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>PubUseOwnGlassDoNot</EventOptionID>
+				<EventOptionDescription>Drink out of the bottle</EventOptionDescription>
+				<EventOptionPostDescription>You do not know where the drink has been but you drink out of it.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>5</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>
