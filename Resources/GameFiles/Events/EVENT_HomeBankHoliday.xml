@@ -1,0 +1,44 @@
+<Content>
+	<Event>
+		<EventID>HomeBankHoliday</EventID>
+		<EventName>The bank holiday is coming up and it's set to be the hottest day of the year</EventName>
+		<EventLocationID>Home</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>HomeBankHolidayPicnic</EventOptionID>
+				<EventOptionDescription>Go out with family for an walk and a picnic where you meet up with another household</EventOptionDescription>
+				<EventOptionPostDescription>The other household provides most of the food and you take the potentially infected leftovers home.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>10</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>-10</EventOptionKarmaModification>
+				<EventOptionItems>
+					<Item>
+						<ItemID>LeftoversID</ItemID>
+						<ItemName>Leftovers</ItemName>
+						<ItemCount>1</ItemCount>
+						<ItemUsageEventID>UseLeftovers</ItemUsageEventID>
+					</Item>
+				</EventOptionItems>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>HomeBankHolidayBBQ</EventOptionID>
+				<EventOptionDescription>Throw a BBQ and invite all your friends that live in other cities, it’s been a while since you’ve all met up and the good weather is a good excuse!</EventOptionDescription>
+				<EventOptionPostDescription></EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>10</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>-20</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>HomeBankHolidayStayInside</EventOptionID>
+				<EventOptionDescription>Board up the windows and lock the doors, don’t let anyone leave</EventOptionDescription>
+				<EventOptionPostDescription></EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>10</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

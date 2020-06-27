@@ -1,0 +1,36 @@
+<Content>
+	<Event>
+		<EventID>ShopWrongWay</EventID>
+		<EventName>You accidentally go the wrong way down the aisle and a woman appears in the aisle walking the correct way! What do you do?</EventName>
+		<EventLocationID>Shop</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>false</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>ShopTurnAround</EventOptionID>
+				<EventOptionDescription>Turn around and pretend you were walking the right way</EventOptionDescription>
+				<EventOptionPostDescription>Phew didn't seem like she noticed...</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>20</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>ShopStepAside</EventOptionID>
+				<EventOptionDescription>Apologise and just sidestep to the side of the aisle so she goes past first</EventOptionDescription>
+				<EventOptionPostDescription>She thanks you for letting her past<EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>10</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>ShopBargePast</EventOptionID>
+				<EventOptionDescription>Continue on, you were here first and the woman should move for you</EventOptionDescription>
+				<EventOptionPostDescription>You crash into her and are so embarrassed you make a run for it.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>10</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>-20</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Uncommon</Rarity>
+	</Event>
+</Content>

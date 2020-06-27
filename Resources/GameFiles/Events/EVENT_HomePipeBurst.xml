@@ -1,0 +1,37 @@
+<Content>
+	<Event>
+		<EventID>HomePipeBurst</EventID>
+		<EventName>A pipe bursts and you no longer have running water in the house</EventName>
+		<EventLocationID>Home</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>false</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>HomeHirePlumber</EventOptionID>
+				<EventOptionDescription>Hire a plumber to fix it</EventOptionDescription>
+				<EventOptionPostDescription></EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>10</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>0</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>HomeDoPlumbing</EventOptionID>
+				<EventOptionDescription>Eat one you have at home</EventOptionDescription>
+				<EventOptionPostDescription></EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>10</EventOptionKarmaModification>
+				<RequiredItemID>Spanner</RequiredItemID>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>HomeNoPlumbing</EventOptionID>
+				<EventOptionDescription>You can live without running water! Just use a low alcohol hand sanitiser to clean your hands and bottled water to drink</EventOptionDescription>
+				<EventOptionPostDescription></EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>10</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>-10</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Uncommon</Rarity>
+	</Event>
+</Content>

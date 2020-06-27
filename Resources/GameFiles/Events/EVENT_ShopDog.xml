@@ -1,0 +1,52 @@
+<Content>
+	<Event>
+		<EventID>ShopDog</EventID>
+		<EventName>A dog has been left outside the shop whilst the owner has gone in. What do you do?</EventName>
+		<EventLocationID>Shop</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>ShopPetDog</EventOptionID>
+				<EventOptionDescription>Pet the dog, it’s really cute!</EventOptionDescription>
+				<EventOptionPostDescription>The dog appreciates the pet and gives you it’s ball in return</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>-20</EventOptionKarmaModification>
+				<EventOptionItems>
+					<Item>
+						<ItemID>DogBallID</ItemID>
+						<ItemName>DogBall</ItemName>
+						<ItemCount>1</ItemCount>
+						<ItemUsageEventID>UseDogBall</ItemUsageEventID>
+					</Item>
+				</EventOptionItems>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>ShopWaitWithDog</EventOptionID>
+				<EventOptionDescription>Wait with the dog until the owner returns but don’t touch it</EventOptionDescription>
+				<EventOptionPostDescription>The owner gets really mad at you and starts shouting in your face. You leave quickly, but not before the dog gives you it’s ball as a thanks for waiting with it</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>-10</EventOptionKarmaModification>
+				<EventOptionItems>
+					<Item>
+						<ItemID>DogBallID</ItemID>
+						<ItemName>DogBall</ItemName>
+						<ItemCount>1</ItemCount>
+						<ItemUsageEventID>UseDogBall</ItemUsageEventID>
+					</Item>
+				</EventOptionItems>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>ShopIgnoreDog</EventOptionID>
+				<EventOptionDescription>Leave it be and enter the shop</EventOptionDescription>
+				<EventOptionPostDescription></EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>10</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Uncommon</Rarity>
+	</Event>
+</Content>

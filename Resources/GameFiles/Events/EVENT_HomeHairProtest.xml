@@ -1,0 +1,36 @@
+<Content>
+	<Event>
+		<EventID>HomeHairProtest</EventID>
+		<EventName>A protest is happening outside your house calling for an end to the lockdown so that people can have a haircut. They’re offering free cupcakes to those who participate in their protest</EventName>
+		<EventLocationID>Home</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>true</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>HomeJoinHairProtest</EventOptionID>
+				<EventOptionDescription>Join in, you’re sick of the lockdown anyway and your hair IS getting a bit long</EventOptionDescription>
+				<EventOptionPostDescription></EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>10</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>-20</EventOptionKarmaModification>
+				<EventOptionItems>
+					<Item>
+						<ItemID>CupcakeID</ItemID>
+						<ItemName>Cupcake</ItemName>
+						<ItemCount>1</ItemCount>
+						<ItemUsageEventID>UseCupcake</ItemUsageEventID>
+					</Item>
+				</EventOptionItems>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>HomeIgnoreHairProtest</EventOptionID>
+				<EventOptionDescription>Stay Inside</EventOptionDescription>
+				<EventOptionPostDescription></EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>10</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Uncommon</Rarity>
+	</Event>
+</Content>

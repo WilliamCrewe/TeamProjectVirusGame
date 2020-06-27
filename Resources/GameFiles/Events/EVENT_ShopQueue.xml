@@ -1,0 +1,28 @@
+<Content>
+	<Event>
+		<EventID>ShopQueue</EventID>
+		<EventName>You see there is a queue outside the shop.</EventName>
+		<EventLocationID>Shop</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>false</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>ShopQueueJoin</EventOptionID>
+				<EventOptionDescription>Go to the back of the queue and wait in the line.</EventOptionDescription>
+				<EventOptionPostDescription>It was correct to wait in the line and let key workers go in first.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>5</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>ShopQueueNotJoin</EventOptionID>
+				<EventOptionDescription>Don't join the queue and go straight into the shop.</EventOptionDescription>
+				<EventOptionPostDescription>You didn't have to wait in queue but got some stares from people waiting in the line.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>-5</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

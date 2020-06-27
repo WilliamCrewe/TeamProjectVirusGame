@@ -1,0 +1,28 @@
+<Content>
+	<Event>
+		<EventID>MarketSanitise</EventID>
+		<EventName>You see that there is hand sanitiser outside the market.</EventName>
+		<EventLocationID>Park</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>false</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>MarketSanitiseYes</EventOptionID>
+				<EventOptionDescription>Sanitise your hands before entering the market</EventOptionDescription>
+				<EventOptionPostDescription>You sanitised your hands and reduced the chance of spreading the virus.</EventOptionPostDescription>
+				<EventOptionImmunityModification>5</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>5</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>MarketSanitiseNo</EventOptionID>
+				<EventOptionDescription>Don’t sanitise your hands and go straight into the market</EventOptionDescription>
+				<EventOptionPostDescription>By not sanitising your hands you have increased the chance of spreading the virus.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>5</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>-5</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

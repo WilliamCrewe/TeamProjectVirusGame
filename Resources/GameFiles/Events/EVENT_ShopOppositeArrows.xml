@@ -1,0 +1,36 @@
+<Content>
+	<Event>
+		<EventID>ShopOppositeArrows</EventID>
+		<EventName>You want to go down an aisle but the arrows on the ground are pointing in an opposite direction. What do you do?</EventName>
+		<EventLocationID>Shop</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>false</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>ShopGoOppositeDirection</EventOptionID>
+				<EventOptionDescription>Run down the aisle the wrong way quickly whilst no-one else is in the aisle</EventOptionDescription>
+				<EventOptionPostDescription>A person appears walking down the aisle to correct way and gives you a dirty look</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>10</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>-20</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>ShopWalkCorrectWay</EventOptionID>
+				<EventOptionDescription>Walk the correct way</EventOptionDescription>
+				<EventOptionPostDescription>You get the items you were looking for without bumping into anyone</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>20</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>ShopSkipAisle</EventOptionID>
+				<EventOptionDescription>Just skip the aisle</EventOptionDescription>
+				<EventOptionPostDescription>You really wanted that can of beans as well... ah well.</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>10</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Uncommon</Rarity>
+	</Event>
+</Content>

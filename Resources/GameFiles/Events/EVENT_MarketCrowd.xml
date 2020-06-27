@@ -1,24 +1,24 @@
 <Content>
 	<Event>
 		<EventID>MarketCrowd</EventID>
-		<EventName>There's a large amount of hubbub in the market today, lots of people gathered around closely looking angry</EventName>
+		<EventName>You see a crowd gathering in the market.</EventName>
 		<EventLocationID>Market</EventLocationID>
 		<IsPassiveEvent>false</IsPassiveEvent>
 		<IsSingleOccurence>true</IsSingleOccurence>
 		<EventOptions>
 			<EventOption>
-				<EventOptionID>MarketCrowdLookCloser</EventOptionID>
-				<EventOptionDescription>Decide to join the crowd to see what the problem is</EventOptionDescription>
-				<EventOptionPostDescription>As you start to mingle in the crowd you become aware of the fact a lot of coughing is going on, you clearly forgot to heed the social distancing guidlines and now have put yourself at greater risk</EventOptionPostDescription>
+				<EventOptionID>MarketCrowdGoOver</EventOptionID>
+				<EventOptionDescription>Go over and see why the crowd have gathered.</EventOptionDescription>
+				<EventOptionPostDescription>One of the market stalls are having a flash sale. By going into the crowd you have increased your chance of catching the virus. </EventOptionPostDescription>
 				<EventOptionImmunityModification>0</EventOptionImmunityModification>
-				<EventOptionContagionLevelModifier>20</EventOptionContagionLevelModifier>
+				<EventOptionContagionLevelModifier>5</EventOptionContagionLevelModifier>
 				<EventOptionKarmaModification>0</EventOptionKarmaModification>
 			</EventOption>
 			<EventOption>
-				<EventOptionID>MarketCrowdStayAway</EventOptionID>
-				<EventOptionDescription>You don't want any part of whatever is going on, you stay away from the crowd and keep to yourself</EventOptionDescription>
-				<EventOptionPostDescription>From your safe distance you notice a lot of coughing is coming from the crowd, it's lucky you remembered how important social distancing is</EventOptionPostDescription>
-				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionID>MarketCrowdWalkAway</EventOptionID>
+				<EventOptionDescription>Walk away from the crowd.</EventOptionDescription>
+				<EventOptionPostDescription>By not going into the crowd you have reduced your chance of catching the virus.</EventOptionPostDescription>
+				<EventOptionImmunityModification>5</EventOptionImmunityModification>
 				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
 				<EventOptionKarmaModification>0</EventOptionKarmaModification>
 			</EventOption>

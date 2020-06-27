@@ -1,0 +1,42 @@
+<Content>
+	<Event>
+		<EventID>HomeIceCream</EventID>
+		<EventName>An Ice Cream van has pulled up outside your house! There’s a massive queue though and people aren’t social distancing</EventName>
+		<EventLocationID>Home</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>false</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>HomeJoinIceCreamQueue</EventOptionID>
+				<EventOptionDescription>Join the queue and buy an ice-cream</EventOptionDescription>
+				<EventOptionPostDescription></EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>10</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>-20</EventOptionKarmaModification>
+				<EventOptionItems>
+					<Item>
+						<ItemID>IceCreamID</ItemID>
+						<ItemName>IceCream</ItemName>
+						<ItemCount>1</ItemCount>
+						<ItemUsageEventID>UseIceCream</ItemUsageEventID>
+					</Item>
+				</EventOptionItems>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>HomeEatHomeIceCream</EventOptionID>
+				<EventOptionDescription>Eat one you have at home</EventOptionDescription>
+				<EventOptionPostDescription></EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>10</EventOptionKarmaModification>
+				<RequiredItems>
+					<RequiredItem>
+						<ItemID>IceCreamID</ItemID>
+						<ItemCount>1</ItemCount>
+					</RequiredItem>
+				</RequiredItems>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Common</Rarity>
+	</Event>
+</Content>

@@ -1,0 +1,36 @@
+<Content>
+	<Event>
+		<EventID>HospitalAnotherVisitor</EventID>
+		<EventName>You get to the Hospital but the person you were going to visit has already had a visitor that day. What do you do?</EventName>
+		<EventLocationID>Hospital</EventLocationID>
+		<IsPassiveEvent>false</IsPassiveEvent>
+		<IsSingleOccurence>false</IsSingleOccurence>
+		<EventOptions>
+			<EventOption>
+				<EventOptionID>HospitalVisitRegardless</EventOptionID>
+				<EventOptionDescription>Push past the staff saying you can’t visit today as each patient can only have one visitor a day</EventOptionDescription>
+				<EventOptionPostDescription></EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>10</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>-20</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>HospitalWanderPast</EventOptionID>
+				<EventOptionDescription>Stay in reception get the person you want to visit to wander past</EventOptionDescription>
+				<EventOptionPostDescription>You wait for an hour standing close to others also waiting, but eventually the person you're waiting for walks past and you can say hello!</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>10</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>-10</EventOptionKarmaModification>
+			</EventOption>
+			<EventOption>
+				<EventOptionID>HospitalVisitNextDay</EventOptionID>
+				<EventOptionDescription>Go home and visit the next day instead</EventOptionDescription>
+				<EventOptionPostDescription>You return the next day to catch up</EventOptionPostDescription>
+				<EventOptionImmunityModification>0</EventOptionImmunityModification>
+				<EventOptionContagionLevelModifier>0</EventOptionContagionLevelModifier>
+				<EventOptionKarmaModification>10</EventOptionKarmaModification>
+			</EventOption>
+		</EventOptions>
+		<Rarity>Uncommon</Rarity>
+	</Event>
+</Content>
